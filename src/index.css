@@ -1,0 +1,15 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.container {
+  margin: auto;
+  width: 1140px;
+  padding-left: 67px;
+  padding-right: 67px;
+}
