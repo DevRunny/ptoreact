@@ -1,0 +1,62 @@
+.background {
+  background-color: #2A2A2A;
+  margin: auto;
+  width: 1080px;
+}
+
+.contacts {
+  padding-top: 50px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mainTitle {
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+}
+
+.cardsContacts {
+  display: grid;
+  grid-template-columns: 450px 300px;
+  grid-template-rows: 70px 70px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  grid-gap: 58px 45px;
+  padding: 35px;
+}
+
+.cardContacts {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  padding-left: 13px;
+}
+
+.titleCard {
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 35px;
+  color: white;
+}
+
+.textCard {
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 132.2%;
+  color: white;
+}
+
+.yandexMap {
+  height: 420px;
+  width: 100%;
+}
+

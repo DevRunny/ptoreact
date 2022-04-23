@@ -9,9 +9,14 @@
   -webkit-box-sizing: border-box;
 }
 
+body {
+  font-family: "Gotham Pro", serif;
+}
+
 .container {
   margin: auto;
-  width: 1140px;
+  width: 1080px;
   padding-left: 67px;
   padding-right: 67px;
+  height: 100%;
 }
