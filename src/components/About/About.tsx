@@ -1,8 +1,13 @@
 import React from 'react';
+import style from "./About.module.css"
 
 function About() {
   return (
-      <div></div>
+      <div className={style.background}>
+        <div className="container">
+            
+        </div>
+      </div>
   );
 }
 
