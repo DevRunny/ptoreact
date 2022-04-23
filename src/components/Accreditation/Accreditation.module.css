@@ -1,0 +1,88 @@
+.background {
+  background: #222222 url(../../../public/images/Accreditation/background.png) no-repeat;
+  background-blend-mode: multiply;
+  background-size: cover;
+  width: 1080px;
+  margin: auto;
+}
+
+.accreditation {
+  padding: 45px 0 90px 0;
+  text-align: center;
+  height: auto;
+  color: white;
+}
+
+.accreditationTitleWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.mainTitle {
+  font-weight: 500;
+  font-size: 40px;
+}
+
+.subTitle {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 945px;
+  grid-gap: 22px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 56px;
+}
+
+.category {
+  display: flex;
+  flex-direction: row;
+  min-height: 67px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+
+.categoryIcon {
+  position: relative;
+  width: 63px;
+  min-height: 70px;
+  background: #FFFFFF;
+  border-radius: 19px 0 0 19px;
+}
+
+.icon {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.categoryContent {
+  display: grid;
+  grid-template-columns: 97px 775px;
+  grid-template-rows: 22px;
+  grid-row-gap: 22px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+span {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+}
