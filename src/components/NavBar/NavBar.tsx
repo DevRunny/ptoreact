@@ -6,7 +6,7 @@ function NavBar() {
     <div className="container">
       <header className={style.navBar}>
         <div className={style.logoWrap}>
-          <img className={style.logoImage} src="/images/NavBar-logo.svg" alt="Logo"/>
+          <img className={style.logoImage} src="/images/NavBar/NavBar-logo.svg" alt="Logo"/>
           <span className={style.logoText}>пто</span>
         </div>
         <nav className={style.navigation}>

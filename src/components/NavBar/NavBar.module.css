@@ -14,6 +14,9 @@
 .logoWrap {
   font-size: 36px;
   display: flex;
+  font-family: Inter, serif;
+  font-weight: 400;
+  cursor: pointer;
 }
 
 .logoImage {
@@ -24,6 +27,10 @@
 .logoText {
   text-transform: uppercase;
   margin-left: 5px;
+  background: linear-gradient(180deg, #0999FF 0%, #52D4FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
 }
 
 .navigation {
@@ -32,4 +39,14 @@
   font-size: 16px;
   align-items: center;
   text-transform: uppercase;
+  color: #424242;
+}
+
+.navigationLink {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.navigationLink:hover {
+  color: #19A6FF;
 }
