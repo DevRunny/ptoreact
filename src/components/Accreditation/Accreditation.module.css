@@ -76,12 +76,12 @@
   justify-content: center;
 }
 
-span {
+.categoryName {
   font-weight: 700;
   font-size: 48px;
 }
 
-p {
+.descriptionCategory {
   font-weight: 400;
   font-size: 16px;
   text-align: left;

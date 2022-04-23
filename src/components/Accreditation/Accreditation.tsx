@@ -16,8 +16,9 @@ function Accreditation() {
                   <img className={style.icon} src="/images/Accreditation/accreditation-L-icon.svg" alt="L" />
                 </div>
                 <div className={style.categoryContent}>
-                  <span>L</span>
-                  <p>Мопеды, мотовелосипеды, мокики, мотоциклы, мотороллеры, трициклы, квадрициклы.</p>
+                  <span className={style.categoryName}>L</span>
+                  <p className={style.descriptionCategory}>Мопеды, мотовелосипеды, мокики, мотоциклы, мотороллеры,
+                    трициклы, квадрициклы.</p>
                 </div>
               </div>
               <div className={style.category}>
@@ -25,8 +26,9 @@ function Accreditation() {
                   <img className={style.icon} src="/images/Accreditation/accreditation-M1-icon.svg" alt="L" />
                 </div>
                 <div className={style.categoryContent}>
-                  <span>M1</span>
-                  <p>Транспортные средства, используемые для перевозки пассажиров и имеющие,помимо места водителя, не
+                  <span className={style.categoryName}>M1</span>
+                  <p className={style.descriptionCategory}>Транспортные средства, используемые для перевозки пассажиров
+                    и имеющие,помимо места водителя, не
                     более восьми мест для сидения</p>
                 </div>
               </div>
@@ -35,8 +37,9 @@ function Accreditation() {
                   <img className={style.icon} src="/images/Accreditation/accreditation-N1-icon.svg" alt="L" />
                 </div>
                 <div className={style.categoryContent}>
-                  <span>N1</span>
-                  <p>Транспортные средства, предназначенные для перевозки грузов, имеющие технически допустимую
+                  <span className={style.categoryName}>N1</span>
+                  <p className={style.descriptionCategory}>Транспортные средства, предназначенные для перевозки грузов,
+                    имеющие технически допустимую
                     максимальную массу не более 3,5 тонн.</p>
                 </div>
               </div>
@@ -45,8 +48,9 @@ function Accreditation() {
                   <img className={style.icon} src="/images/Accreditation/accreditation-O2-icon.svg" alt="L" />
                 </div>
                 <div className={style.categoryContent}>
-                  <span>O2</span>
-                  <p>Прицепы, технически допустимая максимальная масса которых свыше 0,75 т, но
+                  <span className={style.categoryName}>O2</span>
+                  <p className={style.descriptionCategory}>Прицепы, технически допустимая максимальная масса которых
+                    свыше 0,75 т, но
                     не более 3,5 тонн</p>
                 </div>
               </div>

@@ -1,0 +1,90 @@
+.background {
+  background: url("../../../public/images/RequestSection/background.jpg") no-repeat center;
+  background-size: cover;
+  width: 1080px;
+  margin: auto;
+}
+
+.requestSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 45px 0 60px 0;
+  height: 750px;
+}
+
+.requestSectionTitleWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.mainTitle {
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.underlineTitle {
+  width: 945px;
+  height: 1px;
+}
+
+.subTitle {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.documentList {
+  display: grid;
+  grid-template-columns: 430px 430px;
+  grid-column-gap: 85px;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin-top: 75px;
+  margin-bottom: 95px;
+}
+
+.document {
+  height: 275px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: center;
+}
+
+.textDocument {
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.descriptionDocument {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  line-height: 19px;
+}
+
+.documentPic {
+  height: 208px;
+}
+
+.requestSectionButton {
+  width: 560px;
+  height: 90px;
+  font-family: 'Gotham Pro', serif;
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(180deg, #0A9AFF 0%, #17B8F0 100%);
+  border-radius: 20px;
+  border: none;
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
