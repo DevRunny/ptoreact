@@ -56,13 +56,15 @@
     border-radius: 20px;
     padding: 25px;
     border: none;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 18px;
     line-height: 17px;
     text-align: center;
     color: white;
     width: 250px;
     text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .carImage {
