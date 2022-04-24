@@ -3,12 +3,13 @@ import style from "./Documentation.module.css"
 
 function Documentation() {
   return (
-      <div className={style.background}>
-          <div className={style.documentationTitleWrap}>
-              <h2 className={style.mainTitle}>Документация</h2>
-              <h3 className={style.subTitle}>Перечень документов для ознакомления</h3>
-          </div>
-        <div className="container">
+
+    <div className="container">
+        <div className={style.background}>
+            <div className={style.documentationTitleWrap}>
+                <h2 className={style.mainTitle}>Документация</h2>
+                <h3 className={style.subTitle}>Перечень документов для ознакомления</h3>
+            </div>
             <div className={style.documentsWrap}>
                 <div className={style.document}>
                     <div className={style.backgroundImageDocument}>
@@ -47,7 +48,7 @@ function Documentation() {
                 </div>
             </div>
         </div>
-      </div>
+    </div>
   );
 }
 

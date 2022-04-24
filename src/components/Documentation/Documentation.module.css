@@ -1,7 +1,7 @@
 .background {
     background: url("../../../public/images/Documentation/background.jpg") no-repeat center;
     background-size: cover;
-    padding: 35px 0;
+    padding: 35px 67px;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -15,8 +15,6 @@ body {
 
 .container {
   margin: auto;
-  width: 1140px;
-  padding-left: 67px;
-  padding-right: 67px;
+  width: 1080px;
   height: 100%;
 }
