@@ -1,5 +1,49 @@
 .background {
   background-color: #F3F3F3;
   width: 100%;
-  height: 50px;
+  height: 72px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.wrap {
+  height: 100%;
+}
+
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logoWrap {
+  font-size: 36px;
+  display: flex;
+  font-family: Inter, serif;
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 74px;
+}
+
+.logoImage {
+  width: 135px;
+}
+
+.navigation {
+  display: flex;
+  column-gap: 27px;
+  padding-right: 36px;
+  font-size: 16px;
+  align-items: center;
+  text-transform: uppercase;
+  color: #424242;
+}
+
+.navigationLink {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.navigationLink:hover {
+  color: #19A6FF;
 }
