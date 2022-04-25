@@ -1,5 +1,6 @@
 import React from 'react';
 import style from "./RequestSection.module.css"
+import RequestComponent from "./RequestComponent/RequestComponent";
 
 function RequestSection() {
   return (
@@ -13,17 +14,17 @@ function RequestSection() {
                 документы:</h3>
             </div>
             <div className={style.documentList}>
-              <div className={style.document}>
-                <img className={style.documentPic} src="/images/RequestSection/passport.png" alt="passport" />
-                <div className={style.textDocument}>
-                  <p className={style.descriptionDocument}>Документ, удостоверяющий личность</p>
-                </div>
-              </div>
-              <div className={style.document}>
-                <img className={style.documentPic} src="/images/RequestSection/document.png" alt="document" />
-                <p className={style.descriptionDocument}>Свидетельство о регистрации транспортного средства или паспорт
-                  транспортного средства</p>
-              </div>
+              <RequestComponent
+                  urlImage={"/images/RequestSection/passport.png"}
+                  alt={"passport"}
+                  descriptionDocument={"Документ, удостоверяющий личность"}
+              />
+              <RequestComponent
+                  urlImage={"/images/RequestSection/document.png"}
+                  alt={"document"}
+                  descriptionDocument={"Свидетельство о регистрации транспортного средства или паспорт\n" +
+                      "                  транспортного средства"}
+              />
             </div>
             <button className={style.requestSectionButton}>Оформить заявку на прохожение ТО</button>
           </div>
