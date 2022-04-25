@@ -1,73 +1,77 @@
 .background {
-    background-color: white;
-    padding: 45px 67px 49px 67px;
+  background-color: white;
+  padding: 45px 0 49px 0;
+  width: 1080px;
+  margin: auto;
 }
 
 .about {
-    position: relative;
+  position: relative;
 }
 
 .title {
-    font-weight: 400;
-    font-size: 30.7px;
-    margin-bottom: 33px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
+  font-weight: 500;
+  font-size: 30.7px;
+  margin-bottom: 33px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .companyInfo {
-    font-weight: 300;
-    font-size: 20px;
-    margin-bottom: 23px;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .companyInfoBold {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .companyContacts {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    font-weight: 500;
-    font-size: 20px;
-    margin-bottom: 27px;
-    line-height: 19px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-weight: 500;
+  font-size: 20px;
+  margin-bottom: 27px;
+  line-height: 19px;
 }
 
 .contact {
-    display: flex;
-    align-items: center;
-    gap: 13px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
 }
 
 .buttonsWrap {
-    display: flex;
-    gap: 26px;
+  display: flex;
+  gap: 26px;
 }
 
 .aboutButton {
-    background: linear-gradient(180deg, #0A9AFF 0%, #17B8F0 100%);
-    border-radius: 20px;
-    padding: 25px;
-    border: none;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 17px;
-    text-align: center;
-    color: white;
-    width: 250px;
-    text-transform: uppercase;
-    cursor: pointer;
-    letter-spacing: 1px;
+  background: linear-gradient(180deg, #0A9AFF 0%, #17B8F0 100%);
+  border-radius: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border: none;
+  font-family: "Gotham Pro", serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 17px;
+  text-align: center;
+  color: white;
+  width: 250px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
 }
 
 .carImage {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

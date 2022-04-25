@@ -11,10 +11,13 @@
 
 body {
   font-family: "Gotham Pro", serif;
+  background-color: #FAFAFA;
 }
 
 .container {
   margin: auto;
   width: 1080px;
+  padding-left: 67px;
+  padding-right: 67px;
   height: 100%;
 }
