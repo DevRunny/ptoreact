@@ -1,5 +1,7 @@
 import React from 'react';
 import style from "./About.module.css"
+import CompanyInfo from "./CompanyInfo/CompanyInfo";
+import CompanyContacts from "./CompanyContacts/CompanyContacts";
 
 function About() {
   return (
@@ -10,30 +12,8 @@ function About() {
               <p>Пункт технического осмотра автотранспортных средств</p>
               <p>ООО «Делюкс-ПТО»</p>
             </h1>
-            <div className={style.companyInfo}>
-              <p>
-                Номер в реестре технического оператора РСА:
-                <span className={style.companyInfoBold}> 12345</span>
-              </p>
-              <p>
-                ИНН:
-                <span className={style.companyInfoBold}> 123456854321</span>
-              </p>
-              <p>
-                ОГРН:
-                <span className={style.companyInfoBold}> 123454351468438</span>
-              </p>
-            </div>
-            <div className={style.companyContacts}>
-              <p className={style.contact}>
-                <img src="/images/About/email.png" alt="mail" />
-                <span>pto-station@mail.ru</span>
-              </p>
-              <p className={style.contact}>
-                <img src="/images/About/phone.png" alt="phone" />
-                <span>+7 (999) 999-99-99</span>
-              </p>
-            </div>
+            <CompanyInfo registryNum={12345} inn={123456854321} ogrn={123454351468438}/>
+            <CompanyContacts />
             <div className={style.buttonsWrap}>
               <button className={style.aboutButton}>Записаться на ТО</button>
               <button className={style.aboutButton}>Как нас найти</button>
