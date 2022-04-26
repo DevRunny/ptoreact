@@ -1,25 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Map, Placemark, TrafficControl, TypeSelector, YMaps, ZoomControl} from "react-yandex-maps";
 import style from "../Contacts.module.css";
-
-const mapState = {
-  center: [56.310318, 44.009867],
-  zoom: 16,
-};
-
-const placeMarks = [
-  {
-    id: 1,
-    coordinate: [56.310318, 44.009867],
-    nameCompany: "ООО «Делюкс-ПТО»",
-    companyInfo: '<b>ООО «Делюкс-ПТО»</b>' +
-        '<br />603105, Нижегородская обл., г.Нижний Новгород, ул.Генкиной, д.23 ' +
-        '<br /> Понедельник-Пятница: 9:00-18:00 ' +
-        '<br /> Суббота-Воскресенье: выходные'
-  },
-];
+import {useTypedSelector} from "../../../hooks/useTypedSelector";
 
 function YandexMapComponent() {
+  const stateInfo = useTypedSelector(state => state.about)
+  const mapState = {
+    center: [56.310318, 44.009867],
+    zoom: 16,
+  };
+
+  const placeMarks = [
+    {
+      id: 1,
+      coordinate: [56.310318, 44.009867],
+      nameCompany: stateInfo.nameCompany,
+      companyInfo: `<b>${stateInfo.nameCompany}</b>` +
+          '<br />603105, Нижегородская обл., г.Нижний Новгород, ул.Генкиной, д.23 ' +
+          '<br /> Понедельник-Пятница: 9:00-18:00 ' +
+          '<br /> Суббота-Воскресенье: выходные'
+    },
+  ];
   return (
       <YMaps>
         <Map

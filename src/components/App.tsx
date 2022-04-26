@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import NavBar from "./NavBar/NavBar";
 import About from "./About/About";
 import Accreditation from "./Accreditation/Accreditation";
@@ -6,25 +6,30 @@ import Documentation from "./Documentation/Documentation";
 import RequestSection from "./RequestSection/RequestSection";
 import Contacts from "./Contacts/Contacts";
 import Footer from "./Footer/Footer";
-import axios from "axios";
+import {useFetchData} from "../hooks/useFetchData";
 
 
 function App() {
-  useEffect(() => {
-    const response = axios("https://6266931b63e0f38256840bce.mockapi.io/about")
-    response.then(data => data).then(data => console.log(data.data))
-  }, [])
+
+  const fetching = useFetchData()
+
+  if (fetching.isFetch) {
+    return (
+        <div className="App">
+          <NavBar />
+          <About />
+          <Accreditation />
+          <Documentation />
+          <RequestSection />
+          <Contacts />
+          <Footer />
+        </div>
+    );
+  }
+
   return (
-      <div className="App">
-        <NavBar />
-        <About />
-        <Accreditation />
-        <Documentation />
-        <RequestSection />
-        <Contacts />
-        <Footer />
-      </div>
-  );
+      <div>Загрузка всех данных...</div>
+  )
 }
 
 export default App;

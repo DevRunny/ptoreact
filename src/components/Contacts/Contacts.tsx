@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from "./Contacts.module.css"
 import ContactComponent from "./ContactsComponents/ContactComponent";
 import YandexMapComponent from "./ContactsComponents/YandexMapComponent";
 import classNames from "classnames";
 
+type Props = {}
 
-function Contacts() {
+const Contacts: React.FC<Props> = () => {
   return (
       <div className={classNames(style.background, "rootBackground")}>
         <div className="container">

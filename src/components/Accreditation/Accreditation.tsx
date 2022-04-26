@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from "./Accreditation.module.css"
 import CategoryComponent from "./CategoryComponent/CategoryComponent";
 import classNames from "classnames";
 
-function Accreditation() {
+type Props = {}
+
+const Accreditation: React.FC<Props> = () => {
   return (
       <div className={classNames(style.background, "rootBackground")}>
         <div className="container">

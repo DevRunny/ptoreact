@@ -1,19 +1,37 @@
-import React from "react";
+import React, {useEffect} from "react";
 import style from "./About.module.css";
 import classNames from "classnames";
-import CompanyContacts from "./CompanyContacts/CompanyContacts";
 import CompanyInfo from "./CompanyInfo/CompanyInfo";
+import CompanyContacts from "./CompanyContacts/CompanyContacts";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-function About() {
+type Props = {}
+
+const About: React.FC<Props> = () => {
+
+  const state = useTypedSelector(state => state.about)
+
+  if (state.error) {
+    return (
+        <div>{state.error}</div>
+    )
+  }
+
+  if (state.loading) {
+    return (
+        <div>Загрузка...</div>
+    )
+  }
+
   return (
       <div className={classNames(style.background, "rootBackground")}>
         <div className="container">
           <div className={style.about}>
             <h1 className={style.title}>
               <p>Пункт технического осмотра автотранспортных средств</p>
-              <p>ООО «Делюкс-ПТО»</p>
+              <p>{state.nameCompany}</p>
             </h1>
-            <CompanyInfo />
+            <CompanyInfo requisites={state.requisites} />
             <CompanyContacts />
             <div className={style.buttonsWrap}>
               <button className={style.aboutButton}>Записаться на ТО</button>

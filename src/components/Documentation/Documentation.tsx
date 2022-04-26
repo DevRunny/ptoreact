@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import style from "./Documentation.module.css"
 import classNames from "classnames";
 import Document from "./Document/Document";
 
-function Documentation() {
+type Props = {}
+
+const Documentation: React.FC<Props> = () => {
   return (
       <div className={classNames(style.background, "rootBackground")}>
         <div className={style.documentationTitleWrap}>
