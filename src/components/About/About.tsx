@@ -1,7 +1,8 @@
-import React from 'react';
-import style from "./About.module.css"
+import React from "react";
+import style from "./About.module.css";
 import classNames from "classnames";
-import CompanyInfoRequisite from "../CompanyInfoRequisite/CompanyInfoRequisite";
+import CompanyContacts from "./CompanyContacts/CompanyContacts";
+import CompanyInfo from "./CompanyInfo/CompanyInfo";
 
 function About() {
   return (
@@ -12,26 +13,17 @@ function About() {
               <p>Пункт технического осмотра автотранспортных средств</p>
               <p>ООО «Делюкс-ПТО»</p>
             </h1>
-            <div className={style.companyInfo}>
-              <CompanyInfoRequisite isBold={true} nameRequisite={"Номер в реестре технического оператора РСА"} requisite={12345} />
-              <CompanyInfoRequisite isBold={true} nameRequisite={"ИНН"} requisite={123456854321} />
-              <CompanyInfoRequisite isBold={true} nameRequisite={"ОГРН"} requisite={123454351468438} />
-            </div>
-            <div className={style.companyContacts}>
-              <p className={style.contact}>
-                <img src="/images/About/email.png" alt="mail" />
-                <span>pto-station@mail.ru</span>
-              </p>
-              <p className={style.contact}>
-                <img src="/images/About/phone.png" alt="phone" />
-                <span>+7 (999) 999-99-99</span>
-              </p>
-            </div>
+            <CompanyInfo />
+            <CompanyContacts />
             <div className={style.buttonsWrap}>
               <button className={style.aboutButton}>Записаться на ТО</button>
               <button className={style.aboutButton}>Как нас найти</button>
             </div>
-            <img className={style.carImage} src="/images/About/About-car-image.svg" alt="car" />
+            <img
+                className={style.carImage}
+                src="/images/About/About-car-image.svg"
+                alt="car"
+            />
           </div>
         </div>
       </div>
