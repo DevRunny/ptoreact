@@ -21,3 +21,16 @@ body {
   padding-right: 67px;
   height: 100%;
 }
+
+.rootBackground {
+  width: 1080px;
+  margin: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}

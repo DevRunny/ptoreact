@@ -1,10 +1,11 @@
 import React from 'react';
 import style from "./Accreditation.module.css"
 import CategoryComponent from "./CategoryComponent/CategoryComponent";
+import classNames from "classnames";
 
 function Accreditation() {
   return (
-      <div className={style.background}>
+      <div className={classNames(style.background, "rootBackground")}>
         <div className="container">
           <div className={style.accreditation}>
             <div className={style.accreditationTitleWrap}>

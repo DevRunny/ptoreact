@@ -42,8 +42,13 @@
 .navigationLink {
   cursor: pointer;
   font-weight: 700;
+  color: #424242;
 }
 
-.navigationLink:hover {
+.navigationLink > a {
+  color: #424242;
+}
+
+.navigationLink > a:hover {
   color: #19A6FF;
 }

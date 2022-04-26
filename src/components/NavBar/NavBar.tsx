@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./NavBar.module.css";
+import Navigation from "../Navigation/Navigation";
 
 function NavBar() {
   return (
@@ -10,11 +11,8 @@ function NavBar() {
               <div className={style.logoWrap}>
                 <img className={style.logoImage} src="/images/NavBar/NavBar-logo.svg" alt="Logo" />
               </div>
-              <nav className={style.navigation}>
-                <span className={style.navigationLink}>Область аккредитации</span>
-                <span className={style.navigationLink}>Документы</span>
-                <span className={style.navigationLink}>Запись на ТО</span>
-                <span className={style.navigationLink}>Контакты</span>
+              <nav>
+                <Navigation mainClass={style.navigation} mainClassLink={style.navigationLink} />
               </nav>
             </header>
           </div>

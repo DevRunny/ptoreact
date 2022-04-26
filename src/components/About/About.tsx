@@ -1,9 +1,11 @@
 import React from 'react';
 import style from "./About.module.css"
+import classNames from "classnames";
+import CompanyInfoRequisite from "../CompanyInfoRequisite/CompanyInfoRequisite";
 
 function About() {
   return (
-      <div className={style.background}>
+      <div className={classNames(style.background, "rootBackground")}>
         <div className="container">
           <div className={style.about}>
             <h1 className={style.title}>
@@ -11,18 +13,9 @@ function About() {
               <p>ООО «Делюкс-ПТО»</p>
             </h1>
             <div className={style.companyInfo}>
-              <p>
-                Номер в реестре технического оператора РСА:
-                <span className={style.companyInfoBold}> 12345</span>
-              </p>
-              <p>
-                ИНН:
-                <span className={style.companyInfoBold}> 123456854321</span>
-              </p>
-              <p>
-                ОГРН:
-                <span className={style.companyInfoBold}> 123454351468438</span>
-              </p>
+              <CompanyInfoRequisite isBold={true} nameRequisite={"Номер в реестре технического оператора РСА"} requisite={12345} />
+              <CompanyInfoRequisite isBold={true} nameRequisite={"ИНН"} requisite={123456854321} />
+              <CompanyInfoRequisite isBold={true} nameRequisite={"ОГРН"} requisite={123454351468438} />
             </div>
             <div className={style.companyContacts}>
               <p className={style.contact}>

@@ -1,7 +1,8 @@
 import React from 'react';
 import style from "./Footer.module.css"
-import MessengerComponent from "./FooterComponents/MessengerComponent";
-import LinkComponent from "./FooterComponents/LinkComponents";
+import MessengerComponent from "./FooterComponent/MessengerComponent";
+import CompanyInfoRequisite from "../CompanyInfoRequisite/CompanyInfoRequisite";
+import Navigation from "../Navigation/Navigation";
 
 function Footer() {
   return (
@@ -14,16 +15,11 @@ function Footer() {
               <MessengerComponent href={"#"} urlImage={"/images/Footer/whatsappIcon.svg"} alt={"whatsapp"} />
               <MessengerComponent href={"#"} urlImage={"/images/Footer/viberIcon.svg"} alt={"viber"} />
             </div>
-            <ul className={style.footerLinks}>
-              <LinkComponent href={"#"} nameLink={"Область аккредитации"} />
-              <LinkComponent href={"#"} nameLink={"Документы"} />
-              <LinkComponent href={"#"} nameLink={"Запись на ТО"} />
-              <LinkComponent href={"#"} nameLink={"Контакты"} />
-            </ul>
+            <Navigation mainClass={style.footerLinks} mainClassLink={style.footerLink} />
             <div className={style.footerAbout}>
               <p>Пункт технического осмотра ООО «Делюкс-ПТО»</p>
-              <p>ИНН: 123456854321</p>
-              <p>ОГРН: 123454351468438</p>
+              <CompanyInfoRequisite isBold={false} nameRequisite={"ИНН"} requisite={123456854321} />
+              <CompanyInfoRequisite isBold={false} nameRequisite={"ОГРН"} requisite={123454351468438} />
             </div>
             <div className={style.privacyPolicy}><a href="#">Политика конфиденциальности</a></div>
             <div className={style.copyright}>

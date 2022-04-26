@@ -1,9 +1,10 @@
 import React from 'react';
 import style from "./Documentation.module.css"
+import classNames from "classnames";
 
 function Documentation() {
   return (
-      <div className={style.background}>
+      <div className={classNames(style.background, "rootBackground")}>
         <div className={style.documentationTitleWrap}>
           <h2 className={style.mainTitle}>Документация</h2>
           <h3 className={style.subTitle}>Перечень документов для ознакомления</h3>

@@ -1,8 +1,6 @@
 .background {
   background: url("../../../public/images/RequestSection/background.jpg") no-repeat center;
   background-size: cover;
-  width: 1080px;
-  margin: auto;
 }
 
 .requestSection {

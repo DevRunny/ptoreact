@@ -2,11 +2,12 @@ import React from 'react';
 import style from "./Contacts.module.css"
 import ContactComponent from "./ContactsComponents/ContactComponent";
 import YandexMapComponent from "./ContactsComponents/YandexMapComponent";
+import classNames from "classnames";
 
 
 function Contacts() {
   return (
-      <div className={style.background}>
+      <div className={classNames(style.background, "rootBackground")}>
         <div className="container">
           <div className={style.contacts}>
             <h2 className={style.mainTitle}>Контактная информация</h2>
