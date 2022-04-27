@@ -44,23 +44,12 @@
   cursor: pointer;
   font-weight: 700;
   color: #424242;
-  position: relative;
 }
 
 .navigationLink > a {
   color: #424242;
-  position: relative;
 }
 
-.navigationLink > a::before {
-  content: attr(data-text);
-  width: 0;
+.navigationLink > a:hover {
   color: #19A6FF;
-  position: absolute;
-  transition: 0.5s ease-in-out;
-  overflow: hidden;
-}
-
-.navigationLink > a:hover::before {
-  width: 100%;
 }
