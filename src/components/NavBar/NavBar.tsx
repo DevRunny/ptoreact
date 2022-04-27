@@ -12,7 +12,7 @@ function NavBar() {
                 <img className={style.logoImage} src="/images/NavBar/NavBar-logo.svg" alt="Logo" />
               </div>
               <nav>
-                <Navigation mainClass={style.navigation} mainClassLink={style.navigationLink} />
+                <Navigation mainClass={style.navigation} mainClassLink={style.navigationLink}/>
               </nav>
             </header>
           </div>

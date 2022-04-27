@@ -8,7 +8,7 @@ type Props = {
 
 const LinkComponent: React.FC<Props> = ({href, nameLink, mainClass}) => {
   return (
-      <li className={mainClass}><a href={href}>{nameLink}</a></li>
+      <li className={mainClass}><a data-text={nameLink} href={href}>{nameLink}</a></li>
   );
 }
 

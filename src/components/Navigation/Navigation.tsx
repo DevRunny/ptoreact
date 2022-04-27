@@ -9,9 +9,9 @@ type Props = {
 const Navigation: React.FC<Props> = ({mainClass, mainClassLink}) => {
   return (
       <ul className={mainClass}>
-        <LinkComponent mainClass={mainClassLink} href={"#"} nameLink={"Область аккредитации"} />
+        <LinkComponent mainClass={mainClassLink} href={"#"} nameLink={"Аккредитация"} />
         <LinkComponent mainClass={mainClassLink} href={"#"} nameLink={"Документы"} />
-        <LinkComponent mainClass={mainClassLink} href={"#"} nameLink={"Запись на ТО"} />
+        <LinkComponent mainClass={mainClassLink} href={"#"} nameLink={"Записаться"} />
         <LinkComponent mainClass={mainClassLink} href={"#"} nameLink={"Контакты"} />
       </ul>
   )
