@@ -3,11 +3,13 @@ import style from "./Documentation.module.css"
 import classNames from "classnames";
 import Document from "./Document/Document";
 
-type Props = {}
+type Props = {
+  documentationRef: React.RefObject<HTMLInputElement> | null
+}
 
-const Documentation: React.FC<Props> = () => {
+const Documentation: React.FC<Props> = ({documentationRef}) => {
   return (
-      <div className={classNames(style.background, "rootBackground")}>
+      <div ref={documentationRef} className={classNames(style.background, "rootBackground")}>
         <div className={style.documentationTitleWrap}>
           <h2 className={style.mainTitle}>Документация</h2>
           <h3 className={style.subTitle}>Перечень документов для ознакомления</h3>

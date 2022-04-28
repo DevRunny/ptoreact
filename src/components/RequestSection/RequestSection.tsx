@@ -3,9 +3,13 @@ import style from "./RequestSection.module.css"
 import RequestComponent from "./RequestComponent/RequestComponent";
 import classNames from "classnames";
 
-function RequestSection() {
+type Props = {
+  requestRef: React.RefObject<HTMLInputElement> | null
+}
+
+const RequestSection: React.FC<Props> = ({requestRef}) => {
   return (
-      <div className={classNames(style.background, "rootBackground")}>
+      <div ref={requestRef} className={classNames(style.background, "rootBackground")}>
         <div className="container">
           <div className={style.requestSection}>
             <div className={style.requestSectionTitleWrap}>
