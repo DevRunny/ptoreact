@@ -11,7 +11,6 @@ export type ContactsState = {
   workingModes: WorkingMode[]
   mapState: MapState
   coordinates: Coordinate[]
-  messengers: Messenger
   loading: boolean
   error: null | string
 }
@@ -23,7 +22,6 @@ export type ContactsResponse = {
   workingModes: WorkingMode[]
   mapState: MapState
   coordinates: Coordinate[]
-  messengers: Messenger
 }
 
 export type Address = {
@@ -54,13 +52,6 @@ export type MapState = {
 export type Coordinate = {
   coordinate: number[]
   id: number
-}
-
-export type Messenger = {
-  telegram: string
-  vk: string
-  whatsapp: string
-  viber: string
 }
 
 export type ContactsAction = FetchContacts | FetchContactsSuccess | FetchContactsError

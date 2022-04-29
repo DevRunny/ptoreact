@@ -7,6 +7,7 @@ import RequestSection from "./RequestSection/RequestSection";
 import Contacts from "./Contacts/Contacts";
 import Footer from "./Footer/Footer";
 import {useFetchData} from "../hooks/useFetchData";
+import ArrowToTop from "./ArrowToTop/ArrowToTop";
 
 
 function App() {
@@ -18,11 +19,12 @@ function App() {
         <div className="App">
           <NavBar />
           <About />
-          <Accreditation/>
-          <Documentation/>
-          <RequestSection/>
+          <Accreditation />
+          <Documentation />
+          <RequestSection />
           <Contacts />
           <Footer />
+          <ArrowToTop />
         </div>
     );
   }

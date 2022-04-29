@@ -8,7 +8,7 @@ type Props = {
 
 const MessengerComponent: React.FC<Props> = ({href, urlImage, alt}) => {
   return (
-      <a href={href}><img src={urlImage} alt={alt} /></a>
+      <a href={href} target={"_blank"}><img src={urlImage} alt={alt} /></a>
   );
 }
 

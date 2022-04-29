@@ -4,6 +4,7 @@ import classNames from "classnames";
 import CompanyInfo from "./CompanyInfo/CompanyInfo";
 import CompanyContacts from "./CompanyContacts/CompanyContacts";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {AboutButtonText, ButtonWithGoTo} from "../../HOCs/Button";
 
 type Props = {}
 
@@ -34,8 +35,8 @@ const About: React.FC<Props> = () => {
             <CompanyInfo requisites={state.requisites} />
             <CompanyContacts />
             <div className={style.buttonsWrap}>
-              <button className={style.aboutButton}>Записаться на ТО</button>
-              <button className={style.aboutButton}>Как нас найти</button>
+              <ButtonWithGoTo text={AboutButtonText.request} mainStyle={style.aboutButton} />
+              <ButtonWithGoTo text={AboutButtonText.contacts} mainStyle={style.aboutButton} />
             </div>
             <img
                 className={style.carImage}
