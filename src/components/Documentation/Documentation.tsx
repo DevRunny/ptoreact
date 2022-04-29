@@ -4,12 +4,14 @@ import classNames from "classnames";
 import Document from "./Document/Document";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 
-type Props = {}
+type Props = {
+  documentationRef: React.RefObject<HTMLInputElement> | null
+}
 
-const Documentation: React.FC<Props> = () => {
+const Documentation: React.FC<Props> = ({documentationRef}) => {
     const {documents, error, loading} = useTypedSelector(state => state.documents)
   return (
-      <div className={classNames(style.background, "rootBackground")}>
+      <div ref={documentationRef} className={classNames(style.background, "rootBackground")}>
         <div className={style.documentationTitleWrap}>
           <h2 className={style.mainTitle}>Документация</h2>
           <h3 className={style.subTitle}>Перечень документов для ознакомления</h3>

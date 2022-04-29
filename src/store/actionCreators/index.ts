@@ -1,7 +1,11 @@
+import * as AboutActionCreators from "./About"
+import * as AccreditationActionCreators from "./Accreditation"
 import * as DocumentationActions from "./Documentation"
-import * as AboutActions from "./About"
+import * as ContactsActionCreators from "./Contacts"
 
 export default {
-    ...DocumentationActions,
-    ...AboutActions
+  ...AboutActionCreators,
+  ...AccreditationActionCreators,
+        ...DocumentationActions,
+  ...ContactsActionCreators
 }

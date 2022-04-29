@@ -4,7 +4,7 @@
 
 .contacts {
   padding-top: 50px;
-  height: 400px;
+  padding-bottom: 50px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,6 +27,10 @@
   padding: 35px;
 }
 
+.cardContactsLarge {
+  grid-gap: 100px 45px;
+}
+
 .cardContacts {
   display: flex;
   flex-direction: row;
@@ -43,6 +47,11 @@
   font-weight: 500;
   font-size: 21px;
   line-height: 35px;
+  color: white;
+}
+
+.titlePoint {
+  font-size: 19px;
   color: white;
 }
 

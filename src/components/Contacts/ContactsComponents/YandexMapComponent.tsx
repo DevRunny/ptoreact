@@ -1,33 +1,31 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Map, Placemark, TrafficControl, TypeSelector, YMaps, ZoomControl} from "react-yandex-maps";
 import style from "../Contacts.module.css";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
+import {Address, Coordinate, MapState, WorkingMode} from "../../../types/contacts";
 
-function YandexMapComponent() {
+type Props = {
+  mapState: MapState
+  coordinates: Coordinate[]
+  addresses: Address[]
+  workingModes: WorkingMode[]
+}
+
+const YandexMapComponent: React.FC<Props> = ({
+                                               mapState,
+                                               coordinates,
+                                               workingModes,
+                                               addresses
+                                             }) => {
   const stateInfo = useTypedSelector(state => state.about)
-  const mapState = {
-    center: [56.310318, 44.009867],
-    zoom: 16,
-  };
 
-  const placeMarks = [
-    {
-      id: 1,
-      coordinate: [56.310318, 44.009867],
-      nameCompany: stateInfo.nameCompany,
-      companyInfo: `<b>${stateInfo.nameCompany}</b>` +
-          '<br />603105, Нижегородская обл., г.Нижний Новгород, ул.Генкиной, д.23 ' +
-          '<br /> Понедельник-Пятница: 9:00-18:00 ' +
-          '<br /> Суббота-Воскресенье: выходные'
-    },
-  ];
   return (
       <YMaps>
         <Map
             className={style.yandexMap}
             defaultState={mapState}
         >
-          {placeMarks.map((placeMark) => (
+          {coordinates.map((placeMark) => (
               <Placemark
                   key={placeMark.id}
                   geometry={placeMark.coordinate}
@@ -38,8 +36,10 @@ function YandexMapComponent() {
                     iconImageOffset: [-18, -60],
                   }}
                   properties={{
-                    hintContent: placeMark.nameCompany,
-                    balloonContent: placeMark.companyInfo
+                    hintContent: stateInfo.nameCompany,
+                    balloonContent: `<b>${stateInfo.nameCompany}</b> 
+<br />${addresses[placeMark.id - 1].address} 
+<br />${workingModes[placeMark.id - 1].workingMode}`
                   }}
                   modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
               />
