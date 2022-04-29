@@ -1,14 +1,14 @@
 import {
-  Address,
-  ContactsAction,
-  ContactsActions,
-  ContactsState,
-  Coordinate,
-  Email,
-  MapState,
-  Messenger,
-  Phone,
-  WorkingMode
+    Address,
+    ContactsAction,
+    ContactsActions,
+    ContactsState,
+    Coordinate,
+    Email,
+    MapState,
+    Messenger,
+    Phone,
+    WorkingMode
 } from "../../types/contacts";
 
 const initialState: ContactsState = {

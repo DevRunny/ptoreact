@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import style from "./RequestSection.module.css"
 import RequestComponent from "./RequestComponent/RequestComponent";
 import classNames from "classnames";
+import {useActions} from "../../hooks/useActions";
 
-type Props = {
-  requestRef: React.RefObject<HTMLInputElement> | null
-}
 
-const RequestSection: React.FC<Props> = ({requestRef}) => {
+const RequestSection = () => {
+
+  const requestRef = useRef<HTMLDivElement>(null)
+  const {setRequestRefAC} = useActions()
+
+  useEffect(() => {
+    setRequestRefAC(requestRef.current)
+  }, [requestRef.current])
+
   return (
       <div ref={requestRef} className={classNames(style.background, "rootBackground")}>
         <div className="container">

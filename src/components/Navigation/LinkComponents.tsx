@@ -1,22 +1,19 @@
-import React, {useContext} from 'react';
-import {SectionRefs} from "../../Context/SectionRefs";
+import React from 'react';
 
 type Props = {
-  href: string
   nameLink: string
   mainClass: string
+  currentRef: HTMLDivElement | null
 }
 
-const LinkComponent: React.FC<Props> = ({href, nameLink, mainClass}) => {
+const LinkComponent: React.FC<Props> = ({nameLink, mainClass, currentRef}) => {
 
-  const linkRef = useContext(SectionRefs)
-
-  // const onClickForScroll = () => {
-  //   window.scrollTo(0, linkRef.accreditation)
-  // }
+  const scrollToCurrentRef = () => {
+    return currentRef && window.scrollTo( {top: currentRef.offsetTop, behavior: "smooth"})
+  }
 
   return (
-      <li className={mainClass}><a href={href}>{nameLink}</a></li>
+      <li className={mainClass}><a onClick={scrollToCurrentRef}>{nameLink}</a></li>
   );
 }
 

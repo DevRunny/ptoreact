@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import style from "./About.module.css";
 import classNames from "classnames";
 import CompanyInfo from "./CompanyInfo/CompanyInfo";
