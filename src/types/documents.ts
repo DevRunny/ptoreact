@@ -13,6 +13,7 @@ export interface DocumentsState {
 export type Document = {
     documentDescription: string,
     urlDocument: string,
+    id: string
 }
 
 export type DocumentsAction = FetchDocuments | FetchDocumentsError | FetchDocumentsSuccess

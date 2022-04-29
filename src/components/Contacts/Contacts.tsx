@@ -3,10 +3,14 @@ import style from "./Contacts.module.css"
 import ContactComponent from "./ContactsComponents/ContactComponent";
 import YandexMapComponent from "./ContactsComponents/YandexMapComponent";
 import classNames from "classnames";
+import {getContacts} from "../../API/contacts";
 
 type Props = {}
 
 const Contacts: React.FC<Props> = () => {
+    useEffect(() => {
+        getContacts().then(data => console.log(data))
+    }, [])
   return (
       <div className={classNames(style.background, "rootBackground")}>
         <div className="container">

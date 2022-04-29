@@ -1,3 +1,1 @@
-export const getContacts = () => {
-
-}
+import {instance} from "./index";

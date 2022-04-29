@@ -16,12 +16,7 @@ const Documentation: React.FC<Props> = () => {
         </div>
         <div className="container">
           <div className={style.documentsWrap}>
-              {documents.map(document => <Document documentText={document.documentDescription}/>)}
-            {/*<Document documentText="Федеральный закон о техническом осмотре транспортных средств " />*/}
-            {/*<Document documentText="Правила проведения технического осмотра транспортных средств " />*/}
-            {/*<Document documentText="Типовая форма договора о проведении технического осмотра " />*/}
-            {/*<Document documentText="Стоимость предельного размера платы за проведение технического осмотра " />*/}
-            {/*<Document documentText="Аттестат аккредитации оператора технического осмотра транспортных средств " />*/}
+              {documents.map(document => <Document key={document.id} documentText={document.documentDescription}/>)}
           </div>
         </div>
       </div>
