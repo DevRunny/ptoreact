@@ -1,37 +1,23 @@
 import React from 'react';
-import NavBar from "./NavBar/NavBar";
-import About from "./About/About";
-import Accreditation from "./Accreditation/Accreditation";
-import Documentation from "./Documentation/Documentation";
-import RequestSection from "./RequestSection/RequestSection";
-import Contacts from "./Contacts/Contacts";
-import Footer from "./Footer/Footer";
-import {useFetchData} from "../hooks/useFetchData";
-import ArrowToTop from "./ArrowToTop/ArrowToTop";
+import {Route, Routes} from "react-router-dom";
+import Main from "./Main/Main";
+import LoginForm from "./LoginForm/LoginForm";
+import AdminPanel from "./AdminPanel/AdminPanel";
+import SendForm from "./SendForm/SendForm";
 
 
 function App() {
-
-  const fetching = useFetchData()
-
-  if (fetching.isFetch) {
-    return (
-        <div className="App">
-          <NavBar />
-          <About />
-          <Accreditation />
-          <Documentation />
-          <RequestSection />
-          <Contacts />
-          <Footer />
-          <ArrowToTop />
-        </div>
-    );
-  }
-
   return (
-      <div>Загрузка всех данных...</div>
-  )
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Main />}>
+            <Route path="send" element={<SendForm />} />
+          </Route>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/admin" element={<AdminPanel />} />
+        </Routes>
+      </div>
+  );
 }
 
 export default App;

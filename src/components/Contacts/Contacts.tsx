@@ -28,10 +28,10 @@ const Contacts = () => {
             </div>
           </div>
         </div>
-        <YandexMapComponent mapState={contactsState.mapState}
-                            coordinates={contactsState.coordinates}
-                            addresses={contactsState.addresses}
-                            workingModes={contactsState.workingModes} />
+        {/*<YandexMapComponent mapState={contactsState.mapState}*/}
+        {/*                    coordinates={contactsState.coordinates}*/}
+        {/*                    addresses={contactsState.addresses}*/}
+        {/*                    workingModes={contactsState.workingModes} />*/}
       </div>
   );
 }
