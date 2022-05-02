@@ -4,17 +4,18 @@ import Main from "./Main/Main";
 import LoginForm from "./LoginForm/LoginForm";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import SendForm from "./SendForm/SendForm";
+import {RoutesName} from "../routes";
 
 
 function App() {
   return (
       <div className="App">
         <Routes>
-          <Route path="/" element={<Main />}>
-            <Route path="send" element={<SendForm />} />
+          <Route path={RoutesName.MAIN} element={<Main />}>
+            <Route path={RoutesName.SEND} element={<SendForm />} />
           </Route>
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/admin" element={<AdminPanel />} />
+          <Route path={RoutesName.LOGIN} element={<LoginForm />} />
+          <Route path={RoutesName.ADMIN} element={<AdminPanel />} />
         </Routes>
       </div>
   );

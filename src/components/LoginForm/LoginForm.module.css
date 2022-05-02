@@ -1,0 +1,83 @@
+.background {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c7c6c6;
+}
+
+.loginFormWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 540px;
+  height: 440px;
+  flex-direction: column;
+  font-family: "Gotham Pro", serif;
+  gap: 30px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.loginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formItem {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.title {
+  font-size: 30px;
+  color: #424242;
+  text-transform: uppercase;
+}
+
+.label {
+  color: #424242;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.input {
+  color: #424242;
+  background-color: #EDEDED;
+  border: none;
+  padding: 15px;
+  height: 50px;
+  font-size: 18px;
+  outline: none;
+  width: 400px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.button {
+  background: linear-gradient(180deg, #0A9AFF 0%, #17B8F0 100%);
+  border-radius: 10px;
+  padding: 25px 0;
+  border: none;
+  font-family: "Gotham Pro", serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 17px;
+  text-align: center;
+  color: white;
+  width: 250px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.alert {
+  color: #df1f1f;
+  font-size: 14px;
+}

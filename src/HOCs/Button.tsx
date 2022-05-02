@@ -8,7 +8,7 @@ export enum AboutButtonText {
 }
 
 const aboutButtons = (Component: React.ComponentType<IButton>) => {
-  return (props: Omit<IButton, "func">) => {
+  return (props: Omit<IButton, "func" | "type">) => {
     switch (props.text) {
       case AboutButtonText.contacts:
         const {contacts} = useTypedSelector(state => state.sectionRefs)
@@ -16,7 +16,7 @@ const aboutButtons = (Component: React.ComponentType<IButton>) => {
           return contacts && window.scrollTo({top: contacts.offsetTop, behavior: "smooth"})
         }
         return (
-            <Component text={props.text} func={goToContacts} mainStyle={props.mainStyle} />
+            <Component text={props.text} func={goToContacts} mainStyle={props.mainStyle} type="button" />
         )
       case AboutButtonText.request:
         const {request} = useTypedSelector(state => state.sectionRefs)
@@ -24,12 +24,12 @@ const aboutButtons = (Component: React.ComponentType<IButton>) => {
           return request && window.scrollTo({top: request.offsetTop, behavior: "smooth"})
         }
         return (
-            <Component text={props.text} func={goToRequest} mainStyle={props.mainStyle} />
+            <Component text={props.text} func={goToRequest} mainStyle={props.mainStyle} type="button" />
         )
       default:
         const log = () => console.log("sdsd")
         return (
-            <Component text={props.text} func={log} mainStyle={props.mainStyle} />
+            <Component text={props.text} func={log} mainStyle={props.mainStyle} type="button" />
         )
     }
   }
