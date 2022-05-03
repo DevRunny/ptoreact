@@ -7,8 +7,10 @@ const CompanyContacts = () => {
   const {phones, emails} = useTypedSelector(state => state.contacts)
   return (
       <div className={style.companyContacts}>
-        {emails.map(email => <Contact urlImage="/images/About/email.svg" contactDetails={email.email} />)}
-        {phones.map(phone => <Contact urlImage="/images/About/phone.svg" contactDetails={phone.phoneNumber} />)}
+        {emails.map(email =>
+            <Contact key={email.id} urlImage="/images/About/email.svg" contactDetails={email.email} />)}
+        {phones.map(phone =>
+            <Contact key={phone.id} urlImage="/images/About/phone.svg" contactDetails={phone.phoneNumber} />)}
       </div>
   )
 }

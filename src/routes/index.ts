@@ -20,7 +20,7 @@ type IRoute = {
 export const publicRoutes: IRoute[] = [
   {path: RoutesName.LOGIN, component: LoginForm, exact: true},
   {path: RoutesName.SEND, component: SendForm, exact: true},
-  {path: RoutesName.MAIN, component: Main, exact: true}
+  {path: RoutesName.MAIN, component: Main, exact: true},
 ]
 
 export const privateRoutes: IRoute[] = [

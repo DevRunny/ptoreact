@@ -1,6 +1,9 @@
 import React from 'react';
 
-function AdminPanel() {
+type Props = {}
+
+const AdminPanel: React.FC<Props> = () => {
+
   return (
       <div>
         Admin Panel
