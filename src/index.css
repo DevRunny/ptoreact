@@ -12,6 +12,7 @@
 body {
   font-family: "Gotham Pro", serif;
   background-color: #FAFAFA;
+  position: relative;
 }
 
 .container {

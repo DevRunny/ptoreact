@@ -7,15 +7,16 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function Footer() {
   const stateInfo = useTypedSelector(state => state.about)
+  const {telegram, vk, whatsapp, viber} = useTypedSelector(state => state.messengers)
   return (
       <footer className={style.background}>
         <div className="container">
           <div className={style.footer}>
             <div className={style.messengerLinks}>
-              <MessengerComponent href={"#"} urlImage={"/images/Footer/telegramIcon.svg"} alt={"telegram"} />
-              <MessengerComponent href={"#"} urlImage={"/images/Footer/vkIcon.svg"} alt={"vk"} />
-              <MessengerComponent href={"#"} urlImage={"/images/Footer/whatsappIcon.svg"} alt={"whatsapp"} />
-              <MessengerComponent href={"#"} urlImage={"/images/Footer/viberIcon.svg"} alt={"viber"} />
+              <MessengerComponent href={`https://telegram.im/${telegram}`} urlImage={"/images/Footer/telegramIcon.svg"} alt={"telegram"} />
+              <MessengerComponent href={`https://vk.com/${vk}`} urlImage={"/images/Footer/vkIcon.svg"} alt={"vk"} />
+              <MessengerComponent href={`https://wa.me/${whatsapp}`} urlImage={"/images/Footer/whatsappIcon.svg"} alt={"whatsapp"} />
+              <MessengerComponent href={`viber://chat?number=${viber}`} urlImage={"/images/Footer/viberIcon.svg"} alt={"viber"} />
             </div>
             <Navigation mainClass={style.footerLinks} mainClassLink={style.footerLink} />
             <div className={style.footerAbout}>

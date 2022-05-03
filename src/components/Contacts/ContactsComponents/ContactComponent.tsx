@@ -22,10 +22,10 @@ const ContactComponent: React.FC<ContactComponentProps> = ({
         <div className={style.cardContent}>
           <span className={style.titleCard}>{titleCard}</span>
           {textCard.map((item, index) => {
-            return <>
+            return <div key={index}>
               <span className={style.titlePoint}><b>{isPoint ? `ПТО ${index + 1}: ` : ""}</b></span>
               <p className={style.textCard}>{item}</p>
-            </>
+            </div>
           })}
         </div>
       </div>

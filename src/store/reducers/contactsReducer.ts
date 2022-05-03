@@ -1,14 +1,13 @@
 import {
-    Address,
-    ContactsAction,
-    ContactsActions,
-    ContactsState,
-    Coordinate,
-    Email,
-    MapState,
-    Messenger,
-    Phone,
-    WorkingMode
+  Address,
+  ContactsAction,
+  ContactsActions,
+  ContactsState,
+  Coordinate,
+  Email,
+  MapState,
+  Phone,
+  WorkingMode
 } from "../../types/contacts";
 
 const initialState: ContactsState = {
@@ -18,7 +17,6 @@ const initialState: ContactsState = {
   workingModes: [] as WorkingMode[],
   mapState: {} as MapState,
   coordinates: [] as Coordinate[],
-  messengers: {} as Messenger,
   loading: false,
   error: null
 }
@@ -38,7 +36,6 @@ export const contactsReducer = (state = initialState, action: ContactsAction): C
         workingModes: action.payload.workingModes,
         mapState: action.payload.mapState,
         coordinates: action.payload.coordinates,
-        messengers: action.payload.messengers,
         loading: false
       }
 

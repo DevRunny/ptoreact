@@ -1,0 +1,13 @@
+.arrow {
+  position: fixed;
+  width: 100px;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0.5;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.arrowInvisible {
+  opacity: 0;
+}
