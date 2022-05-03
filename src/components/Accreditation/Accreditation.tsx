@@ -3,7 +3,7 @@ import style from "./Accreditation.module.css"
 import CategoryComponent from "./CategoryComponent/CategoryComponent";
 import classNames from "classnames";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
-import {useAccreditationRef} from "../../hooks/sectionsRefs/useAccreditationRef";
+import {useAccreditationRef} from "../../hooks/sectionsRefs/useAccreditationRef"
 
 
 const Accreditation = () => {

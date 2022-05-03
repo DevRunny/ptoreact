@@ -1,13 +1,13 @@
-import {useEffect, useRef} from "react";
-import {useActions} from "../useActions";
+import { useEffect, useRef } from "react";
+import { useActions } from "../useActions";
 
 export const useRequestRef = () => {
-  const requestRef = useRef<HTMLDivElement>(null)
-  const {setRequestRefAC} = useActions()
+  const requestRef = useRef<HTMLDivElement>(null);
+  const { setRequestRefAC } = useActions();
 
   useEffect(() => {
-    setRequestRefAC(requestRef.current)
-  }, [requestRef.current])
+    setRequestRefAC(requestRef.current);
+  }, [requestRef.current]);
 
-  return {requestRef}
-}
+  return { requestRef };
+};

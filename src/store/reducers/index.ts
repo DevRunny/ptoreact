@@ -1,10 +1,11 @@
-import {combineReducers} from "redux"
-import {aboutReducer} from "./aboutReducer";
-import {accreditationReducer} from "./accreditationReducer";
-import {contactsReducer} from "./contactsReducer";
-import {documentationReducer} from "./documentationReducer";
-import {sectionRefsReducer} from "./sectionRefsReducer";
-import {messengersReducer} from "./messengersReducer";
+import { combineReducers } from "redux";
+import { aboutReducer } from "./aboutReducer";
+import { accreditationReducer } from "./accreditationReducer";
+import { contactsReducer } from "./contactsReducer";
+import { documentationReducer } from "./documentationReducer";
+import { sectionRefsReducer } from "./sectionRefsReducer";
+import { messengersReducer } from "./messengersReducer";
+import { authReducer } from "./authReducer";
 
 export const rootReducers = combineReducers({
   about: aboutReducer,
@@ -12,7 +13,8 @@ export const rootReducers = combineReducers({
   documents: documentationReducer,
   contacts: contactsReducer,
   messengers: messengersReducer,
-  sectionRefs: sectionRefsReducer
-})
+  sectionRefs: sectionRefsReducer,
+  auth: authReducer,
+});
 
-export type RootReducers = ReturnType<typeof rootReducers>
+export type RootReducers = ReturnType<typeof rootReducers>;
