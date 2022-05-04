@@ -20,9 +20,9 @@ function App() {
                          key={index} />
               )
           }
-          
-          {isAuth ? <Route path={RoutesName.LOGIN} element={<Navigate to={"/admin"} />} /> :
-              <Route path={RoutesName.ADMIN} element={<Navigate to={"/login"} />} />}
+
+          {isAuth ? <Route path={RoutesName.LOGIN} element={<Navigate to={RoutesName.ADMIN} />} /> :
+              <Route path={RoutesName.ADMIN} element={<Navigate to={RoutesName.LOGIN} />} />}
 
           <Route path={"*"} element={<div>Error 404 Not Found</div>} />
           {/*<Route path={RoutesName.MAIN} element={<Main />}>*/}

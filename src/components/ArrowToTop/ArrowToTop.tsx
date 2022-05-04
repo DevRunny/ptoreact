@@ -10,7 +10,7 @@ const ArrowToTop = () => {
       <div
           className={arrow.visible ? style.arrow : style.arrowInvisible}
           onClick={arrow.onClickArrow}>
-        <img src={"/images/ArrowToTop/Arrow-to-top.svg"} />
+        <img src={"/images/ArrowToTop/Arrow-to-top.svg"} alt={"arrow"} />
       </div>
   );
 }

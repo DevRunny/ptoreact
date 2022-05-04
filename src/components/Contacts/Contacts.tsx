@@ -5,9 +5,10 @@ import classNames from "classnames";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {ContactWithAddress, ContactWithEmail, ContactWithPhone, ContactWithWorkingMode} from "../../HOCs/Contact";
 import {useContactsRef} from "../../hooks/sectionsRefs/useContactsRef";
+import {useFetchData} from "../../hooks/useFetchData";
 
 const Contacts = () => {
-
+  const fetching = useFetchData()
   const contactsState = useTypedSelector(state => state.contacts)
   const contacts = useContactsRef()
 
@@ -28,10 +29,15 @@ const Contacts = () => {
             </div>
           </div>
         </div>
-        {/*<YandexMapComponent mapState={contactsState.mapState}*/}
-        {/*                    coordinates={contactsState.coordinates}*/}
-        {/*                    addresses={contactsState.addresses}*/}
-        {/*                    workingModes={contactsState.workingModes} />*/}
+        {fetching.isFetch ?
+            <YandexMapComponent mapState={contactsState.mapState}
+                                coordinates={contactsState.coordinates}
+                                addresses={contactsState.addresses}
+                                workingModes={contactsState.workingModes} />
+            :
+            <div>Загрузка элемента...</div>
+        }
+
       </div>
   );
 }

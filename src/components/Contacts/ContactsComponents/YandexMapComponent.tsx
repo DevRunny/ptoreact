@@ -37,9 +37,9 @@ const YandexMapComponent: React.FC<Props> = ({
                   }}
                   properties={{
                     hintContent: stateInfo.nameCompany,
-                    balloonContent: `<b>${stateInfo.nameCompany}</b> 
-<br />${addresses[placeMark.id - 1].address} 
-<br />${workingModes[placeMark.id - 1].workingMode}`
+                    balloonContent: `<b>${stateInfo.nameCompany}</b>
+                  <br />${addresses[placeMark.id - 1].address}
+                  <br />${workingModes[placeMark.id - 1].workingMode}`
                   }}
                   modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
               />
