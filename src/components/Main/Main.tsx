@@ -11,7 +11,7 @@ import {useFetchData} from "../../hooks/useFetchData";
 import {Outlet} from "react-router-dom";
 
 function Main() {
-  const fetching = useFetchData()
+  // const fetching = useFetchData()
   return (
       <div>
         <NavBar />

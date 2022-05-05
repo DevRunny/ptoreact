@@ -3,6 +3,7 @@ import style from "./RequestSection.module.css"
 import RequestComponent from "./RequestComponent/RequestComponent";
 import classNames from "classnames";
 import {useRequestRef} from "../../hooks/sectionsRefs/useRequestRef";
+import {ButtonWithSendForm} from "../../HOCs/Button";
 
 
 const RequestSection = () => {
@@ -30,7 +31,7 @@ const RequestSection = () => {
                       "                  транспортного средства"}
               />
             </div>
-            <button className={style.requestSectionButton}>Оформить заявку на прохожение ТО</button>
+            <ButtonWithSendForm text="Оформить заявку на прохожение ТО" mainStyle={style.requestSectionButton} />
           </div>
         </div>
       </div>

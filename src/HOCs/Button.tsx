@@ -1,6 +1,8 @@
 import React from "react";
 import Button, {IButton} from "../components/Button/Button";
 import {useTypedSelector} from "../hooks/useTypedSelector";
+import {useNavigate} from "react-router-dom";
+import {RoutesName} from "../routes";
 
 export enum AboutButtonText {
   request = "Записаться на ТО",
@@ -34,6 +36,18 @@ const aboutButtons = (Component: React.ComponentType<IButton>) => {
     }
   }
 }
+
+const requestButtons = (Component: React.ComponentType<IButton>) => {
+  return (props: Omit<IButton, "func" | "type">) => {
+    const navigate = useNavigate()
+    const goToSendForm = () => {
+      navigate(RoutesName.SEND)
+    }
+    return (
+        <Component text={props.text} type={"button"} mainStyle={props.mainStyle} func={goToSendForm} />
+    )
+  }
+}
 //
 // const documentationButtons = (Component: React.ComponentType<IButton>) => {
 //   return () => {
@@ -43,12 +57,6 @@ const aboutButtons = (Component: React.ComponentType<IButton>) => {
 //   }
 // }
 //
-// const requestButtons = (Component: React.ComponentType<IButton>) => {
-//   return () => {
-//     return (
-//         <Component></Component>
-//     )
-//   }
-// }
 
 export const ButtonWithGoTo = aboutButtons(Button)
+export const ButtonWithSendForm = requestButtons(Button)

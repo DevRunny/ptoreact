@@ -1,7 +1,7 @@
 import {AuthAction, AuthActions, AuthState, User} from "../../types/auth";
 
 const initialState: AuthState = {
-  isAuth: true,
+  isAuth: false,
   user: {} as User,
   loading: false,
   error: "",
