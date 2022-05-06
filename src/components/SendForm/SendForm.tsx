@@ -53,6 +53,7 @@ function SendForm() {
       }} className={style.overlay}>
         <div className={style.background}>
           <img
+              className={style.crossButton}
               src={"images/SendForm/cross.svg"}
               alt={"X"}
               onMouseDown={() => {
@@ -61,12 +62,12 @@ function SendForm() {
           />
           <h2 className={style.title}>Заявка на прохождение ТО</h2>
           <form
-              className={style.loginForm}
+              className={style.sendForm}
               onSubmit={handleSubmit(onSubmit)}
           >
             <div className={style.formItem}>
               <label className={style.label} htmlFor="fullName">
-                Имя, Фамилия
+                Имя, Фамилия:
               </label>
               {errors.fullName && (
                   <span className={style.alert} role="alert">
@@ -90,7 +91,7 @@ function SendForm() {
 
             <div className={style.formItem}>
               <label className={style.label} htmlFor="phone">
-                Телефон
+                Телефон:
               </label>
               {errors.phone && (
                   <span className={style.alert} role="alert">
@@ -112,35 +113,42 @@ function SendForm() {
               />
             </div>
 
-            <div>
+            <div className={style.formItem}>
               <label htmlFor="">
                 Выберите категорию ТС:
               </label>
-              <select value={category} onChange={(e) => {
+              <select className={style.select} value={category} onChange={(e) => {
                 onChangeCategory(e)
               }}>
                 {stateCategories.map(cat => {
-                  return <option value={cat.categoryName}>{cat.categoryName}</option>
+                  return <option className={style.option} value={cat.categoryName}>{cat.categoryName} -
+                    категория </option>
                 })}
               </select>
-              <p>
+              <p className={style.descriptionCategory}>
                 {check(category)}
               </p>
             </div>
 
-            <div>
+            <div className={style.formItem}>
               <label htmlFor="date">
                 Дата и время прохождения ТО:
               </label>
+              {errors.date && (
+                  <span className={style.alert} role="alert">
+                {errors.date.message}
+              </span>)}
               <input
+                  className={style.input}
                   id="date"
-                  name="date"
                   type="datetime-local"
-                  required
+                  {...register("date", {
+                    required: "Выберите предполагаемую дату прохождения ТО",
+                  })}
               />
             </div>
 
-            <div>
+            <div className={style.formItem}>
               <label>
                 Дополнительная информация:
               </label>
@@ -149,6 +157,25 @@ function SendForm() {
                         placeholder={"Необязательное поле, не более 100 символов"}>
 
               </textarea>
+            </div>
+
+            <div className="">
+              {errors.acceptTerms && (
+                  <span className={style.alert} role="alert">
+                {errors.acceptTerms?.message}
+                    <br />
+              </span>
+              )}
+              <input
+                  type="checkbox"
+                  id="acceptTerms"
+                  className={style.checkbox}
+                  {...register("acceptTerms", {
+                    required: "Необходимо согласиться с условиями",
+                  })}
+              />
+              <label className={style.checkboxText} htmlFor="acceptTerms">Я соглашаюсь на обработку персональных
+                данных</label>
             </div>
 
             <Button text="Отправить заявку" mainStyle={style.button} type="submit" />
