@@ -18,6 +18,7 @@ export type FormItemProps = {
   elementPlaceholder?: string;
   selectDescription?: string;
   selectDescriptionStyle?: string;
+  onChangeFunc? : (e: any) => void
 };
 
 type Element = "select" | "input" | "textarea";
@@ -35,7 +36,7 @@ const FormItem: React.FC<FormItemProps> = ({
   patternMessage,
   patternValue,
   selectOptions,
-  selectDescription,
+  selectDescription, selectDescriptionStyle, onChangeFunc,
   formItemStyle,
 }) => {
   const checkElement = () => {
@@ -72,7 +73,7 @@ const FormItem: React.FC<FormItemProps> = ({
             <label htmlFor={id} className={labelStyle}>
               {labelName}
             </label>
-            <select className={mainStyleElement}>
+            <select className={mainStyleElement} onChange={onChangeFunc}>
               {selectOptions ? (
                 selectOptions.map((option) => (
                   <option value={option}>{`${option}`}</option>

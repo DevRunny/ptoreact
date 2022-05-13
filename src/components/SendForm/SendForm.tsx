@@ -65,7 +65,7 @@ function SendForm() {
           />
           <FormItem
             element="select"
-            id="categoty"
+            id="category"
             labelName="Выберите категорию ТС:"
             labelStyle={style.label}
             formItemStyle={style.formItem}
@@ -75,6 +75,9 @@ function SendForm() {
             selectOptions={form.categories.map(
               (category) => category.categoryName + " - категория"
             )}
+            selectDescription={form.currentCategoryDesc}
+            selectDescriptionStyle={style.descriptionCategory}
+            onChangeFunc={form.onChangeCategory}
           />
 
           {/* <div className={style.formItem}>

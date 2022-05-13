@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Category } from "../types/accreditation";
 import { ChangeEvent } from "react";
@@ -16,12 +16,17 @@ export const useSendForm = () => {
     mode: "onSubmit",
   });
   const [categories, setCategories] = useState<Category[]>([] as Category[]);
+  const categoriesRef = useRef<Category[]>()
+  categoriesRef.current = categories
   const [category, setCategory] = useState<string>(
     categories.length ? categories[0].categoryName : ""
   );
+
   const [currentCategoryDesc, setCurrentCategoryDesc] = useState<
     string | undefined
   >(categories.length ? categories[0].categoryDescription : "");
+
+
   const navigate = useNavigate();
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -31,11 +36,11 @@ export const useSendForm = () => {
   };
 
   const check = (option: string) => {
-    const currentCategory = categories.find(
-      (cat) => cat.categoryName === option
-    );
-    if (currentCategory && currentCategory.categoryDescription) {
-      return currentCategory.categoryDescription;
+    if (categoriesRef && categoriesRef.current) {
+      const currentCategory = categoriesRef.current.find((cat) => cat.categoryName === option)
+      if (currentCategory && currentCategory.categoryDescription) {
+        return currentCategory.categoryDescription;
+      }
     }
   };
 
@@ -57,7 +62,7 @@ export const useSendForm = () => {
     onChangeCategory,
     currentCategoryDesc,
     category,
-    categories,
+    categories: categoriesRef.current,
     onClickOverlay,
     overlayRef,
     navigate,
