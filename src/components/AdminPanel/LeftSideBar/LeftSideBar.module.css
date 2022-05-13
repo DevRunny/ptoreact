@@ -1,0 +1,70 @@
+.leftSideBar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  padding: 45px 30px 68px 35px;
+  font-family: "Inter", serif;
+  border-right: 1px solid #F0F0F0;
+  min-height: 100vh;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoAdmin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.title {
+  font-family: "Gotham Pro", serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #565656;
+}
+
+.menu > hr {
+  width: 205px;
+  border: 1px solid #ECECEC;
+  height: 1px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #646464;
+}
+
+.navBar > span {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+}
+
+.logOut {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.logOutButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
