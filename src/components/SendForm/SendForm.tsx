@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useRef, useState} from 'react';
+import React, {ChangeEvent, useRef, useState} from 'react';
 import style from "./SendForm.module.css"
 import Button from "../Button/Button";
 import {useForm} from "react-hook-form";

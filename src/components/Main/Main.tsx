@@ -7,7 +7,6 @@ import RequestSection from "../RequestSection/RequestSection";
 import Contacts from "../Contacts/Contacts";
 import Footer from "../Footer/Footer";
 import ArrowToTop from "../ArrowToTop/ArrowToTop";
-import {useFetchData} from "../../hooks/useFetchData";
 import {Outlet} from "react-router-dom";
 
 function Main() {
