@@ -10,7 +10,7 @@ function App() {
         <Routes>
           {routes.map((route, index) => {
             if (route.path === RoutesName.SEND) {
-              return <Route path={RoutesName.MAIN} element={<Main />}>
+              return <Route key={index} path={RoutesName.MAIN} element={<Main />}>
                 <Route path={route.path} element={<route.component />} />
               </Route>
             } else {

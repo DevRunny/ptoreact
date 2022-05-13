@@ -21,17 +21,16 @@ const aboutButtons = (Component: React.ComponentType<IButton>) => {
             <Component text={props.text} func={goToContacts} mainStyle={props.mainStyle} type="button" />
         )
       case AboutButtonText.request:
-        const {request} = useTypedSelector(state => state.sectionRefs)
-        const goToRequest = () => {
-          return request && window.scrollTo({top: request.offsetTop, behavior: "smooth"})
+        const navigate = useNavigate()
+        const goToSendForm = () => {
+          navigate(RoutesName.SEND)
         }
         return (
-            <Component text={props.text} func={goToRequest} mainStyle={props.mainStyle} type="button" />
+            <Component text={props.text} func={goToSendForm} mainStyle={props.mainStyle} type="button" />
         )
       default:
-        const log = () => console.log("sdsd")
         return (
-            <Component text={props.text} func={log} mainStyle={props.mainStyle} type="button" />
+            <Component text={props.text} mainStyle={props.mainStyle} type="button" />
         )
     }
   }
@@ -48,15 +47,19 @@ const requestButtons = (Component: React.ComponentType<IButton>) => {
     )
   }
 }
-//
-// const documentationButtons = (Component: React.ComponentType<IButton>) => {
-//   return () => {
-//     return (
-//         <Component></Component>
-//     )
-//   }
-// }
-//
+
+const documentationButtons = (Component: React.ComponentType<IButton>) => {
+  return (props: Omit<IButton, "func" | "type">) => {
+    const showDocument = () => {
+      console.log("Документ")
+    }
+    return (
+        <Component text={props.text} func={showDocument} mainStyle={props.mainStyle} type={"button"} />
+    )
+  }
+}
+
 
 export const ButtonWithGoTo = aboutButtons(Button)
 export const ButtonWithSendForm = requestButtons(Button)
+export const ButtonWithDocument = documentationButtons(Button)
