@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useAuthHistory} from "../../hooks/useAuthHistory";
 import style from "./AdminPanel.module.css"
 import LeftSideBar from "./LeftSideBar/LeftSideBar";
-import Information from "./Pages/Information/Information";
+import AdminRouter from "./AdminRouter/AdminRouter";
 
 type Props = {}
 
@@ -16,7 +16,7 @@ const AdminPanel: React.FC<Props> = () => {
   return (
       <div className={style.container}>
         <LeftSideBar />
-        <Information />
+        <AdminRouter />
       </div>
   );
 }

@@ -4,3 +4,9 @@
   height: 100%;
   background-color: #FAFAFA;
 }
+
+.mainTitle {
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 42px;
+}

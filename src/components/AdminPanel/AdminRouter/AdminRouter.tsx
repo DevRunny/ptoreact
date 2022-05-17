@@ -1,8 +1,24 @@
 import React from 'react';
+import {Route, Routes} from "react-router-dom";
+import Settings from "../Pages/Settings/Settings";
+import MessengersList from "../Pages/MessengersList/MessengersList";
+import AddressesList from "../Pages/AddressesList/AddressesList";
+import DocumentsList from "../Pages/DocumentsList/DocumentsList";
+import AccreditationList from "../Pages/AccreditationList/AccreditationList";
+import Information from "../Pages/Information/Information";
 
 function AdminRouter() {
   return (
-      <div>Router</div>
+      <>
+        <Routes>
+          <Route path={"/"} element={<Information />} />
+          <Route path={"accreditation"} element={<AccreditationList />} />
+          <Route path={"documents"} element={<DocumentsList />} />
+          <Route path={"address"} element={<AddressesList />} />
+          <Route path={"messengers"} element={<MessengersList />} />
+          <Route path={"settings"} element={<Settings />} />
+        </Routes>
+      </>
   );
 }
 

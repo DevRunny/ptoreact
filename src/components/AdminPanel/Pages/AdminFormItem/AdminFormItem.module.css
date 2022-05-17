@@ -1,0 +1,39 @@
+.label {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.input {
+  height: 34px;
+  width: 545px;
+  padding: 10px 15px;
+  background: #FFFFFF;
+  border: 1px solid #D0D0D0;
+  border-radius: 10px;
+  font-family: 'Gotham Pro', serif;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:disabled {
+  background: #FCFCFC;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px
+}
+
+.changeButton {
+  height: 27px;
+  width: 105px;
+  background: #43A8EE;
+  border-radius: 10px;
+  font-family: 'Gotham Pro', serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #FAFAFA;
+  border: none;
+}

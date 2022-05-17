@@ -1,0 +1,28 @@
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 31px;
+  position: relative;
+  margin-bottom: 33px;
+}
+
+.sectionTitle > span {
+  position: absolute;
+  background-color: #DBDBDB;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  left: -15px;
+}
+
+.sectionTitle > h2 {
+  font-family: "Inter", serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.sectionTitle > hr {
+  width: 790px;
+  border: 1px solid #ECECEC;
+  height: 1px;
+}

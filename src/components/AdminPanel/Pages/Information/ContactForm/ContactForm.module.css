@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  height: 34px;
+  width: 545px;
+  padding: 10px 15px;
+  background: #FFFFFF;
+  border: 1px solid #D0D0D0;
+  border-radius: 10px;
+  font-family: 'Gotham Pro', serif;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+}
+
+.input:disabled {
+  background: #FCFCFC;
+}
+
+
+.contact {
+  width: 240px;
+}
+
+.addFieldFormItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 19px;
+  cursor: pointer;
+}

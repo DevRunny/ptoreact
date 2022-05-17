@@ -1,90 +1,58 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import styleTitle from "./../../AdminPanel.module.css"
 import style from "./Information.module.css"
 import classNames from "classnames";
+import AdminMainTitle from "../AdminMainTitle";
+import SectionTitle from "../SectionTitle/SectionTitle";
+import InformationForm from "./InformationForm/InformationForm";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {getAbout} from "../../../../API/about";
+import {useActions} from "../../../../hooks/useActions";
+import ContactForm from "./ContactForm/ContactForm";
 
 function Information() {
+  const [loading, setLoading] = useState<boolean>(false)
+  const {nameCompany, requisites} = useTypedSelector(state => state.about)
+  const {phones, emails} = useTypedSelector(state => state.contacts)
+  const {fetchAboutAC, fetchContactsAC} = useActions()
+  const aboutData = [nameCompany, requisites.inn, requisites.ogrn, requisites.numRegistry]
+
+  const fetch = async () => {
+    setLoading(true)
+    await fetchAboutAC()
+    await fetchContactsAC()
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    fetch()
+  }, [])
+
+  if (loading) return <div>Загрузка...</div>
+
   return (
-      <div className={style.background}>
-        <h1>Информация о компании</h1>
-        <div className={style.contentBlock}>
-          <div className={style.contentWrap}>
-            <div className={style.sectionTitle}>
-              <span> </span>
-              <h2>Основная информация:</h2>
-              <hr />
+      <>
+        <div className={style.background}>
+          <AdminMainTitle titleText={"Информация о компании"} mainStyle={styleTitle.mainTitle} />
+          <div className={style.contentBlock}>
+            <div className={style.contentWrap}>
+              <SectionTitle titleText={"Основная информация:"} />
+              <InformationForm data={aboutData} />
             </div>
-            <form className={style.form}>
-              <div className={style.formItem}>
-                <label className={style.label}>Название компании или ИП:</label>
-                <div className={style.wrap}>
-                  <input disabled={true} className={style.input} />
-                  <button className={style.changeButton}>Изменить</button>
+            <div className={style.contentWrap}>
+              <SectionTitle titleText={"Контактная информация:"} />
+              <div className={style.contacts}>
+                <div className={style.phoneForm}>
+                  <ContactForm data={phones} labelText={"Телефон:"} inputType={"tel"} />
                 </div>
-              </div>
-              <div className={style.formItem}>
-                <label className={style.label}>Номер в реестре технического оператора РСА:</label>
-                <div className={style.wrap}>
-                  <input disabled={true} className={style.input} type={"number"} />
-                  <button className={style.changeButton}>Изменить</button>
+                <div className={style.emailForm}>
+                  <ContactForm data={emails} labelText={"Электронная почта:"} inputType={"email"} />
                 </div>
-              </div>
-              <div className={style.formItem}>
-                <label className={style.label}>ИНН:</label>
-                <div className={style.wrap}>
-                  <input disabled={true} className={style.input} />
-                  <button className={style.changeButton}>Изменить</button>
-                </div>
-              </div>
-              <div className={style.formItem}>
-                <label className={style.label}>ОГРН:</label>
-                <div className={style.wrap}>
-                  <input disabled={true} className={style.input} />
-                  <button className={style.changeButton}>Изменить</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div className={style.contentWrap}>
-            <div className={style.sectionTitle}>
-              <span> </span>
-              <h2>Контактная информация:</h2>
-              <hr />
-            </div>
-            <div className={style.contacts}>
-              <div className={style.phoneForm}>
-                <form>
-                  <div className={style.formItem}>
-                    <label className={style.label}>Телефон:</label>
-                    <div className={style.wrap}>
-                      <input disabled={true} className={classNames(style.input, style.contact)} />
-                      <button className={style.changeButton}>Изменить</button>
-                      <button className={style.deleteButton}>Удалить</button>
-                    </div>
-                    <div className={style.addFieldFormItem}>
-                      <img src={"./images/AdminPanel/plusButtonBlue.svg"} alt={"+"} />Добавить поле
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div className={style.emailForm}>
-                <form>
-                  <div className={style.formItem}>
-                    <label className={style.label}>Электронная почта:</label>
-                    <div className={style.wrap}>
-                      <input disabled={true} className={classNames(style.input, style.contact)} />
-                      <button className={style.changeButton}>Изменить</button>
-                      <button className={style.deleteButton}>Удалить</button>
-                    </div>
-                    <div className={style.addFieldFormItem}>
-                      <img src={"./images/AdminPanel/plusButtonBlue.svg"} alt={"+"} />Добавить поле
-                    </div>
-                  </div>
-                </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
   );
 }
 
