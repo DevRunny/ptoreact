@@ -13,3 +13,19 @@ export const fetchAboutAC = () => {
     }
   }
 }
+
+export const setNameCompany = (nameCompany: string) => {
+  return {type: AboutActions.SET_NAME_COMPANY, payload: nameCompany}
+}
+export const setNumRegistry = (numRegistry: number) => {
+  return {type: AboutActions.SET_NUM_REGISTRY, payload: numRegistry}
+}
+
+export const setInn = (inn: number) => {
+  return {type: AboutActions.SET_INN, payload: inn}
+}
+
+export const setOgrn = (ogrn: number) => {
+  return {type: AboutActions.SET_OGRN, payload: ogrn}
+}
+

@@ -1,7 +1,6 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {ChangeEvent, useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Category} from "../types/accreditation";
-import {ChangeEvent} from "react";
 import {getAccreditation} from "../API/acccreditation";
 import {RoutesName} from "../routes";
 import {useForm} from "react-hook-form";

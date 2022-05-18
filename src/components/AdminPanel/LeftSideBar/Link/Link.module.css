@@ -1,0 +1,20 @@
+.activePage {
+  position: absolute;
+  width: 6px;
+  height: 29px;
+  left: -50px;
+  background: #444444;
+  border-radius: 0 5px 5px 0;
+}
+
+.activeLink {
+  color: #000000
+}
+
+.noneActivePage {
+  display: none;
+}
+
+.wrap {
+  position: relative;
+}

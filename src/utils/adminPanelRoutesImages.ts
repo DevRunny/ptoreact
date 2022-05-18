@@ -27,6 +27,30 @@ export const adminPanelImages = {
     src: "/images/AdminPanel/LeftSideBar/settings.svg",
     alt: "settings"
   },
+  infoActive: {
+    src: "/images/AdminPanel/LeftSideBar/informationActive.svg",
+    alt: "infoActive"
+  },
+  accreditActive: {
+    src: "/images/AdminPanel/LeftSideBar/accreditationActive.svg",
+    alt: "accreditActive"
+  },
+  docActive: {
+    src: "/images/AdminPanel/LeftSideBar/documentActive.svg",
+    alt: "docActive"
+  },
+  addressActive: {
+    src: "/images/AdminPanel/LeftSideBar/addressActive.svg",
+    alt: "addressActive"
+  },
+  messengersActive: {
+    src: "/images/AdminPanel/LeftSideBar/messengersActive.svg",
+    alt: "messengersActive"
+  },
+  settingsActive: {
+    src: "/images/AdminPanel/LeftSideBar/settingsActive.svg",
+    alt: "settingsActive"
+  },
   decor: {
     src: "/images/AdminPanel/LeftSideBar/decoration.svg",
     alt: "decor"
@@ -34,5 +58,15 @@ export const adminPanelImages = {
   logout: {
     src: "/images/AdminPanel/LeftSideBar/logout.svg",
     alt: "logout"
+  },
+  plusButton: {
+    blue: {
+      src: "/images/AdminPanel/plusButtonBlue.svg",
+      alt: "addField"
+    },
+    green: {
+      src: "/images/AdminPanel/plusButtonGreen.svg",
+      alt: "addField"
+    }
   }
 }

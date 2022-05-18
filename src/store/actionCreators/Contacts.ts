@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {ContactsAction, ContactsActions} from "../../types/contacts";
+import {ContactsAction, ContactsActions, Email, Phone} from "../../types/contacts";
 import {getContacts} from "../../API/contacts";
 
 export const fetchContactsAC = () => {
@@ -12,4 +12,28 @@ export const fetchContactsAC = () => {
       dispatch({type: ContactsActions.FETCH_CONTACTS_ERROR, payload: error.message})
     }
   }
+}
+
+export const setPhones = (phones: Phone[]) => {
+  return {type: ContactsActions.SET_PHONES, payload: phones}
+}
+
+export const setEmails = (emails: Email[]) => {
+  return {type: ContactsActions.SET_EMAILS, payload: emails}
+}
+
+export const addPhone = () => {
+  return {type: ContactsActions.ADD_PHONE}
+}
+
+export const addEmail = () => {
+  return {type: ContactsActions.ADD_EMAIL}
+}
+
+export const deletePhone = (phones: Phone[]) => {
+  return {type: ContactsActions.DELETE_PHONE, payload: phones}
+}
+
+export const deleteEmail = (emails: Email[]) => {
+  return {type: ContactsActions.DELETE_EMAIL, payload: emails}
 }

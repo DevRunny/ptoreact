@@ -1,6 +1,7 @@
 import React from 'react';
 import style from "./LeftSideBar.module.css"
 import {adminPanelImages} from "../../../utils/adminPanelRoutesImages";
+import Link from "./Link/Link";
 
 function LeftSideBar() {
   return (
@@ -12,12 +13,42 @@ function LeftSideBar() {
           </div>
           <hr />
           <nav className={style.navBar}>
-            <span><img src={adminPanelImages.info.src} alt={adminPanelImages.info.alt} />Информация</span>
-            <span><img src={adminPanelImages.accredit.src} alt={adminPanelImages.accredit.alt} />Область аккредитации</span>
-            <span><img src={adminPanelImages.doc.src} alt={adminPanelImages.doc.alt} />Документы</span>
-            <span><img src={adminPanelImages.address.src} alt={adminPanelImages.address.alt} />Адрес</span>
-            <span><img src={adminPanelImages.messengers.src} alt={adminPanelImages.messengers.alt} />Мессенджеры</span>
-            <span><img src={adminPanelImages.settings.src} alt={adminPanelImages.settings.alt} />Настройки</span>
+            <Link
+                image={adminPanelImages.info.src}
+                activeImage={adminPanelImages.infoActive.src}
+                alt={adminPanelImages.info.alt}
+                linkText={"Информация"}
+                url={"/admin"} />
+            <Link
+                image={adminPanelImages.accredit.src}
+                activeImage={adminPanelImages.accreditActive.src}
+                alt={adminPanelImages.accredit.alt}
+                linkText={"Область аккредитации"}
+                url={"/admin/accreditation"} />
+            <Link
+                image={adminPanelImages.doc.src}
+                activeImage={adminPanelImages.docActive.src}
+                alt={adminPanelImages.doc.alt}
+                linkText={"Документы"}
+                url={"/admin/documents"} />
+            <Link
+                image={adminPanelImages.address.src}
+                activeImage={adminPanelImages.addressActive.src}
+                alt={adminPanelImages.address.alt}
+                linkText={"Адрес"}
+                url={"/admin/address"} />
+            <Link
+                image={adminPanelImages.messengers.src}
+                activeImage={adminPanelImages.messengersActive.src}
+                alt={adminPanelImages.messengers.alt}
+                linkText={"Мессенджеры"}
+                url={"/admin/messengers"} />
+            <Link
+                image={adminPanelImages.settings.src}
+                activeImage={adminPanelImages.settingsActive.src}
+                alt={adminPanelImages.settings.alt}
+                linkText={"Настройки"}
+                url={"/admin/settings"} />
           </nav>
           <hr />
         </div>

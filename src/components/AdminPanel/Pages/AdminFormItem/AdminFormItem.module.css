@@ -36,4 +36,17 @@
   font-size: 13px;
   color: #FAFAFA;
   border: none;
+  cursor: pointer;
+}
+
+.saveButton {
+  background: #77D77B;
+}
+
+.cancelButton {
+  background: #E24A4A;
+}
+
+.deleteButton {
+  background: #E24A4A;
 }

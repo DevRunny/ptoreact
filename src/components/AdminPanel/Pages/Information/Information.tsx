@@ -1,21 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import styleTitle from "./../../AdminPanel.module.css"
 import style from "./Information.module.css"
-import classNames from "classnames";
 import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import InformationForm from "./InformationForm/InformationForm";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
-import {getAbout} from "../../../../API/about";
 import {useActions} from "../../../../hooks/useActions";
 import ContactForm from "./ContactForm/ContactForm";
+import {AboutDataAdmin} from "../../../../types/about";
 
 function Information() {
   const [loading, setLoading] = useState<boolean>(false)
   const {nameCompany, requisites} = useTypedSelector(state => state.about)
   const {phones, emails} = useTypedSelector(state => state.contacts)
   const {fetchAboutAC, fetchContactsAC} = useActions()
-  const aboutData = [nameCompany, requisites.inn, requisites.ogrn, requisites.numRegistry]
+  const aboutData: AboutDataAdmin = {
+    nameCompany, requisites
+  }
 
   const fetch = async () => {
     setLoading(true)
@@ -43,10 +44,16 @@ function Information() {
               <SectionTitle titleText={"Контактная информация:"} />
               <div className={style.contacts}>
                 <div className={style.phoneForm}>
-                  <ContactForm data={phones} labelText={"Телефон:"} inputType={"tel"} />
+                  <ContactForm data={phones.map(phone => ({
+                    id: phone.id,
+                    value: phone.phoneNumber
+                  }))} labelText={"Телефон:"} inputType={"tel"} />
                 </div>
                 <div className={style.emailForm}>
-                  <ContactForm data={emails} labelText={"Электронная почта:"} inputType={"email"} />
+                  <ContactForm data={emails.map(email => ({
+                    id: email.id,
+                    value: email.email
+                  }))} labelText={"Электронная почта:"} inputType={"email"} />
                 </div>
               </div>
             </div>

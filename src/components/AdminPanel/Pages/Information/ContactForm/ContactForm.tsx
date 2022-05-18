@@ -1,38 +1,113 @@
 import React from 'react';
 import classNames from "classnames";
-import AdminFormItem from "../../AdminFormItem/AdminFormItem";
+import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
 import style from "./ContactForm.module.css"
+import {useActions} from "../../../../../hooks/useActions";
+import AddFieldButton from "../../AddFieldButton/AddFieldButton";
+import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
 
 type Props = {
   data: any[]
-  labelText: string
+  labelText: LabelText
   inputType: InputType
 }
 
-type InputType = "tel" | "email"
+type LabelText = "Телефон:" | "Электронная почта:"
 
 const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
+
+  const {setEmails, setPhones, addEmail, addPhone, deleteEmail, deletePhone} = useActions()
+
+  const addField = () => {
+    switch (labelText) {
+      case "Телефон:":
+        addPhone()
+        break
+      case "Электронная почта:":
+        addEmail()
+        break
+      default:
+        break
+    }
+  }
+
+  const deleteField = (id: string) => {
+    switch (labelText) {
+      case "Телефон:":
+        const newPhones = data.filter(phone => phone.id !== id).map(phone => ({
+          id: phone.id,
+          phoneNumber: phone.value
+        }))
+        deletePhone(newPhones)
+        break
+      case "Электронная почта:":
+        const newEmails = data.filter(email => email.id !== id).map(email => ({
+          id: email.id,
+          email: email.value
+        }))
+        deleteEmail(newEmails)
+        break
+      default:
+        break
+    }
+  }
+
+  const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
+    switch (inputType) {
+      case "tel":
+        const currentPhone = data.find(phone => phone.id === id)
+        const newPhones = data.map(phone => {
+          if (currentPhone && phone.id === currentPhone.id) {
+            return {id: phone.id, phoneNumber: inputValue}
+          } else {
+            return {id: phone.id, phoneNumber: phone.value}
+          }
+        })
+        setPhones(newPhones)
+        break
+      case "email":
+        const currentEmail = data.find(email => email.id === id)
+        const newEmails = data.map(email => {
+          if (currentEmail && email.id === currentEmail.id) {
+            return {id: email.id, email: inputValue}
+          } else {
+            return {id: email.id, email: email.value}
+          }
+        })
+        setEmails(newEmails)
+        break
+      default:
+        break
+    }
+  }
+
   return (
       <form className={style.form}>
         {data && data.map((item, index) => {
           if (index === 0) {
-            return <AdminFormItem
-                mainStyle={style.formItem}
-                inputStyle={classNames(style.input, style.contact)}
-                inputType={inputType}
-                labelText={labelText}
+            return <AdminFormItem key={item.id}
+                                  mainStyle={style.formItem}
+                                  inputStyle={classNames(style.input, style.contact)}
+                                  inputType={inputType}
+                                  labelText={labelText}
+                                  required={true}
+                                  inputValue={item.value}
+                                  id={item.id}
+                                  onClickSaveFunc={onClickSave}
             />
           } else {
-            return <AdminFormItem
-                mainStyle={style.formItem}
-                inputStyle={classNames(style.input, style.contact)}
-                inputType={inputType}
+            return <AdminFormItem key={item.id}
+                                  mainStyle={style.formItem}
+                                  inputStyle={classNames(style.input, style.contact)}
+                                  inputType={inputType}
+                                  inputValue={item.value}
+                                  id={item.id}
+                                  onClickSaveFunc={onClickSave}
+                                  onClickDeleteFunc={deleteField}
             />
           }
         })}
-        <div className={style.addFieldFormItem}>
-          <img src={"./images/AdminPanel/plusButtonBlue.svg"} alt={"+"} />Добавить поле
-        </div>
+        <AddFieldButton icon={adminPanelImages.plusButton.blue.src} textButton={"Добавить поле"} onClickFunc={addField} />
       </form>
   );
 };
