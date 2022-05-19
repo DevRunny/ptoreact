@@ -35,7 +35,7 @@ const Contacts = () => {
                                 addresses={contactsState.addresses}
                                 workingModes={contactsState.workingModes} />
             :
-            <div>Загрузка элемента...</div>
+            <div className={"loader"} />
         }
 
       </div>

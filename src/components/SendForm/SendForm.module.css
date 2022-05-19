@@ -16,10 +16,12 @@
   justify-content: center;
   align-items: center;
   padding: 90px 40px 45px;
-  background-color: white;
+  background-color: #fdfdfd;
   width: 500px;
   height: auto;
   border-radius: 20px;
+  border: 1px solid #D0D0D0;
+  box-shadow: -2px 5px 20px #343434;
 }
 
 .crossButton {
@@ -97,6 +99,7 @@
   padding: 10px;
   border-radius: 10px;
   font-size: 12px;
+  background-color: #0d9ffc12;
 }
 
 .checkbox {
@@ -138,4 +141,9 @@
   justify-content: start;
   align-items: center;
   flex-direction: row-reverse;
+}
+
+.alert {
+  color: red;
+  font-size: 10px;
 }

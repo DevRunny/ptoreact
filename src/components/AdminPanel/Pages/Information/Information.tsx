@@ -28,7 +28,7 @@ function Information() {
     fetch()
   }, [])
 
-  if (loading) return <div>Загрузка...</div>
+  if (loading) return <div className={"loader"} />
 
   return (
       <>

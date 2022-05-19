@@ -20,7 +20,7 @@ const About: React.FC<Props> = () => {
 
   if (state.loading) {
     return (
-        <div>Загрузка...</div>
+        <div className={"loader"} />
     )
   }
 
