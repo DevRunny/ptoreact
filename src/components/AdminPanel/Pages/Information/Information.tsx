@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import styleTitle from "./../../AdminPanel.module.css"
 import style from "./Information.module.css"
 import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
@@ -33,8 +32,8 @@ function Information() {
 
   return (
       <>
-        <div className={style.background}>
-          <AdminMainTitle titleText={"Информация о компании"} mainStyle={styleTitle.mainTitle} />
+        <div className={"adminContentBackground"}>
+          <AdminMainTitle titleText={"Информация о компании"} />
           <div className={style.contentBlock}>
             <div className={style.contentWrap}>
               <SectionTitle titleText={"Основная информация:"} />

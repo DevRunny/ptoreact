@@ -28,6 +28,16 @@ body {
   margin: auto;
 }
 
+.adminContentBackground {
+  padding: 45px 0 0 70px;
+}
+
+.adminMainTitle {
+  font-weight: 700;
+  font-size: 36px;
+  margin-bottom: 42px;
+}
+
 ul {
   list-style-type: none;
 }

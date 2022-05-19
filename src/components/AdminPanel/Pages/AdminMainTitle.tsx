@@ -2,12 +2,11 @@ import React from 'react';
 
 type Props = {
   titleText: string
-  mainStyle: string
 }
 
-const AdminMainTitle: React.FC<Props> = ({titleText, mainStyle}) => {
+const AdminMainTitle: React.FC<Props> = ({titleText}) => {
   return (
-      <h1 className={mainStyle}>{titleText}</h1>
+      <h1 className={"adminMainTitle"}>{titleText}</h1>
   );
 }
 

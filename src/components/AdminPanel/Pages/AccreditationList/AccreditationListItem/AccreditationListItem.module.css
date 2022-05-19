@@ -1,0 +1,20 @@
+.listItem {
+    text-transform: uppercase;
+    color: #FAFAFA;
+    font-family: "Gotham Pro", serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 38px;
+    background-color: #E1E1E1;
+    border-radius: 10px;
+    width: 173px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.listItemActive {
+    background-color: #77D77B;
+}
