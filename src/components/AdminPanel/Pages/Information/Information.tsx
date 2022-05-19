@@ -18,9 +18,6 @@ function Information() {
     nameCompany, requisites
   }
 
-  console.log(phones)
-  console.log(emails)
-
   const fetch = async () => {
     setLoading(true)
     await fetchAboutAC()

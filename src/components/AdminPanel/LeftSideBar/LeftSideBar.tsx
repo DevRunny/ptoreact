@@ -2,8 +2,17 @@ import React from 'react';
 import style from "./LeftSideBar.module.css"
 import {adminPanelImages} from "../../../utils/adminPanelRoutesImages";
 import Link from "./Link/Link";
+import {useActions} from "../../../hooks/useActions";
+import {useNavigate} from "react-router-dom";
 
 function LeftSideBar() {
+    const {logout} = useActions()
+    const navigate = useNavigate()
+
+    const onClickExitUser = () => {
+        logout()
+        navigate("/login")
+    }
   return (
       <div className={style.leftSideBar}>
         <div className={style.menu}>
@@ -52,7 +61,7 @@ function LeftSideBar() {
           </nav>
           <hr />
         </div>
-        <div className={style.logOut}>
+        <div className={style.logOut} onClick={onClickExitUser}>
           <img src={adminPanelImages.decor.src} alt={adminPanelImages.decor.alt} />
           <span className={style.logOutButton}><img src={adminPanelImages.logout.src} alt={adminPanelImages.logout.alt} />Выйти</span>
         </div>

@@ -40,3 +40,12 @@ export const login =
             dispatch(setLoading(false));
           }
         };
+
+export const logout = () => async (dispatch:Dispatch<AuthAction>) => {
+    localStorage.removeItem("auth")
+    localStorage.removeItem("login")
+    localStorage.removeItem("password")
+    dispatch(setAuth(false))
+    dispatch(setUser({} as User))
+    dispatch(setError(""))
+}
