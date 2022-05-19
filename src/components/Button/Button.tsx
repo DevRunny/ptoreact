@@ -2,7 +2,7 @@ import React from 'react';
 
 export type IButton = {
   text: string
-  func?: () => void
+  func?: (e?: any) => void
   mainStyle: string
   type: "button" | "submit" | "reset" | undefined
 }
