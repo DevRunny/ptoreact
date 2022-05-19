@@ -1,0 +1,41 @@
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.formWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formItem {
+  display: flex;
+  align-items: center;
+  gap: 23px
+}
+
+.inputCoordinate {
+  width: 215px;
+}
+
+.inputAddress {
+  width: 365px;
+  height: 66px;
+}
+
+.inputCoordinatePTO {
+  width: 365px;
+}
+
+.inputWorkingMode {
+  width: 365px;
+  height: 66px;
+}

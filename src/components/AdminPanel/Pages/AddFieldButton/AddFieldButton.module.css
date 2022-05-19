@@ -1,6 +1,5 @@
 .addFieldFormItem {
   display: flex;
-  align-items: center;
   gap: 7px;
   margin-top: 19px;
   cursor: pointer;

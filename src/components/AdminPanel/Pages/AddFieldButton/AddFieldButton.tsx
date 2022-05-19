@@ -5,11 +5,12 @@ type Props = {
   textButton: string
   onClickFunc: () => void
   icon: string
+  buttonStyle?: string
 }
 
-const AddFieldButton: React.FC<Props> = ({textButton, onClickFunc, icon}) => {
+const AddFieldButton: React.FC<Props> = ({textButton, onClickFunc, icon, buttonStyle}) => {
   return (
-      <div className={style.addFieldFormItem}
+      <div className={buttonStyle ? buttonStyle : style.addFieldFormItem}
            onClick={onClickFunc}>
         <img src={icon} alt={"+"} />{textButton}
       </div>

@@ -5,13 +5,12 @@ import classNames from "classnames";
 
 type Props = {
   image: string
-  activeImage: string
   alt: string
   linkText: string
   url: string
 }
 
-const Link: React.FC<Props> = ({image, activeImage, alt, linkText, url}) => {
+const Link: React.FC<Props> = ({image, alt, linkText, url}) => {
   const [active, setActive] = useState<boolean>(false)
   const navigate = useNavigate()
   const location = useLocation()
@@ -26,11 +25,11 @@ const Link: React.FC<Props> = ({image, activeImage, alt, linkText, url}) => {
 
   return (
       <>
-        <span className={active ? classNames(style.wrap, style.activeLink) : style.wrap} onClick={() => {
+        <span className={active ? classNames(style.wrap, style.activeLink) : classNames(style.wrap, style.link)} onClick={() => {
           navigate(url)
         }}>
           <span className={active ? style.activePage : style.noneActivePage} />
-          <img src={active ? activeImage : image} alt={alt} />{linkText}
+          <img src={image} alt={alt} />{linkText}
         </span>
       </>
   );

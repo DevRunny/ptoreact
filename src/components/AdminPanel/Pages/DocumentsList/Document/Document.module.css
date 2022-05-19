@@ -1,0 +1,25 @@
+.contentBlock {
+  position: relative;
+}
+
+.checkbox {
+  position: absolute;
+  left: -40px;
+  cursor: pointer;
+}
+
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.wrap hr {
+  position: absolute;
+  left: -50px;
+  bottom: -30px;
+  width: 840px;
+  border: 1px solid #efefef;
+}

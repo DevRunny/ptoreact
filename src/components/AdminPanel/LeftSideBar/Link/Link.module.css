@@ -2,13 +2,24 @@
   position: absolute;
   width: 6px;
   height: 29px;
-  left: -50px;
+  left: -40px;
   background: #444444;
   border-radius: 0 5px 5px 0;
 }
 
 .activeLink {
-  color: #000000
+  opacity: 1
+}
+
+.link {
+  color: #000000;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.link:hover {
+  opacity: 0.7;
+  transition: 0.5s;
 }
 
 .noneActivePage {
@@ -17,4 +28,7 @@
 
 .wrap {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
 }

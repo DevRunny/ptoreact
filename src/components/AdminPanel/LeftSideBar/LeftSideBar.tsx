@@ -6,13 +6,13 @@ import {useActions} from "../../../hooks/useActions";
 import {useNavigate} from "react-router-dom";
 
 function LeftSideBar() {
-    const {logout} = useActions()
-    const navigate = useNavigate()
+  const {logout} = useActions()
+  const navigate = useNavigate()
 
-    const onClickExitUser = () => {
-        logout()
-        navigate("/login")
-    }
+  const onClickExitUser = () => {
+    logout()
+    navigate("/login")
+  }
   return (
       <div className={style.leftSideBar}>
         <div className={style.menu}>
@@ -24,37 +24,31 @@ function LeftSideBar() {
           <nav className={style.navBar}>
             <Link
                 image={adminPanelImages.info.src}
-                activeImage={adminPanelImages.infoActive.src}
                 alt={adminPanelImages.info.alt}
                 linkText={"Информация"}
                 url={"/admin"} />
             <Link
                 image={adminPanelImages.accredit.src}
-                activeImage={adminPanelImages.accreditActive.src}
                 alt={adminPanelImages.accredit.alt}
                 linkText={"Область аккредитации"}
                 url={"/admin/accreditation"} />
             <Link
                 image={adminPanelImages.doc.src}
-                activeImage={adminPanelImages.docActive.src}
                 alt={adminPanelImages.doc.alt}
                 linkText={"Документы"}
                 url={"/admin/documents"} />
             <Link
                 image={adminPanelImages.address.src}
-                activeImage={adminPanelImages.addressActive.src}
                 alt={adminPanelImages.address.alt}
                 linkText={"Адрес"}
                 url={"/admin/address"} />
             <Link
                 image={adminPanelImages.messengers.src}
-                activeImage={adminPanelImages.messengersActive.src}
                 alt={adminPanelImages.messengers.alt}
                 linkText={"Мессенджеры"}
                 url={"/admin/messengers"} />
             <Link
                 image={adminPanelImages.settings.src}
-                activeImage={adminPanelImages.settingsActive.src}
                 alt={adminPanelImages.settings.alt}
                 linkText={"Настройки"}
                 url={"/admin/settings"} />

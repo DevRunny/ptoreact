@@ -1,0 +1,40 @@
+.contentWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.buttonWrap {
+  display: flex;
+  gap: 15px;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 154px;
+  height: 30px;
+  font-weight: 400;
+  font-size: 13px;
+  border-radius: 10px;
+  background: #77D77B;
+  color: #FAFAFA;
+  cursor: pointer;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 154px;
+  height: 30px;
+  font-weight: 400;
+  font-size: 13px;
+  border-radius: 10px;
+  background: #E24A4A;
+  color: #FAFAFA;
+  cursor: pointer;
+}

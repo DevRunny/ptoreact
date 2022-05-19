@@ -38,6 +38,12 @@ body {
   margin-bottom: 42px;
 }
 
+.formItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 ul {
   list-style-type: none;
 }

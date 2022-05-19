@@ -27,30 +27,6 @@ export const adminPanelImages = {
     src: "/images/AdminPanel/LeftSideBar/settings.svg",
     alt: "settings"
   },
-  infoActive: {
-    src: "/images/AdminPanel/LeftSideBar/informationActive.svg",
-    alt: "infoActive"
-  },
-  accreditActive: {
-    src: "/images/AdminPanel/LeftSideBar/accreditationActive.svg",
-    alt: "accreditActive"
-  },
-  docActive: {
-    src: "/images/AdminPanel/LeftSideBar/documentActive.svg",
-    alt: "docActive"
-  },
-  addressActive: {
-    src: "/images/AdminPanel/LeftSideBar/addressActive.svg",
-    alt: "addressActive"
-  },
-  messengersActive: {
-    src: "/images/AdminPanel/LeftSideBar/messengersActive.svg",
-    alt: "messengersActive"
-  },
-  settingsActive: {
-    src: "/images/AdminPanel/LeftSideBar/settingsActive.svg",
-    alt: "settingsActive"
-  },
   decor: {
     src: "/images/AdminPanel/LeftSideBar/decoration.svg",
     alt: "decor"
@@ -67,6 +43,24 @@ export const adminPanelImages = {
     green: {
       src: "/images/AdminPanel/plusButtonGreen.svg",
       alt: "addField"
+    },
+    white: {
+      src: "/images/AdminPanel/plusButtonWhite.svg",
+      alt: "AddFile"
+    }
+  },
+  basketTrash: {
+    src: "/images/AdminPanel/basketTrashIcon.svg",
+    alt: "trash"
+  },
+  checkbox: {
+    empty: {
+      src: "/images/AdminPanel/emptyCheckbox.svg",
+      alt: "none"
+    },
+    checked: {
+      src: "/images/AdminPanel/checkbox.svg",
+      alt: "checked"
     }
   }
 }

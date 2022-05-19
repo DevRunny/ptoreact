@@ -86,7 +86,7 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
         {data && data.map((item, index) => {
           if (index === 0) {
             return <AdminFormItem key={item.id}
-                                  mainStyle={style.formItem}
+                                  mainStyle={"formItem"}
                                   inputStyle={classNames(style.input, style.contact)}
                                   inputType={inputType}
                                   labelText={labelText}
@@ -97,7 +97,7 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
             />
           } else {
             return <AdminFormItem key={item.id}
-                                  mainStyle={style.formItem}
+                                  mainStyle={"formItem"}
                                   inputStyle={classNames(style.input, style.contact)}
                                   inputType={inputType}
                                   inputValue={item.value}
