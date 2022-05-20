@@ -55,9 +55,9 @@ function LeftSideBar() {
           </nav>
           <hr />
         </div>
-        <div className={style.logOut} onClick={onClickExitUser}>
+        <div className={style.logOut}>
           <img src={adminPanelImages.decor.src} alt={adminPanelImages.decor.alt} />
-          <span className={style.logOutButton}><img src={adminPanelImages.logout.src} alt={adminPanelImages.logout.alt} />Выйти</span>
+          <span className={style.logOutButton} onClick={onClickExitUser}><img src={adminPanelImages.logout.src} alt={adminPanelImages.logout.alt} />Выйти</span>
         </div>
       </div>
   );

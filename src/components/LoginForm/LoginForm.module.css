@@ -3,7 +3,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #c7c6c6;
+  background: -webkit-linear-gradient(0deg, rgb(242 242 242) 18%, rgb(255 255 255));
+  background: -moz-linear-gradient(0deg, rgb(242 242 242) 18%, rgb(255 255 255));
+  background: linear-gradient(0deg, rgb(242 242 242) 18%, rgb(255 255 255));
 }
 
 .loginFormWrap {
@@ -14,8 +16,7 @@
   height: 440px;
   flex-direction: column;
   font-family: "Gotham Pro", serif;
-  gap: 30px;
-  background-color: white;
+  gap: 50px;
   border-radius: 10px;
   padding: 40px;
 }
@@ -42,16 +43,29 @@
 }
 
 .label {
-  color: #424242;
-  font-size: 20px;
-  text-transform: uppercase;
+  position: relative;
+  font-size: 14px;
+}
+
+.alert {
+  position: absolute;
+  top: -15px;
+  color: #c73030;
+}
+
+.labelIcon {
+  position: absolute;
+  opacity: 0.6;
+  top: 18px;
+  left: 10px;
+  pointer-events: none;
 }
 
 .input {
   height: 50px;
   width: 400px;
   margin-bottom: 10px;
-  padding: 10px 15px;
+  padding: 10px 40px;
   background: #FFFFFF;
   border: 1px solid #D0D0D0;
   border-radius: 10px;
@@ -62,19 +76,18 @@
 }
 
 .button {
-  background: #43A8EE;
+  background: #2d66bd;
   padding: 15px 0;
   border-radius: 10px;
   border: none;
-  width: 250px;
+  width: 100%;
   font-family: "Gotham Pro", serif;
   font-weight: 700;
   font-size: 25px;
-  color: #FAFAFA;
+  color: white;
   cursor: pointer;
 }
 
-.alert {
-  color: #df1f1f;
-  font-size: 14px;
+.logoCorp {
+  width: 231px;
 }

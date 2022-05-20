@@ -3,6 +3,7 @@ import style from "./LoginForm.module.css";
 import Button from "../Button/Button";
 import {useAuthHistory} from "../../hooks/useAuthHistory";
 import {useLoginForm} from "../../hooks/useLoginForm";
+import {adminPanelImages} from "../../utils/adminPanelRoutesImages";
 
 function LoginForm() {
 
@@ -16,7 +17,7 @@ function LoginForm() {
   return (
       <div className={style.background}>
         <div className={style.loginFormWrap}>
-          <h2 className={style.title}>Вход</h2>
+          <img className={style.logoCorp} src={adminPanelImages.logo.src} alt={"ENDEL"} />
           <form
               className={style.loginForm}
               onSubmit={form.handleSubmit((data) => {
@@ -25,13 +26,13 @@ function LoginForm() {
           >
             <div className={style.formItem}>
               <label className={style.label} htmlFor="email">
-                Логин
-              </label>
-              {form.errors.login && (
-                  <span className={style.alert} role="alert">
-                {form.errors.login.message}
+                <img className={style.labelIcon} src={adminPanelImages.loginForm.login.src} alt={adminPanelImages.loginForm.login.alt} />
+                {form.errors.password && (
+                    <span className={style.alert} role="alert">
+                {form.errors.password.message}
               </span>
-              )}
+                )}
+              </label>
               <input
                   className={style.input}
                   id="email"
@@ -53,13 +54,14 @@ function LoginForm() {
 
             <div className={style.formItem}>
               <label className={style.label} htmlFor="password">
-                Пароль
-              </label>
-              {form.errors.password && (
-                  <span className={style.alert} role="alert">
+                <img className={style.labelIcon} src={adminPanelImages.loginForm.password.src} alt={adminPanelImages.loginForm.password.alt} />
+                {form.errors.password && (
+                    <span className={style.alert} role="alert">
                 {form.errors.password.message}
               </span>
-              )}
+                )}
+              </label>
+
               <input
                   className={style.input}
                   id="password"

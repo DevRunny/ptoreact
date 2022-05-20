@@ -26,7 +26,7 @@ function Footer() {
             </div>
             <div className={style.privacyPolicy}><a href="#">Политика конфиденциальности</a></div>
             <div className={style.copyright}>
-              <span>© CMS E&L</span>
+              <span>© CMS ENDEL</span>
               <span>2022</span>
             </div>
           </div>
