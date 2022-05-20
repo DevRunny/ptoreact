@@ -27,9 +27,9 @@ function LoginForm() {
             <div className={style.formItem}>
               <label className={style.label} htmlFor="email">
                 <img className={style.labelIcon} src={adminPanelImages.loginForm.login.src} alt={adminPanelImages.loginForm.login.alt} />
-                {form.errors.password && (
+                {form.errors.login && (
                     <span className={style.alert} role="alert">
-                {form.errors.password.message}
+                {form.errors.login.message}
               </span>
                 )}
               </label>
