@@ -7,6 +7,7 @@ import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {useActions} from "../../../../hooks/useActions";
 import ContactForm from "./ContactForm/ContactForm";
 import {AboutDataAdmin} from "../../../../types/about";
+import Preloader from "../../../Preloader/Preloader";
 
 function Information() {
   const [loading, setLoading] = useState<boolean>(false)
@@ -28,7 +29,7 @@ function Information() {
     fetch()
   }, [])
 
-  if (loading) return <div className={"loader"} />
+  if (loading) return <Preloader size={"big"}/>
 
   return (
       <>

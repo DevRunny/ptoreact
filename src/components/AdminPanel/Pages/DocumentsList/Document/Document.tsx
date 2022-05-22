@@ -16,7 +16,7 @@ const Document = () => {
               labelText={"Название:"}
               mainStyle={"formItem"}
               inputType={"text"}
-              inputValue={"Аттестат аккредитации оператора технического осмотра транспортных средств"}
+              value={"Аттестат аккредитации оператора технического осмотра транспортных средств"}
               id={"1"}
               onClickSaveFunc={onClickSave}
           />
@@ -24,7 +24,7 @@ const Document = () => {
               labelText={"Файл:"}
               mainStyle={"formItem"}
               inputType={"text"}
-              inputValue={"file.pdf"}
+              value={"file.pdf"}
               id={"2"}
               onClickSaveFunc={onClickSave}
           />

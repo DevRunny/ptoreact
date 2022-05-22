@@ -19,22 +19,24 @@ const AddressesList = () => {
             <SectionTitle titleText={"Укажите координаты города:"} />
             <div className={style.wrap}>
               <FormItemWithNotation
-                  textNotation={"Координаты города вы можете уточнить в сервисе Яндекс.Карты"}
+                  textNotation={"Координаты города вы можете уточнить в сервисе"}
                   styleNotation={style.notation}
                   labelText={"Координаты города:"}
                   mainStyle={style.formItem}
                   inputType={"text"}
-                  inputValue={"56.326802, 44.006506"}
+                  value={"56.326802, 44.006506"}
                   inputStyle={style.inputCoordinate}
                   id={"1"}
                   onClickSaveFunc={onClickSave}
                   required={true}
+                  link="https://yandex.ru/maps/"
+                  textLink="Яндекс.Карты"
               />
               <AdminFormItem
                   labelText={"Размер карты (zoom):"}
                   mainStyle={style.formItem}
                   inputType={"number"}
-                  inputValue={"10"}
+                  value={"10"}
                   id={"2"}
                   onClickSaveFunc={onClickSave}
                   required={true}
@@ -47,19 +49,20 @@ const AddressesList = () => {
               <AdminFormItem
                   labelText={"Адрес ПТО 1:"}
                   mainStyle={"formItem"}
-                  inputStyle={style.inputAddress}
+                  inputStyle={style.textAreaAddress}
                   inputType={"text"}
-                  inputValue={"603105, Нижегородская обл., г.Нижний Новгород, ул.Генкиной, д.23"}
+                  value={"603105, Нижегородская обл., г.Нижний Новгород, ул.Генкиной, д.23"}
                   id={"1"}
                   onClickSaveFunc={onClickSave}
                   required={true}
+                  itemType={"textArea"}
               />
               <AdminFormItem
                   labelText={"Координаты ПТО 1:"}
                   mainStyle={"formItem"}
-                  inputStyle={style.inputCoordinatePTO}
+                  inputStyle={style.inputAddress}
                   inputType={"text"}
-                  inputValue={"56.310318, 44.009867"}
+                  value={"56.310318, 44.009867"}
                   id={"2"}
                   onClickSaveFunc={onClickSave}
                   required={true}
@@ -67,13 +70,14 @@ const AddressesList = () => {
               <AdminFormItem
                   labelText={"Режим работы ПТО 1:"}
                   mainStyle={"formItem"}
-                  inputStyle={style.inputWorkingMode}
+                  inputStyle={style.textAreaAddress}
                   inputType={"text"}
-                  inputValue={"Понедельник-Пятница: 9:00-18:00 \n" +
+                  value={"Понедельник-Пятница: 9:00-18:00 \n" +
                       "Суббота-Воскресенье: выходные"}
                   id={"3"}
                   onClickSaveFunc={onClickSave}
                   required={true}
+                  itemType={"textArea"}
               />
             </form>
             <AddFieldButton textButton={"Добавить адрес и режим работы"} onClickFunc={() => {

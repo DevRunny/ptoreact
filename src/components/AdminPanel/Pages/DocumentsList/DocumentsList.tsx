@@ -1,7 +1,6 @@
 import React from 'react';
 import style from "./DocumentList.module.css"
 import AdminMainTitle from "../AdminMainTitle";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import AddFieldButton from "../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import Document from "./Document/Document";

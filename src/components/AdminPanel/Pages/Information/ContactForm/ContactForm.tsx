@@ -87,20 +87,20 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
           if (index === 0) {
             return <AdminFormItem key={item.id}
                                   mainStyle={"formItem"}
-                                  inputStyle={classNames(style.input, style.contact)}
+                                  inputStyle={style.contact}
                                   inputType={inputType}
                                   labelText={labelText}
                                   required={true}
-                                  inputValue={item.value}
+                                  value={item.value}
                                   id={item.id}
                                   onClickSaveFunc={onClickSave}
             />
           } else {
             return <AdminFormItem key={item.id}
                                   mainStyle={"formItem"}
-                                  inputStyle={classNames(style.input, style.contact)}
+                                  inputStyle={style.contact}
                                   inputType={inputType}
-                                  inputValue={item.value}
+                                  value={item.value}
                                   id={item.id}
                                   onClickSaveFunc={onClickSave}
                                   onClickDeleteFunc={deleteField}

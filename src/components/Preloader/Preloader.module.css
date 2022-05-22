@@ -1,0 +1,44 @@
+.small {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #17B8F0;
+    border-radius: 50%;
+    display: table;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin: auto;
+}
+
+.medium {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #FFF;
+    border-bottom-color: #17B8F0;
+    border-radius: 50%;
+    display: table;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin: auto;
+}
+
+.big {
+    width: 120px;
+    height: 120px;
+    border: 12px solid #FFF;
+    border-bottom-color: #17B8F0;
+    border-radius: 50%;
+    display: table;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

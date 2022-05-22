@@ -36,7 +36,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             labelText={"Название компании или ИП:"}
             mainStyle={"formItem"}
             inputType={"text"}
-            inputValue={data.nameCompany}
+            value={data.nameCompany}
             required={true}
             id={"nameCompany"}
             onClickSaveFunc={onClickSave}
@@ -45,7 +45,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             labelText={"Номер в реестре технического оператора РСА:"}
             mainStyle={"formItem"}
             inputType={"number"}
-            inputValue={data.requisites.numRegistry || ""}
+            value={data.requisites.numRegistry || ""}
             required={true}
             id={"numRegistry"}
             onClickSaveFunc={onClickSave}
@@ -54,7 +54,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             labelText={"ИНН:"}
             mainStyle={"formItem"}
             inputType={"number"}
-            inputValue={data.requisites.inn || ""}
+            value={data.requisites.inn || ""}
             required={true}
             id={"inn"}
             onClickSaveFunc={onClickSave}
@@ -63,7 +63,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             labelText={"ОГРН:"}
             mainStyle={"formItem"}
             inputType={"number"}
-            inputValue={data.requisites.ogrn || ""}
+            value={data.requisites.ogrn || ""}
             required={true}
             id={"ogrn"}
             onClickSaveFunc={onClickSave}

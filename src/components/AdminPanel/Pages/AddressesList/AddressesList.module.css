@@ -26,16 +26,15 @@
   width: 215px;
 }
 
+.textAreaAddress {
+  width: 365px;
+  height: 66px;
+}
+
 .inputAddress {
   width: 365px;
-  height: 66px;
 }
 
-.inputCoordinatePTO {
-  width: 365px;
-}
-
-.inputWorkingMode {
-  width: 365px;
-  height: 66px;
+.notation {
+  margin-top: 10px;
 }

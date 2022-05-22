@@ -18,7 +18,7 @@ const Settings = () => {
                 mainStyle={"formItem"}
                 inputStyle={style.inputSettings}
                 inputType={"text"}
-                inputValue={"admin@admin.ru"}
+                value={"admin@admin.ru"}
                 id={"1"}
                 onClickSaveFunc={onClickSave}
                 labelText={"Логин(email):"}
@@ -28,7 +28,7 @@ const Settings = () => {
                 mainStyle={"formItem"}
                 inputStyle={style.inputSettings}
                 inputType={"password"}
-                inputValue={"admin123"}
+                value={"admin123"}
                 id={"2"}
                 onClickSaveFunc={onClickSave}
                 labelText={"Пароль:"}

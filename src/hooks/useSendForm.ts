@@ -14,6 +14,7 @@ export const useSendForm = () => {
   } = useForm({
     mode: "onSubmit",
   });
+
   const [categories, setCategories] = useState<Category[]>([] as Category[]);
   const categoriesRef = useRef<Category[]>()
   categoriesRef.current = categories
@@ -21,6 +22,8 @@ export const useSendForm = () => {
   const [category, setCategory] = useState<string>(
       categories.length ? categories[0].categoryName : ""
   );
+  const categoryRef = useRef<string>()
+  categoryRef.current = category
 
   const [currentCategoryDesc, setCurrentCategoryDesc] = useState<string | undefined>(categories.length ? categories[0].categoryDescription : "");
 
@@ -52,14 +55,15 @@ export const useSendForm = () => {
       const categories = data.map((item) => item);
       setCategories(categories);
       setCurrentCategoryDesc(categories[0].categoryDescription);
+      setCategory(categories[0].categoryName)
     });
   }, []);
 
   return {
     onChangeCategory,
     currentCategoryDesc,
-    category,
-    categories: categoriesRef.current,
+    category: categoryRef.current,
+    categories: categories,
     onClickOverlay,
     overlayRef,
     navigate,

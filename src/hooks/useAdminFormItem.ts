@@ -1,4 +1,4 @@
-import {ChangeEvent, useCallback, useState} from "react";
+import {ChangeEvent, useState} from "react";
 import {InputType} from "../components/AdminPanel/Pages/AdminFormItem/AdminFormItem";
 
 export const useAdminFormItem = (disabled: boolean,
@@ -7,12 +7,12 @@ export const useAdminFormItem = (disabled: boolean,
                                  id: string,
                                  onClickSaveFunc: (id: string, inputValue: string, inputType?: InputType) => void,
                                  onClickDeleteFunc?: (id: string) => void) => {
-    const [localInputValue, setLocalInputValue] = useState<string>(inputValue ? inputValue.toString() : "")
-    const [disabledInput, setDisabledInput] = useState<boolean>(disabled)
+    const [localValue, setLocalValue] = useState<string>(inputValue ? inputValue.toString() : "")
+    const [disabledElement, setDisabledElement] = useState<boolean>(disabled)
     const [isChange, setIsChange] = useState<boolean>(false)
 
-    const changeInputValue = (e: ChangeEvent<HTMLInputElement>) => {
-        setLocalInputValue(e.target.value)
+    const changeInputValue = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+        setLocalValue(e.target.value)
     }
 
     const onClickDeleteButton = (e: any) => {
@@ -25,37 +25,37 @@ export const useAdminFormItem = (disabled: boolean,
     const onClickChangeButton = (e: any) => {
         e.preventDefault()
         setIsChange(true)
-        setDisabledInput(false)
+        setDisabledElement(false)
     }
 
     const onClickCancelButton = (e: any) => {
         e.preventDefault()
         setIsChange(false)
-        setDisabledInput(true)
-        setLocalInputValue(inputValue.toString())
+        setDisabledElement(true)
+        setLocalValue(inputValue.toString())
     }
 
     const onClickSaveButton = (e: any) => {
         e.preventDefault()
         setIsChange(false)
-        setDisabledInput(true)
+        setDisabledElement(true)
         if (inputType === "tel" || "email") {
-            onClickSaveFunc(id, localInputValue, inputType)
+            onClickSaveFunc(id, localValue, inputType)
         } else {
-            onClickSaveFunc(id, localInputValue)
+            onClickSaveFunc(id, localValue)
         }
     }
 
     return {
-        disabledInput,
+        disabledElement,
         isChange,
-        localInputValue,
+        localValue,
         changeInputValue,
         onClickDeleteButton,
         onClickCancelButton,
         onClickChangeButton,
         onClickSaveButton,
         setIsChange,
-        setDisabledInput
+        setDisabledElement
     }
 }

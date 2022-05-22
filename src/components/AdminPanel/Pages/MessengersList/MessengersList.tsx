@@ -2,7 +2,7 @@ import React from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import style from "./MessengersList.module.css"
 import SectionTitle from "../SectionTitle/SectionTitle";
-import AdminFormItem, {InputType} from "../AdminFormItem/AdminFormItem";
+import {InputType} from "../AdminFormItem/AdminFormItem";
 import {FormItemWithNotation} from "../../../../HOCs/AdminFormItem";
 
 function MessengersList() {
@@ -22,7 +22,7 @@ function MessengersList() {
                 mainStyle={"formItem"}
                 inputStyle={style.inputMessenger}
                 inputType={"text"}
-                inputValue={"@Runaway4uk"}
+                value={"@Runaway4uk"}
                 id={"1"}
                 onClickSaveFunc={onClickSave}
                 labelText={"Telegram:"} />
@@ -32,7 +32,7 @@ function MessengersList() {
                 mainStyle={"formItem"}
                 inputStyle={style.inputMessenger}
                 inputType={"text"}
-                inputValue={"+79999999999"}
+                value={"+79999999999"}
                 id={"2"}
                 onClickSaveFunc={onClickSave}
                 labelText={"WhatsApp:"} />
@@ -42,7 +42,7 @@ function MessengersList() {
                 mainStyle={"formItem"}
                 inputStyle={style.inputMessenger}
                 inputType={"text"}
-                inputValue={"runaway4uk"}
+                value={"runaway4uk"}
                 id={"3"}
                 onClickSaveFunc={onClickSave}
                 labelText={"VK (Вконтакте):"} />
@@ -52,7 +52,7 @@ function MessengersList() {
                 mainStyle={"formItem"}
                 inputStyle={style.inputMessenger}
                 inputType={"text"}
-                inputValue={"+79529999999"}
+                value={"+79529999999"}
                 id={"4"}
                 onClickSaveFunc={onClickSave}
                 labelText={"Viber:"} />

@@ -4,6 +4,8 @@ import React from "react";
 interface InjectedProps extends AdminFormItemProps {
   textNotation: string
   styleNotation: string
+  link?: string
+  textLink?: string
 }
 
 export const withNotation = (Component: React.ComponentType<AdminFormItemProps>) => {
@@ -14,7 +16,7 @@ export const withNotation = (Component: React.ComponentType<AdminFormItemProps>)
               id={props.id}
               onClickSaveFunc={props.onClickSaveFunc}
               onClickDeleteFunc={props.onClickDeleteFunc}
-              inputValue={props.inputValue}
+              value={props.value}
               inputType={props.inputType}
               labelText={props.labelText}
               required={props.required}
@@ -22,7 +24,9 @@ export const withNotation = (Component: React.ComponentType<AdminFormItemProps>)
               mainStyle={props.mainStyle}
               disabled={props.disabled}
           />
-          <p className={props.styleNotation}><b>{props.textNotation}</b></p>
+          <p className={props.styleNotation}>
+              {props.textNotation + " "} <a href={props.link} target={"_blank"}><b>{props.textLink}</b></a>
+          </p>
         </div>
     )
   }
