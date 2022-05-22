@@ -4,7 +4,14 @@ import {useEffect, useState} from "react";
 export const useFetchData = () => {
 
   const [isFetch, setIsFetching] = useState<boolean>(false)
-  const {fetchAboutAC, fetchAccreditationAC, fetchContactsAC, fetchDocumentsAC, fetchMessengersAC} = useActions()
+  const {
+    fetchAboutAC,
+    fetchAccreditationAC,
+    fetchContactsAC,
+    fetchDocumentsAC,
+    fetchMessengersAC,
+    fetchPointsAC
+  } = useActions()
 
   const fetch = async () => {
     await fetchAboutAC()
@@ -12,6 +19,7 @@ export const useFetchData = () => {
     await fetchDocumentsAC()
     await fetchContactsAC()
     await fetchMessengersAC()
+    await fetchPointsAC()
     setIsFetching(true)
   }
 

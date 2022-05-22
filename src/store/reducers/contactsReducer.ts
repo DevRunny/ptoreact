@@ -1,22 +1,16 @@
 import {
-  Address,
   ContactsAction,
   ContactsActions,
   ContactsState,
-  Coordinate,
   Email,
   MapState,
   Phone,
-  WorkingMode
 } from "../../types/contacts";
 
 const initialState: ContactsState = {
-  addresses: [] as Address[],
   emails: [] as Email[],
   phones: [] as Phone[],
-  workingModes: [] as WorkingMode[],
   mapState: {} as MapState,
-  coordinates: [] as Coordinate[],
   loading: false,
   error: null
 }
@@ -30,12 +24,9 @@ export const contactsReducer = (state = initialState, action: ContactsAction): C
     case ContactsActions.FETCH_CONTACTS_SUCCESS:
       return {
         ...state,
-        addresses: action.payload.addresses,
         emails: action.payload.emails,
         phones: action.payload.phones,
-        workingModes: action.payload.workingModes,
         mapState: action.payload.mapState,
-        coordinates: action.payload.coordinates,
         loading: false
       }
 

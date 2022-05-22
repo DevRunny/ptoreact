@@ -2,20 +2,17 @@ import React from 'react';
 import {Map, Placemark, TrafficControl, TypeSelector, YMaps, ZoomControl} from "react-yandex-maps";
 import style from "../Contacts.module.css";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import {Address, Coordinate, MapState, WorkingMode} from "../../../types/contacts";
+import {Address, MapState, WorkingMode} from "../../../types/contacts";
+import {Point} from "../../../types/points";
 
 type Props = {
   mapState: MapState
-  coordinates: Coordinate[]
-  addresses: Address[]
-  workingModes: WorkingMode[]
+  points: Point[]
 }
 
 const YandexMapComponent: React.FC<Props> = ({
                                                mapState,
-                                               coordinates,
-                                               workingModes,
-                                               addresses
+                                               points,
                                              }) => {
   const stateInfo = useTypedSelector(state => state.about)
 
@@ -25,7 +22,7 @@ const YandexMapComponent: React.FC<Props> = ({
             className={style.yandexMap}
             defaultState={mapState}
         >
-          {coordinates.map((placeMark) => (
+          {points.map((placeMark) => (
               <Placemark
                   key={placeMark.id}
                   geometry={placeMark.coordinate}
@@ -38,8 +35,8 @@ const YandexMapComponent: React.FC<Props> = ({
                   properties={{
                     hintContent: stateInfo.nameCompany,
                     balloonContent: `<b>${stateInfo.nameCompany}</b>
-                  <br />${addresses[placeMark.id - 1].address}
-                  <br />${workingModes[placeMark.id - 1].workingMode}`
+                  <br />${placeMark.address}
+                  <br />${placeMark.workingMode}`
                   }}
                   modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
               />

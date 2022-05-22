@@ -1,17 +1,14 @@
-import {Address, Email, Phone, WorkingMode} from "../types/contacts";
 import React from "react";
 import ContactComponent, {ContactComponentProps} from "../components/Contacts/ContactsComponents/ContactComponent";
+import {Point} from "../types/points";
+import {Email, Phone} from "../types/contacts";
 
-interface AddressContactProps {
-  addresses: Address[]
+interface PointsContacts {
+  points: Point[]
 }
 
 interface EmailContactProps {
   emails: Email[]
-}
-
-interface WorkingModeContactProps {
-  workingModes: WorkingMode[]
 }
 
 interface PhoneContactProps {
@@ -19,16 +16,16 @@ interface PhoneContactProps {
 }
 
 const addressContact = (Component: React.ComponentType<ContactComponentProps>) => {
-  return (props: AddressContactProps) => {
+  return (props: PointsContacts) => {
     const getText = () => {
-      return props.addresses.map(addressItem => addressItem.address)
+      return props.points.map(point => point.address)
     }
     return (
         <Component textCard={getText()}
                    urlImage={"/images/Contacts/addressIcon.svg"}
                    alt={"address"}
                    titleCard={"Адрес:"}
-                   isPoint={props.addresses.length > 1}
+                   isPoint={props.points.length > 1}
         />
     )
   }
@@ -51,16 +48,16 @@ const emailContact = (Component: React.ComponentType<ContactComponentProps>) => 
 }
 
 const workingModeContact = (Component: React.ComponentType<ContactComponentProps>) => {
-  return (props: WorkingModeContactProps) => {
+  return (props: PointsContacts) => {
     const getText = () => {
-      return props.workingModes.map(workingModeItem => workingModeItem.workingMode)
+      return props.points.map(point => point.workingMode)
     }
     return (
         <Component textCard={getText()}
                    urlImage={"/images/Contacts/modeIcon.svg"}
                    alt={"mode"}
                    titleCard={"Режим работы:"}
-                   isPoint={props.workingModes.length > 1}
+                   isPoint={props.points.length > 1}
         />
     )
   }

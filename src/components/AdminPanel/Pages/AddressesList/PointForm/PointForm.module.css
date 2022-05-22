@@ -1,0 +1,21 @@
+.formWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+
+.textAreaAddress {
+  width: 365px;
+  height: 66px;
+}
+
+.inputAddress {
+  width: 365px;
+}
+
+.formLine {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 600px;
+  border: 1px solid #efefef;
+}

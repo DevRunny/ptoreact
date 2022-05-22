@@ -6,12 +6,14 @@ import {documentationReducer} from "./documentationReducer";
 import {sectionRefsReducer} from "./sectionRefsReducer";
 import {messengersReducer} from "./messengersReducer";
 import {authReducer} from "./authReducer";
+import {pointsReducer} from "./pointsReducer";
 
 export const rootReducers = combineReducers({
   about: aboutReducer,
   accreditation: accreditationReducer,
   documents: documentationReducer,
   contacts: contactsReducer,
+  points: pointsReducer,
   messengers: messengersReducer,
   sectionRefs: sectionRefsReducer,
   auth: authReducer,

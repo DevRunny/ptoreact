@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import style from "./AddressesList.module.css"
@@ -6,11 +6,19 @@ import AdminFormItem, {InputType} from "../AdminFormItem/AdminFormItem";
 import {FormItemWithNotation} from "../../../../HOCs/AdminFormItem";
 import AddFieldButton from "../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {useActions} from "../../../../hooks/useActions";
+import PointForm from "./PointForm/PointForm";
 
 const AddressesList = () => {
   const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
     console.log(inputValue)
   }
+  const {fetchPointsAC, addPoint} = useActions()
+  const {points} = useTypedSelector(state => state.points)
+  useEffect(() => {
+    fetchPointsAC()
+  }, [])
   return (
       <div className={"adminContentBackground"}>
         <AdminMainTitle titleText={"Адрес и режим работы ПТО:"} />
@@ -45,43 +53,9 @@ const AddressesList = () => {
           </div>
           <div className={style.contentWrap}>
             <SectionTitle titleText={"Список адресов ПТО:"} />
-            <form className={style.formWrap}>
-              <AdminFormItem
-                  labelText={"Адрес ПТО 1:"}
-                  mainStyle={"formItem"}
-                  inputStyle={style.textAreaAddress}
-                  inputType={"text"}
-                  value={"603105, Нижегородская обл., г.Нижний Новгород, ул.Генкиной, д.23"}
-                  id={"1"}
-                  onClickSaveFunc={onClickSave}
-                  required={true}
-                  itemType={"textArea"}
-              />
-              <AdminFormItem
-                  labelText={"Координаты ПТО 1:"}
-                  mainStyle={"formItem"}
-                  inputStyle={style.inputAddress}
-                  inputType={"text"}
-                  value={"56.310318, 44.009867"}
-                  id={"2"}
-                  onClickSaveFunc={onClickSave}
-                  required={true}
-              />
-              <AdminFormItem
-                  labelText={"Режим работы ПТО 1:"}
-                  mainStyle={"formItem"}
-                  inputStyle={style.textAreaAddress}
-                  inputType={"text"}
-                  value={"Понедельник-Пятница: 9:00-18:00 \n" +
-                      "Суббота-Воскресенье: выходные"}
-                  id={"3"}
-                  onClickSaveFunc={onClickSave}
-                  required={true}
-                  itemType={"textArea"}
-              />
-            </form>
+            {points.map(point => <PointForm key={point.id} point={point} />)}
             <AddFieldButton textButton={"Добавить адрес и режим работы"} onClickFunc={() => {
-              console.log("Добавил элемент")
+              addPoint(points)
             }} icon={adminPanelImages.plusButton.blue.src} />
           </div>
         </div>

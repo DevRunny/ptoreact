@@ -11,23 +11,17 @@ export enum ContactsActions {
 }
 
 export type ContactsState = {
-  addresses: Address[]
   emails: Email[]
   phones: Phone[]
-  workingModes: WorkingMode[]
   mapState: MapState
-  coordinates: Coordinate[]
   loading: boolean
   error: null | string
 }
 
 export type ContactsResponse = {
-  addresses: Address[]
   emails: Email[]
   phones: Phone[]
-  workingModes: WorkingMode[]
   mapState: MapState
-  coordinates: Coordinate[]
 }
 
 export type Address = {
@@ -53,11 +47,6 @@ export type WorkingMode = {
 export type MapState = {
   center: number[]
   zoom: number
-}
-
-export type Coordinate = {
-  coordinate: number[]
-  id: number
 }
 
 export type ContactsAction =

@@ -8,32 +8,28 @@ import {useContactsRef} from "../../hooks/sectionsRefs/useContactsRef";
 import {useFetchData} from "../../hooks/useFetchData";
 
 const Contacts = () => {
+
   const fetching = useFetchData()
   const contactsState = useTypedSelector(state => state.contacts)
+  const {points} = useTypedSelector(state => state.points)
+  console.log(points)
   const contacts = useContactsRef()
-
-  const checkContactLength = () => {
-    return contactsState.workingModes.length > 1 && contactsState.addresses.length > 1
-  }
 
   return (
       <div ref={contacts.contactsRef} className={classNames(style.background, "rootBackground")}>
         <div className="container">
           <div className={style.contacts}>
             <h2 className={style.mainTitle}>Контактная информация</h2>
-            <div className={checkContactLength() ? classNames(style.cardsContacts, style.cardContactsLarge) : style.cardsContacts}>
-              <ContactWithAddress addresses={contactsState.addresses} />
+            <div className={points.length > 1 ? classNames(style.cardsContacts, style.cardContactsLarge) : style.cardsContacts}>
+              <ContactWithAddress points={points} />
               <ContactWithEmail emails={contactsState.emails} />
-              <ContactWithWorkingMode workingModes={contactsState.workingModes} />
+              <ContactWithWorkingMode points={points} />
               <ContactWithPhone phones={contactsState.phones} />
             </div>
           </div>
         </div>
         {fetching.isFetch ?
-            <YandexMapComponent mapState={contactsState.mapState}
-                                coordinates={contactsState.coordinates}
-                                addresses={contactsState.addresses}
-                                workingModes={contactsState.workingModes} />
+            <YandexMapComponent mapState={contactsState.mapState} points={points} />
             :
             <div className={"loader"} />
         }

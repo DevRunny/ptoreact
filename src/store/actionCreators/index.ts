@@ -5,6 +5,7 @@ import * as ContactsActionCreators from "./Contacts";
 import * as SectionRefsActionCreators from "./SectionRefs";
 import * as MessengersActionCreators from "./Messengers";
 import * as AuthActionsCreators from "./Auth";
+import * as PointsActionsCreators from "./Points"
 
 export default {
   ...AboutActionCreators,
@@ -14,4 +15,5 @@ export default {
   ...SectionRefsActionCreators,
   ...MessengersActionCreators,
   ...AuthActionsCreators,
+  ...PointsActionsCreators
 };

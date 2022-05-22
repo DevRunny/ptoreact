@@ -4,12 +4,6 @@
   gap: 60px;
 }
 
-.formWrap {
-  display: flex;
-  flex-direction: column;
-  gap: 23px;
-}
-
 .wrap {
   display: flex;
   flex-direction: column;
@@ -24,15 +18,6 @@
 
 .inputCoordinate {
   width: 215px;
-}
-
-.textAreaAddress {
-  width: 365px;
-  height: 66px;
-}
-
-.inputAddress {
-  width: 365px;
 }
 
 .notation {
