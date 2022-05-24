@@ -32,7 +32,7 @@ export const login =
               dispatch(setUser(user));
               dispatch(setError(""));
             } else {
-              dispatch(setError("Неккоректный логин или пароль"));
+              dispatch(setError("Неверный логин или пароль"));
             }
             dispatch(setLoading(false));
           } catch (error) {
@@ -41,11 +41,11 @@ export const login =
           }
         };
 
-export const logout = () => async (dispatch:Dispatch<AuthAction>) => {
-    localStorage.removeItem("auth")
-    localStorage.removeItem("login")
-    localStorage.removeItem("password")
-    dispatch(setAuth(false))
-    dispatch(setUser({} as User))
-    dispatch(setError(""))
+export const logout = () => async (dispatch: Dispatch<AuthAction>) => {
+  localStorage.removeItem("auth")
+  localStorage.removeItem("login")
+  localStorage.removeItem("password")
+  dispatch(setAuth(false))
+  dispatch(setUser({} as User))
+  dispatch(setError(""))
 }

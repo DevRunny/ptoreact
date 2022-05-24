@@ -29,7 +29,7 @@ function Information() {
     fetch()
   }, [])
 
-  if (loading) return <Preloader size={"big"}/>
+  if (loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
 
   return (
       <>

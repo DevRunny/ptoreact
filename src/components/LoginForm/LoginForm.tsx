@@ -4,8 +4,11 @@ import Button from "../Button/Button";
 import {useAuthHistory} from "../../hooks/useAuthHistory";
 import {useLoginForm} from "../../hooks/useLoginForm";
 import {adminPanelImages} from "../../utils/adminPanelRoutesImages";
+import Preloader from "../Preloader/Preloader";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function LoginForm() {
+  const {loading, error} = useTypedSelector(state => state.auth)
 
   const history = useAuthHistory()
   const form = useLoginForm()
@@ -27,17 +30,21 @@ function LoginForm() {
             <div className={style.formItem}>
               <label className={style.label} htmlFor="email">
                 <img className={style.labelIcon} src={adminPanelImages.loginForm.login.src} alt={adminPanelImages.loginForm.login.alt} />
+                <span className={style.alert} role="alert">
+                  {error}
+                </span>
                 {form.errors.login && (
                     <span className={style.alert} role="alert">
                 {form.errors.login.message}
               </span>
                 )}
               </label>
+
               <input
                   className={style.input}
                   id="email"
                   {...form.register("login", {
-                    required: "Поле обязательно к заполнению",
+                    required: "Введите логин",
                     pattern: {
                       value: /\S+@\S+\.\S+/,
                       message: "Введенные данные не являются электронной почтой",
@@ -49,6 +56,7 @@ function LoginForm() {
                   onChange={(e) => {
                     form.onChangeLogin(e)
                   }}
+                  autoFocus={true}
               />
             </div>
 
@@ -66,7 +74,7 @@ function LoginForm() {
                   className={style.input}
                   id="password"
                   {...form.register("password", {
-                    required: "Поле обязательно к заполнению",
+                    required: "Введите пароль",
                     minLength: {
                       value: 5,
                       message: "Минимальное кол-во символов: 5",
@@ -81,7 +89,13 @@ function LoginForm() {
               />
             </div>
 
-            <Button text="Войти" mainStyle={style.button} type="submit" />
+            {!loading
+                ?
+                <Button text="Войти" mainStyle={style.button} type="submit" />
+                :
+                <Preloader size={"small"} styleLoader={"adminLoader"} />
+            }
+
           </form>
         </div>
       </div>

@@ -9,8 +9,8 @@ export const useLoginForm = () => {
   const {login} = useActions();
   const history = useAuthHistory()
 
-  const [loginValue, setLoginValue] = useState<string>()
-  const [passwordValue, setPasswordValue] = useState<string>()
+  const [loginValue, setLoginValue] = useState<string>("")
+  const [passwordValue, setPasswordValue] = useState<string>("")
 
   const onChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
     setLoginValue(e.target.value)

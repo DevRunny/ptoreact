@@ -5,6 +5,7 @@ import CompanyInfo from "./CompanyInfo/CompanyInfo";
 import CompanyContacts from "./CompanyContacts/CompanyContacts";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {AboutButtonText, ButtonWithGoTo} from "../../HOCs/Button";
+import Preloader from "../Preloader/Preloader";
 
 type Props = {}
 
@@ -20,7 +21,7 @@ const About: React.FC<Props> = () => {
 
   if (state.loading) {
     return (
-        <div className={"loader"} />
+        <Preloader size={"medium"} styleLoader={"clientLoader"} />
     )
   }
 

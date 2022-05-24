@@ -6,13 +6,13 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {ContactWithAddress, ContactWithEmail, ContactWithPhone, ContactWithWorkingMode} from "../../HOCs/Contact";
 import {useContactsRef} from "../../hooks/sectionsRefs/useContactsRef";
 import {useFetchData} from "../../hooks/useFetchData";
+import Preloader from "../Preloader/Preloader";
 
 const Contacts = () => {
 
   const fetching = useFetchData()
   const contactsState = useTypedSelector(state => state.contacts)
   const {points} = useTypedSelector(state => state.points)
-  console.log(points)
   const contacts = useContactsRef()
 
   return (
@@ -31,7 +31,7 @@ const Contacts = () => {
         {fetching.isFetch ?
             <YandexMapComponent mapState={contactsState.mapState} points={points} />
             :
-            <div className={"loader"} />
+            <Preloader size={"medium"} styleLoader={"clientLoader"} />
         }
 
       </div>
