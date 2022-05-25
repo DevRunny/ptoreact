@@ -2,11 +2,15 @@ export enum PointsActions {
   FETCH_POINTS = "FETCH_POINTS",
   FETCH_POINTS_SUCCESS = "FETCH_POINTS_SUCCESS",
   FETCH_POINTS_ERROR = "FETCH_POINTS_ERROR",
-  ADD_POINT = "ADD_POINT"
+  ADD_POINT = "ADD_POINT",
+  DELETE_POINT = "DELETE_POINT",
+  CHECK_POINT = "CHECK_POINT",
+  DELETE_CHECK_POINT = "DELETE_CHECK_POINT"
 }
 
 export type PointsState = {
   points: Point[]
+  checkedPoints: Point[]
   error: string,
   loading: boolean
 }
@@ -20,7 +24,14 @@ export type Point = {
   coordinate: number[]
 }
 
-export type PointsAction = FetchPoints | FetchPointsSuccess | FetchPointsError | AddPoint
+export type PointsAction =
+    FetchPoints |
+    FetchPointsSuccess |
+    FetchPointsError |
+    AddPoint |
+    DeletePoint |
+    CheckPoint |
+    DeleteCheckPoint
 
 type FetchPoints = {
   type: PointsActions.FETCH_POINTS
@@ -39,4 +50,19 @@ type FetchPointsError = {
 type AddPoint = {
   type: PointsActions.ADD_POINT,
   payload: Point
+}
+
+type DeletePoint = {
+  type: PointsActions.DELETE_POINT,
+  payload: Point[]
+}
+
+type CheckPoint = {
+  type: PointsActions.CHECK_POINT,
+  payload: Point
+}
+
+type DeleteCheckPoint = {
+  type: PointsActions.DELETE_CHECK_POINT,
+  payload: Point[]
 }

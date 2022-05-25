@@ -18,3 +18,24 @@ export const addPoint = (points: Point[]) => {
     payload: {id: points.length + 1, address: "", workingMode: "", coordinate: [0, 0]}
   }
 }
+
+export const deletePoint = (points: Point[]) => {
+  return {
+    type: PointsActions.DELETE_POINT,
+    payload: points,
+  }
+}
+
+export const addCheckPoint = (point: Point) => {
+  return {
+    type: PointsActions.CHECK_POINT,
+    payload: point
+  }
+}
+
+export const deleteCheckPoint = (checkedPoints: Point[]) => {
+  return {
+    type: PointsActions.DELETE_CHECK_POINT,
+    payload: checkedPoints
+  }
+}

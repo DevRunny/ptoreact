@@ -16,10 +16,36 @@
   gap: 23px
 }
 
+.zoomItem {
+  display: flex;
+  align-items: center;
+  gap: 12px
+}
+
 .inputCoordinate {
   width: 215px;
 }
 
+.inputZoom {
+  width: 50px;
+}
+
 .notation {
   margin-top: 10px;
+}
+
+.buttonWrap {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.addButton {
+  width: 265px;
+  background: #77D77B;
+}
+
+.deleteButton {
+  width: 265px;
+  background: #E24A4A;
 }

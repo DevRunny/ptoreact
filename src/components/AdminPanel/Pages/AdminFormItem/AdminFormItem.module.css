@@ -26,6 +26,12 @@
   gap: 14px
 }
 
+.textAreaWrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px
+}
+
 .changeButton {
   height: 27px;
   width: 105px;

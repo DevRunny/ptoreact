@@ -2,6 +2,7 @@ import {PointsAction, PointsActions, PointsState, Point} from "../../types/point
 
 const initialState: PointsState = {
   points: [] as Point[],
+  checkedPoints: [] as Point[],
   error: "",
   loading: false
 }
@@ -20,6 +21,12 @@ export const pointsReducer = (state = initialState, action: PointsAction): Point
       }
     case PointsActions.ADD_POINT:
       return {...state, points: [...state.points, action.payload]}
+    case PointsActions.DELETE_POINT:
+      return {...state, points: action.payload}
+    case PointsActions.CHECK_POINT:
+      return {...state, checkedPoints: [...state.checkedPoints, action.payload]}
+    case PointsActions.DELETE_CHECK_POINT:
+      return {...state, checkedPoints: action.payload}
     default:
       return state
   }

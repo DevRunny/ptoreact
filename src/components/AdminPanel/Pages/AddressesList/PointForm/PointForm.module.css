@@ -1,7 +1,21 @@
+.addressBlock {
+  position: relative;
+}
+
+
 .formWrap {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 23px;
+  z-index: 6;
+}
+
+.checkbox {
+  position: absolute;
+  left: 10px;
+  top: 22px;
+  cursor: pointer;
 }
 
 .textAreaAddress {
@@ -18,4 +32,22 @@
   margin-bottom: 30px;
   width: 600px;
   border: 1px solid #efefef;
+}
+
+.background {
+  position: absolute;
+  top: -20px;
+  left: -48px;
+  z-index: 4;
+}
+
+.backgroundActive {
+  position: absolute;
+  top: -20px;
+  left: -48px;
+  height: 330px;
+  width: 665px;
+  background: #D1FAD3;
+  border-radius: 17px;
+  z-index: 4;
 }
