@@ -3,6 +3,5 @@ import {ResponseDocuments} from "../types/documents";
 
 export const getDocumentation = async (): Promise<ResponseDocuments> => {
   const response = await instance.get("documentation")
-  const data = response.data
-  return data
+  return response.data
 }

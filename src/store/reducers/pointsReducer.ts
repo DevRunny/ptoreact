@@ -1,4 +1,4 @@
-import {PointsAction, PointsActions, PointsState, Point} from "../../types/points";
+import {Point, PointsAction, PointsActions, PointsState} from "../../types/points";
 
 const initialState: PointsState = {
   points: [] as Point[],

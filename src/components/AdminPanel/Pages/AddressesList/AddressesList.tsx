@@ -121,17 +121,18 @@ const AddressesList = () => {
                   icon={adminPanelImages.plusButton.white.src}
                   buttonStyle={style.addButton}
               />
-              {checkedPoints.length
-                  ?
-                  <AddFieldButton
-                      textButton={"Удалить выбранные адреса"}
-                      onClickFunc={deletePoints}
-                      icon={adminPanelImages.basketTrash.src}
-                      buttonStyle={style.deleteButton}
-                  />
-                  :
-                  <></>
-              }
+              <AddFieldButton
+                  textButton={"Удалить выбранные адреса"}
+                  onClickFunc={deletePoints}
+                  icon={adminPanelImages.basketTrash.src}
+                  buttonStyle={
+                    checkedPoints.length
+                        ?
+                        style.deleteButton
+                        :
+                        classNames(style.deleteButton, style.deleteButtonDisabled)
+                  }
+              />
             </div>
             {points.map((point, index) => <PointForm key={point.id} point={point} index={index} />)}
           </div>

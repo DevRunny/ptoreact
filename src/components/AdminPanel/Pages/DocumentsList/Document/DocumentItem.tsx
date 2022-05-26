@@ -15,7 +15,7 @@ const DocumentItem: React.FC<Props> = ({document, index}) => {
   const {documents, checkedDocuments} = useTypedSelector(state => state.documents)
   const {addCheckDocument, deleteCheckDocument} = useActions()
 
-  console.log(documents)
+  console.log(documents) // log все документов
 
   const verifyItemInCheckedDocuments = (): boolean => {
     const item = checkedDocuments.find(item => document.id === item.id)
@@ -55,15 +55,18 @@ const DocumentItem: React.FC<Props> = ({document, index}) => {
           <AdminFormItem
               labelText={"Название:"}
               mainStyle={"formItem"}
+              inputStyle={style.inputName}
               inputType={"text"}
               value={document.documentDescription}
               id={"1"}
               onClickSaveFunc={onClickSave}
               required={true}
+              itemType={"textArea"}
           />
           <AdminFormItem
               labelText={"Файл:"}
               mainStyle={"formItem"}
+              inputStyle={style.inputFile}
               inputType={"text"}
               value={document.urlDocument}
               id={"2"}

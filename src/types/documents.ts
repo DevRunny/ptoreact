@@ -23,7 +23,8 @@ export type Document = {
   id: string
 }
 
-export type DocumentsAction = FetchDocuments |
+export type DocumentsAction =
+    FetchDocuments |
     FetchDocumentsError |
     FetchDocumentsSuccess |
     AddDocument |

@@ -12,7 +12,7 @@ export const documentationReducer = (state = initialState, action: DocumentsActi
     case DocumentsActions.FETCH_DOCUMENTS:
       return {...state, error: null, loading: true}
     case DocumentsActions.FETCH_DOCUMENTS_SUCCESS:
-      return {error: null, loading: false, documents: action.payload, checkedDocuments: action.payload}
+      return {error: null, loading: false, documents: action.payload, checkedDocuments: []} // пустой checkedDocuments
     case DocumentsActions.FETCH_DOCUMENTS_ERROR:
       return {...state, error: action.payload, loading: true}
     case DocumentsActions.ADD_DOCUMENT:

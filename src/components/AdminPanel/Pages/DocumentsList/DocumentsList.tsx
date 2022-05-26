@@ -21,6 +21,15 @@ const DocumentsList = () => {
     deleteCheckDocument([])
   }
 
+  const addDocumentField = () => {
+    const newDocument = documents.find(item => item.urlDocument === "Выберите файл")
+    if (!newDocument) {
+      addDocument(documents)
+    } else {
+      return
+    }
+  }
+
   const fetch = async () => {
     setLoading(true)
     await fetchDocumentsAC()
@@ -40,11 +49,15 @@ const DocumentsList = () => {
           <div className={style.buttonWrap}>
             <AddFieldButton
                 textButton={"Добавить файл"}
-                onClickFunc={() => {
-                  addDocument(documents)
-                }}
+                onClickFunc={addDocumentField}
                 icon={adminPanelImages.plusButton.white.src}
-                buttonStyle={style.addButton}
+                buttonStyle={
+                  !documents.find(item => item.urlDocument === "Выберите файл")
+                      ?
+                      style.addButton
+                      :
+                      classNames(style.addButton, style.addButtonDisabled)
+                }
             />
             <AddFieldButton
                 textButton={"Удалить файлы"}
@@ -68,11 +81,13 @@ const DocumentsList = () => {
           })}
           <AddFieldButton
               textButton={"Добавить документ"}
-              onClickFunc={() => {
-                addDocument(documents)
-              }}
+              onClickFunc={addDocumentField}
               icon={adminPanelImages.plusButton.blue.src}
-              buttonStyle={style.addBottomButton}
+              buttonStyle={!documents.find(item => item.urlDocument === "Выберите файл")
+                  ?
+                  style.addBottomButton
+                  :
+                  classNames(style.addBottomButton, style.addButtonDisabled)}
           />
 
         </div>

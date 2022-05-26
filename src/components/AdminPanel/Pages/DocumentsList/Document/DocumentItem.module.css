@@ -13,10 +13,19 @@
 
 .wrap hr {
   position: absolute;
-  left: -50px;
+  left: -47px;
   bottom: -30px;
-  width: 840px;
+  width: 768px;
   border: 1px solid #efefef;
+}
+
+.inputName {
+  width: 470px;
+  height: 60px;
+}
+
+.inputFile {
+  width: 470px;
 }
 
 .checkbox {
@@ -37,8 +46,8 @@
   position: absolute;
   top: -20px;
   left: -48px;
-  width: 845px;
-  height: 173px;
+  width: 770px;
+  height: 200px;
   background: #D1FAD3;
   border-radius: 17px;
   z-index: 4;

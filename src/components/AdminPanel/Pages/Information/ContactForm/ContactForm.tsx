@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from "classnames";
 import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
 import style from "./ContactForm.module.css"
 import {useActions} from "../../../../../hooks/useActions";
@@ -107,7 +106,12 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
             />
           }
         })}
-        <AddFieldButton icon={adminPanelImages.plusButton.blue.src} textButton={"Добавить поле"} onClickFunc={addField} />
+        <AddFieldButton
+            icon={adminPanelImages.plusButton.blue.src}
+            textButton={"Добавить поле"}
+            onClickFunc={addField}
+            buttonStyle={style.addBottomButton}
+        />
       </form>
   );
 };

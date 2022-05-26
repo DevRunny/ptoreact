@@ -51,9 +51,16 @@
 .addButton {
   width: 265px;
   background: #77D77B;
+  cursor: pointer;
 }
 
 .deleteButton {
   width: 265px;
   background: #E24A4A;
+  cursor: pointer;
+}
+
+.deleteButtonDisabled {
+  opacity: 0.5;
+  cursor: default;
 }

@@ -14,11 +14,18 @@
 .addButton {
   background: #77D77B;
   width: 154px;
+  cursor: pointer;
+}
+
+.addButtonDisabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .deleteButton {
   background: #E24A4A;
   width: 154px;
+  cursor: pointer;
 }
 
 .deleteButtonDisabled {

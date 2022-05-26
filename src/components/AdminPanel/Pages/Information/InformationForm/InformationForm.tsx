@@ -35,6 +35,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
         <AdminFormItem
             labelText={"Название компании или ИП:"}
             mainStyle={"formItem"}
+            inputStyle={style.inputInfo}
             inputType={"text"}
             value={data.nameCompany}
             required={true}
@@ -44,6 +45,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
         <AdminFormItem
             labelText={"Номер в реестре технического оператора РСА:"}
             mainStyle={"formItem"}
+            inputStyle={style.inputInfo}
             inputType={"number"}
             value={data.requisites.numRegistry || ""}
             required={true}
@@ -53,6 +55,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
         <AdminFormItem
             labelText={"ИНН:"}
             mainStyle={"formItem"}
+            inputStyle={style.inputInfo}
             inputType={"number"}
             value={data.requisites.inn || ""}
             required={true}
@@ -62,6 +65,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
         <AdminFormItem
             labelText={"ОГРН:"}
             mainStyle={"formItem"}
+            inputStyle={style.inputInfo}
             inputType={"number"}
             value={data.requisites.ogrn || ""}
             required={true}
