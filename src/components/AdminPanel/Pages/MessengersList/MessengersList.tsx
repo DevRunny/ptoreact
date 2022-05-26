@@ -25,7 +25,8 @@ function MessengersList() {
                 value={"@Runaway4uk"}
                 id={"1"}
                 onClickSaveFunc={onClickSave}
-                labelText={"Telegram:"} />
+                labelText={"Telegram:"}
+                isExample={true} />
             <FormItemWithNotation
                 textNotation={"+79123456789"}
                 styleNotation={style.notation}
@@ -35,7 +36,8 @@ function MessengersList() {
                 value={"+79999999999"}
                 id={"2"}
                 onClickSaveFunc={onClickSave}
-                labelText={"WhatsApp:"} />
+                labelText={"WhatsApp:"}
+                isExample={true} />
             <FormItemWithNotation
                 textNotation={"runaway4uk"}
                 styleNotation={style.notation}
@@ -45,7 +47,8 @@ function MessengersList() {
                 value={"runaway4uk"}
                 id={"3"}
                 onClickSaveFunc={onClickSave}
-                labelText={"VK (Вконтакте):"} />
+                labelText={"VK (Вконтакте):"}
+                isExample={true} />
             <FormItemWithNotation
                 textNotation={"+79123456789"}
                 styleNotation={style.notation}
@@ -55,7 +58,8 @@ function MessengersList() {
                 value={"+79529999999"}
                 id={"4"}
                 onClickSaveFunc={onClickSave}
-                labelText={"Viber:"} />
+                labelText={"Viber:"}
+                isExample={true} />
           </div>
         </div>
       </div>

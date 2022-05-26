@@ -13,18 +13,24 @@ type Props = {
 
 const PointForm: React.FC<Props> = ({point, index}) => {
 
-  const {checkedPoints} = useTypedSelector(state => state.points)
-  const {addCheckPoint, deleteCheckPoint} = useActions()
+  const {checkedPoints, points} = useTypedSelector(state => state.points)
+  const {addCheckPoint, deleteCheckPoint, setAddress} = useActions()
 
   const verifyItemInCheckedPoints = (): boolean => {
     const item = checkedPoints.find(item => point.id === item.id)
     return !!item;
   }
 
+  console.log(points)
+
   const [checked, setChecked] = useState<boolean>(verifyItemInCheckedPoints)
 
   const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    console.log(inputValue)
+    // switch (id) {
+    //   case point.id: {
+    //
+    //   }
+    // }
   }
 
   const changeChecked = () => {

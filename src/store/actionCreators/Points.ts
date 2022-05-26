@@ -39,3 +39,10 @@ export const deleteCheckPoint = (checkedPoints: Point[]) => {
     payload: checkedPoints
   }
 }
+
+export const setAddress = (address: string) => {
+  return {
+    type: PointsActions.SET_ADDRESS,
+    payload: address
+  }
+}

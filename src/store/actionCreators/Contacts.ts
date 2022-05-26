@@ -37,3 +37,11 @@ export const deletePhone = (phones: Phone[]) => {
 export const deleteEmail = (emails: Email[]) => {
   return {type: ContactsActions.DELETE_EMAIL, payload: emails}
 }
+
+export const setMapStateCenter = (center: number[]) => {
+  return {type: ContactsActions.SET_MAP_STATE_CENTER, payload: center}
+}
+
+export const setMapZoom = (zoom: number) => {
+  return {type: ContactsActions.SET_MAP_ZOOM, payload: zoom}
+}

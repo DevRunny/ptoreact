@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import style from "./AddressesList.module.css"
@@ -10,13 +10,24 @@ import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {useActions} from "../../../../hooks/useActions";
 import PointForm from "./PointForm/PointForm";
 import classNames from "classnames";
+import Preloader from "../../../Preloader/Preloader";
 
 const AddressesList = () => {
-  const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    console.log(inputValue)
-  }
-  const {fetchPointsAC, addPoint, deletePoint, deleteCheckPoint} = useActions()
+  const [loading, setLoading] = useState<boolean>(false)
+  const {
+    fetchPointsAC,
+    addPoint,
+    deletePoint,
+    deleteCheckPoint,
+    fetchContactsAC,
+    setMapStateCenter,
+    setMapZoom
+  } = useActions()
   const {points, checkedPoints} = useTypedSelector(state => state.points)
+  const {mapState} = useTypedSelector(state => state.contacts)
+
+  console.log(mapState.center)
+  console.log(mapState.zoom)
 
   const deletePoints = () => {
     const newArrayPoints = points.filter(point => !checkedPoints.find(checkPoint => point.id === checkPoint.id))
@@ -24,10 +35,44 @@ const AddressesList = () => {
     deleteCheckPoint([])
   }
 
+  const validateZoom = (e: any, value: string, callback: Function) => {
+    if (Number(value) > 20) {
+      callback("20")
+    } else if (Number(value) < 1) {
+      callback("1")
+    } else {
+      callback(value)
+    }
+  }
+
+  const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
+    switch (id) {
+      case "1": {
+        const newCenter = inputValue.split(", ").map(coordinate => Number(coordinate))
+        setMapStateCenter(newCenter)
+        break
+      }
+      case "2": {
+        setMapZoom(Number(inputValue))
+        break
+      }
+      default:
+        break
+    }
+  }
+
+  const fetch = async () => {
+    setLoading(true)
+    await fetchPointsAC()
+    await fetchContactsAC()
+    setLoading(false)
+  }
+
   useEffect(() => {
-    fetchPointsAC()
+    fetch()
   }, [])
 
+  if (loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
 
   return (
       <div className={"adminContentBackground"}>
@@ -42,7 +87,7 @@ const AddressesList = () => {
                   labelText={"Координаты города:"}
                   mainStyle={style.formItem}
                   inputType={"text"}
-                  value={"56.326802, 44.006506"}
+                  value={mapState.center.join(", ")}
                   inputStyle={style.inputCoordinate}
                   id={"1"}
                   onClickSaveFunc={onClickSave}
@@ -56,11 +101,12 @@ const AddressesList = () => {
                   labelText={"Размер карты (zoom):"}
                   mainStyle={style.zoomItem}
                   inputType={"number"}
-                  value={10}
+                  value={mapState.zoom}
                   inputStyle={classNames(style.inputCoordinate, style.inputZoom)}
                   id={"2"}
                   onClickSaveFunc={onClickSave}
                   required={true}
+                  onBlurFunc={validateZoom}
               />
             </div>
           </div>

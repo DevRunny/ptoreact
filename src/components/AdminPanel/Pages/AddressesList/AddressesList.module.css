@@ -32,6 +32,14 @@
 
 .notation {
   margin-top: 10px;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.notation a {
+  font-style: normal;
+  color: #43A8EE;
 }
 
 .buttonWrap {

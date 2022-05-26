@@ -16,6 +16,7 @@ export type AdminFormItemProps = {
   onClickSaveFunc: (id: string, inputValue: string, inputType?: InputType) => void
   onClickDeleteFunc?: (id: string) => void
   itemType?: "input" | "textArea"
+  onBlurFunc?: (e: any, value: string, callback: Function) => void
 }
 
 export type InputType = "number" | "text" | "email" | "tel" | "password" | "file" | "checkbox"
@@ -31,7 +32,8 @@ const AdminFromItem: React.FC<AdminFormItemProps> = ({
                                                        id,
                                                        onClickSaveFunc,
                                                        onClickDeleteFunc,
-                                                       itemType = "input"
+                                                       itemType = "input",
+                                                       onBlurFunc
                                                      }) => {
 
   const formItem = useAdminFormItem(disabled, value, inputType, id, onClickSaveFunc, onClickDeleteFunc)
@@ -48,6 +50,13 @@ const AdminFromItem: React.FC<AdminFormItemProps> = ({
                 value={formItem.localValue}
                 onChange={(e) => {
                   formItem.changeInputValue(e)
+                }}
+                onBlur={(e) => {
+                  if (onBlurFunc) {
+                    onBlurFunc(e, formItem.localValue, formItem.setLocalValue)
+                  } else {
+                    return
+                  }
                 }} />
         )
       case "textArea":

@@ -27,6 +27,8 @@ export const pointsReducer = (state = initialState, action: PointsAction): Point
       return {...state, checkedPoints: [...state.checkedPoints, action.payload]}
     case PointsActions.DELETE_CHECK_POINT:
       return {...state, checkedPoints: action.payload}
+      // case PointsActions.SET_ADDRESS:
+      //   return {...state, points: [...state.points, {address: action.payload}]}
     default:
       return state
   }

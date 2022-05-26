@@ -1,8 +1,8 @@
 import {instance} from "./index";
-import {Document} from "../types/documents";
+import {ResponseDocuments} from "../types/documents";
 
-export const getDocumentation = async ():Promise<Document[]> => {
-    const response = await instance.get("documentation")
-    const data = response.data
-    return data
+export const getDocumentation = async (): Promise<ResponseDocuments> => {
+  const response = await instance.get("documentation")
+  const data = response.data
+  return data
 }

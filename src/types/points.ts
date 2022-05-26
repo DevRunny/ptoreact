@@ -5,13 +5,14 @@ export enum PointsActions {
   ADD_POINT = "ADD_POINT",
   DELETE_POINT = "DELETE_POINT",
   CHECK_POINT = "CHECK_POINT",
-  DELETE_CHECK_POINT = "DELETE_CHECK_POINT"
+  DELETE_CHECK_POINT = "DELETE_CHECK_POINT",
+  SET_ADDRESS = "SET_ADDRESS"
 }
 
 export type PointsState = {
   points: Point[]
   checkedPoints: Point[]
-  error: string,
+  error: string
   loading: boolean
 }
 
@@ -31,7 +32,8 @@ export type PointsAction =
     AddPoint |
     DeletePoint |
     CheckPoint |
-    DeleteCheckPoint
+    DeleteCheckPoint |
+    SetAddress
 
 type FetchPoints = {
   type: PointsActions.FETCH_POINTS
@@ -65,4 +67,9 @@ type CheckPoint = {
 type DeleteCheckPoint = {
   type: PointsActions.DELETE_CHECK_POINT,
   payload: Point[]
+}
+
+type SetAddress = {
+  type: PointsActions.SET_ADDRESS
+  payload: string
 }

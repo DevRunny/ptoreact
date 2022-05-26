@@ -1,16 +1,9 @@
-import {
-  ContactsAction,
-  ContactsActions,
-  ContactsState,
-  Email,
-  MapState,
-  Phone,
-} from "../../types/contacts";
+import {ContactsAction, ContactsActions, ContactsState, Email, MapState, Phone,} from "../../types/contacts";
 
 const initialState: ContactsState = {
   emails: [] as Email[],
   phones: [] as Phone[],
-  mapState: {} as MapState,
+  mapState: {center: [0, 0], zoom: 10} as MapState,
   loading: false,
   error: null
 }
@@ -50,6 +43,11 @@ export const contactsReducer = (state = initialState, action: ContactsAction): C
 
     case ContactsActions.DELETE_EMAIL:
       return {...state, emails: action.payload}
+
+    case ContactsActions.SET_MAP_STATE_CENTER:
+      return {...state, mapState: {...state.mapState, center: action.payload}}
+    case ContactsActions.SET_MAP_ZOOM:
+      return {...state, mapState: {...state.mapState, zoom: action.payload}}
 
     default:
       return state

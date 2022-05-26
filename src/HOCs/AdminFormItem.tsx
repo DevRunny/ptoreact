@@ -6,6 +6,7 @@ interface InjectedProps extends AdminFormItemProps {
   styleNotation: string
   link?: string
   textLink?: string
+  isExample?: boolean
 }
 
 export const withNotation = (Component: React.ComponentType<AdminFormItemProps>) => {
@@ -23,9 +24,15 @@ export const withNotation = (Component: React.ComponentType<AdminFormItemProps>)
               inputStyle={props.inputStyle}
               mainStyle={props.mainStyle}
               disabled={props.disabled}
+              onBlurFunc={props.onBlurFunc}
           />
           <p className={props.styleNotation}>
-              {props.textNotation + " "} <a href={props.link} target={"_blank"}><b>{props.textLink}</b></a>
+            {props.isExample ?
+                <>Пример: <b>{props.textNotation}</b>
+                  <a href={props.link} target={"_blank"}><b>{props.textLink}</b></a></>
+                :
+                <>{props.textNotation + " "} <a href={props.link} target={"_blank"}><b>{props.textLink}</b></a></>
+            }
           </p>
         </div>
     )

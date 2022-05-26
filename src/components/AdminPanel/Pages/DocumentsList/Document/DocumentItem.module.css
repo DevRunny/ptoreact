@@ -1,0 +1,45 @@
+.contentBlock {
+  position: relative;
+}
+
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+  z-index: 6;
+}
+
+.wrap hr {
+  position: absolute;
+  left: -50px;
+  bottom: -30px;
+  width: 840px;
+  border: 1px solid #efefef;
+}
+
+.checkbox {
+  position: absolute;
+  left: 10px;
+  top: 22px;
+  cursor: pointer;
+}
+
+.background {
+  position: absolute;
+  top: -20px;
+  left: -48px;
+  z-index: 4;
+}
+
+.backgroundActive {
+  position: absolute;
+  top: -20px;
+  left: -48px;
+  width: 845px;
+  height: 173px;
+  background: #D1FAD3;
+  border-radius: 17px;
+  z-index: 4;
+}

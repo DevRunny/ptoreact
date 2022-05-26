@@ -7,7 +7,9 @@ export enum ContactsActions {
   ADD_PHONE = "ADD_PHONE",
   ADD_EMAIL = "ADD_EMAIL",
   DELETE_PHONE = "DELETE_PHONE",
-  DELETE_EMAIL = "DELETE_EMAIL"
+  DELETE_EMAIL = "DELETE_EMAIL",
+  SET_MAP_STATE_CENTER = "SET_MAP_STATE_CENTER",
+  SET_MAP_ZOOM = "SET_MAP_ZOOM"
 }
 
 export type ContactsState = {
@@ -58,7 +60,9 @@ export type ContactsAction =
     AddPhone |
     AddEmail |
     DeletePhone |
-    DeleteEmail
+    DeleteEmail |
+    SetMapStateCenter |
+    SetMapZoom
 
 type FetchContacts = {
   type: ContactsActions.FETCH_CONTACTS,
@@ -100,4 +104,14 @@ type DeletePhone = {
 type DeleteEmail = {
   type: ContactsActions.DELETE_EMAIL
   payload: Email[]
+}
+
+type SetMapStateCenter = {
+  type: ContactsActions.SET_MAP_STATE_CENTER,
+  payload: number[]
+}
+
+type SetMapZoom = {
+  type: ContactsActions.SET_MAP_ZOOM,
+  payload: number
 }
