@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from "./PointForm.module.css"
-import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
+import AdminFormItem from "../../AdminFormItem/AdminFormItem";
 import {Point} from "../../../../../types/points";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
-import {useTypedSelector} from "../../../../../hooks/useTypedSelector";
-import {useActions} from "../../../../../hooks/useActions";
+import {usePointForm} from "../../../../../hooks/usePointForm";
 
 type Props = {
   point: Point
@@ -13,53 +12,20 @@ type Props = {
 
 const PointForm: React.FC<Props> = ({point, index}) => {
 
-  const {checkedPoints, points} = useTypedSelector(state => state.points)
-  const {addCheckPoint, deleteCheckPoint, setAddress} = useActions()
-
-  const verifyItemInCheckedPoints = (): boolean => {
-    const item = checkedPoints.find(item => point.id === item.id)
-    return !!item;
-  }
-
-  console.log(points)
-
-  const [checked, setChecked] = useState<boolean>(verifyItemInCheckedPoints)
-
-  const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    // switch (id) {
-    //   case point.id: {
-    //
-    //   }
-    // }
-  }
-
-  const changeChecked = () => {
-    if (checked) {
-      setChecked(false)
-      const newCheckPoints = checkedPoints.filter(item => item.id !== point.id)
-      deleteCheckPoint(newCheckPoints)
-    } else {
-      setChecked(true)
-      addCheckPoint(point)
-    }
-  }
-
-  const getUniqueId = () => {
-    return point.coordinate.reduce((prev, curr) => prev + curr).toString()
-  }
+  const pointForm = usePointForm(point)
 
   return (
       <>
         <div className={style.addressBlock}>
-          <div className={checked ? style.backgroundActive : style.background}>
+          <div className={pointForm.checked ? style.backgroundActive : style.background}>
             {index > 0
                 ?
                 <img
                     className={style.checkbox}
-                    src={checked ? adminPanelImages.checkbox.checked.src : adminPanelImages.checkbox.empty.src}
-                    alt={checked ? adminPanelImages.checkbox.checked.alt : adminPanelImages.checkbox.empty.alt}
+                    src={pointForm.checked ? adminPanelImages.checkbox.checked.src : adminPanelImages.checkbox.empty.src}
+                    alt={pointForm.checked ? adminPanelImages.checkbox.checked.alt : adminPanelImages.checkbox.empty.alt}
                     onClick={() => {
-                      changeChecked()
+                      pointForm.changeChecked()
                     }}
                 />
                 :
@@ -74,7 +40,7 @@ const PointForm: React.FC<Props> = ({point, index}) => {
                 inputType={"text"}
                 value={point.address}
                 id={point.address}
-                onClickSaveFunc={onClickSave}
+                onClickSaveFunc={pointForm.onClickSave}
                 required={true}
                 itemType={"textArea"}
             />
@@ -84,8 +50,8 @@ const PointForm: React.FC<Props> = ({point, index}) => {
                 inputStyle={style.inputAddress}
                 inputType={"text"}
                 value={point.coordinate.join(", ")}
-                id={getUniqueId()}
-                onClickSaveFunc={onClickSave}
+                id={pointForm.getUniqueId()}
+                onClickSaveFunc={pointForm.onClickSave}
                 required={true}
             />
             <AdminFormItem
@@ -94,8 +60,8 @@ const PointForm: React.FC<Props> = ({point, index}) => {
                 inputStyle={style.textAreaAddress}
                 inputType={"text"}
                 value={point.workingMode}
-                id={point.address + getUniqueId()}
-                onClickSaveFunc={onClickSave}
+                id={point.address + pointForm.getUniqueId()}
+                onClickSaveFunc={pointForm.onClickSave}
                 required={true}
                 itemType={"textArea"}
             />

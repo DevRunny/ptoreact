@@ -71,5 +71,5 @@ type DeleteCheckPoint = {
 
 type SetAddress = {
   type: PointsActions.SET_ADDRESS
-  payload: string
+  payload: Point[]
 }

@@ -83,11 +83,12 @@ const DocumentsList = () => {
               textButton={"Добавить документ"}
               onClickFunc={addDocumentField}
               icon={adminPanelImages.plusButton.blue.src}
-              buttonStyle={!documents.find(item => item.urlDocument === "Выберите файл")
-                  ?
-                  style.addBottomButton
-                  :
-                  classNames(style.addBottomButton, style.addButtonDisabled)}
+              buttonStyle={
+                !documents.find(item => item.urlDocument === "Выберите файл")
+                    ?
+                    style.addBottomButton
+                    :
+                    classNames(style.addBottomButton, style.addButtonDisabled)}
           />
 
         </div>

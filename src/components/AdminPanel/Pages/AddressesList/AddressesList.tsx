@@ -1,78 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import style from "./AddressesList.module.css"
-import {InputType} from "../AdminFormItem/AdminFormItem";
 import {FormItemWithNotation} from "../../../../HOCs/AdminFormItem";
 import AddFieldButton from "../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
-import {useTypedSelector} from "../../../../hooks/useTypedSelector";
-import {useActions} from "../../../../hooks/useActions";
 import PointForm from "./PointForm/PointForm";
 import classNames from "classnames";
 import Preloader from "../../../Preloader/Preloader";
+import {useAddressesList} from "../../../../hooks/useAddressesList";
 
 const AddressesList = () => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const {
-    fetchPointsAC,
-    addPoint,
-    deletePoint,
-    deleteCheckPoint,
-    fetchContactsAC,
-    setMapStateCenter,
-    setMapZoom
-  } = useActions()
-  const {points, checkedPoints} = useTypedSelector(state => state.points)
-  const {mapState} = useTypedSelector(state => state.contacts)
+  const addressesList = useAddressesList()
 
-  console.log(mapState.center)
-  console.log(mapState.zoom)
-
-  const deletePoints = () => {
-    const newArrayPoints = points.filter(point => !checkedPoints.find(checkPoint => point.id === checkPoint.id))
-    deletePoint(newArrayPoints)
-    deleteCheckPoint([])
-  }
-
-  const validateZoom = (e: any, value: string, callback: Function) => {
-    if (Number(value) > 20) {
-      callback("20")
-    } else if (Number(value) < 1) {
-      callback("1")
-    } else {
-      callback(value)
-    }
-  }
-
-  const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    switch (id) {
-      case "1": {
-        const newCenter = inputValue.split(", ").map(coordinate => Number(coordinate))
-        setMapStateCenter(newCenter)
-        break
-      }
-      case "2": {
-        setMapZoom(Number(inputValue))
-        break
-      }
-      default:
-        break
-    }
-  }
-
-  const fetch = async () => {
-    setLoading(true)
-    await fetchPointsAC()
-    await fetchContactsAC()
-    setLoading(false)
-  }
-
-  useEffect(() => {
-    fetch()
-  }, [])
-
-  if (loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
+  if (addressesList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
 
   return (
       <div className={"adminContentBackground"}>
@@ -87,10 +28,10 @@ const AddressesList = () => {
                   labelText={"Координаты города:"}
                   mainStyle={style.formItem}
                   inputType={"text"}
-                  value={mapState.center.join(", ")}
+                  value={addressesList.mapState.center.join(", ")}
                   inputStyle={style.inputCoordinate}
                   id={"1"}
-                  onClickSaveFunc={onClickSave}
+                  onClickSaveFunc={addressesList.onClickSave}
                   required={true}
                   link="https://yandex.ru/maps/"
                   textLink="Яндекс.Карты"
@@ -101,12 +42,12 @@ const AddressesList = () => {
                   labelText={"Размер карты (zoom):"}
                   mainStyle={style.zoomItem}
                   inputType={"number"}
-                  value={mapState.zoom}
+                  value={addressesList.mapState.zoom}
                   inputStyle={classNames(style.inputCoordinate, style.inputZoom)}
                   id={"2"}
-                  onClickSaveFunc={onClickSave}
+                  onClickSaveFunc={addressesList.onClickSave}
                   required={true}
-                  onBlurFunc={validateZoom}
+                  onBlurFunc={addressesList.validateZoom}
               />
             </div>
           </div>
@@ -116,17 +57,17 @@ const AddressesList = () => {
               <AddFieldButton
                   textButton={"Добавить адрес и режим работы"}
                   onClickFunc={() => {
-                    addPoint(points)
+                    addressesList.addPoint(addressesList.points)
                   }}
                   icon={adminPanelImages.plusButton.white.src}
                   buttonStyle={style.addButton}
               />
               <AddFieldButton
                   textButton={"Удалить выбранные адреса"}
-                  onClickFunc={deletePoints}
+                  onClickFunc={addressesList.deletePoints}
                   icon={adminPanelImages.basketTrash.src}
                   buttonStyle={
-                    checkedPoints.length
+                    addressesList.checkedPoints.length
                         ?
                         style.deleteButton
                         :
@@ -134,7 +75,7 @@ const AddressesList = () => {
                   }
               />
             </div>
-            {points.map((point, index) => <PointForm key={point.id} point={point} index={index} />)}
+            {addressesList.points.map((point, index) => <PointForm key={point.id} point={point} index={index} />)}
           </div>
         </div>
       </div>
