@@ -1,65 +1,41 @@
-import React, {useState} from 'react';
+import React from 'react';
 import style from "./DocumentItem.module.css"
 import {Document} from "../../../../../types/documents";
-import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
+import AdminFormItem from "../../AdminFormItem/AdminFormItem";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
-import {useActions} from "../../../../../hooks/useActions";
-import {useTypedSelector} from "../../../../../hooks/useTypedSelector";
+import {useDocumentItem} from "../../../../../hooks/useDocumentItem";
 
 type Props = {
   document: Document
   index: number
+  newItem: boolean
 }
 
-const DocumentItem: React.FC<Props> = ({document, index}) => {
-  const {documents, checkedDocuments} = useTypedSelector(state => state.documents)
-  const {addCheckDocument, deleteCheckDocument} = useActions()
-
-  console.log(documents) // log все документов
-
-  const verifyItemInCheckedDocuments = (): boolean => {
-    const item = checkedDocuments.find(item => document.id === item.id)
-    return !!item;
-  }
-
-  const [checked, setChecked] = useState<boolean>(verifyItemInCheckedDocuments)
-
-  const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    console.log(inputValue)
-  }
-
-  const changeChecked = () => {
-    if (checked) {
-      setChecked(false)
-      const newCheckDocuments = checkedDocuments.filter(item => item.id !== document.id)
-      deleteCheckDocument(newCheckDocuments)
-    } else {
-      setChecked(true)
-      addCheckDocument(document)
-    }
-  }
+const DocumentItem: React.FC<Props> = ({document, index, newItem}) => {
+  const documentItem = useDocumentItem(document)
 
   return (
       <div className={style.contentBlock}>
-        <div className={checked ? style.backgroundActive : style.background}>
+        <div className={documentItem.checked ? style.backgroundActive : newItem ? style.backgroundNewItem : style.background}>
           <img
               className={style.checkbox}
-              src={checked ? adminPanelImages.checkbox.checked.src : adminPanelImages.checkbox.empty.src}
-              alt={checked ? adminPanelImages.checkbox.checked.alt : adminPanelImages.checkbox.empty.alt}
+              src={documentItem.checked ? adminPanelImages.checkbox.checked.src : adminPanelImages.checkbox.empty.src}
+              alt={documentItem.checked ? adminPanelImages.checkbox.checked.alt : adminPanelImages.checkbox.empty.alt}
               onClick={() => {
-                changeChecked()
+                documentItem.changeChecked()
               }}
           />
         </div>
         <div className={style.wrap}>
           <AdminFormItem
+              disabled={!newItem}
               labelText={"Название:"}
               mainStyle={"formItem"}
               inputStyle={style.inputName}
               inputType={"text"}
               value={document.documentDescription}
               id={"1"}
-              onClickSaveFunc={onClickSave}
+              onClickSaveFunc={documentItem.onClickSave}
               required={true}
               itemType={"textArea"}
           />
@@ -70,8 +46,9 @@ const DocumentItem: React.FC<Props> = ({document, index}) => {
               inputType={"text"}
               value={document.urlDocument}
               id={"2"}
-              onClickSaveFunc={onClickSave}
+              onClickSaveFunc={documentItem.onClickSave}
               required={true}
+              disabled={!newItem}
           />
           <hr />
         </div>

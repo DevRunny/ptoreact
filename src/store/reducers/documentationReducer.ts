@@ -23,6 +23,8 @@ export const documentationReducer = (state = initialState, action: DocumentsActi
       return {...state, checkedDocuments: [...state.checkedDocuments, action.payload]}
     case DocumentsActions.DELETE_CHECK_DOCUMENT:
       return {...state, checkedDocuments: action.payload}
+    case DocumentsActions.SET_VALUES_DOCUMENT:
+      return {...state, documents: action.payload}
     default:
       return state
   }

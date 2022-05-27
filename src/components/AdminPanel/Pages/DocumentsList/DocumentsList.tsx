@@ -1,46 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import style from "./DocumentList.module.css"
 import AdminMainTitle from "../AdminMainTitle";
 import AddFieldButton from "../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import DocumentItem from "./Document/DocumentItem";
-import {useTypedSelector} from "../../../../hooks/useTypedSelector";
-import {useActions} from "../../../../hooks/useActions";
 import Preloader from "../../../Preloader/Preloader";
 import classNames from "classnames";
+import {useDocumentsList} from "../../../../hooks/useDocumentsList";
 
 const DocumentsList = () => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const {documents, checkedDocuments} = useTypedSelector(state => state.documents)
+  const documentsList = useDocumentsList()
 
-  const {fetchDocumentsAC, addDocument, deleteDocument, deleteCheckDocument} = useActions()
-
-  const deleteDocuments = () => {
-    const newArrayDocuments = documents.filter(document => !checkedDocuments.find(checkDocument => document.id === checkDocument.id))
-    deleteDocument(newArrayDocuments)
-    deleteCheckDocument([])
-  }
-
-  const addDocumentField = () => {
-    const newDocument = documents.find(item => item.urlDocument === "Выберите файл")
-    if (!newDocument) {
-      addDocument(documents)
-    } else {
-      return
-    }
-  }
-
-  const fetch = async () => {
-    setLoading(true)
-    await fetchDocumentsAC()
-    setLoading(false)
-  }
-
-  useEffect(() => {
-    fetch()
-  }, [])
-
-  if (loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
+  if (documentsList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
 
   return (
       <div className={"adminContentBackground"}>
@@ -49,10 +20,10 @@ const DocumentsList = () => {
           <div className={style.buttonWrap}>
             <AddFieldButton
                 textButton={"Добавить файл"}
-                onClickFunc={addDocumentField}
+                onClickFunc={documentsList.addDocumentField}
                 icon={adminPanelImages.plusButton.white.src}
                 buttonStyle={
-                  !documents.find(item => item.urlDocument === "Выберите файл")
+                  !documentsList.documents.find(item => item.urlDocument === "Выберите файл")
                       ?
                       style.addButton
                       :
@@ -61,10 +32,10 @@ const DocumentsList = () => {
             />
             <AddFieldButton
                 textButton={"Удалить файлы"}
-                onClickFunc={deleteDocuments}
+                onClickFunc={documentsList.deleteDocuments}
                 icon={adminPanelImages.basketTrash.src}
                 buttonStyle={
-                  checkedDocuments.length
+                  documentsList.checkedDocuments.length
                       ?
                       style.deleteButton
                       :
@@ -72,25 +43,14 @@ const DocumentsList = () => {
                 }
             />
           </div>
-          {documents.map((document, index) => {
+          {documentsList.reverseDocuments().map((document, index) => {
             return <DocumentItem
                 key={document.id}
                 document={document}
                 index={index}
+                newItem={document.urlDocument === "Выберите файл"}
             />
           })}
-          <AddFieldButton
-              textButton={"Добавить документ"}
-              onClickFunc={addDocumentField}
-              icon={adminPanelImages.plusButton.blue.src}
-              buttonStyle={
-                !documents.find(item => item.urlDocument === "Выберите файл")
-                    ?
-                    style.addBottomButton
-                    :
-                    classNames(style.addBottomButton, style.addButtonDisabled)}
-          />
-
         </div>
 
       </div>

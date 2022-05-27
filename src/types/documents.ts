@@ -5,7 +5,8 @@ export enum DocumentsActions {
   ADD_DOCUMENT = "ADD_DOCUMENTS",
   DELETE_DOCUMENT = "DELETE_DOCUMENT",
   CHECK_DOCUMENT = "CHECK_DOCUMENT",
-  DELETE_CHECK_DOCUMENT = "DELETE_CHECK_DOCUMENT"
+  DELETE_CHECK_DOCUMENT = "DELETE_CHECK_DOCUMENT",
+  SET_VALUES_DOCUMENT = "SET_VALUES_DOCUMENT"
 }
 
 export type DocumentsState = {
@@ -30,7 +31,8 @@ export type DocumentsAction =
     AddDocument |
     DeleteDocument |
     CheckPoint |
-    DeleteCheckPoint
+    DeleteCheckPoint |
+    SetValuesDocument
 
 type FetchDocuments = {
   type: DocumentsActions.FETCH_DOCUMENTS
@@ -65,3 +67,9 @@ type DeleteCheckPoint = {
   type: DocumentsActions.DELETE_CHECK_DOCUMENT,
   payload: Document[]
 }
+
+type SetValuesDocument = {
+  type: DocumentsActions.SET_VALUES_DOCUMENT,
+  payload: Document[]
+}
+

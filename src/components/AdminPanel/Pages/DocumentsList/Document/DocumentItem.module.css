@@ -52,3 +52,14 @@
   border-radius: 17px;
   z-index: 4;
 }
+
+.backgroundNewItem {
+  position: absolute;
+  top: -20px;
+  left: -48px;
+  width: 770px;
+  height: 200px;
+  background: #d1eafa;
+  border-radius: 17px;
+  z-index: 4;
+}

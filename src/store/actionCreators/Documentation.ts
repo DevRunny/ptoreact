@@ -1,6 +1,7 @@
 import {Dispatch} from "redux";
 import {Document, DocumentsAction, DocumentsActions} from "../../types/documents";
 import {getDocumentation} from "../../API/documentation";
+import document from "../../components/Documentation/Document/Document";
 
 export const fetchDocumentsAC = () => async (dispatch: Dispatch<DocumentsAction>) => {
   try {
@@ -42,5 +43,12 @@ export const deleteCheckDocument = (checkedDocuments: Document[]) => {
   return {
     type: DocumentsActions.DELETE_CHECK_DOCUMENT,
     payload: checkedDocuments
+  }
+}
+
+export const setValuesDocument = (documents: Document[]) => {
+  return {
+    type: DocumentsActions.SET_VALUES_DOCUMENT,
+    payload: documents
   }
 }

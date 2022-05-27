@@ -9,7 +9,7 @@ export const useAdminFormItem = (disabled: boolean,
                                  onClickDeleteFunc?: (id: string) => void) => {
   const [localValue, setLocalValue] = useState<string>(inputValue ? inputValue.toString() : "")
   const [disabledElement, setDisabledElement] = useState<boolean>(disabled)
-  const [isChange, setIsChange] = useState<boolean>(false)
+  const [isChange, setIsChange] = useState<boolean>(!disabled)
 
   const changeInputValue = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     setLocalValue(e.target.value)
