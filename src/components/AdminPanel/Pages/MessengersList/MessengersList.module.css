@@ -1,6 +1,7 @@
 .itemWrap {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 23px;
 }
 
@@ -14,4 +15,10 @@
 
 .inputMessenger {
   width: 190px;
+}
+
+.addMessenger {
+  font-size: 15px;
+  color: #000000;
+  cursor: pointer;
 }

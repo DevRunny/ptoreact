@@ -12,7 +12,9 @@
 }
 
 .addButton {
+  font-size: 13px;
   background: #77D77B;
+  color: #FAFAFA;
   width: 154px;
   cursor: pointer;
 }
@@ -23,7 +25,9 @@
 }
 
 .deleteButton {
+  font-size: 13px;
   background: #E24A4A;
+  color: #FAFAFA;
   width: 154px;
   cursor: pointer;
 }

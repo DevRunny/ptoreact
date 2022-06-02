@@ -25,6 +25,7 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  pointer-events: none;
 }
 
 .title {
