@@ -1,16 +1,22 @@
-.leftSideBar {
+.leftSideBarWrap {
   position: relative;
+  width: 295px;
+}
+
+.leftSideBar {
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 295px;
+  padding: 45px 0 68px 0;
   height: 100%;
   background-color: white;
-  padding: 45px 0 68px 0;
   font-family: "Inter", serif;
   border-right: 1px solid #F0F0F0;
   min-height: 100vh;
+  z-index: 10;
 }
 
 .menu {
