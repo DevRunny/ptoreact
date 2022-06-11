@@ -5,13 +5,7 @@ const initialState: AuthState = {
   tokenId: "",
   expiresToken: "",
   loading: false,
-  error: "",
-  isAuthenticated: () => {
-    if (Number(localStorage.getItem("expiresToken")) > new Date().getTime()) {
-
-    }
-    return ""
-  }
+  error: ""
 };
 
 export const authReducer = (

@@ -8,11 +8,12 @@ import {addSelectCategory} from "../../../../API/acccreditation";
 import {useActions} from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import Preloader from "../../../Preloader/Preloader";
+import {useAuth} from "../../../../hooks/useAuth";
 
 function AccreditationList() {
 
   const {loading, error, allCategories, selectedCategories} = useTypedSelector(state => state.accreditation)
-
+  const {redirect} = useAuth()
   const {fetchAllCategoriesAC, fetchSelectedCategoriesAC} = useActions()
   const [saveChanges, setChangesSave] = useState<boolean>(false)
   const [errorChanges, setErrorChanges] = useState<boolean>(false)
@@ -31,6 +32,7 @@ function AccreditationList() {
   }
 
   useEffect(() => {
+    redirect()
     fetchAllCategoriesAC()
     fetchSelectedCategoriesAC()
   }, [])
@@ -41,7 +43,7 @@ function AccreditationList() {
         <div className={style.contentWrap}>
           <SectionTitle titleText={"Выберите категории транспортных средств, на которые вы аттестованы:"} />
           <div className={style.list}>
-            {allCategories.length ?
+            {allCategories.length && selectedCategories.length ?
                 allCategories.map(category => {
                   const find = selectedCategories.find(selectedCategory => category.id === selectedCategory.id)
                   if (find) {

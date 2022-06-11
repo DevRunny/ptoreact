@@ -7,16 +7,36 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 
 function Footer() {
   const stateInfo = useTypedSelector(state => state.about)
-  const {telegram, vk, whatsapp, viber} = useTypedSelector(state => state.messengers)
+  const {messengers} = useTypedSelector(state => state.messengers)
+
+
+  const renderMessenger = (messengerName: string) => {
+    switch (messengerName) {
+      case "Telegram":
+        return {href: "https://telegram.im/", urlImage: "/images/Footer/telegramIcon.svg", alt: "telegram"}
+      case "VK (Вконтакте)":
+        return {href: "https://vk.com/", urlImage: "/images/Footer/vkIcon.svg", alt: "vk"}
+      case "WhatsApp":
+        return {href: "https://wa.me/", urlImage: "/images/Footer/whatsappIcon.svg", alt: "whatsapp"}
+      case "Viber":
+        return {href: "viber://chat?number=", urlImage: "/images/Footer/viberIcon.svg", alt: "viber"}
+      default:
+        return {href: "", urlImage: "", alt: ""}
+    }
+  }
+
   return (
       <footer className={style.background}>
         <div className="container">
           <div className={style.footer}>
             <div className={style.messengerLinks}>
-              <MessengerComponent href={`https://telegram.im/${telegram}`} urlImage={"/images/Footer/telegramIcon.svg"} alt={"telegram"} />
-              <MessengerComponent href={`https://vk.com/${vk}`} urlImage={"/images/Footer/vkIcon.svg"} alt={"vk"} />
-              <MessengerComponent href={`https://wa.me/${whatsapp}`} urlImage={"/images/Footer/whatsappIcon.svg"} alt={"whatsapp"} />
-              <MessengerComponent href={`viber://chat?number=${viber}`} urlImage={"/images/Footer/viberIcon.svg"} alt={"viber"} />
+              {messengers.map(messenger => {
+                return <MessengerComponent
+                    key={messenger.id}
+                    href={`${renderMessenger(messenger.messengerName).href}${messenger.value}`}
+                    urlImage={renderMessenger(messenger.messengerName).urlImage}
+                    alt={renderMessenger(messenger.messengerName).alt} />
+              })}
             </div>
             <Navigation mainClass={style.footerLinks} mainClassLink={style.footerLink} />
             <div className={style.footerAbout}>

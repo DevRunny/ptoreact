@@ -1,10 +1,7 @@
-import {MessengersAction, MessengersActions, MessengersState} from "../../types/messengers";
+import {Messenger, MessengersAction, MessengersActions, MessengersState} from "../../types/messengers";
 
 const initialState: MessengersState = {
-  telegram: "",
-  vk: "",
-  whatsapp: "",
-  viber: "",
+  messengers: [] as Messenger[],
   loading: false,
   error: null
 }
@@ -17,20 +14,30 @@ export const messengersReducer = (state = initialState, action: MessengersAction
       return {
         ...state,
         loading: false,
-        telegram: action.payload.telegram,
-        vk: action.payload.vk,
-        whatsapp: action.payload.whatsapp,
-        viber: action.payload.viber
+        messengers: action.payload
       }
     case MessengersActions.FETCH_MESSENGERS_ERROR:
       return {...state, error: action.payload}
     case MessengersActions.DELETE_MESSENGER:
       return {
         ...state,
-        telegram: action.payload.telegram,
-        vk: action.payload.vk,
-        whatsapp: action.payload.whatsapp,
-        viber: action.payload.viber
+        messengers: state.messengers.map(mes => {
+          if (mes.id === action.payload) {
+            return {...mes, value: ""}
+          } else {
+            return mes
+          }
+        })
+      }
+    case MessengersActions.SET_MESSENGER:
+      return {
+        ...state, messengers: state.messengers.map(mes => {
+          if (mes.id === action.payload.id) {
+            return {...mes, value: action.payload.value}
+          } else {
+            return mes
+          }
+        })
       }
     default:
       return state

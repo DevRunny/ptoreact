@@ -1,33 +1,10 @@
-import {useActions} from "./useActions";
-import {useNavigate} from "react-router-dom";
 import {InputType} from "../components/AdminPanel/Pages/AdminFormItem/AdminFormItem";
 import {useEffect} from "react";
+import {useAuth} from "./useAuth";
 
 export const useSettings = () => {
-  const {logout} = useActions()
-  const navigate = useNavigate()
 
-  const getUserLogin = (): string => {
-    const login = localStorage.getItem("login")
-    if (login) {
-      return login
-    } else {
-      logout()
-      navigate("login")
-      return ""
-    }
-  }
-  const getUserPassword = (): string => {
-    const password = localStorage.getItem("password")
-    if (password) {
-      return password
-    } else {
-      logout()
-      navigate("login")
-      return ""
-    }
-  }
-
+  const {redirect} = useAuth()
 
   const onClickSave = async (id: string, inputValue: string, inputType?: InputType) => {
     // switch (id) {
@@ -45,11 +22,10 @@ export const useSettings = () => {
   }
 
   useEffect(() => {
+    redirect()
   }, [])
 
   return {
-    getUserLogin,
-    getUserPassword,
     onClickSave
   }
 }

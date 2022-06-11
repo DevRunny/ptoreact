@@ -1,13 +1,13 @@
 import {useForm} from "react-hook-form";
 import {User} from "../types/auth";
 import {useActions} from "./useActions";
-import {useAuthHistory} from "./useAuthHistory";
+import {useAuth} from "./useAuth";
 import {ChangeEvent, useState} from "react";
 
 export const useLoginForm = () => {
 
   const {login} = useActions();
-  const history = useAuthHistory()
+  const history = useAuth()
 
   const [loginValue, setLoginValue] = useState<string>("")
   const [passwordValue, setPasswordValue] = useState<string>("")

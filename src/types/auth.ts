@@ -4,7 +4,6 @@ export interface AuthState {
   expiresToken: string
   loading: boolean
   error: string | null
-  isAuthenticated: () => string
 };
 
 export type User = {

@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {useTypedSelector} from "./useTypedSelector";
 import {Document} from "../types/documents";
 import {useActions} from "./useActions";
+import {useAuth} from "./useAuth";
 
 export const useDocumentsList = () => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -17,6 +18,7 @@ export const useDocumentsList = () => {
   }
 
   const {fetchDocumentsAC, addDocument, deleteDocument, deleteCheckDocument} = useActions()
+  const {redirect} = useAuth()
 
   const deleteDocuments = () => {
     const newArrayDocuments = documents.filter(document => !checkedDocuments.find(checkDocument => document.id === checkDocument.id))
@@ -40,6 +42,7 @@ export const useDocumentsList = () => {
   }
 
   useEffect(() => {
+    redirect()
     fetch()
   }, [])
 

@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {useActions} from "./useActions";
 import {useTypedSelector} from "./useTypedSelector";
 import {InputType} from "../components/AdminPanel/Pages/AdminFormItem/AdminFormItem";
+import {useAuth} from "./useAuth";
 
 export const useAddressesList = () => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -14,6 +15,7 @@ export const useAddressesList = () => {
     setMapStateCenter,
     setMapZoom
   } = useActions()
+  const {redirect} = useAuth()
   const {points, checkedPoints} = useTypedSelector(state => state.points)
   const {mapState} = useTypedSelector(state => state.contacts)
 
@@ -57,6 +59,7 @@ export const useAddressesList = () => {
   }
 
   useEffect(() => {
+    redirect()
     fetch()
   }, [])
 

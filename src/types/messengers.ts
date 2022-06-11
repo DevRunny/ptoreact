@@ -2,33 +2,33 @@ export enum MessengersActions {
   FETCH_MESSENGERS = "FETCH_MESSENGERS",
   FETCH_MESSENGERS_SUCCESS = "FETCH_MESSENGERS_SUCCESS",
   FETCH_MESSENGERS_ERROR = "FETCH_MESSENGERS_ERROR",
-  DELETE_MESSENGER = "DELETE_MESSENGER"
+  DELETE_MESSENGER = "DELETE_MESSENGER",
+  SET_MESSENGER = "SET_MESSENGER",
 }
 
 
 export type MessengersState = {
-  telegram: string
-  vk: string
-  whatsapp: string
-  viber: string
+  messengers: Messenger[]
   loading: boolean
   error: string | null
 }
 
-export type MessengersList = {
-  telegram: string
-  vk: string
-  whatsapp: string
-  viber: string
+export type Messenger = {
+  icon: string
+  messengerName: string
+  value: string,
+  id: string
 }
 
-export type ResponseFetchMessengers = MessengersList
+
+export type ResponseFetchMessengers = Messenger[]
 
 export type MessengersAction =
     FetchMessengers |
     FetchMessengersSuccess |
     FetchMessengersError |
-    DeleteMessenger
+    DeleteMessenger |
+    SetMessenger
 
 type FetchMessengers = {
   type: MessengersActions.FETCH_MESSENGERS
@@ -46,5 +46,10 @@ type FetchMessengersError = {
 
 type DeleteMessenger = {
   type: MessengersActions.DELETE_MESSENGER
-  payload: MessengersList
+  payload: string
+}
+
+type SetMessenger = {
+  type: MessengersActions.SET_MESSENGER,
+  payload: { id: string, value: string }
 }

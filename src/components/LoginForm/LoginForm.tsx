@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import style from "./LoginForm.module.css";
 import Button from "../Button/Button";
-import {useAuthHistory} from "../../hooks/useAuthHistory";
+import {useAuth} from "../../hooks/useAuth";
 import {useLoginForm} from "../../hooks/useLoginForm";
 import {adminPanelImages} from "../../utils/adminPanelRoutesImages";
 import Preloader from "../Preloader/Preloader";
@@ -10,7 +10,7 @@ import {useTypedSelector} from "../../hooks/useTypedSelector";
 function LoginForm() {
   const {loading, error} = useTypedSelector(state => state.auth)
 
-  const history = useAuthHistory()
+  const history = useAuth()
   const form = useLoginForm()
 
   useEffect(() => {

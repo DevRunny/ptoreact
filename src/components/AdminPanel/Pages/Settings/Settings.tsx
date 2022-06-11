@@ -7,7 +7,7 @@ import {useSettings} from "../../../../hooks/useSettings";
 
 const Settings = () => {
 
-const settings = useSettings()
+  const settings = useSettings()
 
   return (
       <div className={"adminContentBackground"}>
@@ -19,7 +19,7 @@ const settings = useSettings()
                 mainStyle={"formItem"}
                 inputStyle={style.inputSettings}
                 inputType={"text"}
-                value={settings.getUserLogin()}
+                value={""}
                 id={"login"}
                 onClickSaveFunc={settings.onClickSave}
                 labelText={"Логин(email):"}
@@ -29,7 +29,7 @@ const settings = useSettings()
                 mainStyle={"formItem"}
                 inputStyle={style.inputSettings}
                 inputType={"password"}
-                value={settings.getUserPassword()}
+                value={""}
                 id={"password"}
                 onClickSaveFunc={settings.onClickSave}
                 labelText={"Пароль:"}

@@ -2,7 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 23px;
+  padding-left: 10px;
+  gap: 35px
+}
+
+.messengersTrue {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23px
+}
+
+.messengersFalse {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px
 }
 
 .notation {

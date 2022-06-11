@@ -8,9 +8,11 @@ import {useActions} from "../../../../hooks/useActions";
 import ContactForm from "./ContactForm/ContactForm";
 import {AboutDataAdmin} from "../../../../types/about";
 import Preloader from "../../../Preloader/Preloader";
+import {useAuth} from "../../../../hooks/useAuth";
 
 function Information() {
   const [loading, setLoading] = useState<boolean>(false)
+  const {redirect} = useAuth()
   const {nameCompany, requisites} = useTypedSelector(state => state.about)
   const {phones, emails} = useTypedSelector(state => state.contacts)
   const {fetchAboutAC, fetchContactsAC} = useActions()
@@ -26,6 +28,7 @@ function Information() {
   }
 
   useEffect(() => {
+    redirect()
     fetch()
   }, [])
 

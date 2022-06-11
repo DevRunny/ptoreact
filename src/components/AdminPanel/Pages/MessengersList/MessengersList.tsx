@@ -9,18 +9,23 @@ import {useActions} from "../../../../hooks/useActions";
 import Preloader from "../../../Preloader/Preloader";
 import AddFieldButton from "../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
+import {useAuth} from "../../../../hooks/useAuth";
+import {changeValueMessenger} from "../../../../API/messengers";
 
 function MessengersList() {
   const [loading, setLoading] = useState<boolean>(false)
-  const {telegram, whatsapp, viber, vk} = useTypedSelector(state => state.messengers)
-  const {fetchMessengersAC, deleteMessenger} = useActions()
+  const {messengers} = useTypedSelector(state => state.messengers)
+  const {fetchMessengersAC, deleteMessenger, setValueMessenger} = useActions()
+  const {redirect} = useAuth()
 
   const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    console.log(inputValue)
+    changeValueMessenger(id, inputValue)
+    setValueMessenger(id, inputValue)
   }
 
-  const onClickDelete = () => {
-
+  const onClickDelete = (id: string) => {
+    changeValueMessenger(id, "")
+    deleteMessenger(id)
   }
 
   const fetch = async () => {
@@ -31,6 +36,7 @@ function MessengersList() {
   }
 
   useEffect(() => {
+    redirect()
     fetch()
   }, [])
 
@@ -43,104 +49,40 @@ function MessengersList() {
         <div className={style.contentWrap}>
           <SectionTitle titleText={"Список мессенджеров:"} />
           <div className={style.itemWrap}>
-            {
-              telegram === ""
-                  ?
-                  <AddFieldButton
-                      buttonStyle={style.addMessenger}
-                      textButton={"Добавить Telegram"}
-                      onClickFunc={() => {
-                        console.log("Добавлен элемент")
-                      }}
-                      icon={adminPanelImages.plusButton.green.src} />
-                  :
-                  <FormItemWithNotation
+            <div className={style.messengersTrue}>
+              {messengers.map(messenger => {
+                if (messenger.value !== "") {
+                  return <FormItemWithNotation
                       textNotation={"@username"}
                       styleNotation={style.notation}
                       mainStyle={"formItem"}
                       inputStyle={style.inputMessenger}
                       inputType={"text"}
-                      value={telegram}
-                      id={"1"}
+                      value={messenger.value}
+                      id={messenger.id}
                       onClickSaveFunc={onClickSave}
                       onClickDeleteFunc={onClickDelete}
-                      labelText={"Telegram:"}
-                      isExample={true} />
-            }
-            {
-              whatsapp === ""
-                  ?
-                  <AddFieldButton
+                      labelText={`${messenger.messengerName}:`}
+                      isExample={true}
+                      icon={messenger.icon}
+                      disabled={!(messenger.value === messenger.messengerName)}
+                  />
+                }
+              })}
+            </div>
+            <div className={style.messengersFalse}>
+              {messengers.map(messenger => {
+                if (messenger.value === "") {
+                  return <AddFieldButton
                       buttonStyle={style.addMessenger}
-                      textButton={"Добавить Whatsapp"}
+                      textButton={`Добавить ${messenger.messengerName}`}
                       onClickFunc={() => {
-                        console.log("Добавлен элемент")
+                        setValueMessenger(messenger.id, messenger.messengerName)
                       }}
                       icon={adminPanelImages.plusButton.green.src} />
-                  :
-                  <FormItemWithNotation
-                      textNotation={"+79123456789"}
-                      styleNotation={style.notation}
-                      mainStyle={"formItem"}
-                      inputStyle={style.inputMessenger}
-                      inputType={"text"}
-                      value={whatsapp}
-                      id={"2"}
-                      onClickSaveFunc={onClickSave}
-                      onClickDeleteFunc={onClickDelete}
-                      labelText={"WhatsApp:"}
-                      isExample={true} />
-            }
-
-            {
-              vk === ""
-                  ?
-                  <AddFieldButton
-                      buttonStyle={style.addMessenger}
-                      textButton={"Добавить VK (Вконтакте)"}
-                      onClickFunc={() => {
-                        console.log("Добавлен элемент")
-                      }}
-                      icon={adminPanelImages.plusButton.green.src} />
-                  :
-                  <FormItemWithNotation
-                      textNotation={"username"}
-                      styleNotation={style.notation}
-                      mainStyle={"formItem"}
-                      inputStyle={style.inputMessenger}
-                      inputType={"text"}
-                      value={vk}
-                      id={"3"}
-                      onClickSaveFunc={onClickSave}
-                      onClickDeleteFunc={onClickDelete}
-                      labelText={"VK (Вконтакте):"}
-                      isExample={true} />
-            }
-
-            {
-              viber === ""
-                  ?
-                  <AddFieldButton
-                      buttonStyle={style.addMessenger}
-                      textButton={"Добавить Viber"}
-                      onClickFunc={() => {
-                        console.log("Добавлен элемент")
-                      }}
-                      icon={adminPanelImages.plusButton.green.src} />
-                  :
-                  <FormItemWithNotation
-                      textNotation={"+79123456789"}
-                      styleNotation={style.notation}
-                      mainStyle={"formItem"}
-                      inputStyle={style.inputMessenger}
-                      inputType={"text"}
-                      value={viber}
-                      id={"4"}
-                      onClickSaveFunc={onClickSave}
-                      onClickDeleteFunc={onClickDelete}
-                      labelText={"Viber:"}
-                      isExample={true} />
-            }
+                }
+              })}
+            </div>
           </div>
         </div>
       </div>
