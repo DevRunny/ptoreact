@@ -24,6 +24,14 @@ export const messengersReducer = (state = initialState, action: MessengersAction
       }
     case MessengersActions.FETCH_MESSENGERS_ERROR:
       return {...state, error: action.payload}
+    case MessengersActions.DELETE_MESSENGER:
+      return {
+        ...state,
+        telegram: action.payload.telegram,
+        vk: action.payload.vk,
+        whatsapp: action.payload.whatsapp,
+        viber: action.payload.viber
+      }
     default:
       return state
   }

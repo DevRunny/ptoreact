@@ -13,10 +13,14 @@ import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 function MessengersList() {
   const [loading, setLoading] = useState<boolean>(false)
   const {telegram, whatsapp, viber, vk} = useTypedSelector(state => state.messengers)
-  const {fetchMessengersAC} = useActions()
+  const {fetchMessengersAC, deleteMessenger} = useActions()
 
   const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
     console.log(inputValue)
+  }
+
+  const onClickDelete = () => {
+
   }
 
   const fetch = async () => {
@@ -39,79 +43,104 @@ function MessengersList() {
         <div className={style.contentWrap}>
           <SectionTitle titleText={"Список мессенджеров:"} />
           <div className={style.itemWrap}>
-            <FormItemWithNotation
-                textNotation={"@username"}
-                styleNotation={style.notation}
-                mainStyle={"formItem"}
-                inputStyle={style.inputMessenger}
-                inputType={"text"}
-                value={telegram}
-                id={"1"}
-                onClickSaveFunc={onClickSave}
-                labelText={"Telegram:"}
-                isExample={true} />
-            <FormItemWithNotation
-                textNotation={"+79123456789"}
-                styleNotation={style.notation}
-                mainStyle={"formItem"}
-                inputStyle={style.inputMessenger}
-                inputType={"text"}
-                value={whatsapp}
-                id={"2"}
-                onClickSaveFunc={onClickSave}
-                labelText={"WhatsApp:"}
-                isExample={true} />
-            <FormItemWithNotation
-                textNotation={"username"}
-                styleNotation={style.notation}
-                mainStyle={"formItem"}
-                inputStyle={style.inputMessenger}
-                inputType={"text"}
-                value={vk}
-                id={"3"}
-                onClickSaveFunc={onClickSave}
-                labelText={"VK (Вконтакте):"}
-                isExample={true} />
-            <FormItemWithNotation
-                textNotation={"+79123456789"}
-                styleNotation={style.notation}
-                mainStyle={"formItem"}
-                inputStyle={style.inputMessenger}
-                inputType={"text"}
-                value={viber}
-                id={"4"}
-                onClickSaveFunc={onClickSave}
-                labelText={"Viber:"}
-                isExample={true} />
+            {
+              telegram === ""
+                  ?
+                  <AddFieldButton
+                      buttonStyle={style.addMessenger}
+                      textButton={"Добавить Telegram"}
+                      onClickFunc={() => {
+                        console.log("Добавлен элемент")
+                      }}
+                      icon={adminPanelImages.plusButton.green.src} />
+                  :
+                  <FormItemWithNotation
+                      textNotation={"@username"}
+                      styleNotation={style.notation}
+                      mainStyle={"formItem"}
+                      inputStyle={style.inputMessenger}
+                      inputType={"text"}
+                      value={telegram}
+                      id={"1"}
+                      onClickSaveFunc={onClickSave}
+                      onClickDeleteFunc={onClickDelete}
+                      labelText={"Telegram:"}
+                      isExample={true} />
+            }
+            {
+              whatsapp === ""
+                  ?
+                  <AddFieldButton
+                      buttonStyle={style.addMessenger}
+                      textButton={"Добавить Whatsapp"}
+                      onClickFunc={() => {
+                        console.log("Добавлен элемент")
+                      }}
+                      icon={adminPanelImages.plusButton.green.src} />
+                  :
+                  <FormItemWithNotation
+                      textNotation={"+79123456789"}
+                      styleNotation={style.notation}
+                      mainStyle={"formItem"}
+                      inputStyle={style.inputMessenger}
+                      inputType={"text"}
+                      value={whatsapp}
+                      id={"2"}
+                      onClickSaveFunc={onClickSave}
+                      onClickDeleteFunc={onClickDelete}
+                      labelText={"WhatsApp:"}
+                      isExample={true} />
+            }
 
-            <AddFieldButton
-                buttonStyle={style.addMessenger}
-                textButton={"Добавить Telegram"}
-                onClickFunc={() => {
-                  console.log("Добавлен элемент")
-                }}
-                icon={adminPanelImages.plusButton.green.src} />
-            <AddFieldButton
-                buttonStyle={style.addMessenger}
-                textButton={"Добавить VK (Вконтакте)"}
-                onClickFunc={() => {
-                  console.log("Добавлен элемент")
-                }}
-                icon={adminPanelImages.plusButton.green.src} />
-            <AddFieldButton
-                buttonStyle={style.addMessenger}
-                textButton={"Добавить Whatsapp"}
-                onClickFunc={() => {
-                  console.log("Добавлен элемент")
-                }}
-                icon={adminPanelImages.plusButton.green.src} />
-            <AddFieldButton
-                buttonStyle={style.addMessenger}
-                textButton={"Добавить Viber"}
-                onClickFunc={() => {
-                  console.log("Добавлен элемент")
-                }}
-                icon={adminPanelImages.plusButton.green.src} />
+            {
+              vk === ""
+                  ?
+                  <AddFieldButton
+                      buttonStyle={style.addMessenger}
+                      textButton={"Добавить VK (Вконтакте)"}
+                      onClickFunc={() => {
+                        console.log("Добавлен элемент")
+                      }}
+                      icon={adminPanelImages.plusButton.green.src} />
+                  :
+                  <FormItemWithNotation
+                      textNotation={"username"}
+                      styleNotation={style.notation}
+                      mainStyle={"formItem"}
+                      inputStyle={style.inputMessenger}
+                      inputType={"text"}
+                      value={vk}
+                      id={"3"}
+                      onClickSaveFunc={onClickSave}
+                      onClickDeleteFunc={onClickDelete}
+                      labelText={"VK (Вконтакте):"}
+                      isExample={true} />
+            }
+
+            {
+              viber === ""
+                  ?
+                  <AddFieldButton
+                      buttonStyle={style.addMessenger}
+                      textButton={"Добавить Viber"}
+                      onClickFunc={() => {
+                        console.log("Добавлен элемент")
+                      }}
+                      icon={adminPanelImages.plusButton.green.src} />
+                  :
+                  <FormItemWithNotation
+                      textNotation={"+79123456789"}
+                      styleNotation={style.notation}
+                      mainStyle={"formItem"}
+                      inputStyle={style.inputMessenger}
+                      inputType={"text"}
+                      value={viber}
+                      id={"4"}
+                      onClickSaveFunc={onClickSave}
+                      onClickDeleteFunc={onClickDelete}
+                      labelText={"Viber:"}
+                      isExample={true} />
+            }
           </div>
         </div>
       </div>

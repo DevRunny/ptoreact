@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {MessengersAction, MessengersActions} from "../../types/messengers";
+import {MessengersAction, MessengersActions, MessengersList} from "../../types/messengers";
 import {getMessengers} from "../../API/messengers";
 
 export const fetchMessengersAC = () => {
@@ -11,5 +11,12 @@ export const fetchMessengersAC = () => {
     } catch (error) {
       dispatch({type: MessengersActions.FETCH_MESSENGERS_ERROR, payload: error.message})
     }
+  }
+}
+
+export const deleteMessenger = (messenger: MessengersList) => {
+  return {
+    type: MessengersActions.DELETE_MESSENGER,
+    payload: messenger
   }
 }
