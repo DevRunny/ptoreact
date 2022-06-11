@@ -8,7 +8,7 @@ import {useAccreditationRef} from "../../hooks/sectionsRefs/useAccreditationRef"
 
 const Accreditation = () => {
 
-  const {error, loading, categories} = useTypedSelector(state => state.accreditation)
+  const {error, loading, selectedCategories} = useTypedSelector(state => state.accreditation)
   const accreditation = useAccreditationRef()
 
   return (
@@ -20,7 +20,7 @@ const Accreditation = () => {
               <h3 className={style.subTitle}>Категории транспортных средств</h3>
             </div>
             <div className={style.categories}>
-              {categories.map((cat) => <CategoryComponent
+              {selectedCategories.sort((a, b) => Number(a.id) - Number(b.id)).map((cat) => <CategoryComponent
                   key={cat.id}
                   urlImage={cat.urlImage}
                   nameCategory={cat.categoryName}

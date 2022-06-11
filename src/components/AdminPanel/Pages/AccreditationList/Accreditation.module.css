@@ -1,32 +1,36 @@
 .list {
-    display: flex;
-    flex-direction: column;
-    width: 580px;
-    gap: 12px;
-}
-
-.row {
-    display: flex;
-    justify-content: start;
-    gap: 29px;
+  display: grid;
+  height: 300px;
+  grid-template-columns: 173px 173px 173px;
+  grid-template-rows: 74px 74px 74px 74px;
+  grid-column-gap: 30px;
+  grid-row-gap: 13px;
+  margin-bottom: 38px;
 }
 
 .button {
-    margin: 38px 0 12px 0;
-    color: #FFFFFF;
-    font-family: "Gotham Pro", serif;
-    font-weight: 400;
-    font-size: 18px;
-    padding: 17px 7px;
-    background-color: #43A8EE;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
+  margin: 38px 0 12px 0;
+  color: #FFFFFF;
+  font-family: "Gotham Pro", serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 17px 7px;
+  background-color: #43A8EE;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 .notification {
-    color: #77D77B;
-    font-family: "Inter", serif;
-    font-weight: 400;
-    font-size: 13px;
+  color: #77D77B;
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.notificationError {
+  color: red;
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-size: 13px;
 }

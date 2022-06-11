@@ -6,7 +6,7 @@ export const useFetchData = () => {
   const [isFetch, setIsFetching] = useState<boolean>(false)
   const {
     fetchAboutAC,
-    fetchAccreditationAC,
+    fetchSelectedCategoriesAC,
     fetchContactsAC,
     fetchDocumentsAC,
     fetchMessengersAC,
@@ -15,7 +15,7 @@ export const useFetchData = () => {
 
   const fetch = async () => {
     await fetchAboutAC()
-    await fetchAccreditationAC()
+    await fetchSelectedCategoriesAC()
     await fetchDocumentsAC()
     await fetchContactsAC()
     await fetchMessengersAC()

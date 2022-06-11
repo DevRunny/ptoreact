@@ -4,51 +4,65 @@ import style from "./Accreditation.module.css"
 import SectionTitle from "../SectionTitle/SectionTitle";
 import AccreditationListItem from "./AccreditationListItem/AccreditationListItem";
 import Button from "../../../Button/Button";
-import {getAllCategoriesAccreditationFb} from "../../../../API/acccreditation";
+import {addSelectCategory} from "../../../../API/acccreditation";
+import {useActions} from "../../../../hooks/useActions";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import Preloader from "../../../Preloader/Preloader";
 
 function AccreditationList() {
-    const [saveChange, setIsChangeSave] = useState<boolean>(false)
-    const onClickSaveChange = () => {
-        setIsChangeSave(true)
-    }
 
-    useEffect(() => {
-        console.log(getAllCategoriesAccreditationFb())
-    }, [])
+  const {loading, error, allCategories, selectedCategories} = useTypedSelector(state => state.accreditation)
+
+  const {fetchAllCategoriesAC, fetchSelectedCategoriesAC} = useActions()
+  const [saveChanges, setChangesSave] = useState<boolean>(false)
+  const [errorChanges, setErrorChanges] = useState<boolean>(false)
+
+  const onClickSaveChanges = () => {
+    setChangesSave(true)
+    if (selectedCategories.length) {
+      setErrorChanges(false)
+      addSelectCategory(selectedCategories)
+      setTimeout(() => {
+        setChangesSave(false)
+      }, 3000)
+    } else {
+      setErrorChanges(true)
+    }
+  }
+
+  useEffect(() => {
+    fetchAllCategoriesAC()
+    fetchSelectedCategoriesAC()
+  }, [])
+
   return (
       <div className={"adminContentBackground"}>
-        <AdminMainTitle titleText={"Область аккредитации"}/>
-          <div className={style.contentWrap}>
-              <SectionTitle titleText={"Выберите категории транспортных средств, на которые вы аттестованы:"}/>
-              <div className={style.list}>
-                    <div className={style.row}>
-                        <AccreditationListItem itemText={"L"}/>
-                        <AccreditationListItem itemText={"M1"}/>
-                        <AccreditationListItem itemText={"M2"}/>
-                    </div>
-                  <div className={style.row}>
-                      <AccreditationListItem itemText={"M3"}/>
-                      <AccreditationListItem itemText={"N1"}/>
-                      <AccreditationListItem itemText={"N2"}/>
-                  </div>
-                  <div className={style.row}>
-                      <AccreditationListItem itemText={"N3"}/>
-                      <AccreditationListItem itemText={"O1"}/>
-                      <AccreditationListItem itemText={"O2"}/>
-                  </div>
-                  <div className={style.row}>
-                      <AccreditationListItem itemText={"O3"}/>
-                      <AccreditationListItem itemText={"O4"}/>
-                  </div>
-              </div>
-              <Button
-                  text={"Сохранить изменения"}
-                  mainStyle={style.button}
-                  type={"button"}
-                  func={onClickSaveChange}
-              />
-              {saveChange && <p className={style.notification}>Все изменения успешно сохранены!</p>}
+        <AdminMainTitle titleText={"Область аккредитации"} />
+        <div className={style.contentWrap}>
+          <SectionTitle titleText={"Выберите категории транспортных средств, на которые вы аттестованы:"} />
+          <div className={style.list}>
+            {allCategories.length ?
+                allCategories.map(category => {
+                  const find = selectedCategories.find(selectedCategory => category.id === selectedCategory.id)
+                  if (find) {
+                    return <AccreditationListItem itemText={category.categoryName} selected={true} category={category} key={category.id} />
+                  } else {
+                    return <AccreditationListItem itemText={category.categoryName} selected={false} category={category} key={category.id} />
+                  }
+                })
+                :
+                <Preloader styleLoader={"adminLoader"} size={"medium"} />
+            }
           </div>
+          <Button
+              text={"Сохранить изменения"}
+              mainStyle={style.button}
+              type={"button"}
+              func={onClickSaveChanges}
+          />
+          {saveChanges && !errorChanges && <p className={style.notification}>Все изменения успешно сохранены!</p>}
+          {saveChanges && errorChanges && <p className={style.notificationError}>Выберите хотя бы одну категорию</p>}
+        </div>
       </div>
   );
 }

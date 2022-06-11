@@ -1,8 +1,9 @@
 export interface AuthState {
-  isAuth: boolean;
+  isAuth: boolean
   tokenId: string
-  loading: boolean;
-  error: string | null;
+  expiresToken: string
+  loading: boolean
+  error: string | null
   isAuthenticated: () => string
 };
 
@@ -21,6 +22,7 @@ export enum AuthActions {
   SET_ERROR = "SET_ERROR",
   SET_LOADING = "SET_LOADING",
   SET_TOKEN_ID = "SET_TOKEN_ID",
+  SET_EXPIRES_TOKEN = "SET_EXPIRES_TOKEN"
 }
 
 type SetAuth = {
@@ -43,4 +45,9 @@ type SetLoading = {
   payload: boolean;
 };
 
-export type AuthAction = SetAuth | SetToken | SetLoading | SetError;
+type SetExpiresToken = {
+  type: AuthActions.SET_EXPIRES_TOKEN
+  payload: string
+}
+
+export type AuthAction = SetAuth | SetToken | SetLoading | SetError | SetExpiresToken;

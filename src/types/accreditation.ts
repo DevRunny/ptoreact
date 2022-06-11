@@ -1,11 +1,16 @@
 export enum AccreditationActions {
-  FETCH_ACCREDITATION = "FETCH_ACCREDITATION",
+  GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES",
+  GET_SELECTED_CATEGORIES = "GET_SELECTED_CATEGORIES",
+  FETCH_CATEGORIES = "FETCH_CATEGORIES",
   FETCH_ACCREDITATION_SUCCESS = "FETCH_ACCREDITATION_SUCCESS",
-  FETCH_ACCREDITATION_ERROR = "FETCH_ACCREDITATION_ERROR"
+  FETCH_ACCREDITATION_ERROR = "FETCH_ACCREDITATION_ERROR",
+  SELECT_CATEGORY = "SELECT_CATEGORY",
+  UNSELECT_CATEGORY = "UNSELECT_CATEGORY"
 }
 
 export interface AccreditationState {
-  categories: Category[]
+  allCategories: Category[]
+  selectedCategories: Category[]
   loading: boolean
   error: string | null
 }
@@ -17,10 +22,27 @@ export type Category = {
   id: string
 }
 
-export type AccreditationAction = FetchAccreditation | FetchAccreditationSuccess | FetchAccreditationError
+export type AccreditationAction =
+    FetchCategories |
+    FetchAccreditationSuccess |
+    FetchAccreditationError |
+    GetAllCategories |
+    GetSelectedCategories |
+    SelectCategory |
+    UnselectCategory
 
-interface FetchAccreditation {
-  type: AccreditationActions.FETCH_ACCREDITATION
+interface GetAllCategories {
+  type: AccreditationActions.GET_ALL_CATEGORIES,
+  payload: Category[]
+}
+
+interface GetSelectedCategories {
+  type: AccreditationActions.GET_SELECTED_CATEGORIES,
+  payload: Category[]
+}
+
+interface FetchCategories {
+  type: AccreditationActions.FETCH_CATEGORIES
 }
 
 interface FetchAccreditationSuccess {
@@ -28,8 +50,17 @@ interface FetchAccreditationSuccess {
   payload: Category[]
 }
 
-
 interface FetchAccreditationError {
   type: AccreditationActions.FETCH_ACCREDITATION_ERROR
   payload: string
+}
+
+interface SelectCategory {
+  type: AccreditationActions.SELECT_CATEGORY,
+  payload: Category
+}
+
+interface UnselectCategory {
+  type: AccreditationActions.UNSELECT_CATEGORY,
+  payload: Category
 }

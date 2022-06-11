@@ -1,6 +1,5 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import {RoutesName} from "../routes";
-import {useActions} from "./useActions";
 import {logout} from "../store/actionCreators/Auth";
 
 export const useAuthHistory = () => {
