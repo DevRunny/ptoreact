@@ -2,9 +2,15 @@ import {AuthAction, AuthActions, AuthState, User} from "../../types/auth";
 
 const initialState: AuthState = {
   isAuth: false,
-  user: {} as User,
+  tokenId: "",
   loading: false,
   error: "",
+  isAuthenticated: () => {
+    if (Number(localStorage.getItem("expiresToken")) > new Date().getTime()) {
+
+    }
+    return ""
+  }
 };
 
 export const authReducer = (
@@ -18,8 +24,8 @@ export const authReducer = (
       return {...state, loading: action.payload};
     case AuthActions.SET_ERROR:
       return {...state, loading: false, error: action.payload};
-    case AuthActions.SET_USER:
-      return {...state, user: action.payload};
+    case AuthActions.SET_TOKEN_ID:
+      return {...state, tokenId: action.payload};
     default:
       return state;
   }

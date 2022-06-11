@@ -1,7 +1,6 @@
 import {Dispatch} from "redux";
 import {Document, DocumentsAction, DocumentsActions} from "../../types/documents";
 import {getDocumentation} from "../../API/documentation";
-import document from "../../components/Documentation/Document/Document";
 
 export const fetchDocumentsAC = () => async (dispatch: Dispatch<DocumentsAction>) => {
   try {

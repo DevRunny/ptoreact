@@ -1,9 +1,9 @@
 import {AuthAction, AuthActions, User} from "../../types/auth";
 import {Dispatch} from "redux";
-import {getUser} from "../../API/auth";
+import {fbAuthUser, getUser} from "../../API/auth";
 
-export const setUser = (user: User): AuthAction => {
-  return {type: AuthActions.SET_USER, payload: user};
+export const setToken = (token: string): AuthAction => {
+  return {type: AuthActions.SET_TOKEN_ID, payload: token};
 };
 
 export const setAuth = (auth: boolean): AuthAction => {
@@ -23,15 +23,15 @@ export const login =
         async (dispatch: Dispatch<AuthAction>) => {
           try {
             dispatch(setLoading(true));
-            const user = await getUser();
-            if (user && user.login === username && user.password === password) {
-              localStorage.setItem("auth", "true");
-              localStorage.setItem("login", user.login);
-              localStorage.setItem("password", user.password);
-              dispatch(setAuth(true));
-              dispatch(setUser(user));
-              dispatch(setError(""));
-            } else {
+            const response = await fbAuthUser({login: username, password})
+            if (response.status === 200) {
+                const expDate = (new Date().getTime() + +response.data.expiresIn * 1000).toString()
+                localStorage.setItem("token", response.data.idToken)
+                localStorage.setItem("expiresToken", expDate)
+                localStorage.setItem("auth", "true")
+                setToken(response.data.idToken)
+                setAuth(true)
+            } else if(response.status === 400){
               dispatch(setError("Неверный логин или пароль"));
             }
             dispatch(setLoading(false));
@@ -43,9 +43,7 @@ export const login =
 
 export const logout = () => async (dispatch: Dispatch<AuthAction>) => {
   localStorage.removeItem("auth")
-  localStorage.removeItem("login")
-  localStorage.removeItem("password")
+  localStorage.removeItem("token")
+  localStorage.removeItem("expiresToken")
   dispatch(setAuth(false))
-  dispatch(setUser({} as User))
-  dispatch(setError(""))
 }

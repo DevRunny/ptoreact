@@ -1,21 +1,26 @@
-export type AuthState = {
+export interface AuthState {
   isAuth: boolean;
-  user: User;
+  tokenId: string
   loading: boolean;
   error: string | null;
+  isAuthenticated: () => string
 };
 
 export type User = {
-  id: string;
   login: string;
   password: string;
 };
+
+export interface fbAuthResponse {
+  expiresIn: string
+  tokenId: string
+}
 
 export enum AuthActions {
   SET_AUTH = "SET_AUTH",
   SET_ERROR = "SET_ERROR",
   SET_LOADING = "SET_LOADING",
-  SET_USER = "SET_USER",
+  SET_TOKEN_ID = "SET_TOKEN_ID",
 }
 
 type SetAuth = {
@@ -23,9 +28,9 @@ type SetAuth = {
   payload: boolean;
 };
 
-type SetUser = {
-  type: AuthActions.SET_USER;
-  payload: User;
+type SetToken = {
+  type: AuthActions.SET_TOKEN_ID;
+  payload: string;
 };
 
 type SetError = {
@@ -38,4 +43,4 @@ type SetLoading = {
   payload: boolean;
 };
 
-export type AuthAction = SetAuth | SetUser | SetLoading | SetError;
+export type AuthAction = SetAuth | SetToken | SetLoading | SetError;

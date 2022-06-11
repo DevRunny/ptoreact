@@ -48,7 +48,7 @@ export const useSettings = () => {
     }
 
     useEffect(() => {
-        setUser({id: "1", login: getUserLogin(), password: getUserPassword()})
+        setUser({login: getUserLogin(), password: getUserPassword()})
     }, [])
 
     return {

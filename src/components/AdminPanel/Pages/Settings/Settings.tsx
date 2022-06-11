@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import style from "./Settings.module.css"

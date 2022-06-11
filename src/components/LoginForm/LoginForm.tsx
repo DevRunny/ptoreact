@@ -6,6 +6,7 @@ import {useLoginForm} from "../../hooks/useLoginForm";
 import {adminPanelImages} from "../../utils/adminPanelRoutesImages";
 import Preloader from "../Preloader/Preloader";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {fbAuthUser} from "../../API/auth";
 
 function LoginForm() {
   const {loading, error} = useTypedSelector(state => state.auth)

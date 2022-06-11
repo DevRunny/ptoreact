@@ -1,15 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import style from "./Accreditation.module.css"
 import SectionTitle from "../SectionTitle/SectionTitle";
 import AccreditationListItem from "./AccreditationListItem/AccreditationListItem";
 import Button from "../../../Button/Button";
+import {getAllCategoriesAccreditationFb} from "../../../../API/acccreditation";
 
 function AccreditationList() {
     const [saveChange, setIsChangeSave] = useState<boolean>(false)
     const onClickSaveChange = () => {
         setIsChangeSave(true)
     }
+
+    useEffect(() => {
+        console.log(getAllCategoriesAccreditationFb())
+    }, [])
   return (
       <div className={"adminContentBackground"}>
         <AdminMainTitle titleText={"Область аккредитации"}/>
