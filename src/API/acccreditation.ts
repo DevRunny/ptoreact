@@ -7,18 +7,16 @@ export const getAccreditation = async (): Promise<Category[]> => {
   return response.data
 }
 
-export const getAllCategoriesAccreditationFb = async (): Promise<any> => {
+export const getAllCategoriesAccreditationFb = async (): Promise<Category[]> => {
   const response = await axios.get("https://pto-react-default-rtdb.firebaseio.com/accreditation/allCategories.json")
-  console.log(response.data)
   return response.data
 }
 
-export const getSelectedCategories = async (): Promise<any> => {
+export const getSelectedCategories = async (): Promise<Category[]> => {
   const response = await axios.get("https://pto-react-default-rtdb.firebaseio.com/accreditation/selectedCategories.json")
   return response.data
 }
 
 export const addSelectCategory = async (category: Category[]) => {
-  const response = await axios.put("https://pto-react-default-rtdb.firebaseio.com/accreditation/selectedCategories.json", category)
-  return response
+  return await axios.put("https://pto-react-default-rtdb.firebaseio.com/accreditation/selectedCategories.json", category)
 }

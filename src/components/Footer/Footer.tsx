@@ -31,11 +31,13 @@ function Footer() {
           <div className={style.footer}>
             <div className={style.messengerLinks}>
               {messengers.map(messenger => {
-                return <MessengerComponent
-                    key={messenger.id}
-                    href={`${renderMessenger(messenger.messengerName).href}${messenger.value}`}
-                    urlImage={renderMessenger(messenger.messengerName).urlImage}
-                    alt={renderMessenger(messenger.messengerName).alt} />
+                if (messenger.value) {
+                  return <MessengerComponent
+                      key={messenger.id}
+                      href={`${renderMessenger(messenger.messengerName).href}${messenger.value}`}
+                      urlImage={renderMessenger(messenger.messengerName).urlImage}
+                      alt={renderMessenger(messenger.messengerName).alt} />
+                }
               })}
             </div>
             <Navigation mainClass={style.footerLinks} mainClassLink={style.footerLink} />
@@ -44,7 +46,7 @@ function Footer() {
               <CompanyInfoRequisite isBold={false} nameRequisite={"ИНН"} requisite={stateInfo.requisites.inn} />
               <CompanyInfoRequisite isBold={false} nameRequisite={"ОГРН"} requisite={stateInfo.requisites.ogrn} />
             </div>
-            <div className={style.privacyPolicy}><a href="#">Политика конфиденциальности</a></div>
+            <div className={style.privacyPolicy}><a href="/">Политика конфиденциальности</a></div>
             <div className={style.copyright}>
               <span>© CMS ENDEL</span>
               <span>2022</span>

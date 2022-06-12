@@ -1,6 +1,6 @@
 .background {
-  background: #222222 url(../../../public/images/Accreditation/background.png) no-repeat;
-  background-blend-mode: multiply;
+  background: #222222 url(../../../public/images/Accreditation/background.png) no-repeat center;
+  background-blend-mode: overlay;
   background-size: cover;
 }
 
@@ -62,6 +62,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  width: 50px
 }
 
 .categoryContent {

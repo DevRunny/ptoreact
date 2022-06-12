@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useEffect, useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Category} from "../types/accreditation";
-import {getAccreditation} from "../API/acccreditation";
+import {getSelectedCategories} from "../API/acccreditation";
 import {RoutesName} from "../routes";
 import {useForm} from "react-hook-form";
 
@@ -51,8 +51,8 @@ export const useSendForm = () => {
   };
 
   useEffect(() => {
-    getAccreditation().then((data) => {
-      const categories = data.map((item) => item);
+    getSelectedCategories().then((data) => {
+      const categories = data.sort((a, b) => Number(a.id) - Number(b.id)).map((item) => item);
       setCategories(categories);
       setCurrentCategoryDesc(categories[0].categoryDescription);
       setCategory(categories[0].categoryName)

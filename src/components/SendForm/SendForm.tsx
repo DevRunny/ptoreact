@@ -45,7 +45,7 @@ function SendForm() {
                 patternValue={
                   /^([А-ЯA-Z]|[А-ЯA-Z][\x27а-яa-z]+|[А-ЯA-Z][\x27а-яa-z]+-([А-ЯA-Z][\x27а-яa-z]+|(оглы)|(кызы)))\040[А-ЯA-Z][\x27а-яa-z]+(\040[А-ЯA-Z][\x27а-яa-z]+)?$/
                 }
-                patternMessage={"Неккоректно введено имя или фамилия"}
+                patternMessage={"Неккоректно введены имя или фамилия"}
                 elementType={"text"}
                 elementPlaceholder={"Иван Иванов"}
             />
