@@ -143,7 +143,7 @@
 
 .formItemCheckbox {
   display: flex;
-  justify-content: start;
+  justify-content: left;
   align-items: center;
   flex-direction: row-reverse;
 }
