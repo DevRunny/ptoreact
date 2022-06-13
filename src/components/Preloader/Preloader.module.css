@@ -1,9 +1,17 @@
+.loaderWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.fullHeight {
+  height: 100vh;
+}
+
 .loader {
   border-radius: 50%;
-  display: table;
-  box-sizing: border-box;
   animation: rotation 1s linear infinite;
-  margin: auto;
 }
 
 .small {
@@ -22,6 +30,10 @@
   width: 120px;
   height: 120px;
   border: 12px solid #FFF;
+}
+
+.defaultLoader {
+  border-bottom-color: #982828;
 }
 
 .adminLoader {

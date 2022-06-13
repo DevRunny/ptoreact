@@ -11,7 +11,7 @@ import {useDocumentsList} from "../../../../hooks/useDocumentsList";
 const DocumentsList = () => {
   const documentsList = useDocumentsList()
 
-  if (documentsList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
+  if (documentsList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
   return (
       <div className={"adminContentBackground"}>

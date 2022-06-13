@@ -10,7 +10,7 @@ const Settings = () => {
 
   const settings = useSettings()
 
-  if (settings.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
+  if (settings.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
   return (
       <div className={"adminContentBackground"}>

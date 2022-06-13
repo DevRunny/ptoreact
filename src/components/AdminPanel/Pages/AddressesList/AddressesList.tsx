@@ -13,7 +13,7 @@ import {useAddressesList} from "../../../../hooks/useAddressesList";
 const AddressesList = () => {
   const addressesList = useAddressesList()
 
-  if (addressesList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
+  if (addressesList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
   return (
       <div className={"adminContentBackground"}>
