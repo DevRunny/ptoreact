@@ -1,4 +1,5 @@
 export interface AuthState {
+  email: string
   isAuth: boolean
   tokenId: string
   expiresToken: string
@@ -21,7 +22,8 @@ export enum AuthActions {
   SET_ERROR = "SET_ERROR",
   SET_LOADING = "SET_LOADING",
   SET_TOKEN_ID = "SET_TOKEN_ID",
-  SET_EXPIRES_TOKEN = "SET_EXPIRES_TOKEN"
+  SET_EXPIRES_TOKEN = "SET_EXPIRES_TOKEN",
+  SET_EMAIL = "SET_EMAIL"
 }
 
 type SetAuth = {
@@ -48,5 +50,9 @@ type SetExpiresToken = {
   type: AuthActions.SET_EXPIRES_TOKEN
   payload: string
 }
+type SetEmail = {
+  type: AuthActions.SET_EMAIL,
+  payload: string
+}
 
-export type AuthAction = SetAuth | SetToken | SetLoading | SetError | SetExpiresToken;
+export type AuthAction = SetAuth | SetToken | SetLoading | SetError | SetExpiresToken | SetEmail

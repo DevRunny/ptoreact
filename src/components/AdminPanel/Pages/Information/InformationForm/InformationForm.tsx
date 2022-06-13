@@ -3,6 +3,7 @@ import style from "./InfromationForm.module.css"
 import AdminFormItem from "../../AdminFormItem/AdminFormItem";
 import {AboutDataAdmin} from "../../../../../types/about";
 import {useActions} from "../../../../../hooks/useActions";
+import {updateAbout} from "../../../../../API/about";
 
 type Props = {
   data: AboutDataAdmin
@@ -15,15 +16,19 @@ const InformationForm: React.FC<Props> = ({data}) => {
   const onClickSave = (id: string, inputValue: string) => {
     switch (id) {
       case "nameCompany":
+        updateAbout(inputValue)
         setNameCompany(inputValue)
         break
       case "numRegistry":
+        updateAbout(Number(inputValue), "numRegistry")
         setNumRegistry(Number(inputValue))
         break
       case "inn":
+        updateAbout(Number(inputValue), "inn")
         setInn(Number(inputValue))
         break
       case "ogrn":
+        updateAbout(Number(inputValue), "ogrn")
         setOgrn(Number(inputValue))
         break
       default:

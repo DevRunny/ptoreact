@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://6266931b63e0f38256840bce.mockapi.io/"
+  baseURL: "https://pto-react-default-rtdb.firebaseio.com/"
 })

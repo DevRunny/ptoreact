@@ -1,6 +1,7 @@
 import {AuthAction, AuthActions, AuthState} from "../../types/auth";
 
 const initialState: AuthState = {
+  email: "",
   isAuth: false,
   tokenId: "",
   expiresToken: "",
@@ -23,6 +24,8 @@ export const authReducer = (
       return {...state, tokenId: action.payload};
     case AuthActions.SET_EXPIRES_TOKEN:
       return {...state, expiresToken: action.payload}
+    case AuthActions.SET_EMAIL:
+      return {...state, email: action.payload}
     default:
       return state;
   }

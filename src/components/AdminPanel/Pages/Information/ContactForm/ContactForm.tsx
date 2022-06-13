@@ -4,6 +4,7 @@ import style from "./ContactForm.module.css"
 import {useActions} from "../../../../../hooks/useActions";
 import AddFieldButton from "../../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
+import {createEmail, createPhone, updateEmails, updatePhones} from "../../../../../API/contacts";
 
 type Props = {
   data: any[]
@@ -20,9 +21,11 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
   const addField = () => {
     switch (labelText) {
       case "Телефон:":
+        createPhone((data.length + 1).toString())
         addPhone()
         break
       case "Электронная почта:":
+        createEmail((data.length + 1).toString())
         addEmail()
         break
       default:
@@ -62,6 +65,7 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
             return {id: phone.id, phoneNumber: phone.value}
           }
         })
+        updatePhones(inputValue, id)
         setPhones(newPhones)
         break
       case "email":
@@ -73,6 +77,7 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
             return {id: email.id, email: email.value}
           }
         })
+        updateEmails(inputValue, id)
         setEmails(newEmails)
         break
       default:

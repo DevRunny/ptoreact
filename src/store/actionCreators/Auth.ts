@@ -1,6 +1,6 @@
 import {AuthAction, AuthActions} from "../../types/auth";
 import {Dispatch} from "redux";
-import {fbAuthUser} from "../../API/auth";
+import {fbAuthUser, fbGetEmail} from "../../API/auth";
 
 export const setToken = (token: string): AuthAction => {
   return {type: AuthActions.SET_TOKEN_ID, payload: token};
@@ -21,6 +21,23 @@ const setLoading = (loading: boolean): AuthAction => {
 const setError = (error: string): AuthAction => {
   return {type: AuthActions.SET_ERROR, payload: error};
 };
+
+export const setEmail = (email: string): AuthAction => {
+  return {type: AuthActions.SET_EMAIL, payload: email}
+}
+
+export const fetchEmail = () => async (dispatch: Dispatch<AuthAction>) => {
+  try {
+    dispatch(setLoading(true))
+    const token = localStorage.getItem("token")
+    const response = await fbGetEmail(token || "")
+    dispatch(setEmail(response.data.users[0].email))
+    dispatch(setLoading(false))
+  } catch (error) {
+    dispatch(setError(error))
+    dispatch(setLoading(false))
+  }
+}
 
 export const login =
     (username: string, password: string) =>

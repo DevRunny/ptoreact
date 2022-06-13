@@ -15,7 +15,7 @@ function LoginForm() {
 
   useEffect(() => {
     history.redirect()
-  }, [history])
+  }, [])
 
   return (
       <div className={style.background}>

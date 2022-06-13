@@ -4,10 +4,13 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import style from "./Settings.module.css"
 import AdminFormItem from "../AdminFormItem/AdminFormItem";
 import {useSettings} from "../../../../hooks/useSettings";
+import Preloader from "../../../Preloader/Preloader";
 
 const Settings = () => {
 
   const settings = useSettings()
+
+  if (settings.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} />
 
   return (
       <div className={"adminContentBackground"}>
@@ -19,7 +22,7 @@ const Settings = () => {
                 mainStyle={"formItem"}
                 inputStyle={style.inputSettings}
                 inputType={"text"}
-                value={""}
+                value={settings.email}
                 id={"login"}
                 onClickSaveFunc={settings.onClickSave}
                 labelText={"Логин(email):"}
