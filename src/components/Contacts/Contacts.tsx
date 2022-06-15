@@ -15,8 +15,6 @@ const Contacts = () => {
   const {points} = useTypedSelector(state => state.points)
   const contacts = useContactsRef()
 
-  console.log(contactsState)
-
   return (
       <div ref={contacts.contactsRef} className={classNames(style.background, "rootBackground")}>
         <div className="container">

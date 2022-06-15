@@ -1,11 +1,11 @@
 export enum ContactsActions {
-  FETCH = "FETCH_CONTACTS",
+  FETCH = "FETCH",
   FETCH_SUCCESS = "FETCH_SUCCESS",
   FETCH_ERROR = "FETCH_ERROR",
   FETCH_CONTACTS_SUCCESS = "FETCH_CONTACTS_SUCCESS",
   FETCH_CONTACTS_ERROR = "FETCH_CONTACTS_ERROR",
-  SET_PHONE = "SET_PHONES",
-  SET_EMAIL = "SET_EMAILS",
+  SET_PHONE = "SET_PHONE",
+  SET_EMAIL = "SET_EMAIL",
   ADD_PHONE = "ADD_PHONE",
   ADD_EMAIL = "ADD_EMAIL",
   DELETE_PHONE = "DELETE_PHONE",
@@ -26,11 +26,6 @@ export type ContactsResponse = {
   emails: Email[]
   phones: Phone[]
   mapState: MapState
-}
-
-export type Address = {
-  address: string
-  id: number
 }
 
 export type Email = {
@@ -65,7 +60,7 @@ export type ContactsAction =
     DeleteEmail |
     SetMapStateCenter |
     SetMapZoom |
-    FetchSuccess | 
+    FetchSuccess |
     FetchError
 
 type Fetch = {

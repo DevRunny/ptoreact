@@ -17,7 +17,6 @@ export const usePointForm = (point: Point) => {
   const [checked, setChecked] = useState<boolean>(verifyItemInCheckedPoints)
 
   const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    console.log(inputValue)
     switch (id) {
       case point.address:
         const newArrayAddressesWithAddress = points.map(item => {

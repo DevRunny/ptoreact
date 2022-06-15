@@ -90,4 +90,5 @@
 
 .logoCorp {
   width: 231px;
+  pointer-events: none;
 }
