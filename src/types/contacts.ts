@@ -4,8 +4,8 @@ export enum ContactsActions {
   FETCH_ERROR = "FETCH_ERROR",
   FETCH_CONTACTS_SUCCESS = "FETCH_CONTACTS_SUCCESS",
   FETCH_CONTACTS_ERROR = "FETCH_CONTACTS_ERROR",
-  SET_PHONES = "SET_PHONES",
-  SET_EMAILS = "SET_EMAILS",
+  SET_PHONE = "SET_PHONES",
+  SET_EMAIL = "SET_EMAILS",
   ADD_PHONE = "ADD_PHONE",
   ADD_EMAIL = "ADD_EMAIL",
   DELETE_PHONE = "DELETE_PHONE",
@@ -57,8 +57,8 @@ export type ContactsAction =
     Fetch |
     FetchContactsSuccess |
     FetchContactsError |
-    SetPhones |
-    SetEmails |
+    SetPhone |
+    SetEmail |
     AddPhone |
     AddEmail |
     DeletePhone |
@@ -91,14 +91,14 @@ type FetchContactsError = {
   payload: string
 }
 
-type SetPhones = {
-  type: ContactsActions.SET_PHONES,
-  payload: Phone[]
+type SetPhone = {
+  type: ContactsActions.SET_PHONE,
+  payload: Phone
 }
 
-type SetEmails = {
-  type: ContactsActions.SET_EMAILS,
-  payload: Email[]
+type SetEmail = {
+  type: ContactsActions.SET_EMAIL,
+  payload: Email
 }
 
 type AddPhone = {

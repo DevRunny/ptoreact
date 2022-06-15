@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {ContactsAction, ContactsActions, Email, Phone} from "../../types/contacts";
-import {createEmail, createPhone, DBdeleteEmail, DBdeletePhone, getContacts} from "../../API/contacts";
+import {createEmail, createPhone, DBdeleteEmail, DBdeletePhone, getContacts, updateEmails, updatePhones as DBupdatePhone} from "../../API/contacts";
 
 export const fetchContactsAC = () => {
   return async (dispatch: Dispatch<ContactsAction>) => {
@@ -14,12 +14,34 @@ export const fetchContactsAC = () => {
   }
 }
 
-export const setPhones = (phones: Phone[]) => {
-  return {type: ContactsActions.SET_PHONES, payload: phones}
+export const setPhoneContacts = (phone: Phone) => {
+  return async (dispatch: Dispatch<ContactsAction>) => {
+    try {
+      dispatch({type: ContactsActions.FETCH})
+      const response = await DBupdatePhone(phone.phoneNumber, phone.id)
+      if (response.status === 200) {
+        dispatch({type: ContactsActions.FETCH_SUCCESS})
+        dispatch({type: ContactsActions.SET_PHONE, payload: phone})
+      }
+    } catch (error) {
+      dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+    }
+  }
 }
 
-export const setEmails = (emails: Email[]) => {
-  return {type: ContactsActions.SET_EMAILS, payload: emails}
+export const setEmailContacts = (email: Email) => {
+  return async (dispatch: Dispatch<ContactsAction>) => {
+    try {
+      dispatch({type: ContactsActions.FETCH})
+      const response = await updateEmails(email.email, email.id)
+      if (response.status === 200) {
+        dispatch({type: ContactsActions.FETCH_SUCCESS})
+        dispatch({type: ContactsActions.SET_EMAIL, payload: email})
+      }
+    } catch (error) {
+      dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+    }
+  }
 }
 
 export const addPhone = (id: string) => {

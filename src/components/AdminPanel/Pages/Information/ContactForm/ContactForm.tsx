@@ -4,76 +4,20 @@ import style from "./ContactForm.module.css"
 import {useActions} from "../../../../../hooks/useActions";
 import AddFieldButton from "../../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
-import {updateEmails, updatePhones} from "../../../../../API/contacts";
+import { Email, Phone } from '../../../../../types/contacts';
+import { useContactForm } from '../../../../../hooks/useContactForm';
 
 type Props = {
   data: any[]
-  labelText: LabelText
+  labelText: LabelTextContactForm
   inputType: InputType
 }
 
-type LabelText = "Телефон:" | "Электронная почта:"
+export type LabelTextContactForm = "Телефон:" | "Электронная почта:"
 
 const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
 
-  const {setEmails, setPhones, addEmail, addPhone, deleteEmail, deletePhone} = useActions()
-
-  const addField = () => {
-    switch (labelText) {
-      case "Телефон:":
-        addPhone((data.length + 1).toString())
-        break
-      case "Электронная почта:":
-        addEmail((data.length + 1).toString())
-        break
-      default:
-        break
-    }
-  }
-
-  const deleteField = (id: string) => {
-    switch (labelText) {
-      case "Телефон:":
-        deletePhone(id)
-        break
-      case "Электронная почта:":
-        deleteEmail(id)
-        break
-      default:
-        break
-    }
-  }
-
-  const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    switch (inputType) {
-      case "tel":
-        const currentPhone = data.find(phone => phone.id === id)
-        const newPhones = data.map(phone => {
-          if (currentPhone && phone.id === currentPhone.id) {
-            return {id: phone.id, phoneNumber: inputValue}
-          } else {
-            return {id: phone.id, phoneNumber: phone.value}
-          }
-        })
-        updatePhones(inputValue, id)
-        setPhones(newPhones)
-        break
-      case "email":
-        const currentEmail = data.find(email => email.id === id)
-        const newEmails = data.map(email => {
-          if (currentEmail && email.id === currentEmail.id) {
-            return {id: email.id, email: inputValue}
-          } else {
-            return {id: email.id, email: email.value}
-          }
-        })
-        updateEmails(inputValue, id)
-        setEmails(newEmails)
-        break
-      default:
-        break
-    }
-  }
+  const contactForm = useContactForm(data, labelText)
 
   return (
       <form className={style.form}>
@@ -87,7 +31,7 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
                                   required={true}
                                   value={item.value}
                                   id={item.id}
-                                  onClickSaveFunc={onClickSave}
+                                  onClickSaveFunc={contactForm.onClickSave}
             />
           } else {
             return <AdminFormItem key={item.id}
@@ -96,15 +40,15 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
                                   inputType={inputType}
                                   value={item.value}
                                   id={item.id}
-                                  onClickSaveFunc={onClickSave}
-                                  onClickDeleteFunc={deleteField}
+                                  onClickSaveFunc={contactForm.onClickSave}
+                                  onClickDeleteFunc={contactForm.deleteField}
             />
           }
         })}
         <AddFieldButton
             icon={adminPanelImages.plusButton.blue.src}
             textButton={"Добавить поле"}
-            onClickFunc={addField}
+            onClickFunc={contactForm.addField}
             buttonStyle={style.addBottomButton}
         />
       </form>
