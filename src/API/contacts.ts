@@ -15,9 +15,9 @@ export const updateEmails = async (value: string, id: string): Promise<any> => {
 }
 
 export const createPhone = async (id: string): Promise<any> => {
-  return await instance.post(`contacts/phones.json`, {phoneNumber: "", id})
+  return await instance.patch(`contacts/phones.json`, {[Number(id) - 1]: {id, phoneNumber: ""}})
 }
 
 export const createEmail = async (id: string): Promise<any> => {
-  return await instance.post(`contacts/emails.json`, {email: "", id})
+  return await instance.patch(`contacts/emails.json`, {[Number(id) - 1]: {id, email: ""}})
 }
