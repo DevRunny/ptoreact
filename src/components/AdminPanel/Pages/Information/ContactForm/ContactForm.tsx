@@ -4,7 +4,7 @@ import style from "./ContactForm.module.css"
 import {useActions} from "../../../../../hooks/useActions";
 import AddFieldButton from "../../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
-import {createEmail, createPhone, updateEmails, updatePhones} from "../../../../../API/contacts";
+import {updateEmails, updatePhones} from "../../../../../API/contacts";
 
 type Props = {
   data: any[]
@@ -21,12 +21,10 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
   const addField = () => {
     switch (labelText) {
       case "Телефон:":
-        createPhone((data.length + 1).toString())
-        addPhone()
+        addPhone((data.length + 1).toString())
         break
       case "Электронная почта:":
-        createEmail((data.length + 1).toString())
-        addEmail()
+        addEmail((data.length + 1).toString())
         break
       default:
         break
@@ -36,18 +34,10 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
   const deleteField = (id: string) => {
     switch (labelText) {
       case "Телефон:":
-        const newPhones = data.filter(phone => phone.id !== id).map(phone => ({
-          id: phone.id,
-          phoneNumber: phone.value
-        }))
-        deletePhone(newPhones)
+        deletePhone(id)
         break
       case "Электронная почта:":
-        const newEmails = data.filter(email => email.id !== id).map(email => ({
-          id: email.id,
-          email: email.value
-        }))
-        deleteEmail(newEmails)
+        deleteEmail(id)
         break
       default:
         break

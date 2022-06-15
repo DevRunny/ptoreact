@@ -1,5 +1,7 @@
 export enum ContactsActions {
-  FETCH_CONTACTS = "FETCH_CONTACTS",
+  FETCH = "FETCH_CONTACTS",
+  FETCH_SUCCESS = "FETCH_SUCCESS",
+  FETCH_ERROR = "FETCH_ERROR",
   FETCH_CONTACTS_SUCCESS = "FETCH_CONTACTS_SUCCESS",
   FETCH_CONTACTS_ERROR = "FETCH_CONTACTS_ERROR",
   SET_PHONES = "SET_PHONES",
@@ -52,7 +54,7 @@ export type MapState = {
 }
 
 export type ContactsAction =
-    FetchContacts |
+    Fetch |
     FetchContactsSuccess |
     FetchContactsError |
     SetPhones |
@@ -62,10 +64,21 @@ export type ContactsAction =
     DeletePhone |
     DeleteEmail |
     SetMapStateCenter |
-    SetMapZoom
+    SetMapZoom |
+    FetchSuccess | 
+    FetchError
 
-type FetchContacts = {
-  type: ContactsActions.FETCH_CONTACTS,
+type Fetch = {
+  type: ContactsActions.FETCH,
+}
+
+type FetchSuccess = {
+  type: ContactsActions.FETCH_SUCCESS
+}
+
+type FetchError = {
+  type: ContactsActions.FETCH_ERROR,
+  payload: string
 }
 
 type FetchContactsSuccess = {
@@ -98,12 +111,12 @@ type AddEmail = {
 
 type DeletePhone = {
   type: ContactsActions.DELETE_PHONE
-  payload: Phone[]
+  payload: string
 }
 
 type DeleteEmail = {
   type: ContactsActions.DELETE_EMAIL
-  payload: Email[]
+  payload: string
 }
 
 type SetMapStateCenter = {

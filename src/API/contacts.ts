@@ -21,3 +21,11 @@ export const createPhone = async (id: string): Promise<any> => {
 export const createEmail = async (id: string): Promise<any> => {
   return await instance.patch(`contacts/emails.json`, {[Number(id) - 1]: {id, email: ""}})
 }
+
+export const DBdeletePhone = async (id: string): Promise<any> => {
+  return await instance.delete(`contacts/phones/${Number(id) - 1}.json`)
+}
+
+export const DBdeleteEmail = async (id: string): Promise<any> => {
+  return await instance.delete(`contacts/emails/${Number(id) - 1}.json`)
+}

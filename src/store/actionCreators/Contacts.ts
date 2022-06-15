@@ -1,11 +1,11 @@
 import {Dispatch} from "redux";
 import {ContactsAction, ContactsActions, Email, Phone} from "../../types/contacts";
-import {getContacts} from "../../API/contacts";
+import {createEmail, createPhone, DBdeleteEmail, DBdeletePhone, getContacts} from "../../API/contacts";
 
 export const fetchContactsAC = () => {
   return async (dispatch: Dispatch<ContactsAction>) => {
     try {
-      dispatch({type: ContactsActions.FETCH_CONTACTS})
+      dispatch({type: ContactsActions.FETCH})
       const response = await getContacts()
       dispatch({type: ContactsActions.FETCH_CONTACTS_SUCCESS, payload: response})
     } catch (error) {
@@ -22,20 +22,64 @@ export const setEmails = (emails: Email[]) => {
   return {type: ContactsActions.SET_EMAILS, payload: emails}
 }
 
-export const addPhone = () => {
-  return {type: ContactsActions.ADD_PHONE}
+export const addPhone = (id: string) => {
+  return async (dispatch: Dispatch<ContactsAction>) => {
+    try {
+      dispatch({type: ContactsActions.FETCH})
+      const response = await createPhone(id)
+      if (response.status === 200) {
+        dispatch({type: ContactsActions.FETCH_SUCCESS})
+        dispatch({type: ContactsActions.ADD_PHONE})
+      }
+    } catch (error) {
+      dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+    }
+  }
 }
 
-export const addEmail = () => {
-  return {type: ContactsActions.ADD_EMAIL}
+export const addEmail = (id: string) => {
+  return async (dispatch: Dispatch<ContactsAction>) => {
+    try {
+      dispatch({type: ContactsActions.FETCH})
+      const response = await createEmail(id)
+      if (response.status === 200) {
+        dispatch({type: ContactsActions.FETCH_SUCCESS})
+        dispatch({type: ContactsActions.ADD_EMAIL})
+      }
+    } catch (error) {
+      dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+    }
+  }
 }
 
-export const deletePhone = (phones: Phone[]) => {
-  return {type: ContactsActions.DELETE_PHONE, payload: phones}
+export const deletePhone = (id: string) => {
+  return async (dispatch: Dispatch<ContactsAction>) => {
+    try {
+      dispatch({type: ContactsActions.FETCH})
+      const response = await DBdeletePhone(id)
+      if (response.status === 200) {
+        dispatch({type: ContactsActions.DELETE_PHONE, payload: id})
+        dispatch({type: ContactsActions.FETCH_SUCCESS})
+      }
+    } catch (error) {
+      dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+    }
+  }
 }
 
-export const deleteEmail = (emails: Email[]) => {
-  return {type: ContactsActions.DELETE_EMAIL, payload: emails}
+export const deleteEmail = (id: string) => {
+  return async (dispatch: Dispatch<ContactsAction>) => {
+    try {
+      dispatch({type: ContactsActions.FETCH})
+      const response = await DBdeleteEmail(id)
+      if (response.status === 200) {
+        dispatch({type: ContactsActions.DELETE_EMAIL, payload: id})
+        dispatch({type: ContactsActions.FETCH_SUCCESS})
+      }
+    } catch (error) {
+      dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+    }
+  }
 }
 
 export const setMapStateCenter = (center: number[]) => {
