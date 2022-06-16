@@ -19,7 +19,6 @@ function MessengersList() {
   const {redirect} = useAuth()
 
   const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {
-    changeValueMessenger(id, inputValue)
     setValueMessenger(id, inputValue)
   }
 

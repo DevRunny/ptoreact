@@ -16,7 +16,7 @@
   font-family: "Inter", serif;
   border-right: 1px solid #F0F0F0;
   min-height: 100vh;
-  z-index: 10;
+  z-index: 999;
 }
 
 .menu {

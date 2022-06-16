@@ -21,6 +21,7 @@ body {
   padding-left: 67px;
   padding-right: 67px;
   height: 100%;
+  position: relative;
 }
 
 .rootBackground {

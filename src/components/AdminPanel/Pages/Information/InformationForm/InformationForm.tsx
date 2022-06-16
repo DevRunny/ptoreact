@@ -2,8 +2,7 @@ import React from 'react';
 import style from "./InfromationForm.module.css"
 import AdminFormItem from "../../AdminFormItem/AdminFormItem";
 import {AboutDataAdmin} from "../../../../../types/about";
-import {useActions} from "../../../../../hooks/useActions";
-import {updateAbout} from "../../../../../API/about";
+import { useInformationForm } from '../../../../../hooks/useInformationForm';
 
 type Props = {
   data: AboutDataAdmin
@@ -11,30 +10,8 @@ type Props = {
 
 const InformationForm: React.FC<Props> = ({data}) => {
 
-  const {setNameCompany, setNumRegistry, setInn, setOgrn} = useActions()
+  const informationForm = useInformationForm()
 
-  const onClickSave = (id: string, inputValue: string) => {
-    switch (id) {
-      case "nameCompany":
-        updateAbout(inputValue)
-        setNameCompany(inputValue)
-        break
-      case "numRegistry":
-        updateAbout(Number(inputValue), "numRegistry")
-        setNumRegistry(Number(inputValue))
-        break
-      case "inn":
-        updateAbout(Number(inputValue), "inn")
-        setInn(Number(inputValue))
-        break
-      case "ogrn":
-        updateAbout(Number(inputValue), "ogrn")
-        setOgrn(Number(inputValue))
-        break
-      default:
-        break
-    }
-  }
   return (
       <form className={style.form}>
         <AdminFormItem
@@ -45,7 +22,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             value={data.nameCompany}
             required={true}
             id={"nameCompany"}
-            onClickSaveFunc={onClickSave}
+            onClickSaveFunc={informationForm.onClickSave}
         />
         <AdminFormItem
             labelText={"Номер в реестре технического оператора РСА:"}
@@ -55,7 +32,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             value={data.requisites.numRegistry || ""}
             required={true}
             id={"numRegistry"}
-            onClickSaveFunc={onClickSave}
+            onClickSaveFunc={informationForm.onClickSave}
         />
         <AdminFormItem
             labelText={"ИНН:"}
@@ -65,7 +42,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             value={data.requisites.inn || ""}
             required={true}
             id={"inn"}
-            onClickSaveFunc={onClickSave}
+            onClickSaveFunc={informationForm.onClickSave}
         />
         <AdminFormItem
             labelText={"ОГРН:"}
@@ -75,7 +52,7 @@ const InformationForm: React.FC<Props> = ({data}) => {
             value={data.requisites.ogrn || ""}
             required={true}
             id={"ogrn"}
-            onClickSaveFunc={onClickSave}
+            onClickSaveFunc={informationForm.onClickSave}
         />
       </form>
   )

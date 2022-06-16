@@ -7,6 +7,7 @@ import AdminRouter from "./AdminRouter/AdminRouter";
 type Props = {}
 
 const AdminPanel: React.FC<Props> = () => {
+
   const history = useAuth()
 
   useEffect(() => {

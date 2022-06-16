@@ -7,6 +7,7 @@ import {sectionRefsReducer} from "./sectionRefsReducer";
 import {messengersReducer} from "./messengersReducer";
 import {authReducer} from "./authReducer";
 import {pointsReducer} from "./pointsReducer";
+import {modalsReducer} from "./modalsReducer";
 
 export const rootReducers = combineReducers({
   about: aboutReducer,
@@ -17,6 +18,7 @@ export const rootReducers = combineReducers({
   messengers: messengersReducer,
   sectionRefs: sectionRefsReducer,
   auth: authReducer,
+  modals:  modalsReducer
 });
 
 export type RootReducers = ReturnType<typeof rootReducers>;

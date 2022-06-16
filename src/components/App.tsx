@@ -1,11 +1,15 @@
-import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import {routes, RoutesName} from "../routes";
 import Main from "./Main/Main";
 import AdminPanel from "./AdminPanel/AdminPanel";
+import Modal from "./AdminPanel/Modal/Modal";
+import { useTypedSelector } from "../hooks/useTypedSelector";
 
 
 function App() {
+
+  const {responseModal} = useTypedSelector(state => state.modals)
+
   return (
       <div className="App">
         <Routes>
@@ -24,6 +28,12 @@ function App() {
             }
           })}
         </Routes>
+        <Modal isActive={responseModal.isActive} type={"response"}>
+          {responseModal.message}
+          <div>
+            <img src={responseModal.srcIcon} alt="responseModal" />
+          </div>
+        </Modal>
       </div>
   );
 }

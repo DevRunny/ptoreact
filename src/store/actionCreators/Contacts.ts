@@ -1,6 +1,7 @@
 import {Dispatch} from "redux";
 import {ContactsAction, ContactsActions, Email, Phone} from "../../types/contacts";
 import {createEmail, createPhone, DBdeleteEmail, DBdeletePhone, getContacts, updateEmails, updatePhones as DBupdatePhone} from "../../API/contacts";
+import { ModalsAction, ModalsActions } from "../../types/modals";
 
 export const fetchContactsAC = () => {
   return async (dispatch: Dispatch<ContactsAction>) => {
@@ -15,31 +16,35 @@ export const fetchContactsAC = () => {
 }
 
 export const setPhoneContacts = (phone: Phone) => {
-  return async (dispatch: Dispatch<ContactsAction>) => {
+  return async (dispatch: Dispatch<ContactsAction | ModalsAction>) => {
     try {
       dispatch({type: ContactsActions.FETCH})
       const response = await DBupdatePhone(phone.phoneNumber, phone.id)
       if (response.status === 200) {
         dispatch({type: ContactsActions.FETCH_SUCCESS})
         dispatch({type: ContactsActions.SET_PHONE, payload: phone})
+        dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Телефон был успешно изменен"})
       }
     } catch (error) {
       dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при изменении телефона"})
     }
   }
 }
 
 export const setEmailContacts = (email: Email) => {
-  return async (dispatch: Dispatch<ContactsAction>) => {
+  return async (dispatch: Dispatch<ContactsAction | ModalsAction>) => {
     try {
       dispatch({type: ContactsActions.FETCH})
       const response = await updateEmails(email.email, email.id)
       if (response.status === 200) {
         dispatch({type: ContactsActions.FETCH_SUCCESS})
         dispatch({type: ContactsActions.SET_EMAIL, payload: email})
+        dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Email был успешно изменен"})
       }
     } catch (error) {
       dispatch({type: ContactsActions.FETCH_ERROR, payload: error})
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при изменении email"})
     }
   }
 }

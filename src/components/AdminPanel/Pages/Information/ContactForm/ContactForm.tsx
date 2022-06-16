@@ -1,10 +1,8 @@
 import React from 'react';
 import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
 import style from "./ContactForm.module.css"
-import {useActions} from "../../../../../hooks/useActions";
 import AddFieldButton from "../../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
-import { Email, Phone } from '../../../../../types/contacts';
 import { useContactForm } from '../../../../../hooks/useContactForm';
 
 type Props = {

@@ -6,6 +6,7 @@ import * as SectionRefsActionCreators from "./SectionRefs";
 import * as MessengersActionCreators from "./Messengers";
 import * as AuthActionsCreators from "./Auth";
 import * as PointsActionsCreators from "./Points"
+import * as ModalsActionsCreators from "./Modals"
 
 export default {
   ...AboutActionCreators,
@@ -15,5 +16,6 @@ export default {
   ...SectionRefsActionCreators,
   ...MessengersActionCreators,
   ...AuthActionsCreators,
-  ...PointsActionsCreators
+  ...PointsActionsCreators,
+  ...ModalsActionsCreators
 };
