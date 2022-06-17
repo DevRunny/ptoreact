@@ -18,6 +18,8 @@ function AccreditationList() {
   const [saveChanges, setChangesSave] = useState<boolean>(false)
   const [errorChanges, setErrorChanges] = useState<boolean>(false)
 
+  console.log(selectedCategories)
+
   const onClickSaveChanges = () => {
     setChangesSave(true)
     if (selectedCategories.length) {

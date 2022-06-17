@@ -3,6 +3,7 @@ import style from "./AccreditationListItem.module.css"
 import classNames from "classnames";
 import {useActions} from "../../../../../hooks/useActions";
 import {Category} from "../../../../../types/accreditation";
+import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
 
 type Props = {
   category: Category
@@ -11,17 +12,28 @@ type Props = {
 }
 
 const AccreditationListItem: React.FC<Props> = ({itemText, selected, category}) => {
-  const {selectCategory, unselectCategory} = useActions()
+
+  const {selectCategory, unselectCategory, openResponseModalFail} = useActions()
+  const {selectedCategories} = useTypedSelector(state => state.accreditation)
 
   const [active, setActive] = useState<boolean>(selected)
 
   const onClickItem = () => {
-    if (active) {
-      unselectCategory(category)
-      setActive(!active)
+    if (selectedCategories.length !== 1) {
+      if (active) {
+        unselectCategory(category)
+        setActive(!active)
+      } else {
+        selectCategory(category)
+        setActive(!active)
+      }
     } else {
-      selectCategory(category)
-      setActive(!active)
+      if (active) {
+        openResponseModalFail("Должна быть выбрана хотя бы одна категория")
+      } else {
+        selectCategory(category)
+        setActive(!active)
+      }
     }
   }
 
