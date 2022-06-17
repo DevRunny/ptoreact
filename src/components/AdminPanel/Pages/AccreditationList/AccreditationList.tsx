@@ -14,23 +14,17 @@ function AccreditationList() {
 
   const {loading, error, allCategories, selectedCategories} = useTypedSelector(state => state.accreditation)
   const {redirect} = useAuth()
-  const {fetchAllCategoriesAC, fetchSelectedCategoriesAC} = useActions()
-  const [saveChanges, setChangesSave] = useState<boolean>(false)
-  const [errorChanges, setErrorChanges] = useState<boolean>(false)
+  const {fetchAllCategoriesAC, fetchSelectedCategoriesAC, openResponseModalFail, openResponseModalSuccess} = useActions()
 
   console.log(selectedCategories)
 
-  const onClickSaveChanges = () => {
-    setChangesSave(true)
-    if (selectedCategories.length) {
-      setErrorChanges(false)
-      addSelectCategory(selectedCategories)
-      setTimeout(() => {
-        setChangesSave(false)
-      }, 3000)
-    } else {
-      setErrorChanges(true)
-    }
+  const onClickSaveChanges = async () => {
+      const response = await addSelectCategory(selectedCategories)
+      if (response.status === 200) {
+        openResponseModalSuccess("Изменения успешно сохранены")
+      } else {
+        openResponseModalFail("Произошла ошибка при изменении категорий")
+      }
   }
 
   useEffect(() => {
@@ -66,8 +60,6 @@ function AccreditationList() {
               type={"button"}
               func={onClickSaveChanges}
           />
-          {saveChanges && !errorChanges && <p className={style.notification}>Все изменения успешно сохранены!</p>}
-          {saveChanges && errorChanges && <p className={style.notificationError}>Выберите хотя бы одну категорию</p>}
         </div>
       </div>
   );
