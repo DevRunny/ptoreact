@@ -3,7 +3,7 @@ import {routes, RoutesName} from "../routes";
 import Main from "./Main/Main";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import Modal from "./AdminPanel/Modal/Modal";
-import { useTypedSelector } from "../hooks/useTypedSelector";
+import {useTypedSelector} from "../hooks/useTypedSelector";
 
 
 function App() {
@@ -30,9 +30,7 @@ function App() {
         </Routes>
         <Modal isActive={responseModal.isActive} type={"response"}>
           {responseModal.message}
-          <div>
-            <img src={responseModal.srcIcon} alt="responseModal" />
-          </div>
+          <img src={responseModal.srcIcon} alt="responseModal" />
         </Modal>
       </div>
   );
