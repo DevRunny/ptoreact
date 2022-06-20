@@ -4,6 +4,7 @@ import MessengerComponent from "./FooterComponent/MessengerComponent";
 import CompanyInfoRequisite from "../CompanyInfoRequisite/CompanyInfoRequisite";
 import Navigation from "../Navigation/Navigation";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {RoutesName} from "../../routes";
 
 function Footer() {
   const stateInfo = useTypedSelector(state => state.about)
@@ -46,7 +47,10 @@ function Footer() {
               <CompanyInfoRequisite isBold={false} nameRequisite={"ИНН"} requisite={stateInfo.requisites.inn} />
               <CompanyInfoRequisite isBold={false} nameRequisite={"ОГРН"} requisite={stateInfo.requisites.ogrn} />
             </div>
-            <div className={style.privacyPolicy}><a href="/">Политика конфиденциальности</a></div>
+            <div className={style.privacyPolicy}>
+              <a href={RoutesName.PRIVACY} target={"_blank"} rel={"noreferrer"}>
+                Политика конфиденциальности
+              </a></div>
             <div className={style.copyright}>
               <span>© CMS ENDEL</span>
               <span>2022</span>

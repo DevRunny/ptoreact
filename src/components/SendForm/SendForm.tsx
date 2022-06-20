@@ -106,10 +106,10 @@ function SendForm() {
                 elementPlaceholder={"Необязательное поле, не более 100 символов"}
             />
             <FormItem
-                element="input"
+                element="checkbox"
                 id="acceptTerms"
                 errors={form.errors}
-                labelName={"Я соглашаюсь на обработку персональных данных"}
+                labelName={"Я соглашаюсь на "}
                 labelStyle={style.checkboxText}
                 mainStyleElement={style.checkbox}
                 register={form.register}
