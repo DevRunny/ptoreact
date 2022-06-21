@@ -1,8 +1,22 @@
 import {AccreditationAction, AccreditationActions, AccreditationState, Category} from "../../types/accreditation";
 
 const initialState: AccreditationState = {
-  allCategories: [] as Category[],
-  selectedCategories: [] as Category[],
+  allCategories: [
+    {
+      categoryName: "",
+      categoryDescription: "",
+      urlImage: "",
+      id: ""
+    }
+  ] as Category[],
+  selectedCategories: [
+    {
+      categoryName: "",
+      categoryDescription: "",
+      urlImage: "",
+      id: ""
+    }
+  ] as Category[],
   loading: false,
   error: null
 }

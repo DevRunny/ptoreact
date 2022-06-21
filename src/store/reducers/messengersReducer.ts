@@ -1,7 +1,14 @@
 import {Messenger, MessengersAction, MessengersActions, MessengersState} from "../../types/messengers";
 
 const initialState: MessengersState = {
-  messengers: [] as Messenger[],
+  messengers: [
+    {
+      messengerName: "",
+      value: "",
+      icon: "",
+      id: ""
+    }
+  ] as Messenger[],
   loading: false,
   error: null
 }

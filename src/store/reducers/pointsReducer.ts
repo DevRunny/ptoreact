@@ -1,8 +1,22 @@
 import {Point, PointsAction, PointsActions, PointsState} from "../../types/points";
 
 const initialState: PointsState = {
-  points: [] as Point[],
-  checkedPoints: [] as Point[],
+  points: [
+    {
+      address: "",
+      coordinate: [0, 0],
+      workingMode: "",
+      id: ""
+    }
+  ] as Point[],
+  checkedPoints: [
+    {
+      address: "",
+      coordinate: [0, 0],
+      workingMode: "",
+      id: ""
+    }
+  ] as Point[],
   error: "",
   loading: false
 }

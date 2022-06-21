@@ -1,8 +1,20 @@
 import {Document, DocumentsAction, DocumentsActions, DocumentsState} from "../../types/documents";
 
 const initialState: DocumentsState = {
-  documents: [] as Document[],
-  checkedDocuments: [] as Document[],
+  documents: [
+    {
+      urlDocument: "",
+      documentDescription: "",
+      id: ""
+    }
+  ] as Document[],
+  checkedDocuments: [
+    {
+      urlDocument: "",
+      documentDescription: "",
+      id: ""
+    }
+  ] as Document[],
   error: null,
   loading: false
 }
