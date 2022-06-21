@@ -1,4 +1,25 @@
 .alert {
-	color: red;
-	font-size: 10px;
- }
+  color: red;
+  font-size: 10px;
+}
+
+.checkbox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkboxContent {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.checkboxError {
+  position: absolute;
+  top: -22px;
+}
+
+.linkCheckbox {
+  text-decoration: underline;
+  color: #0a9aff;
+}
