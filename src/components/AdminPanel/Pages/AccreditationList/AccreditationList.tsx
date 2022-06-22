@@ -9,31 +9,13 @@ import {useActions} from "../../../../hooks/useActions";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import Preloader from "../../../Preloader/Preloader";
 import {useAuth} from "../../../../hooks/useAuth";
+import { useAccreditationList } from '../../../../hooks/useAccreditationList';
 
 function AccreditationList() {
 
-  const {loading, error, allCategories, selectedCategories} = useTypedSelector(state => state.accreditation)
-  const {redirect} = useAuth()
-  const {fetchAllCategoriesAC, fetchSelectedCategoriesAC, openResponseModalFail, openResponseModalSuccess} = useActions()
+  const accreditationList = useAccreditationList()
 
-  console.log(selectedCategories)
-
-  const onClickSaveChanges = async () => {
-      const response = await addSelectCategory(selectedCategories)
-      if (response.status === 200) {
-        openResponseModalSuccess("Изменения успешно сохранены")
-      } else {
-        openResponseModalFail("Произошла ошибка при изменении категорий")
-      }
-  }
-
-  useEffect(() => {
-    redirect()
-    fetchAllCategoriesAC()
-    fetchSelectedCategoriesAC()
-  }, [])
-
-  if (loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
+  if (accreditationList.isLoading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
   return (
       <div className={"adminContentBackground"}>
@@ -41,9 +23,9 @@ function AccreditationList() {
         <div className={style.contentWrap}>
           <SectionTitle titleText={"Выберите категории транспортных средств, на которые вы аттестованы:"} />
           <div className={style.list}>
-            {allCategories.length && selectedCategories.length ?
-                allCategories.map(category => {
-                  const find = selectedCategories.find(selectedCategory => category.id === selectedCategory.id)
+            {accreditationList.allCategories.length && accreditationList.selectedCategories.length ?
+                accreditationList.allCategories.map(category => {
+                  const find = accreditationList.selectedCategories.find(selectedCategory => category.id === selectedCategory.id)
                   if (find) {
                     return <AccreditationListItem itemText={category.categoryName} selected={true} category={category} key={category.id} />
                   } else {
@@ -58,7 +40,7 @@ function AccreditationList() {
               text={"Сохранить изменения"}
               mainStyle={style.button}
               type={"button"}
-              func={onClickSaveChanges}
+              func={accreditationList.onClickSaveChanges}
           />
         </div>
       </div>
