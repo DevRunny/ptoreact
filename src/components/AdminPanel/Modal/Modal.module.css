@@ -80,10 +80,13 @@
   height: 100%;
   width: 0;
   background: #43A8EE;
-  animation: 6350ms progress ease-in infinite;
+  animation: 5050ms progress linear infinite;
 }
 
 @keyframes progress {
+  from {
+    width: 0%;
+  }
   to {
     width: 100%;
   }

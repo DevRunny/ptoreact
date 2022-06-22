@@ -12,30 +12,35 @@ type ModalType = "response" | "deleteAlert"
 
 const Modal: React.FC<Props> = ({isActive, type, children}) => {
 
-  const ref = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
+  const modalLoaderRef = useRef<HTMLDivElement>(null)
   const {closeResponseModal} = useActions()
 
   useEffect(() => {
     if (type === "response" && isActive) {
+      modalRef.current?.classList.remove(style.modalActiveContentClose)
+      modalRef.current?.classList.remove(style.modalActiveContentResponseOpen)
+      modalLoaderRef.current?.classList.remove(style.modalLoader)
       setTimeout(() => {
         closeResponseModal()
       }, 6000)
       setTimeout(() => {
-        ref.current?.classList.add(style.modalActiveContentClose)
+        modalRef.current?.classList.add(style.modalActiveContentClose)
       }, 5000)
       setTimeout(() => {
-        ref.current?.classList.add(style.modalActiveContentResponseOpen)
+        modalRef.current?.classList.add(style.modalActiveContentResponseOpen)
+        modalLoaderRef.current?.classList.add(style.modalLoader)
       }, 0)
     }
   }, [isActive])
 
   return (
       <div className={isActive && type ? style.modalActive : style.modal}>
-        <div ref={ref} className={
+        <div ref={modalRef} className={
           isActive && type ? classNames(style.modalActiveContent, style[`modalActiveContent${type}`]) : classNames(style.modalContent, style[`modalContent${type}`])
         }>
           <div className={style.modalMessageWrap}>{children}</div>
-          <span className={style.modalLoader} />
+          <span ref={modalLoaderRef} className={style.modalLoader} />
         </div>
       </div>
   )
