@@ -6,6 +6,7 @@ import AddressesList from "../Pages/AddressesList/AddressesList";
 import DocumentsList from "../Pages/DocumentsList/DocumentsList";
 import AccreditationList from "../Pages/AccreditationList/AccreditationList";
 import Information from "../Pages/Information/Information";
+import {ErrorNotFound} from "../../ErrorBoundary/ErrorNotFound/ErrorNotFound";
 
 function AdminRouter() {
   return (
@@ -17,6 +18,7 @@ function AdminRouter() {
           <Route path={"address"} element={<AddressesList />} />
           <Route path={"messengers"} element={<MessengersList />} />
           <Route path={"settings"} element={<Settings />} />
+          <Route path={"*"} element={<ErrorNotFound errorInfo={"404"}/>}/>
         </Routes>
       </>
   );

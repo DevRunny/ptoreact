@@ -4,6 +4,7 @@ import Main from "./Main/Main";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import Modal from "./AdminPanel/Modal/Modal";
 import {useTypedSelector} from "../hooks/useTypedSelector";
+import {ErrorNotFound} from "./ErrorBoundary/ErrorNotFound/ErrorNotFound";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
                             element={<route.component />} />
             }
           })}
+            <Route path="*" element={<ErrorNotFound errorInfo={"404"}/>}/>
         </Routes>
         <Modal isActive={responseModal.isActive} type={"response"}>
           {responseModal.message}
