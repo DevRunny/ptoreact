@@ -43,9 +43,11 @@ export const setValueMessenger = (id: string, value: string) => {
           dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: `Мессенджер ${value} был добавлен`})
         } else if (value === MessengersName.WHATSAPP) {
           dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: `Мессенджер ${value} был добавлен`})
+        } else if (!value) {
+          dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Мессенджер был удален"})
         } else {
           dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Ссылка на мессенджер успешно изменена"})
-        }  
+        }
       }
     } catch (error) {
       dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при изменении мессенджера"})
