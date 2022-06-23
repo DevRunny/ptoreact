@@ -72,7 +72,18 @@
   overflow: hidden;
 }
 
-.modalLoader:after {
+.modalLoaderActive {
+  display: block;
+  position: relative;
+  margin: auto;
+  height: 5px;
+  border-radius: 0 0 10px 10px;
+  width: 100%;
+  background: #E7E7E7;
+  overflow: hidden;
+}
+
+.modalLoaderActive:after {
   content: '';
   position: absolute;
   left: 0;
@@ -80,7 +91,8 @@
   height: 100%;
   width: 0;
   background: #43A8EE;
-  animation: 5050ms progress linear infinite;
+  animation: progress linear;
+  animation-duration: 5050ms;
 }
 
 @keyframes progress {

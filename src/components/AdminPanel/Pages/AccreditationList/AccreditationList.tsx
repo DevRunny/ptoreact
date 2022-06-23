@@ -1,14 +1,9 @@
-import React, {useEffect, useState} from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import style from "./Accreditation.module.css"
 import SectionTitle from "../SectionTitle/SectionTitle";
 import AccreditationListItem from "./AccreditationListItem/AccreditationListItem";
 import Button from "../../../Button/Button";
-import {addSelectCategory} from "../../../../API/acccreditation";
-import {useActions} from "../../../../hooks/useActions";
-import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import Preloader from "../../../Preloader/Preloader";
-import {useAuth} from "../../../../hooks/useAuth";
 import { useAccreditationList } from '../../../../hooks/useAccreditationList';
 
 function AccreditationList() {
