@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import AdminMainTitle from "../AdminMainTitle";
 import style from "./MessengersList.module.css"
 import SectionTitle from "../SectionTitle/SectionTitle";
@@ -10,7 +10,6 @@ import Preloader from "../../../Preloader/Preloader";
 import AddFieldButton from "../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import {useAuth} from "../../../../hooks/useAuth";
-import {changeValueMessenger} from "../../../../API/messengers";
 
 function MessengersList() {
   const [loading, setLoading] = useState<boolean>(false)
@@ -23,7 +22,6 @@ function MessengersList() {
   }
 
   const onClickDelete = (id: string) => {
-    changeValueMessenger(id, "")
     deleteMessenger(id)
   }
 

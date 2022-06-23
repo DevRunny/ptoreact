@@ -1,11 +1,13 @@
-export enum MessengersActions {
-  FETCH_MESSENGERS = "FETCH_MESSENGERS",
-  FETCH_MESSENGERS_SUCCESS = "FETCH_MESSENGERS_SUCCESS",
-  FETCH_MESSENGERS_ERROR = "FETCH_MESSENGERS_ERROR",
-  DELETE_MESSENGER = "DELETE_MESSENGER",
-  SET_MESSENGER = "SET_MESSENGER",
+// Enum
+
+export enum MessengersName {
+  TELEGRAM = "Telegram",
+  VIBER = "Viber",
+  VK = "VK (Вконтакте)",
+  WHATSAPP = "WhatsApp"
 }
 
+// State
 
 export type MessengersState = {
   messengers: Messenger[]
@@ -20,8 +22,15 @@ export type Messenger = {
   id: string
 }
 
+// Экшены 
 
-export type ResponseFetchMessengers = Messenger[]
+export enum MessengersActions {
+  FETCH_MESSENGERS = "FETCH_MESSENGERS",
+  FETCH_MESSENGERS_SUCCESS = "FETCH_MESSENGERS_SUCCESS",
+  FETCH_MESSENGERS_ERROR = "FETCH_MESSENGERS_ERROR",
+  DELETE_MESSENGER = "DELETE_MESSENGER",
+  SET_MESSENGER = "SET_MESSENGER",
+}
 
 export type MessengersAction =
     FetchMessengers |
@@ -53,3 +62,7 @@ type SetMessenger = {
   type: MessengersActions.SET_MESSENGER,
   payload: { id: string, value: string }
 }
+
+// Response 
+
+export type ResponseFetchMessengers = Messenger[]
