@@ -5,6 +5,11 @@ import AdminPanel from "./AdminPanel/AdminPanel";
 import Modal from "./AdminPanel/Modal/Modal";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {ErrorNotFound} from "./ErrorBoundary/ErrorNotFound/ErrorNotFound";
+import {Helmet} from "react-helmet";
+import React from "react";
+import {adminPanelImages} from "../utils/adminPanelRoutesImages";
+import Privacy from "./Privacy/Privacy";
+import LoginForm from "./LoginForm/LoginForm";
 
 
 function App() {
@@ -14,13 +19,53 @@ function App() {
   return (
       <div className="App">
         <Routes>
+          <Route path={RoutesName.PRIVACY} element={
+            <>
+              <Helmet>
+                <title>Политика конфиденциальности</title>
+              </Helmet>
+              <Privacy />
+            </>
+          } />
+          <Route path={RoutesName.LOGIN} element={
+            <>
+              <Helmet>
+                <title>Вход в панель управления</title>
+                <link rel="icon" href="/favicon.svg" />
+              </Helmet>
+              <LoginForm />
+            </>
+          } />
           {routes.map((route, index) => {
             if (route.path === RoutesName.SEND) {
-              return <Route key={index} path={RoutesName.MAIN} element={<Main />}>
-                <Route path={route.path} element={<route.component />} />
+              return <Route key={index} path={RoutesName.MAIN} element={
+                <>
+                  <Helmet>
+                    <title>ООО «Делюкс-ПТО»</title>
+                    <link rel="icon" href="/favicon.svg" />
+                  </Helmet>
+                  <Main />
+                </>
+              }>
+                <Route path={route.path} element={
+                  <>
+                    <Helmet>
+                      <title>Заявка на прохождение ТО</title>
+                    </Helmet>
+                    <route.component />
+                  </>
+                } />
               </Route>
             } else if (route.path === RoutesName.ADMIN) {
-              return <Route key={index} path={RoutesName.ADMIN + "/*"} element={<AdminPanel />}>
+              return <Route key={index} path={RoutesName.ADMIN + "/*"} element={
+                <>
+                  <Helmet>
+                    <title>Панель управления ENDEL</title>
+                    <link rel="icon" href={adminPanelImages.endelIcon.src} />
+                  </Helmet>
+                  <AdminPanel />
+                </>
+              }>
               </Route>
             } else {
               return <Route key={index}
@@ -28,7 +73,14 @@ function App() {
                             element={<route.component />} />
             }
           })}
-            <Route path="*" element={<ErrorNotFound errorInfo={"404"}/>}/>
+          <Route path="*" element={
+            <>
+              <Helmet>
+                <title>Страница не найдена</title>
+              </Helmet>
+              <ErrorNotFound errorInfo={"404"} />
+            </>
+          } />
         </Routes>
         <Modal isActive={responseModal.isActive} type={"response"}>
           {responseModal.message}

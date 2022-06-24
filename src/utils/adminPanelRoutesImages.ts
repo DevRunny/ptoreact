@@ -3,6 +3,9 @@ export const adminPanelImages = {
     src: "/images/AdminPanel/LeftSideBar/logoCorp.svg",
     alt: "Corporation"
   },
+  endelIcon: {
+    src: "/images/AdminPanel/EndelIcon.svg",
+  },
   loginForm: {
     login: {
       src: "/images/AdminPanel/login.svg",
