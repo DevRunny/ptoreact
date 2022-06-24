@@ -1,11 +1,11 @@
 .modal {
   opacity: 0;
+  width: 100%;
   pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  width: 0;
 }
 
 .modalActive {
@@ -23,8 +23,8 @@
 .modalActiveContentResponse {
   background-color: white;
   position: fixed;
-  bottom: 10px;
-  left: -30px;
+  top: 10px;
+  right: -30px;
   z-index: 998;
   transition: transform 1.5s;
   box-shadow: 0 0 10px black;
@@ -43,14 +43,17 @@
   border-left: 1px solid #E7E7E7;
   border-bottom: 0;
   border-radius: 0 0 6px 6px;
-  width: 100vh;
-  transition: 1s;
-  transform: translate(98%, 0);
+  width: 600px;
+  transition: 0.5s transform ease-in-out;
+  transform: translate(0, 335px);
+  position: absolute;
+  right: 0;
+  top: -335px;
 }
 
 .modalActiveContentClose {
-  transition: 1s;
-  transform: translate(98%, -335px);
+  transition: 0.5s transform ease-in-out;
+  transform: translate(0, -335px);
 }
 
 .modalMessageWrap {
