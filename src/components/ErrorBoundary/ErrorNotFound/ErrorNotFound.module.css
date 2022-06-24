@@ -1,0 +1,51 @@
+.errorBackground {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: auto;
+}
+
+.errorImage {
+  pointer-events: none;
+}
+
+.errorContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.errorCode {
+  font-size: 90px;
+}
+
+.errorText {
+  font-weight: 400;
+}
+
+.buttonsWrap {
+  display: flex;
+  gap: 30px;
+}
+
+.buttonBackToMain {
+  background: #2d66bd;
+  border-radius: 20px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border: none;
+  font-family: "Gotham Pro", serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 17px;
+  text-align: center;
+  color: white;
+  width: 250px;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
