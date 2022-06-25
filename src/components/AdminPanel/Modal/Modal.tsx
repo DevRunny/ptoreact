@@ -18,19 +18,17 @@ const Modal: React.FC<Props> = ({isActive, type, children}) => {
 
   useEffect(() => {
     if (type === "response" && isActive) {
-      modalRef.current?.classList.remove(style.modalActiveContentClose)
-      modalRef.current?.classList.remove(style.modalActiveContentResponseOpen)
-      modalLoaderRef.current?.classList.remove(style.modalLoaderActive)
       setTimeout(() => {
+        modalRef.current?.classList.remove(style.modalActiveContentClose)
+        modalRef.current?.classList.remove(style.modalActiveContentResponseOpen)
+        modalLoaderRef.current?.classList.remove(style.modalLoaderActive)
         closeResponseModal()
       }, 6000)
       setTimeout(() => {
         modalRef.current?.classList.add(style.modalActiveContentClose)
       }, 5000)
-      setTimeout(() => {
         modalRef.current?.classList.add(style.modalActiveContentResponseOpen)
         modalLoaderRef.current?.classList.add(style.modalLoaderActive)
-      }, 0)
     }
   }, [isActive])
 
