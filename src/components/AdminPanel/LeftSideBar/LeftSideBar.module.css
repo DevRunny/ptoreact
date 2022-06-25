@@ -65,6 +65,10 @@
   gap: 35px;
 }
 
+.decor {
+  pointer-events: none;
+}
+
 .logOutButton {
   display: flex;
   align-items: center;

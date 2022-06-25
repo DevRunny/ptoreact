@@ -57,7 +57,7 @@ function LeftSideBar() {
             <hr />
           </div>
           <div className={style.logOut}>
-            <img src={adminPanelImages.decor.src} alt={adminPanelImages.decor.alt} />
+            <img className={style.decor} src={adminPanelImages.decor.src} alt={adminPanelImages.decor.alt} />
             <span className={style.logOutButton} onClick={onClickExitUser}><img src={adminPanelImages.logout.src} alt={adminPanelImages.logout.alt} />Выйти</span>
           </div>
         </div>
