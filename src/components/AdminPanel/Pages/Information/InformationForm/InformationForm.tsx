@@ -2,7 +2,7 @@ import React from 'react';
 import style from "./InfromationForm.module.css"
 import AdminFormItem from "../../AdminFormItem/AdminFormItem";
 import {AboutDataAdmin} from "../../../../../types/about";
-import { useInformationForm } from '../../../../../hooks/useInformationForm';
+import {useInformationForm} from '../../../../../hooks/useInformationForm';
 
 type Props = {
   data: AboutDataAdmin

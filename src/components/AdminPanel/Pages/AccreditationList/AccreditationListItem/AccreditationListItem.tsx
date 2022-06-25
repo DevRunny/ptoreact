@@ -3,7 +3,7 @@ import style from "./AccreditationListItem.module.css"
 import classNames from "classnames";
 import {useActions} from "../../../../../hooks/useActions";
 import {Category} from "../../../../../types/accreditation";
-import { useTypedSelector } from '../../../../../hooks/useTypedSelector';
+import {useTypedSelector} from '../../../../../hooks/useTypedSelector';
 
 type Props = {
   category: Category

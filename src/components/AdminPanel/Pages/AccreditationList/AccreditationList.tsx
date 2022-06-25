@@ -4,7 +4,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 import AccreditationListItem from "./AccreditationListItem/AccreditationListItem";
 import Button from "../../../Button/Button";
 import Preloader from "../../../Preloader/Preloader";
-import { useAccreditationList } from '../../../../hooks/useAccreditationList';
+import {useAccreditationList} from '../../../../hooks/useAccreditationList';
 
 function AccreditationList() {
 

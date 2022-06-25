@@ -18,7 +18,7 @@ const setLoading = (loading: boolean): AuthAction => {
   return {type: AuthActions.SET_LOADING, payload: loading};
 };
 
-const setError = (error: string): AuthAction => {
+export const setErrorResponseAuth = (error: string): AuthAction => {
   return {type: AuthActions.SET_ERROR, payload: error};
 };
 
@@ -34,7 +34,7 @@ export const fetchEmail = () => async (dispatch: Dispatch<AuthAction>) => {
     dispatch(setEmail(response.data.users[0].email))
     dispatch(setLoading(false))
   } catch (error) {
-    dispatch(setError(error))
+    dispatch(setErrorResponseAuth(error))
     dispatch(setLoading(false))
   }
 }
@@ -54,11 +54,11 @@ export const login =
               setExpiresToken(response.data.expiresIn)
               setAuth(true)
             } else if (response.status === 400) {
-              dispatch(setError("Неверный логин или пароль"));
+              dispatch(setErrorResponseAuth("Неверный логин или пароль"));
             }
             dispatch(setLoading(false));
           } catch (error) {
-            dispatch(setError("Произошла ошибка при входе"));
+            dispatch(setErrorResponseAuth("Произошла ошибка при входе"));
             dispatch(setLoading(false));
           }
         };

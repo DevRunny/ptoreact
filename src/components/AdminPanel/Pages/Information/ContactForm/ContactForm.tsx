@@ -3,7 +3,7 @@ import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
 import style from "./ContactForm.module.css"
 import AddFieldButton from "../../AddFieldButton/AddFieldButton";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
-import { useContactForm } from '../../../../../hooks/useContactForm';
+import {useContactForm} from '../../../../../hooks/useContactForm';
 
 type Props = {
   data: any[]

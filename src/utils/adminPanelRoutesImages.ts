@@ -14,6 +14,14 @@ export const adminPanelImages = {
     password: {
       src: "/images/AdminPanel/password.svg",
       alt: "login"
+    },
+    visible: {
+      src: "/images/AdminPanel/visible.svg",
+      alt: "visible"
+    },
+    invisible: {
+      src: "/images/AdminPanel/invisible.svg",
+      alt: "invisible"
     }
   },
   info: {

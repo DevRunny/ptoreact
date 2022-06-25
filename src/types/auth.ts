@@ -36,7 +36,7 @@ type SetToken = {
   payload: string;
 };
 
-type SetError = {
+export type SetError = {
   type: AuthActions.SET_ERROR;
   payload: string | null;
 };

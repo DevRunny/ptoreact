@@ -16,24 +16,36 @@
   height: 440px;
   flex-direction: column;
   font-family: "Gotham Pro", serif;
-  gap: 50px;
+  gap: 30px;
   border-radius: 10px;
   padding: 40px;
 }
 
 .loginForm {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
 }
 
 .formItem {
   width: 400px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+}
+
+.formItemDefault {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-15px);
+  transition: 0.2s transform ease-in-out, 0.2s opacity ease-in-out;
+  opacity: 0;
+}
+
+.formItemActive {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .title {
@@ -49,30 +61,59 @@
 
 .alert {
   position: absolute;
-  top: -15px;
+  top: -20px;
+  color: #c73030;
+}
+
+.alertBottom {
+  position: absolute;
+  bottom: -20px;
+  font-size: 14px;
   color: #c73030;
 }
 
 .labelIcon {
   position: absolute;
   opacity: 0.6;
-  top: 18px;
+  top: 13px;
   left: 10px;
   pointer-events: none;
+}
+
+.vision {
+  position: absolute;
+  opacity: 0.6;
+  top: 13px;
+  right: 20px;
+}
+
+::-ms-reveal {
+  display: none;
 }
 
 .input {
   height: 50px;
   width: 400px;
-  margin-bottom: 10px;
   padding: 10px 40px;
   background: #FFFFFF;
   border: 1px solid #D0D0D0;
-  border-radius: 10px;
   font-family: 'Gotham Pro', serif;
   font-weight: 400;
   font-size: 18px;
   outline: none;
+}
+
+.inputPassword {
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.inputLogin {
+  border-radius: 10px 10px 0 0;
+}
+
+.inputLoginDefault {
+  border-radius: 10px;
 }
 
 .button {

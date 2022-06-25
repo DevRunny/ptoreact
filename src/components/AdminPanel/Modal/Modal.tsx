@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef} from "react";
 import {useActions} from "../../../hooks/useActions";
 import style from "./Modal.module.css"
 
@@ -27,8 +27,8 @@ const Modal: React.FC<Props> = ({isActive, type, children}) => {
       setTimeout(() => {
         modalRef.current?.classList.add(style.modalActiveContentClose)
       }, 5000)
-        modalRef.current?.classList.add(style.modalActiveContentResponseOpen)
-        modalLoaderRef.current?.classList.add(style.modalLoaderActive)
+      modalRef.current?.classList.add(style.modalActiveContentResponseOpen)
+      modalLoaderRef.current?.classList.add(style.modalLoaderActive)
     }
   }, [isActive])
 

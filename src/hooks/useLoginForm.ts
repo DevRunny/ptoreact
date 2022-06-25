@@ -2,23 +2,39 @@ import {useForm} from "react-hook-form";
 import {User} from "../types/auth";
 import {useActions} from "./useActions";
 import {useAuth} from "./useAuth";
-import {ChangeEvent, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import {useTypedSelector} from "./useTypedSelector";
+import style from "../components/LoginForm/LoginForm.module.css";
 
 export const useLoginForm = () => {
+  const [email, setEmail] = useState<string>("")
+  const [isConfirmEmail, setConfirmEmail] = useState<boolean>(false)
+  const [isVisible, setVisible] = useState<boolean>(false)
 
-  const {login} = useActions();
+  const {loading, error} = useTypedSelector(state => state.auth)
+
+  const passwordFieldRef = useRef<HTMLDivElement>(null)
+
+  const {login, setErrorResponseAuth} = useActions();
   const history = useAuth()
 
-  const [loginValue, setLoginValue] = useState<string>("")
-  const [passwordValue, setPasswordValue] = useState<string>("")
+  useEffect(() => {
+    history.redirect()
+  }, [])
 
-  const onChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
-    setLoginValue(e.target.value)
-  }
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setErrorResponseAuth("")
+      }, 2000)
+    }
+  }, [error])
 
-  const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
-    setPasswordValue(e.target.value)
-  }
+  useEffect(() => {
+    setTimeout(() => {
+      isConfirmEmail && passwordFieldRef.current?.classList.add(style.formItemActive)
+    }, 0)
+  }, [isConfirmEmail])
 
   const {
     register,
@@ -39,14 +55,23 @@ export const useLoginForm = () => {
     }
   };
 
+  const confirmEmailSubmit = (login: string) => {
+    setEmail(login)
+    setConfirmEmail(true)
+  }
+
   return {
     register,
     handleSubmit,
     errors,
+    error,
+    email,
     onSubmit,
-    loginValue,
-    passwordValue,
-    onChangeLogin,
-    onChangePassword
+    confirmEmailSubmit,
+    isConfirmEmail,
+    isVisible,
+    setVisible,
+    loading,
+    passwordFieldRef
   }
 }
