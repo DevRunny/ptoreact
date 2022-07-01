@@ -9,8 +9,7 @@ export const useAddressesList = () => {
   const {
     fetchPointsAC,
     addPoint,
-    deletePoint,
-    deleteCheckPoint,
+    deleteCheckedPoints,
     fetchContactsAC,
     setMapStateCenter,
     setMapZoom
@@ -21,8 +20,7 @@ export const useAddressesList = () => {
 
   const deletePoints = () => {
     const newArrayPoints = points.filter(point => !checkedPoints.find(checkPoint => point.id === checkPoint.id))
-    deletePoint(newArrayPoints)
-    deleteCheckPoint([])
+    deleteCheckedPoints(newArrayPoints, [])
   }
 
   const validateZoom = (e: any, value: string, callback: Function) => {

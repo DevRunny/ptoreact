@@ -11,8 +11,8 @@ import Preloader from "../../../Preloader/Preloader";
 import {useAddressesList} from "../../../../hooks/useAddressesList";
 
 const AddressesList = () => {
-  const addressesList = useAddressesList()
 
+  const addressesList = useAddressesList()
   if (addressesList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
   return (
@@ -57,7 +57,12 @@ const AddressesList = () => {
               <AddFieldButton
                   textButton={"Добавить адрес и режим работы"}
                   onClickFunc={() => {
-                    addressesList.addPoint(addressesList.points)
+                    addressesList.addPoint({
+                      id: (addressesList.points.length + 1).toString(), 
+                      address: "", 
+                      workingMode: "", 
+                      coordinate: [0, 0]
+                    }, addressesList.points)
                   }}
                   icon={adminPanelImages.plusButton.white.src}
                   buttonStyle={style.addButton}

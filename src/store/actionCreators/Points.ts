@@ -1,6 +1,7 @@
 import {Dispatch} from "redux";
 import {Point, PointsAction, PointsActions} from "../../types/points";
-import {getPoints} from "../../API/points";
+import {addNewPoint, deletePoints, getPoints} from "../../API/points";
+import { ModalsAction, ModalsActions } from "../../types/modals";
 
 export const fetchPointsAC = () => async (dispatch: Dispatch<PointsAction>) => {
   try {
@@ -12,17 +13,37 @@ export const fetchPointsAC = () => async (dispatch: Dispatch<PointsAction>) => {
   }
 }
 
-export const addPoint = (points: Point[]) => {
-  return {
-    type: PointsActions.ADD_POINT,
-    payload: {id: points.length + 1, address: "", workingMode: "", coordinate: [0, 0]}
+export const addPoint = (newPoint: Point, points: Point[]) => {
+  return async (dispatch: Dispatch<PointsAction | ModalsAction>) => {
+    const response = await addNewPoint(newPoint)
+    if (response.status === 200) {
+      dispatch({
+        type: PointsActions.ADD_POINT,
+        payload: newPoint
+      })
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Новый адрес был успешно добавлен"})
+    } else {
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при добавлении нового адреса"})
+    }
   }
 }
 
-export const deletePoint = (points: Point[]) => {
-  return {
-    type: PointsActions.DELETE_POINT,
-    payload: points,
+export const deleteCheckedPoints = (points: Point[], checkedPoints: Point[]) => {
+  return async (dispatch: Dispatch<PointsAction | ModalsAction>) => {
+    const response = await deletePoints(points)
+    if (response.status === 200) {
+      dispatch({
+        type: PointsActions.DELETE_POINT,
+        payload: points,
+      })
+      dispatch({
+        type: PointsActions.DELETE_CHECK_POINT,
+        payload: checkedPoints
+      })
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Выбранные адреса были успешно удалены"})
+    } else {
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при удалении выбранных адресов"})
+    }
   }
 }
 
@@ -30,13 +51,6 @@ export const addCheckPoint = (point: Point) => {
   return {
     type: PointsActions.CHECK_POINT,
     payload: point
-  }
-}
-
-export const deleteCheckPoint = (checkedPoints: Point[]) => {
-  return {
-    type: PointsActions.DELETE_CHECK_POINT,
-    payload: checkedPoints
   }
 }
 

@@ -9,14 +9,7 @@ const initialState: PointsState = {
       id: ""
     }
   ] as Point[],
-  checkedPoints: [
-    {
-      address: "",
-      coordinate: [0, 0],
-      workingMode: "",
-      id: ""
-    }
-  ] as Point[],
+  checkedPoints: [] as Point[],
   error: "",
   loading: false
 }

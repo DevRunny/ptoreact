@@ -1,7 +1,15 @@
 import {instance} from "./index";
-import {ResponsePoints} from "../types/points";
+import {Point, ResponsePoints} from "../types/points";
 
 export const getPoints = async (): Promise<ResponsePoints> => {
   const response = await instance.get("points.json")
   return response.data
+}
+
+export const addNewPoint = async (newPoint: Point): Promise<any> => {
+  return await instance.patch(`points/${Number(newPoint.id) - 1}.json`, newPoint)
+}
+
+export const deletePoints = async (newPoints: Point[]): Promise<any> => {
+  return await instance.put(`points.json`, newPoints)
 }
