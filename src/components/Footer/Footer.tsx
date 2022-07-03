@@ -5,6 +5,7 @@ import CompanyInfoRequisite from "../CompanyInfoRequisite/CompanyInfoRequisite";
 import Navigation from "../Navigation/Navigation";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {RoutesName} from "../../routes";
+import {MessengersName} from "../../types/messengers";
 
 function Footer() {
   const stateInfo = useTypedSelector(state => state.about)
@@ -13,13 +14,13 @@ function Footer() {
 
   const renderMessenger = (messengerName: string) => {
     switch (messengerName) {
-      case "Telegram":
+      case MessengersName.TELEGRAM:
         return {href: "https://telegram.im/", urlImage: "/images/Footer/telegramIcon.svg", alt: "telegram"}
-      case "VK (Вконтакте)":
+      case MessengersName.VK:
         return {href: "https://vk.com/", urlImage: "/images/Footer/vkIcon.svg", alt: "vk"}
-      case "WhatsApp":
+      case MessengersName.WHATSAPP:
         return {href: "https://wa.me/", urlImage: "/images/Footer/whatsappIcon.svg", alt: "whatsapp"}
-      case "Viber":
+      case MessengersName.VIBER:
         return {href: "viber://chat?number=", urlImage: "/images/Footer/viberIcon.svg", alt: "viber"}
       default:
         return {href: "", urlImage: "", alt: ""}

@@ -1,7 +1,7 @@
 import {Dispatch} from "redux";
 import {Point, PointsAction, PointsActions} from "../../types/points";
 import {addNewPoint, deletePoints, getPoints} from "../../API/points";
-import { ModalsAction, ModalsActions } from "../../types/modals";
+import {ModalsAction, ModalsActions} from "../../types/modals";
 
 export const fetchPointsAC = () => async (dispatch: Dispatch<PointsAction>) => {
   try {
@@ -23,7 +23,10 @@ export const addPoint = (newPoint: Point, points: Point[]) => {
       })
       dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Новый адрес был успешно добавлен"})
     } else {
-      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при добавлении нового адреса"})
+      dispatch({
+        type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,
+        payload: "Произошла ошибка при добавлении нового адреса"
+      })
     }
   }
 }
@@ -42,7 +45,10 @@ export const deleteCheckedPoints = (points: Point[], checkedPoints: Point[]) => 
       })
       dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Выбранные адреса были успешно удалены"})
     } else {
-      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при удалении выбранных адресов"})
+      dispatch({
+        type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,
+        payload: "Произошла ошибка при удалении выбранных адресов"
+      })
     }
   }
 }

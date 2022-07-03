@@ -8,13 +8,7 @@ const initialState: DocumentsState = {
       id: ""
     }
   ] as Document[],
-  checkedDocuments: [
-    {
-      urlDocument: "",
-      documentDescription: "",
-      id: ""
-    }
-  ] as Document[],
+  checkedDocuments: [] as Document[],
   error: null,
   loading: false
 }

@@ -46,7 +46,7 @@
   width: 600px;
   transition: 0.5s transform ease-in-out;
   transform: translate(0, 335px);
-  position: absolute;
+  position: fixed;
   right: 0;
   top: -335px;
 }

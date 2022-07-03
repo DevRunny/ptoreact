@@ -35,7 +35,7 @@ const DocumentsList = () => {
                 onClickFunc={documentsList.deleteDocuments}
                 icon={adminPanelImages.basketTrash.src}
                 buttonStyle={
-                  documentsList.checkedDocuments.length
+                  documentsList.checkedDocuments.length > 0
                       ?
                       style.deleteButton
                       :

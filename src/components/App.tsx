@@ -23,6 +23,7 @@ function App() {
             <>
               <Helmet>
                 <title>Политика конфиденциальности</title>
+                <link rel="icon" href="/favicon.svg" />
               </Helmet>
               <Privacy />
             </>

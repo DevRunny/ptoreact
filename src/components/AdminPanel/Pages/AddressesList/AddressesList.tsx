@@ -58,14 +58,20 @@ const AddressesList = () => {
                   textButton={"Добавить адрес и режим работы"}
                   onClickFunc={() => {
                     addressesList.addPoint({
-                      id: (addressesList.points.length + 1).toString(), 
-                      address: "", 
-                      workingMode: "", 
+                      id: (addressesList.points.length + 1).toString(),
+                      address: "",
+                      workingMode: "",
                       coordinate: [0, 0]
                     }, addressesList.points)
                   }}
                   icon={adminPanelImages.plusButton.white.src}
-                  buttonStyle={style.addButton}
+                  buttonStyle={
+                    addressesList.points.length === 3
+                        ?
+                        classNames(style.addButton, style.buttonDisabled)
+                        :
+                        style.addButton
+                  }
               />
               <AddFieldButton
                   textButton={"Удалить выбранные адреса"}
@@ -76,7 +82,7 @@ const AddressesList = () => {
                         ?
                         style.deleteButton
                         :
-                        classNames(style.deleteButton, style.deleteButtonDisabled)
+                        classNames(style.deleteButton, style.buttonDisabled)
                   }
               />
             </div>
