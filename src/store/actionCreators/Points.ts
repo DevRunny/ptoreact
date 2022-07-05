@@ -15,13 +15,18 @@ export const fetchPointsAC = () => async (dispatch: Dispatch<PointsAction>) => {
 
 export const addPoint = (newPoint: Point, points: Point[]) => {
   return async (dispatch: Dispatch<PointsAction | ModalsAction>) => {
-    const response = await addNewPoint(newPoint)
+    const response = points.length < 3 ? await addNewPoint(newPoint) : ""
     if (response.status === 200) {
       dispatch({
         type: PointsActions.ADD_POINT,
         payload: newPoint
       })
       dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Новый адрес был успешно добавлен"})
+    } else if (points.length === 3) {
+      dispatch({
+        type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,
+        payload: "Превышен лимит адресов"
+      })
     } else {
       dispatch({
         type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,

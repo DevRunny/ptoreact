@@ -9,5 +9,6 @@
 }
 
 .arrowInvisible {
+  position: fixed;
   opacity: 0;
 }
