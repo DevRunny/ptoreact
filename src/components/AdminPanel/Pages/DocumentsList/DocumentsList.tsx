@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./DocumentList.module.css"
 import AdminMainTitle from "../AdminMainTitle";
-import AddFieldButton from "../AddFieldButton/AddFieldButton";
+import ServiceFieldButton from "../AddFieldButton/ServiceFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import DocumentItem from "./Document/DocumentItem";
 import Preloader from "../../../Preloader/Preloader";
@@ -18,7 +18,7 @@ const DocumentsList = () => {
         <AdminMainTitle titleText={"Необходимые документы"} />
         <div className={style.contentWrap}>
           <div className={style.buttonWrap}>
-            <AddFieldButton
+            <ServiceFieldButton
                 textButton={"Добавить файл"}
                 onClickFunc={documentsList.addDocumentField}
                 icon={adminPanelImages.plusButton.white.src}
@@ -30,7 +30,7 @@ const DocumentsList = () => {
                       classNames(style.addButton, style.addButtonDisabled)
                 }
             />
-            <AddFieldButton
+            <ServiceFieldButton
                 textButton={"Удалить файлы"}
                 onClickFunc={documentsList.deleteDocuments}
                 icon={adminPanelImages.basketTrash.src}

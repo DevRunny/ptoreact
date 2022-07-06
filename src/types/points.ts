@@ -5,8 +5,11 @@ export enum PointsActions {
   ADD_POINT = "ADD_POINT",
   DELETE_POINT = "DELETE_POINT",
   CHECK_POINT = "CHECK_POINT",
+  UNCHECK_POINT = "UNCHECK_POINT",
   DELETE_CHECK_POINT = "DELETE_CHECK_POINT",
-  SET_ADDRESS = "SET_ADDRESS"
+  SET_ADDRESS = "SET_ADDRESS",
+  SET_COORDINATE = "SET_COORDINATE",
+  SET_WORKING_MODE = "SET_WORKING_MODE"
 }
 
 export type PointsState = {
@@ -32,8 +35,12 @@ export type PointsAction =
     AddPoint |
     DeletePoint |
     CheckPoint |
+    UnCheckPoint |
     DeleteCheckPoint |
-    SetAddress
+    SetAddress |
+    SetCoordinate |
+    SetWorkingMode
+
 
 type FetchPoints = {
   type: PointsActions.FETCH_POINTS
@@ -64,6 +71,11 @@ type CheckPoint = {
   payload: Point
 }
 
+type UnCheckPoint = {
+  type: PointsActions.UNCHECK_POINT,
+  payload: Point
+}
+
 type DeleteCheckPoint = {
   type: PointsActions.DELETE_CHECK_POINT,
   payload: Point[]
@@ -71,5 +83,15 @@ type DeleteCheckPoint = {
 
 type SetAddress = {
   type: PointsActions.SET_ADDRESS
-  payload: Point[]
+  payload: { address: string, id: string }
+}
+
+type SetCoordinate = {
+  type: PointsActions.SET_COORDINATE
+  payload: { coordinate: number[], id: string }
+}
+
+type SetWorkingMode = {
+  type: PointsActions.SET_WORKING_MODE
+  payload: { workingMode: string, id: string }
 }

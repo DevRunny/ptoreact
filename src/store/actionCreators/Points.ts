@@ -1,6 +1,13 @@
 import {Dispatch} from "redux";
 import {Point, PointsAction, PointsActions} from "../../types/points";
-import {addNewPoint, deletePoints, getPoints} from "../../API/points";
+import {
+  addNewPoint,
+  deletePoints,
+  getPoints,
+  updatePointAddress,
+  updatePointCoordinate,
+  updatePointWorkingMode
+} from "../../API/points";
 import {ModalsAction, ModalsActions} from "../../types/modals";
 
 export const fetchPointsAC = () => async (dispatch: Dispatch<PointsAction>) => {
@@ -58,16 +65,61 @@ export const deleteCheckedPoints = (points: Point[], checkedPoints: Point[]) => 
   }
 }
 
-export const addCheckPoint = (point: Point) => {
+export const addSelectedCheckPoint = (point: Point) => {
   return {
     type: PointsActions.CHECK_POINT,
     payload: point
   }
 }
 
-export const setAddress = (addresses: Point[]) => {
+export const deleteSelectedCheckPoint = (point: Point) => {
   return {
-    type: PointsActions.SET_ADDRESS,
-    payload: addresses
+    type: PointsActions.UNCHECK_POINT,
+    payload: point
+  }
+}
+
+export const setAddress = (address: string, id: string) => {
+  return async (dispatch: Dispatch<PointsAction | ModalsAction>) => {
+    const response = await updatePointAddress(address, Number(id))
+    if (response.status === 200) {
+      dispatch({type: PointsActions.SET_ADDRESS, payload: {address, id}})
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Адрес успешно изменен"})
+    } else {
+      dispatch({
+        type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,
+        payload: "Произошла ошибка при изменении адреса"
+      })
+    }
+  }
+}
+
+export const setCoordinate = (coordinate: number[], id: string) => {
+  return async (dispatch: Dispatch<PointsAction | ModalsAction>) => {
+    const response = await updatePointCoordinate(coordinate, Number(id))
+    if (response.status === 200) {
+      dispatch({type: PointsActions.SET_COORDINATE, payload: {coordinate, id}})
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Кооринаты успешно изменены"})
+    } else {
+      dispatch({
+        type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,
+        payload: "Произошла ошибка при изменении координат"
+      })
+    }
+  }
+}
+
+export const setWorkingMode = (workingMode: string, id: string) => {
+  return async (dispatch: Dispatch<PointsAction | ModalsAction>) => {
+    const response = await updatePointWorkingMode(workingMode, Number(id))
+    if (response.status === 200) {
+      dispatch({type: PointsActions.SET_WORKING_MODE, payload: {workingMode, id}})
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Режим работы успешно изменен"})
+    } else {
+      dispatch({
+        type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,
+        payload: "Произошла ошибка при изменении режима работы"
+      })
+    }
   }
 }

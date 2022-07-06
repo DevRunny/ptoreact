@@ -1,5 +1,5 @@
 import {instance} from "./index";
-import {PayloadFetchAboutSuccess, Requisites} from "../types/about";
+import {PayloadFetchAboutSuccess} from "../types/about";
 
 export const getAbout = async (): Promise<PayloadFetchAboutSuccess> => {
   const response = await instance.get("about.json")

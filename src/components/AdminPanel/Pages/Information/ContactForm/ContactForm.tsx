@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
 import style from "./ContactForm.module.css"
-import AddFieldButton from "../../AddFieldButton/AddFieldButton";
+import ServiceFieldButton from "../../AddFieldButton/ServiceFieldButton";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
 import {useContactForm} from '../../../../../hooks/useContactForm';
 
@@ -43,7 +43,7 @@ const ContactForm: React.FC<Props> = ({data, labelText, inputType}) => {
             />
           }
         })}
-        <AddFieldButton
+        <ServiceFieldButton
             icon={adminPanelImages.plusButton.blue.src}
             textButton={"Добавить поле"}
             onClickFunc={contactForm.addField}

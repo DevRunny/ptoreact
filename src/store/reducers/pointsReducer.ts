@@ -32,10 +32,40 @@ export const pointsReducer = (state = initialState, action: PointsAction): Point
       return {...state, points: action.payload}
     case PointsActions.CHECK_POINT:
       return {...state, checkedPoints: [...state.checkedPoints, action.payload]}
+    case PointsActions.UNCHECK_POINT:
+      return {...state, checkedPoints: state.checkedPoints.filter(point => point.id !== action.payload.id)}
     case PointsActions.DELETE_CHECK_POINT:
       return {...state, checkedPoints: action.payload}
     case PointsActions.SET_ADDRESS:
-      return {...state, points: action.payload}
+      return {
+        ...state, points: [...state.points.map(point => {
+          if (point.id === action.payload.id) {
+            return {...point, address: action.payload.address}
+          } else {
+            return point
+          }
+        })]
+      }
+    case PointsActions.SET_COORDINATE:
+      return {
+        ...state, points: [...state.points.map(point => {
+          if (point.id === action.payload.id) {
+            return {...point, coordinate: action.payload.coordinate}
+          } else {
+            return point
+          }
+        })]
+      }
+    case PointsActions.SET_WORKING_MODE:
+      return {
+        ...state, points: [...state.points.map(point => {
+          if (point.id === action.payload.id) {
+            return {...point, workingMode: action.payload.workingMode}
+          } else {
+            return point
+          }
+        })]
+      }
     default:
       return state
   }

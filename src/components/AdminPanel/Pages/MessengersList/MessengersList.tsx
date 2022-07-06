@@ -7,7 +7,7 @@ import {FormItemWithNotation} from "../../../../HOCs/AdminFormItem";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {useActions} from "../../../../hooks/useActions";
 import Preloader from "../../../Preloader/Preloader";
-import AddFieldButton from "../AddFieldButton/AddFieldButton";
+import ServiceFieldButton from "../AddFieldButton/ServiceFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import {useAuth} from "../../../../hooks/useAuth";
 import {MessengersName} from "../../../../types/messengers";
@@ -86,7 +86,7 @@ function MessengersList() {
             <div className={style.messengersFalse}>
               {messengers.map(messenger => {
                 if (messenger.value === "") {
-                  return <AddFieldButton
+                  return <ServiceFieldButton
                       buttonStyle={style.addMessenger}
                       textButton={`Добавить ${messenger.messengerName}`}
                       onClickFunc={() => {

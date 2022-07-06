@@ -3,7 +3,7 @@ import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import style from "./AddressesList.module.css"
 import {FormItemWithNotation} from "../../../../HOCs/AdminFormItem";
-import AddFieldButton from "../AddFieldButton/AddFieldButton";
+import ServiceFieldButton from "../AddFieldButton/ServiceFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import PointForm from "./PointForm/PointForm";
 import classNames from "classnames";
@@ -54,13 +54,13 @@ const AddressesList = () => {
           <div className={style.contentWrap}>
             <SectionTitle titleText={"Список адресов ПТО:"} />
             <div className={style.buttonWrap}>
-              <AddFieldButton
+              <ServiceFieldButton
                   textButton={"Добавить адрес и режим работы"}
                   onClickFunc={() => {
                     addressesList.addPoint({
                       id: (addressesList.points.length + 1).toString(),
-                      address: "",
-                      workingMode: "",
+                      address: "Ваш адрес",
+                      workingMode: "Режим работы",
                       coordinate: [0, 0]
                     }, addressesList.points)
                   }}
@@ -73,7 +73,7 @@ const AddressesList = () => {
                         style.addButton
                   }
               />
-              <AddFieldButton
+              <ServiceFieldButton
                   textButton={"Удалить выбранные адреса"}
                   onClickFunc={addressesList.deletePoints}
                   icon={adminPanelImages.basketTrash.src}

@@ -19,8 +19,10 @@ export const useAddressesList = () => {
   const {mapState} = useTypedSelector(state => state.contacts)
 
   const deletePoints = () => {
-    const newArrayPoints = points.filter(point => !checkedPoints.find(checkPoint => point.id === checkPoint.id))
-    deleteCheckedPoints(newArrayPoints, [])
+    if (checkedPoints.length > 0) {
+      const newArrayPoints = points.filter(point => !checkedPoints.find(checkPoint => point.id === checkPoint.id))
+      deleteCheckedPoints(newArrayPoints, [])
+    }
   }
 
   const validateZoom = (e: any, value: string, callback: Function) => {

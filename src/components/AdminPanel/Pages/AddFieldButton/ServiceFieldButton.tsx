@@ -9,12 +9,12 @@ type Props = {
   buttonStyle?: string
 }
 
-const AddFieldButton: React.FC<Props> = ({
-                                           textButton,
-                                           onClickFunc,
-                                           icon,
-                                           buttonStyle = style.button
-                                         }) => {
+const ServiceFieldButton: React.FC<Props> = ({
+                                               textButton,
+                                               onClickFunc,
+                                               icon,
+                                               buttonStyle = style.button
+                                             }) => {
   return (
       <div className={buttonStyle ? classNames(style.button, buttonStyle) : style.addFieldFormItem}
            onClick={onClickFunc}>
@@ -23,4 +23,4 @@ const AddFieldButton: React.FC<Props> = ({
   );
 };
 
-export default AddFieldButton;
+export default ServiceFieldButton;

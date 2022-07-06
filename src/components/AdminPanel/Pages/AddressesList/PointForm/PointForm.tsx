@@ -39,7 +39,7 @@ const PointForm: React.FC<Props> = ({point, index}) => {
                 inputStyle={style.textAreaAddress}
                 inputType={"text"}
                 value={point.address}
-                id={point.address}
+                id={point.address + point.id}
                 onClickSaveFunc={pointForm.onClickSave}
                 required={true}
                 itemType={"textArea"}
@@ -50,7 +50,7 @@ const PointForm: React.FC<Props> = ({point, index}) => {
                 inputStyle={style.inputAddress}
                 inputType={"text"}
                 value={point.coordinate.join(", ")}
-                id={pointForm.getUniqueId()}
+                id={pointForm.getUniqueId() + point.id}
                 onClickSaveFunc={pointForm.onClickSave}
                 required={true}
             />
@@ -60,7 +60,7 @@ const PointForm: React.FC<Props> = ({point, index}) => {
                 inputStyle={style.textAreaAddress}
                 inputType={"text"}
                 value={point.workingMode}
-                id={point.address + pointForm.getUniqueId()}
+                id={point.workingMode + point.id}
                 onClickSaveFunc={pointForm.onClickSave}
                 required={true}
                 itemType={"textArea"}
