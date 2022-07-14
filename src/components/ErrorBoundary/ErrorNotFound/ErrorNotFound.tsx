@@ -10,7 +10,7 @@ interface IErrorNotFoundProps {
 
 export const ErrorNotFound: React.FC<IErrorNotFoundProps> = ({errorInfo}) => {
   const navigate = useNavigate()
-
+ 
   return (
       <div className={style.errorBackground}>
         <div className={style.errorContent}>

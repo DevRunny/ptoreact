@@ -5,6 +5,7 @@ import {RoutesName} from "../../routes";
 import {useSendForm} from "../../hooks/useSendForm";
 import FormItem from "../FormItem/FormItem";
 import classNames from "classnames";
+import {DatePicker, TimePicker} from "react-rainbow-components";
 
 function SendForm() {
   const form = useSendForm();
@@ -78,22 +79,32 @@ function SendForm() {
                 selectDescriptionStyle={style.descriptionCategory}
                 onChangeFunc={form.onChangeCategory}
             />
-            <div className={style.formItem}>
-              <label htmlFor="date">Дата и время прохождения ТО:</label>
-              {form.errors.date && (
-                  <span className={style.alert} role="alert">
-                {form.errors.date.message}
-              </span>
-              )}
-              <input
-                  className={style.input}
-                  id="date"
-                  type="datetime-local"
-                  {...form.register("date", {
-                    required: "Выберите предполагаемую дату прохождения ТО",
-                  })}
-              />
-            </div>
+            {/*<div className={style.formItem}>*/}
+            {/*  <label htmlFor="date">Дата и время прохождения ТО:</label>*/}
+            {/*  {form.errors.date && (*/}
+            {/*      <span className={style.alert} role="alert">*/}
+            {/*    {form.errors.date.message}*/}
+            {/*  </span>*/}
+            {/*  )}*/}
+            {/*  <input*/}
+            {/*      className={style.input}*/}
+            {/*      id="date"*/}
+            {/*      type="datetime-local"*/}
+            {/*      {...form.register("date", {*/}
+            {/*        required: "Выберите предполагаемую дату прохождения ТО",*/}
+            {/*      })}*/}
+            {/*  />*/}
+            {/*</div>*/}
+              <div className={classNames(style.formItem, style.formItemDate)}>
+                  <div className={style.item}>
+                      <label htmlFor="date">Дата прохождения ТО:</label>
+                      <DatePicker locale={"ru"}/>
+                  </div>
+                  <div className={style.item}>
+                      <label htmlFor="date">Время прохождения ТО:</label>
+                      <TimePicker hour24={true}/>
+                  </div>
+              </div>
             <FormItem
                 element="textarea"
                 formItemStyle={style.formItem}
