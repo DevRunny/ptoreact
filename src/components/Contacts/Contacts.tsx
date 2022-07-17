@@ -20,7 +20,7 @@ const Contacts = () => {
         <div className="container">
           <div className={style.contacts}>
             <h2 className={style.mainTitle}>Контактная информация</h2>
-            <div className={points.length > 1 ? classNames(style.cardsContacts, style.cardContactsLarge) : style.cardsContacts}>
+            <div className={style.cardsContacts}>
               <ContactWithAddress points={points} />
               <ContactWithEmail emails={contactsState.emails} />
               <ContactWithWorkingMode points={points} />
