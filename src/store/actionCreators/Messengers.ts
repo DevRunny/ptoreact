@@ -1,7 +1,7 @@
 import {Dispatch} from "redux";
 import {MessengersAction, MessengersActions, MessengersName} from "../../types/messengers";
 import {changeValueMessenger, getMessengers} from "../../API/messengers";
-import { ModalsAction, ModalsActions } from "../../types/modals";
+import {ModalsAction, ModalsActions} from "../../types/modals";
 
 export const fetchMessengersAC = () => {
   return async (dispatch: Dispatch<MessengersAction>) => {
@@ -46,11 +46,17 @@ export const setValueMessenger = (id: string, value: string) => {
         } else if (!value) {
           dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Мессенджер был удален"})
         } else {
-          dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Ссылка на мессенджер успешно изменена"})
+          dispatch({
+            type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS,
+            payload: "Ссылка на мессенджер успешно изменена"
+          })
         }
       }
     } catch (error) {
-      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при изменении мессенджера"})
+      dispatch({
+        type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL,
+        payload: "Произошла ошибка при изменении мессенджера"
+      })
     }
   }
 }

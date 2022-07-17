@@ -1,7 +1,15 @@
 import {Dispatch} from "redux";
 import {ContactsAction, ContactsActions, Email, Phone} from "../../types/contacts";
-import {createEmail, createPhone, DBdeleteEmail, DBdeletePhone, getContacts, updateEmails, updatePhones as DBupdatePhone} from "../../API/contacts";
-import { ModalsAction, ModalsActions } from "../../types/modals";
+import {
+  createEmail,
+  createPhone,
+  DBdeleteEmail,
+  DBdeletePhone,
+  getContacts,
+  updateEmails,
+  updatePhones as DBupdatePhone
+} from "../../API/contacts";
+import {ModalsAction, ModalsActions} from "../../types/modals";
 
 export const fetchContactsAC = () => {
   return async (dispatch: Dispatch<ContactsAction>) => {

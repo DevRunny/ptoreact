@@ -1,7 +1,7 @@
 import {Dispatch} from "redux";
 import {AboutAction, AboutActions} from "../../types/about";
 import {getAbout, updateAbout} from "../../API/about";
-import { ModalsAction, ModalsActions } from "../../types/modals";
+import {ModalsAction, ModalsActions} from "../../types/modals";
 
 export const fetchAboutAC = () => {
   return async (dispatch: Dispatch<AboutAction>) => {

@@ -1,7 +1,7 @@
 import {InputType} from "../components/AdminPanel/Pages/AdminFormItem/AdminFormItem";
 import {useEffect} from "react";
 import {useAuth} from "./useAuth";
-import {fbChangeEmailUser, fbGetEmail} from "../API/auth";
+import {fbChangeEmailUser} from "../API/auth";
 import {useActions} from "./useActions";
 import {useTypedSelector} from "./useTypedSelector";
 import {setAuth, setExpiresToken, setToken} from "../store/actionCreators/Auth";

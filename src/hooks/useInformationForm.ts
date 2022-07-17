@@ -1,4 +1,4 @@
-import { useActions } from "./useActions"
+import {useActions} from "./useActions"
 
 export const useInformationForm = () => {
 

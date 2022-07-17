@@ -1,8 +1,8 @@
 import React from 'react';
 import {Button, Modal} from "react-rainbow-components"
 import style from "./DialogModal.module.css"
-import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import {useActions} from "../../../hooks/useActions";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector";
+import {useActions} from "../../../../hooks/useActions";
 
 const DialogModal = () => {
 

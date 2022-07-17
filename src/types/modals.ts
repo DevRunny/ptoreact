@@ -9,6 +9,7 @@ export const enum ModalsActions {
 export interface ModalsInitialState {
   responseModal: NotificationModal
   deleteAlertModal: DialogModal
+
 }
 
 interface NotificationModal {

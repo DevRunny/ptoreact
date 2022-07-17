@@ -1,7 +1,7 @@
-import { InputType } from "zlib"
-import { LabelTextContactForm } from "../components/AdminPanel/Pages/Information/ContactForm/ContactForm"
-import { Email, Phone } from "../types/contacts"
-import { useActions } from "./useActions"
+import {InputType} from "zlib"
+import {LabelTextContactForm} from "../components/AdminPanel/Pages/Information/ContactForm/ContactForm"
+import {Email, Phone} from "../types/contacts"
+import {useActions} from "./useActions"
 
 export const useContactForm = (data: any, labelText: LabelTextContactForm) => {
   const {setEmailContacts, setPhoneContacts, addEmail, addPhone, deleteEmail, deletePhone} = useActions()
@@ -46,7 +46,7 @@ export const useContactForm = (data: any, labelText: LabelTextContactForm) => {
   }
 
   return {
-    addField, 
+    addField,
     deleteField,
     onClickSave
   }

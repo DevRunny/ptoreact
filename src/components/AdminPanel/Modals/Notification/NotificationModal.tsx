@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, {useEffect, useRef} from "react";
-import {useActions} from "../../../hooks/useActions";
+import {useActions} from "../../../../hooks/useActions";
 import style from "./NotificationModal.module.css"
 
 interface Props {

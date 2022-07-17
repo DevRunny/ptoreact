@@ -27,6 +27,32 @@ export const useSendForm = () => {
 
   const [currentCategoryDesc, setCurrentCategoryDesc] = useState<string | undefined>(categories.length ? categories[0].categoryDescription : "");
 
+
+  const getNearTime = (): string => {
+    const today = new Date()
+    let hours = today.getHours()
+    const minutes = today.getMinutes()
+    if (minutes > 30) {
+      hours++
+    }
+    return `${hours}:00`
+  }
+
+  const getSelectedDate = (): string => {
+    const year = selectedDate.getFullYear()
+    const month = selectedDate.getMonth()
+    const day = selectedDate.getDate()
+    return `${day < 10 ? 0 : ""}${day}.${month < 10 ? 0 : ""}${month + 1}.${year}`
+  }
+
+  const toggleVisibleModalWindow = () => {
+    setIsModalWindowOpen(!isModalWindowOpen)
+  }
+
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date())
+  const [selectedTime, setSelectedTime] = useState<string>(getNearTime())
+  const [isModalWindowOpen, setIsModalWindowOpen] = useState<boolean>(false)
+
   const navigate = useNavigate();
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -71,5 +97,12 @@ export const useSendForm = () => {
     handleSubmit,
     errors,
     reset,
+    selectedDate,
+    getSelectedDate,
+    setSelectedDate,
+    selectedTime,
+    setSelectedTime,
+    isModalWindowOpen,
+    toggleVisibleModalWindow
   };
 };
