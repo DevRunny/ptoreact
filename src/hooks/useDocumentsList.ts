@@ -17,7 +17,7 @@ export const useDocumentsList = () => {
     return newArray
   }
 
-  const {fetchDocumentsAC, addDocument, deleteDocument, deleteCheckDocument} = useActions()
+  const {fetchDocumentsAC, addDocument, deleteDocument, deleteCheckDocument, openDialogModal} = useActions()
   const {redirect} = useAuth()
 
   const deleteDocuments = () => {
@@ -46,5 +46,5 @@ export const useDocumentsList = () => {
     fetch()
   }, [])
 
-  return {loading, documents, reverseDocuments, deleteDocuments, addDocumentField, checkedDocuments}
+  return {loading, documents, reverseDocuments, deleteDocuments, openDialogModal, addDocumentField, checkedDocuments}
 }

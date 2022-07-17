@@ -2,7 +2,7 @@ import {Route, Routes} from "react-router-dom";
 import {routes, RoutesName} from "../routes";
 import Main from "./Main/Main";
 import AdminPanel from "./AdminPanel/AdminPanel";
-import Modal from "./AdminPanel/Modal/Modal";
+import NotificationModal from "./AdminPanel/NotificationModal/NotificationModal";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {ErrorNotFound} from "./ErrorBoundary/ErrorNotFound/ErrorNotFound";
 import {Helmet} from "react-helmet";
@@ -10,6 +10,7 @@ import React from "react";
 import {adminPanelImages} from "../utils/adminPanelRoutesImages";
 import Privacy from "./Privacy/Privacy";
 import LoginForm from "./LoginForm/LoginForm";
+import DialogModal from "./AdminPanel/DialogModal/DialogModal";
 
 
 function App() {
@@ -65,6 +66,11 @@ function App() {
                     <link rel="icon" href={adminPanelImages.endelIcon.src} />
                   </Helmet>
                   <AdminPanel />
+                  <NotificationModal isActive={responseModal.isActive} type={"response"}>
+                    {responseModal.message}
+                    <img src={responseModal.srcIcon} alt="responseModal" />
+                  </NotificationModal>
+                  <DialogModal />
                 </>
               }>
               </Route>
@@ -83,10 +89,6 @@ function App() {
             </>
           } />
         </Routes>
-        <Modal isActive={responseModal.isActive} type={"response"}>
-          {responseModal.message}
-          <img src={responseModal.srcIcon} alt="responseModal" />
-        </Modal>
       </div>
   );
 }

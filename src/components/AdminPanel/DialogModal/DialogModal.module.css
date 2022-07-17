@@ -1,0 +1,43 @@
+.dialogModal {
+  padding: 10px;
+}
+
+.dialogContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.alert {
+  text-align: center;
+  font-size: 18px;
+}
+
+.buttons {
+  display: flex;
+  gap: 50px;
+}
+
+.deleteButton {
+  border-radius: 10px;
+  background: #E24A4A;
+  color: #FAFAFA;
+}
+
+.deleteButton:hover {
+  background: #E24A4A;
+  color: #FAFAFA;
+}
+
+.cancelButton {
+  border-radius: 10px;
+  background: #43A8EE;
+  color: #FAFAFA;
+}
+
+.cancelButton:hover {
+  background: #43A8EE;
+  color: #FAFAFA;
+}

@@ -3,6 +3,7 @@ import style from "./AdminFormItem.module.css"
 import classNames from "classnames";
 import Button from "../../../Button/Button";
 import {useAdminFormItem} from "../../../../hooks/useAdminFormItem";
+import {useActions} from "../../../../hooks/useActions";
 
 export type AdminFormItemProps = {
   labelText?: string
@@ -14,7 +15,7 @@ export type AdminFormItemProps = {
   value: string | number
   id: string
   onClickSaveFunc: (id: string, inputValue: string, inputType?: InputType) => void
-  onClickDeleteFunc?: (id: string) => void
+  onClickDeleteFunc?: (() => void) | ((id: string) => void)
   itemType?: "input" | "textArea"
   onBlurFunc?: (e: any, value: string, callback: Function) => void
 }
@@ -37,6 +38,12 @@ const AdminFromItem: React.FC<AdminFormItemProps> = ({
                                                      }) => {
 
   const formItem = useAdminFormItem(disabled, value, inputType, id, onClickSaveFunc, onClickDeleteFunc)
+  const {openDialogModal} = useActions()
+  const openModal = () => {
+    if (onClickDeleteFunc) {
+      openDialogModal(onClickDeleteFunc, id)
+    }
+  }
 
   const checkItemType = () => {
     switch (itemType) {
@@ -117,7 +124,7 @@ const AdminFromItem: React.FC<AdminFormItemProps> = ({
                         text={"Удалить"}
                         type={"button"}
                         mainStyle={classNames(style.changeButton, style.deleteButton)}
-                        func={formItem.onClickDeleteButton}
+                        func={openModal}
                     />
                   </>
           }

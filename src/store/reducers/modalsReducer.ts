@@ -7,9 +7,9 @@ const initialState: ModalsInitialState = {
     srcIcon: ""
   },
   deleteAlertModal: {
-    isActive: false,
-    message: "",
-    srcIcon: ""
+    isOpen: false,
+    deleteFunc: null,
+    id: ""
   }
 }
 
@@ -35,6 +35,18 @@ export const modalsReducer = (state = initialState, action: ModalsAction): Modal
       }
     case ModalsActions.SET_RESPONSE_MODAL_CLOSE:
       return {...state, responseModal: {...state.responseModal, isActive: false}}
+    case ModalsActions.SET_OPEN_DIALOG_MODAL:
+      return {
+        ...state,
+        deleteAlertModal: {
+          ...state.deleteAlertModal,
+          isOpen: true,
+          deleteFunc: action.payload.func,
+          id: action.payload.id
+        }
+      }
+    case ModalsActions.SET_CLOSE_DIALOG_MODAL:
+      return {...state, deleteAlertModal: {...state.deleteAlertModal, isOpen: false}}
     default:
       return state
   }

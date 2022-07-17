@@ -2,20 +2,33 @@ export const enum ModalsActions {
   SET_RESPONSE_MODAL_OPEN_SUCCESS = "SET_RESPONSE_MODAL_OPEN_SUCCESS",
   SET_RESPONSE_MODAL_OPEN_FAIL = "SET_RESPONSE_MODAL_OPEN_FAIL",
   SET_RESPONSE_MODAL_CLOSE = "SET_RESPONSE_MODAL_CLOSE",
+  SET_OPEN_DIALOG_MODAL = "SET_OPEN_DIALOG_MODAL",
+  SET_CLOSE_DIALOG_MODAL = "SET_CLOSE_DIALOG_MODAL",
 }
 
 export interface ModalsInitialState {
-    responseModal: Modal
-    deleteAlertModal: Modal
+  responseModal: NotificationModal
+  deleteAlertModal: DialogModal
 }
 
-interface Modal {
+interface NotificationModal {
   isActive: boolean
   srcIcon: string
   message: string
 }
 
-export type ModalsAction = OpenResponseModalSuccess | CloseResponseModal | OpenResponseModalFail
+interface DialogModal {
+  isOpen: boolean
+  deleteFunc: (() => void) | ((id: string) => void) | null
+  id: string
+}
+
+export type ModalsAction =
+    OpenResponseModalSuccess |
+    CloseResponseModal |
+    OpenResponseModalFail |
+    OpenDialogModal |
+    CloseDialogModal
 
 interface OpenResponseModalSuccess {
   type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS
@@ -29,4 +42,13 @@ interface OpenResponseModalFail {
 
 interface CloseResponseModal {
   type: ModalsActions.SET_RESPONSE_MODAL_CLOSE
+}
+
+interface OpenDialogModal {
+  type: ModalsActions.SET_OPEN_DIALOG_MODAL
+  payload: { func: (() => void) | ((id: string) => void), id: string }
+}
+
+interface CloseDialogModal {
+  type: ModalsActions.SET_CLOSE_DIALOG_MODAL
 }

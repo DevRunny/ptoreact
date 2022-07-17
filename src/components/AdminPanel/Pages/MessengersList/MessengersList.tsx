@@ -15,7 +15,7 @@ import {MessengersName} from "../../../../types/messengers";
 function MessengersList() {
   const [loading, setLoading] = useState<boolean>(false)
   const {messengers} = useTypedSelector(state => state.messengers)
-  const {fetchMessengersAC, deleteMessenger, setValueMessenger} = useActions()
+  const {fetchMessengersAC, deleteMessenger, setValueMessenger, openDialogModal} = useActions()
   const {redirect} = useAuth()
 
   const onClickSave = (id: string, inputValue: string, inputType?: InputType) => {

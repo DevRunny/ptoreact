@@ -11,6 +11,9 @@ import {useDocumentsList} from "../../../../hooks/useDocumentsList";
 const DocumentsList = () => {
   const documentsList = useDocumentsList()
 
+  const openModal = () => {
+    documentsList.openDialogModal(documentsList.deleteDocuments, "")
+  }
   if (documentsList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
   return (
@@ -32,7 +35,7 @@ const DocumentsList = () => {
             />
             <ServiceFieldButton
                 textButton={"Удалить файлы"}
-                onClickFunc={documentsList.deleteDocuments}
+                onClickFunc={openModal}
                 icon={adminPanelImages.basketTrash.src}
                 buttonStyle={
                   documentsList.checkedDocuments.length > 0

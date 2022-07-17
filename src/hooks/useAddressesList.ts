@@ -12,7 +12,8 @@ export const useAddressesList = () => {
     deleteCheckedPoints,
     fetchContactsAC,
     setMapStateCenter,
-    setMapZoom
+    setMapZoom,
+    openDialogModal
   } = useActions()
   const {redirect} = useAuth()
   const {points, checkedPoints} = useTypedSelector(state => state.points)
@@ -63,5 +64,5 @@ export const useAddressesList = () => {
     fetch()
   }, [])
 
-  return {loading, addPoint, mapState, deletePoints, validateZoom, onClickSave, points, checkedPoints}
+  return {loading, addPoint, mapState, deletePoints, validateZoom, openDialogModal, onClickSave, points, checkedPoints}
 }

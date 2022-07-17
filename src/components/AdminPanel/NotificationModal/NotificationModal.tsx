@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, {useEffect, useRef} from "react";
 import {useActions} from "../../../hooks/useActions";
-import style from "./Modal.module.css"
+import style from "./NotificationModal.module.css"
 
 interface Props {
   isActive: boolean
@@ -10,7 +10,7 @@ interface Props {
 
 type ModalType = "response" | "deleteAlert"
 
-const Modal: React.FC<Props> = ({isActive, type, children}) => {
+const NotificationModal: React.FC<Props> = ({isActive, type, children}) => {
 
   const modalRef = useRef<HTMLDivElement>(null)
   const modalLoaderRef = useRef<HTMLDivElement>(null)
@@ -44,4 +44,4 @@ const Modal: React.FC<Props> = ({isActive, type, children}) => {
   )
 }
 
-export default Modal
+export default NotificationModal

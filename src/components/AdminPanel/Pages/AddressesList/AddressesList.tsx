@@ -13,6 +13,9 @@ import {useAddressesList} from "../../../../hooks/useAddressesList";
 const AddressesList = () => {
 
   const addressesList = useAddressesList()
+  const openModal = () => {
+    addressesList.openDialogModal(addressesList.deletePoints, "")
+  }
   if (addressesList.loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
   return (
@@ -75,7 +78,7 @@ const AddressesList = () => {
               />
               <ServiceFieldButton
                   textButton={"Удалить выбранные адреса"}
-                  onClickFunc={addressesList.deletePoints}
+                  onClickFunc={openModal}
                   icon={adminPanelImages.basketTrash.src}
                   buttonStyle={
                     addressesList.checkedPoints.length
