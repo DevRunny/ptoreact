@@ -45,6 +45,12 @@
   gap: 13px;
 }
 
+.contact > img {
+  width: 21px;
+  height: 21px;
+  pointer-events: none;
+}
+
 .buttonsWrap {
   display: flex;
   gap: 26px;
@@ -72,4 +78,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
+  width: 370px;
+  height: 260px;
+  pointer-events: none;
 }

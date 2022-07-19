@@ -1,5 +1,5 @@
 .background {
-  background: url("../../../public/images/Documentation/background.jpg") no-repeat center;
+  background: url("../../../public/images/Documentation/background.webp") no-repeat center;
   background-size: cover;
   padding: 35px 0;
   display: flex;
@@ -50,6 +50,12 @@
   padding: 35px 58px;
   width: 280px;
   height: 315px;
+}
+
+.documentImage {
+  width: 112px;
+  height: 112px;
+  pointer-events: none;
 }
 
 .documentText {

@@ -9,7 +9,7 @@ type Props = {
 const Document: React.FC<Props> = ({documentText}) => {
   return (
       <div className={style.document}>
-        <img className={style.image} src="/images/Documentation/documentImage.svg" alt="document" />
+        <img className={style.documentImage} src="/images/Documentation/documentImage.svg" alt="document" />
         <p className={style.documentText}>{documentText}</p>
         <ButtonWithDocument text={"Посмотреть"} mainStyle={style.documentationButton} />
       </div>

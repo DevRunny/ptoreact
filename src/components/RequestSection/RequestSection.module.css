@@ -1,5 +1,5 @@
 .background {
-  background: url("../../../public/images/RequestSection/background.jpg") no-repeat center;
+  background: url("../../../public/images/RequestSection/background.webp") no-repeat center;
   background-size: cover;
 }
 
@@ -70,6 +70,8 @@
 
 .documentPic {
   height: 208px;
+  max-width: 296px;
+  pointer-events: none;
 }
 
 .requestSectionButton {

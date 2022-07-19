@@ -8,11 +8,11 @@ function NavBar() {
         <div className="container">
           <div className={style.wrap}>
             <header className={style.navBar}>
-              <div className={style.logoWrap}>
+              <a className={style.linkLogo} href="/" rel="noreferrer">
                 <img className={style.logoImage} src="/images/NavBar/NavBar-logo.svg" alt="Logo" />
-              </div>
+              </a>
               <nav>
-                <Navigation mainClass={style.navigation} mainClassLink={style.navigationLink}/>
+                <Navigation mainClass={style.navigation} mainClassLink={style.navigationLink} />
               </nav>
             </header>
           </div>

@@ -43,6 +43,7 @@
 .cardIcon {
   width: 62px;
   height: 62px;
+  pointer-events: none;
 }
 
 .titleCard {

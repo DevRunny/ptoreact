@@ -20,12 +20,12 @@ const RequestSection = () => {
             </div>
             <div className={style.documentList}>
               <RequestComponent
-                  urlImage={"/images/RequestSection/passport.png"}
+                  urlImage={"/images/RequestSection/passport.webp"}
                   alt={"passport"}
                   descriptionDocument={"Документ, удостоверяющий личность"}
               />
               <RequestComponent
-                  urlImage={"/images/RequestSection/document.png"}
+                  urlImage={"/images/RequestSection/document.webp"}
                   alt={"document"}
                   descriptionDocument={"Свидетельство о регистрации транспортного средства или паспорт\n" +
                       "                  транспортного средства"}
