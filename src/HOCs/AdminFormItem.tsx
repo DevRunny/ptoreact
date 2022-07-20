@@ -16,6 +16,7 @@ export const withNotation = (Component: React.ComponentType<AdminFormItemProps>)
         <div style={{position: "relative"}}>
           {props.icon ?
               <img style={{
+                maxHeight: "25px",
                 width: "25px",
                 position: "absolute",
                 left: "-33px",

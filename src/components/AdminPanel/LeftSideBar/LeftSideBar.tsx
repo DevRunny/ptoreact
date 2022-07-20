@@ -18,7 +18,7 @@ function LeftSideBar() {
         <div className={style.leftSideBar}>
           <div className={style.menu}>
             <div className={style.logoAdmin}>
-              <img src={adminPanelImages.logo.src} alt={adminPanelImages.logo.alt} />
+              <img className={style.logoEndel} src={adminPanelImages.logo.src} alt={adminPanelImages.logo.alt} />
               <h2 className={style.title}>Admin Panel</h2>
             </div>
             <hr />
@@ -58,7 +58,7 @@ function LeftSideBar() {
           </div>
           <div className={style.logOut}>
             <img className={style.decor} src={adminPanelImages.decor.src} alt={adminPanelImages.decor.alt} />
-            <span className={style.logOutButton} onClick={onClickExitUser}><img src={adminPanelImages.logout.src} alt={adminPanelImages.logout.alt} />Выйти</span>
+            <span className={style.logOutButton} onClick={onClickExitUser}><img className={style.logOutIcon} src={adminPanelImages.logout.src} alt={adminPanelImages.logout.alt} />Выйти</span>
           </div>
         </div>
       </div>

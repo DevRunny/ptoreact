@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminFormItem, {InputType} from "../../AdminFormItem/AdminFormItem";
 import style from "./ContactForm.module.css"
-import ServiceFieldButton from "../../AddFieldButton/ServiceFieldButton";
+import ServiceFieldButton from "../../ServiceFieldButton/ServiceFieldButton";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
 import {useContactForm} from '../../../../../hooks/useContactForm';
 

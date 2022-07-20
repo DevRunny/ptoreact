@@ -29,7 +29,7 @@ const Link: React.FC<Props> = ({image, alt, linkText, url}) => {
           navigate(url)
         }}>
           <span className={active ? style.activePage : style.noneActivePage} />
-          <img src={image} alt={alt} />{linkText}
+          <img className={style.linkIcon} src={image} alt={alt} />{linkText}
         </span>
       </>
   );

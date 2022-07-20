@@ -7,7 +7,7 @@ import {FormItemWithNotation} from "../../../../HOCs/AdminFormItem";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector";
 import {useActions} from "../../../../hooks/useActions";
 import Preloader from "../../../Preloader/Preloader";
-import ServiceFieldButton from "../AddFieldButton/ServiceFieldButton";
+import ServiceFieldButton from "../ServiceFieldButton/ServiceFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import {useAuth} from "../../../../hooks/useAuth";
 import {MessengersName} from "../../../../types/messengers";

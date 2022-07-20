@@ -3,7 +3,7 @@ import AdminMainTitle from "../AdminMainTitle";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import style from "./AddressesList.module.css"
 import {FormItemWithNotation} from "../../../../HOCs/AdminFormItem";
-import ServiceFieldButton from "../AddFieldButton/ServiceFieldButton";
+import ServiceFieldButton from "../ServiceFieldButton/ServiceFieldButton";
 import {adminPanelImages} from "../../../../utils/adminPanelRoutesImages";
 import PointForm from "./PointForm/PointForm";
 import classNames from "classnames";

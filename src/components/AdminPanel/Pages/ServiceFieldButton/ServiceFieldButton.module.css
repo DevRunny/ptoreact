@@ -1,4 +1,4 @@
-.addFieldFormItem {
+.serviceFieldFormItem {
   display: flex;
   gap: 7px;
   margin-top: 19px;
@@ -13,4 +13,9 @@
   height: 30px;
   font-weight: 400;
   border-radius: 10px;
+}
+
+.serviceIcon {
+  height: 20px;
+  width: 20px;
 }

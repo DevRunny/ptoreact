@@ -1,5 +1,5 @@
 import React from 'react';
-import style from "./AddFieldButton.module.css"
+import style from "./ServiceFieldButton.module.css"
 import classNames from "classnames";
 
 type Props = {
@@ -16,9 +16,9 @@ const ServiceFieldButton: React.FC<Props> = ({
                                                buttonStyle = style.button
                                              }) => {
   return (
-      <div className={buttonStyle ? classNames(style.button, buttonStyle) : style.addFieldFormItem}
+      <div className={buttonStyle ? classNames(style.button, buttonStyle) : style.serviceFieldFormItem}
            onClick={onClickFunc}>
-        <img src={icon} alt={"+"} />{textButton}
+        <img className={style.serviceIcon} src={icon} alt={"+"} />{textButton}
       </div>
   );
 };
