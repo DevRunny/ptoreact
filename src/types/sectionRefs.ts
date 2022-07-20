@@ -1,9 +1,22 @@
+// Enum наименования секций
+
 export enum nameSection {
   accreditation = "accreditation",
   documentation = "documentation",
   request = "request",
   contacts = "contacts"
 }
+
+// State секций main-страницы
+
+export type SectionRefsState = {
+  contacts: HTMLDivElement | null,
+  accreditation: HTMLDivElement | null,
+  documentation: HTMLDivElement | null,
+  request: HTMLDivElement | null
+}
+
+// Экшены
 
 export enum SectionRefsActions {
   SET_CONTACTS_REF = "SET_CONTACTS_REF",
@@ -32,15 +45,10 @@ type SetRequestRef = {
   payload: HTMLDivElement | null
 }
 
+// Экспорт всех экшенов
+
 export type SectionRefsAction =
     SetContactsRef |
     SetAccreditationRef |
     SetDocumentationRef |
     SetRequestRef
-
-export type SectionRefsState = {
-  contacts: HTMLDivElement | null,
-  accreditation: HTMLDivElement | null,
-  documentation: HTMLDivElement | null,
-  request: HTMLDivElement | null
-}

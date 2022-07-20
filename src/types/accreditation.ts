@@ -1,3 +1,23 @@
+// State области аккредитации
+
+export interface AccreditationState {
+  allCategories: Category[]
+  selectedCategories: Category[]
+  loading: boolean
+  error: string | null
+}
+
+// State и Response от API
+
+export type Category = {
+  urlImage: string
+  categoryName: string,
+  categoryDescription: string,
+  id: string
+}
+
+// Экшены
+
 export enum AccreditationActions {
   GET_ALL_CATEGORIES = "GET_ALL_CATEGORIES",
   GET_SELECTED_CATEGORIES = "GET_SELECTED_CATEGORIES",
@@ -7,29 +27,6 @@ export enum AccreditationActions {
   SELECT_CATEGORY = "SELECT_CATEGORY",
   UNSELECT_CATEGORY = "UNSELECT_CATEGORY"
 }
-
-export interface AccreditationState {
-  allCategories: Category[]
-  selectedCategories: Category[]
-  loading: boolean
-  error: string | null
-}
-
-export type Category = {
-  urlImage: string
-  categoryName: string,
-  categoryDescription: string,
-  id: string
-}
-
-export type AccreditationAction =
-    FetchCategories |
-    FetchAccreditationSuccess |
-    FetchAccreditationError |
-    GetAllCategories |
-    GetSelectedCategories |
-    SelectCategory |
-    UnselectCategory
 
 interface GetAllCategories {
   type: AccreditationActions.GET_ALL_CATEGORIES,
@@ -64,3 +61,14 @@ interface UnselectCategory {
   type: AccreditationActions.UNSELECT_CATEGORY,
   payload: Category
 }
+
+// Экспорт всех экшенов
+
+export type AccreditationAction =
+    FetchCategories |
+    FetchAccreditationSuccess |
+    FetchAccreditationError |
+    GetAllCategories |
+    GetSelectedCategories |
+    SelectCategory |
+    UnselectCategory

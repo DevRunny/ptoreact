@@ -11,7 +11,7 @@
 .button {
   margin: 38px 0 12px 0;
   color: #FFFFFF;
-  font-family: "Gotham Pro", serif;
+  font-family: "Gotham Pro", sans-serif;
   font-weight: 400;
   font-size: 18px;
   padding: 17px 7px;
@@ -23,14 +23,14 @@
 
 .notification {
   color: #77D77B;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 13px;
 }
 
 .notificationError {
   color: red;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 13px;
 }

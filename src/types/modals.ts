@@ -1,10 +1,4 @@
-export const enum ModalsActions {
-  SET_RESPONSE_MODAL_OPEN_SUCCESS = "SET_RESPONSE_MODAL_OPEN_SUCCESS",
-  SET_RESPONSE_MODAL_OPEN_FAIL = "SET_RESPONSE_MODAL_OPEN_FAIL",
-  SET_RESPONSE_MODAL_CLOSE = "SET_RESPONSE_MODAL_CLOSE",
-  SET_OPEN_DIALOG_MODAL = "SET_OPEN_DIALOG_MODAL",
-  SET_CLOSE_DIALOG_MODAL = "SET_CLOSE_DIALOG_MODAL",
-}
+// State модальных окон
 
 export interface ModalsInitialState {
   responseModal: NotificationModal
@@ -24,12 +18,15 @@ interface DialogModal {
   id: string
 }
 
-export type ModalsAction =
-    OpenResponseModalSuccess |
-    CloseResponseModal |
-    OpenResponseModalFail |
-    OpenDialogModal |
-    CloseDialogModal
+// Экшены
+
+export const enum ModalsActions {
+  SET_RESPONSE_MODAL_OPEN_SUCCESS = "SET_RESPONSE_MODAL_OPEN_SUCCESS",
+  SET_RESPONSE_MODAL_OPEN_FAIL = "SET_RESPONSE_MODAL_OPEN_FAIL",
+  SET_RESPONSE_MODAL_CLOSE = "SET_RESPONSE_MODAL_CLOSE",
+  SET_OPEN_DIALOG_MODAL = "SET_OPEN_DIALOG_MODAL",
+  SET_CLOSE_DIALOG_MODAL = "SET_CLOSE_DIALOG_MODAL",
+}
 
 interface OpenResponseModalSuccess {
   type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS
@@ -53,3 +50,12 @@ interface OpenDialogModal {
 interface CloseDialogModal {
   type: ModalsActions.SET_CLOSE_DIALOG_MODAL
 }
+
+// Экспорт всех экшенов
+
+export type ModalsAction =
+    OpenResponseModalSuccess |
+    CloseResponseModal |
+    OpenResponseModalFail |
+    OpenDialogModal |
+    CloseDialogModal

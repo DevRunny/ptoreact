@@ -9,7 +9,7 @@
   background: #FFFFFF;
   border: 1px solid #D0D0D0;
   border-radius: 5px;
-  font-family: 'Gotham Pro', serif;
+  font-family: 'Gotham Pro', sans-serif;
   font-weight: 400;
   font-size: 14px;
   outline: none;
@@ -36,7 +36,7 @@
   width: 105px;
   background: #43A8EE;
   border-radius: 10px;
-  font-family: 'Gotham Pro', serif;
+  font-family: 'Gotham Pro', sans-serif;
   font-weight: 400;
   font-size: 13px;
   color: #FAFAFA;

@@ -1,18 +1,4 @@
-export enum ContactsActions {
-  FETCH = "FETCH",
-  FETCH_SUCCESS = "FETCH_SUCCESS",
-  FETCH_ERROR = "FETCH_ERROR",
-  FETCH_CONTACTS_SUCCESS = "FETCH_CONTACTS_SUCCESS",
-  FETCH_CONTACTS_ERROR = "FETCH_CONTACTS_ERROR",
-  SET_PHONE = "SET_PHONE",
-  SET_EMAIL = "SET_EMAIL",
-  ADD_PHONE = "ADD_PHONE",
-  ADD_EMAIL = "ADD_EMAIL",
-  DELETE_PHONE = "DELETE_PHONE",
-  DELETE_EMAIL = "DELETE_EMAIL",
-  SET_MAP_STATE_CENTER = "SET_MAP_STATE_CENTER",
-  SET_MAP_ZOOM = "SET_MAP_ZOOM"
-}
+// State контактной информации
 
 export type ContactsState = {
   emails: Email[]
@@ -48,20 +34,23 @@ export type MapState = {
   zoom: number
 }
 
-export type ContactsAction =
-    Fetch |
-    FetchContactsSuccess |
-    FetchContactsError |
-    SetPhone |
-    SetEmail |
-    AddPhone |
-    AddEmail |
-    DeletePhone |
-    DeleteEmail |
-    SetMapStateCenter |
-    SetMapZoom |
-    FetchSuccess |
-    FetchError
+// Экшены
+
+export enum ContactsActions {
+  FETCH = "FETCH",
+  FETCH_SUCCESS = "FETCH_SUCCESS",
+  FETCH_ERROR = "FETCH_ERROR",
+  FETCH_CONTACTS_SUCCESS = "FETCH_CONTACTS_SUCCESS",
+  FETCH_CONTACTS_ERROR = "FETCH_CONTACTS_ERROR",
+  SET_PHONE = "SET_PHONE",
+  SET_EMAIL = "SET_EMAIL",
+  ADD_PHONE = "ADD_PHONE",
+  ADD_EMAIL = "ADD_EMAIL",
+  DELETE_PHONE = "DELETE_PHONE",
+  DELETE_EMAIL = "DELETE_EMAIL",
+  SET_MAP_STATE_CENTER = "SET_MAP_STATE_CENTER",
+  SET_MAP_ZOOM = "SET_MAP_ZOOM"
+}
 
 type Fetch = {
   type: ContactsActions.FETCH,
@@ -123,3 +112,20 @@ type SetMapZoom = {
   type: ContactsActions.SET_MAP_ZOOM,
   payload: number
 }
+
+// Экспорт всех экшенов
+
+export type ContactsAction =
+    Fetch |
+    FetchContactsSuccess |
+    FetchContactsError |
+    SetPhone |
+    SetEmail |
+    AddPhone |
+    AddEmail |
+    DeletePhone |
+    DeleteEmail |
+    SetMapStateCenter |
+    SetMapZoom |
+    FetchSuccess |
+    FetchError

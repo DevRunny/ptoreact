@@ -38,9 +38,10 @@ export const withNotation = (Component: React.ComponentType<AdminFormItemProps>)
           <p className={props.styleNotation}>
             {props.isExample ?
                 <>Пример: <b>{props.textNotation}</b>
-                  <a href={props.link} target={"_blank"}><b>{props.textLink}</b></a></>
+                  <a href={props.link} target={"_blank"} rel={'noreferrer'}><b>{props.textLink}</b></a></>
                 :
-                <>{props.textNotation + " "} <a href={props.link} target={"_blank"}><b>{props.textLink}</b></a></>
+                <>{props.textNotation + " "}
+                  <a href={props.link} target={"_blank"} rel={'noreferrer'}><b>{props.textLink}</b></a></>
             }
           </p>
         </div>

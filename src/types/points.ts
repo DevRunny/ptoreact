@@ -1,3 +1,25 @@
+// State списка адресов ПТО
+
+export type PointsState = {
+  points: Point[]
+  checkedPoints: Point[]
+  error: string
+  loading: boolean
+}
+
+export type Point = {
+  id: string,
+  address: string,
+  workingMode: string,
+  coordinate: number[]
+}
+
+// Response от API
+
+export type ResponsePoints = Point[]
+
+// Экшены
+
 export enum PointsActions {
   FETCH_POINTS = "FETCH_POINTS",
   FETCH_POINTS_SUCCESS = "FETCH_POINTS_SUCCESS",
@@ -11,36 +33,6 @@ export enum PointsActions {
   SET_COORDINATE = "SET_COORDINATE",
   SET_WORKING_MODE = "SET_WORKING_MODE"
 }
-
-export type PointsState = {
-  points: Point[]
-  checkedPoints: Point[]
-  error: string
-  loading: boolean
-}
-
-export type ResponsePoints = Point[]
-
-export type Point = {
-  id: string,
-  address: string,
-  workingMode: string,
-  coordinate: number[]
-}
-
-export type PointsAction =
-    FetchPoints |
-    FetchPointsSuccess |
-    FetchPointsError |
-    AddPoint |
-    DeletePoint |
-    CheckPoint |
-    UnCheckPoint |
-    DeleteCheckPoint |
-    SetAddress |
-    SetCoordinate |
-    SetWorkingMode
-
 
 type FetchPoints = {
   type: PointsActions.FETCH_POINTS
@@ -95,3 +87,18 @@ type SetWorkingMode = {
   type: PointsActions.SET_WORKING_MODE
   payload: { workingMode: string, id: string }
 }
+
+// Экспорт всех экшенов
+
+export type PointsAction =
+    FetchPoints |
+    FetchPointsSuccess |
+    FetchPointsError |
+    AddPoint |
+    DeletePoint |
+    CheckPoint |
+    UnCheckPoint |
+    DeleteCheckPoint |
+    SetAddress |
+    SetCoordinate |
+    SetWorkingMode

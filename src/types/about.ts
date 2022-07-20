@@ -1,12 +1,4 @@
-export enum AboutActions {
-  FETCH_ABOUT = "FETCH_ABOUT",
-  FETCH_ABOUT_SUCCESS = "FETCH_ABOUT_SUCCESS",
-  FETCH_ABOUT_ERROR = "FETCH_ABOUT_ERROR",
-  SET_NAME_COMPANY = "SET_NAME_COMPANY",
-  SET_NUM_REGISTRY = "SET_NUM_REGISTRY",
-  SET_INN = "SET_INN",
-  SET_OGRN = "SET_OGRN"
-}
+// State реквизитов организации
 
 export interface AboutState {
   nameCompany: string
@@ -26,14 +18,25 @@ export type Requisites = {
   ogrn: number | null
 }
 
-export type AboutAction =
-    FetchAbout
-    | FetchAboutSuccess
-    | FetchAboutError
-    | SetNameCompany
-    | SetNumRegistry
-    | SetInn
-    | SetOgrn
+// Response от API
+
+export type PayloadFetchAboutSuccess = {
+  nameCompany: string,
+  requisites: Requisites
+}
+
+
+// Экшены
+
+export enum AboutActions {
+  FETCH_ABOUT = "FETCH_ABOUT",
+  FETCH_ABOUT_SUCCESS = "FETCH_ABOUT_SUCCESS",
+  FETCH_ABOUT_ERROR = "FETCH_ABOUT_ERROR",
+  SET_NAME_COMPANY = "SET_NAME_COMPANY",
+  SET_NUM_REGISTRY = "SET_NUM_REGISTRY",
+  SET_INN = "SET_INN",
+  SET_OGRN = "SET_OGRN"
+}
 
 interface FetchAbout {
   type: AboutActions.FETCH_ABOUT
@@ -69,8 +72,13 @@ interface FetchAboutError {
   payload: string
 }
 
-export type PayloadFetchAboutSuccess = {
-  nameCompany: string,
-  requisites: Requisites
-}
+// Экспорт всех экшенов
 
+export type AboutAction =
+    FetchAbout
+    | FetchAboutSuccess
+    | FetchAboutError
+    | SetNameCompany
+    | SetNumRegistry
+    | SetInn
+    | SetOgrn

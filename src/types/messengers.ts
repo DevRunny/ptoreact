@@ -1,4 +1,4 @@
-// Enum
+// Enum наименований мессенджеров
 
 export enum MessengersName {
   TELEGRAM = "Telegram",
@@ -7,7 +7,7 @@ export enum MessengersName {
   WHATSAPP = "WhatsApp"
 }
 
-// State
+// State мессенджеров
 
 export type MessengersState = {
   messengers: Messenger[]
@@ -22,7 +22,7 @@ export type Messenger = {
   id: string
 }
 
-// Экшены 
+// Экшены
 
 export enum MessengersActions {
   FETCH_MESSENGERS = "FETCH_MESSENGERS",
@@ -31,13 +31,6 @@ export enum MessengersActions {
   DELETE_MESSENGER = "DELETE_MESSENGER",
   SET_MESSENGER = "SET_MESSENGER",
 }
-
-export type MessengersAction =
-    FetchMessengers |
-    FetchMessengersSuccess |
-    FetchMessengersError |
-    DeleteMessenger |
-    SetMessenger
 
 type FetchMessengers = {
   type: MessengersActions.FETCH_MESSENGERS
@@ -63,6 +56,15 @@ type SetMessenger = {
   payload: { id: string, value: string }
 }
 
-// Response 
+// Экспорт всех экшенов
+
+export type MessengersAction =
+    FetchMessengers |
+    FetchMessengersSuccess |
+    FetchMessengersError |
+    DeleteMessenger |
+    SetMessenger
+
+// Response от API
 
 export type ResponseFetchMessengers = Messenger[]

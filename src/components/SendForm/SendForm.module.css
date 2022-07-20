@@ -54,7 +54,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
 }
 
 .formItem {
@@ -82,7 +82,7 @@
   background: #FFFFFF;
   border: 1px solid #D0D0D0;
   border-radius: 10px;
-  font-family: 'Inter', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   outline: none;
@@ -94,7 +94,7 @@
   border: 1px solid #D0D0D0;
   background: #FFFFFF;
   outline: none;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
 }
 
@@ -106,7 +106,7 @@
   background: #FFFFFF;
   border: 1px solid #D0D0D0;
   border-radius: 10px;
-  font-family: 'Inter', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   outline: none;
@@ -119,7 +119,7 @@
   background: #FFFFFF;
   border: 1px solid #D0D0D0;
   border-radius: 10px;
-  font-family: 'Inter', serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   outline: none;
@@ -155,7 +155,7 @@
   border-radius: 20px;
   padding: 25px 0;
   border: none;
-  font-family: "Gotham Pro", serif;
+  font-family: "Gotham Pro", sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 17px;

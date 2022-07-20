@@ -13,7 +13,7 @@
   padding: 45px 0 68px 0;
   height: 100%;
   background-color: white;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
   border-right: 1px solid #F0F0F0;
   min-height: 100vh;
   z-index: 999;
@@ -35,7 +35,7 @@
 }
 
 .title {
-  font-family: "Gotham Pro", serif;
+  font-family: "Gotham Pro", sans-serif;
   font-weight: 400;
   font-size: 20px;
   color: #565656;

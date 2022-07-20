@@ -67,11 +67,11 @@
   width: 230px;
   margin-top: 7px;
   margin-bottom: 18px;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
 }
 
 .documentationButton {
-  font-family: "Gotham Pro", serif;
+  font-family: "Gotham Pro", sans-serif;
   font-weight: 500;
   font-size: 15px;
   color: white;
