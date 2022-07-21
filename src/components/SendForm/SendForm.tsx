@@ -135,7 +135,11 @@ function SendForm() {
         <ModalWindow
             isOpen={form.isModalWindowOpen}
             children={
-              <Calendar minDate={new Date()} maxDate={getMaxDate()} onChange={form.changeDate} />
+              <Calendar 
+                minDate={new Date()} 
+                maxDate={getMaxDate()} 
+                onChange={form.changeDate} 
+              />
             }
         />
       </div>
