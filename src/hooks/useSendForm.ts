@@ -53,6 +53,11 @@ export const useSendForm = () => {
   const [selectedTime, setSelectedTime] = useState<string>(getNearTime())
   const [isModalWindowOpen, setIsModalWindowOpen] = useState<boolean>(false)
 
+  const changeDate = (date: Date) => {
+    setSelectedDate(date)
+    toggleVisibleModalWindow()
+  }
+
   const navigate = useNavigate();
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -103,6 +108,7 @@ export const useSendForm = () => {
     selectedTime,
     setSelectedTime,
     isModalWindowOpen,
-    toggleVisibleModalWindow
+    toggleVisibleModalWindow,
+    changeDate
   };
 };

@@ -6,6 +6,7 @@ import {useSendForm} from "../../hooks/useSendForm";
 import FormItem from "../FormItem/FormItem";
 import classNames from "classnames";
 import ModalWindow from "../ModalWindow/ModalWindow";
+import { Calendar } from "react-rainbow-components";
 
 function SendForm() {
   const form = useSendForm();
@@ -14,6 +15,14 @@ function SendForm() {
     alert(JSON.stringify(data));
     form.reset();
   };
+
+  const getMaxDate = () => {
+    const today = new Date()
+    const maxDateYear = today.getFullYear()
+    const maxDateMonth = today.getMonth() + 2
+    const maxDateDay = today.getDay()
+    return new Date(maxDateYear, maxDateMonth, maxDateDay)
+  }
 
   return (
       <div
@@ -124,9 +133,10 @@ function SendForm() {
           </form>
         </div>
         <ModalWindow
-            handleChangeDate={form.setSelectedDate}
             isOpen={form.isModalWindowOpen}
-            closeModalWindow={form.toggleVisibleModalWindow}
+            children={
+              <Calendar minDate={new Date()} maxDate={getMaxDate()} onChange={form.changeDate} />
+            }
         />
       </div>
   );
