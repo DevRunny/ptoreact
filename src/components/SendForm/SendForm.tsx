@@ -6,7 +6,8 @@ import {useSendForm} from "../../hooks/useSendForm";
 import FormItem from "../FormItem/FormItem";
 import classNames from "classnames";
 import ModalWindow from "../ModalWindow/ModalWindow";
-import { Calendar } from "react-rainbow-components";
+import {Calendar} from "react-rainbow-components";
+import TimePicker from "./TimePicker/TimePicker"
 
 function SendForm() {
   const form = useSendForm();
@@ -94,12 +95,16 @@ function SendForm() {
                 <input
                     className={style.datePicker}
                     value={form.getSelectedDate()}
-                    onClick={form.toggleVisibleModalWindow}
+                    onClick={form.toggleVisibleDatePicker}
                 />
               </div>
               <div className={style.item}>
                 <label htmlFor="date">Время прохождения ТО:</label>
-                <input className={style.datePicker} value={form.selectedTime} />
+                <input
+                    className={style.datePicker}
+                    value={form.selectedTime}
+                    onClick={form.toggleVisibleTimePicker}
+                />
               </div>
             </div>
             <FormItem
@@ -133,13 +138,26 @@ function SendForm() {
           </form>
         </div>
         <ModalWindow
-            isOpen={form.isModalWindowOpen}
+            isOpen={form.isDatePickerOpen}
             children={
-              <Calendar 
-                minDate={new Date()} 
-                maxDate={getMaxDate()} 
-                onChange={form.changeDate} 
-              />
+              <div className={style.wrapDatePicker}>
+                <h2>Выберите доступную дату</h2>
+                <Calendar
+                    style={{width: "100%"}}
+                    minDate={new Date()}
+                    maxDate={getMaxDate()}
+                    onChange={form.changeDate}
+                />
+                <Button text={"Отмена"} mainStyle={classNames(style.button, style.buttonCancel)} type={"button"} func={() => {
+                  form.changeDate(form.selectedDate)
+                }} />
+              </div>
+            }
+        />
+        <ModalWindow
+            isOpen={form.isTimePickerOpen}
+            children={
+              <TimePicker onChange={form.changeTime} isOpen={form.isTimePickerOpen} selectedTime={form.selectedTime} />
             }
         />
       </div>

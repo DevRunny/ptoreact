@@ -8,7 +8,9 @@ interface IModalWindow {
 
 const ModalWindow: React.FC<IModalWindow> = ({isOpen, children}) => {
   return (
-      <Modal isOpen={isOpen} hideCloseButton={true} className={style.modal}>
+      <Modal isOpen={isOpen} hideCloseButton={true} className={style.modal} style={{
+        position: "relative"
+      }}>
         {children}
       </Modal>
   );

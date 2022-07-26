@@ -45,17 +45,27 @@ export const useSendForm = () => {
     return `${day < 10 ? 0 : ""}${day}.${month < 10 ? 0 : ""}${month + 1}.${year}`
   }
 
-  const toggleVisibleModalWindow = () => {
-    setIsModalWindowOpen(!isModalWindowOpen)
+  const toggleVisibleDatePicker = () => {
+    setIsDatePickerOpen(!isDatePickerOpen)
+  }
+
+  const toggleVisibleTimePicker = () => {
+    setIsTimePickerOpen(!isTimePickerOpen)
   }
 
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
   const [selectedTime, setSelectedTime] = useState<string>(getNearTime())
-  const [isModalWindowOpen, setIsModalWindowOpen] = useState<boolean>(false)
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState<boolean>(false)
+  const [isTimePickerOpen, setIsTimePickerOpen] = useState<boolean>(false)
 
   const changeDate = (date: Date) => {
     setSelectedDate(date)
-    toggleVisibleModalWindow()
+    toggleVisibleDatePicker()
+  }
+
+  const changeTime = (time: string) => {
+    setSelectedTime(time)
+    toggleVisibleTimePicker()
   }
 
   const navigate = useNavigate();
@@ -107,8 +117,11 @@ export const useSendForm = () => {
     setSelectedDate,
     selectedTime,
     setSelectedTime,
-    isModalWindowOpen,
-    toggleVisibleModalWindow,
-    changeDate
+    isDatePickerOpen,
+    isTimePickerOpen,
+    toggleVisibleDatePicker,
+    toggleVisibleTimePicker,
+    changeDate,
+    changeTime
   };
 };

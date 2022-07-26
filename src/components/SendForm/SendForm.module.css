@@ -112,6 +112,15 @@
   outline: none;
 }
 
+.wrapDatePicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
 .datePicker {
   height: 35px;
   padding: 10px 15px;
@@ -165,6 +174,10 @@
   text-transform: uppercase;
   cursor: pointer;
   letter-spacing: 1px;
+}
+
+.buttonCancel {
+  width: 250px;
 }
 
 .formItemCheckbox {

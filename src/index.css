@@ -57,3 +57,7 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+#modal-content-4 {
+  height: 100%;
+}
