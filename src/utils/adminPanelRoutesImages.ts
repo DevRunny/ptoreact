@@ -70,6 +70,10 @@ export const adminPanelImages = {
       alt: "AddFile"
     }
   },
+  upload: {
+    src: "/images/AdminPanel/uploadIcon.svg",
+    alt: "upload"
+  },
   basketTrash: {
     src: "/images/AdminPanel/basketTrashIcon.svg",
     alt: "trash"

@@ -4,6 +4,7 @@ import {Document} from "../../../../../types/documents";
 import AdminFormItem from "../../AdminFormItem/AdminFormItem";
 import {adminPanelImages} from "../../../../../utils/adminPanelRoutesImages";
 import {useDocumentItem} from "../../../../../hooks/useDocumentItem";
+import FilePicker from "./FilePicker/FilePicker";
 
 type Props = {
   document: Document
@@ -39,17 +40,18 @@ const DocumentItem: React.FC<Props> = ({document, index, newItem}) => {
               required={true}
               itemType={"textArea"}
           />
-          <AdminFormItem
-              labelText={"Файл:"}
-              mainStyle={"formItem"}
-              inputStyle={style.inputFile}
-              inputType={"text"}
-              value={document.urlDocument}
-              id={"2"}
-              onClickSaveFunc={documentItem.onClickSave}
-              required={true}
-              disabled={!newItem}
-          />
+          {/*<AdminFormItem*/}
+          {/*    labelText={"Файл:"}*/}
+          {/*    mainStyle={"formItem"}*/}
+          {/*    inputStyle={style.inputFile}*/}
+          {/*    inputType={"text"}*/}
+          {/*    value={document.urlDocument}*/}
+          {/*    id={"2"}*/}
+          {/*    onClickSaveFunc={documentItem.onClickSave}*/}
+          {/*    required={true}*/}
+          {/*    disabled={!newItem}*/}
+          {/*/>*/}
+          <FilePicker id={document.id} />
           <hr />
         </div>
       </div>

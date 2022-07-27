@@ -1,0 +1,59 @@
+.filePicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 35px;
+  border-radius: 10px;
+}
+
+.fileName {
+  width: 250px;
+  height: 34px;
+  padding: 10px 10px;
+  border: 1px solid #D0D0D0;
+  border-radius: 5px;
+  background: #FCFCFC;
+  font-family: 'Gotham Pro', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  outline: none;
+}
+
+.labelPicker {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+}
+
+.filePickerImage {
+  display: flex;
+  align-items: center;
+  background: #43A8EE;
+  color: #FAFAFA;
+  height: 27px;
+  border-radius: 10px 0 0 10px;
+  padding: 5px;
+}
+
+.filePickerText {
+  display: flex;
+  align-items: center;
+  background: #43A8EE;
+  color: #FAFAFA;
+  height: 27px;
+  border-radius: 0 10px 10px 0;
+  padding: 5px;
+  font-family: 'Gotham Pro', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.uploadIcon {
+  width: 15px;
+  height: 15px;
+}
+
+.picker {
+  display: none;
+}
