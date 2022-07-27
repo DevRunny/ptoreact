@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import style from "./TimePicker.module.css"
 import Button from "../../Button/Button";
-import classNames from "classnames";
+import TimeCard from './TimeCard/TimeCard';
 
 interface ITimePicker {
   onChange: (time: string) => void
@@ -23,12 +23,7 @@ const TimePicker: React.FC<ITimePicker> = ({onChange, isOpen, selectedTime}) => 
         <div className={style.wrapTimeCards}>
           <div className={style.timeCards}>
             {mockTimeDate.map(time => {
-              return <div className={currentSelectedTime === time ? classNames(style.timeCard, style.timeCardActive) : style.timeCard} onClick={() => {
-                setCurrentSelectedTime(time)
-              }}>
-                <h3>{time}</h3>
-                <div className={style.cardSide} />
-              </div>
+              return <TimeCard onClickCard={setCurrentSelectedTime} time={time} isActive={time === currentSelectedTime}/>
             })}
           </div>
         </div>

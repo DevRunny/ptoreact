@@ -26,8 +26,7 @@ export const useSendForm = () => {
   categoryRef.current = category
 
   const [currentCategoryDesc, setCurrentCategoryDesc] = useState<string | undefined>(categories.length ? categories[0].categoryDescription : "");
-
-
+  
   const getNearTime = (): string => {
     const today = new Date()
     let hours = today.getHours()

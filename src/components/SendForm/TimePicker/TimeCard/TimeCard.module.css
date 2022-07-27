@@ -1,0 +1,46 @@
+.timeCard {
+  height: 60px;
+  width: 100px;
+  position: relative;
+  padding: 15px;
+  background: #E1E1E1;
+  border-radius: 15px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+}
+
+.timeCard:hover {
+  color: #0A9AFF;
+  transition: color 0.5s ease-in-out;
+}
+
+.timeCard:hover > .cardSide {
+  background-color: #0A9AFF;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.timeCardActive {
+  background: #0A9AFF;
+}
+
+.timeCardActive:hover {
+  color: white;
+}
+
+.timeCardActive:hover > .cardSide {
+  background: white;
+}
+
+.cardSide {
+  position: absolute;
+  width: 70px;
+  height: 3px;
+  border-radius: 20px;
+  background: #FAFAFA;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background-color 0.5s ease-in-out;;
+}
