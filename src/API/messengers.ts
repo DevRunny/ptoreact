@@ -7,6 +7,5 @@ export const getMessengers = async (): Promise<ResponseFetchMessengers> => {
 }
 
 export const changeValueMessenger = async (id: string, value: string) => {
-  const response = await instance.patch(`messengers/${Number(id) - 1}.json`, {value})
-  return response
+  return await instance.patch(`messengers/${Number(id) - 1}.json`, {value})
 }

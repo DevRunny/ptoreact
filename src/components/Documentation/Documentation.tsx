@@ -10,6 +10,9 @@ const Documentation = () => {
   const {documents, error, loading} = useTypedSelector(state => state.documents)
   const documentation = useDocumentationRef()
 
+
+  if (documents.length === 0) return <></>
+
   return (
       <div ref={documentation.documentationRef} className={classNames(style.background, "rootBackground")}>
         <div className={style.documentationTitleWrap}>
