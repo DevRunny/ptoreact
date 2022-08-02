@@ -1,5 +1,5 @@
 ### Main Page
-[![chrome-IES42er9n-B.gif](https://i.postimg.cc/rwtRW1y6/chrome-IES42er9n-B.gif)](https://postimg.cc/87NCgrrw)
+[![chrome-PYk-WG7p-NWK.gif](https://i.postimg.cc/SRk5Xnj0/chrome-PYk-WG7p-NWK.gif)](https://postimg.cc/ftq5pTx5)
 
 ### Login Form Page
 [![chrome-ZNe-HWfod1-H.png](https://i.postimg.cc/dQRSGftF/chrome-ZNe-HWfod1-H.png)](https://postimg.cc/pyTZHqFc)
