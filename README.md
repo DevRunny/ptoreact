@@ -1,5 +1,5 @@
-Designed by DevRunny
-Developed by DevRunny and EvgenovDev
+### Developed by DevRunny and EvgenovDev
+### Designed by DevRunny
 
 ### Main Page
 [![chrome-PYk-WG7p-NWK.gif](https://i.postimg.cc/SRk5Xnj0/chrome-PYk-WG7p-NWK.gif)](https://postimg.cc/ftq5pTx5)
