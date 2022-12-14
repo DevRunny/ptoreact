@@ -10,7 +10,7 @@ export const setAuth = (auth: boolean): AuthAction => {
   return {type: AuthActions.SET_AUTH, payload: auth};
 };
 
-export const setExpiresToken = (expDate: string) => {
+export const setExpiresToken = (expDate: number) => {
   return {type: AuthActions.SET_EXPIRES_TOKEN, payload: expDate}
 }
 
@@ -45,12 +45,13 @@ export const login =
           try {
             dispatch(setLoading(true));
             const response = await fbAuthUser({login: username, password})
-            if (response.status === 200) {
-              const expDate = (new Date().getTime() + +response.data.expiresIn * 1000).toString()
-              localStorage.setItem("token", response.data.idToken)
+            console.log(response);
+            if (response.status === 201) {
+              const expDate = (new Date(response.data.expiresIn * 1000)).toString()
+              localStorage.setItem("token", response.data.token);
               localStorage.setItem("expiresToken", expDate)
               localStorage.setItem("auth", "true")
-              setToken(response.data.idToken)
+              setToken(response.data.token)
               setExpiresToken(response.data.expiresIn)
               setAuth(true)
             } else if (response.status === 400) {

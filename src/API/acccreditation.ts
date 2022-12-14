@@ -1,17 +1,18 @@
 import {Category} from "../types/accreditation";
 import {instance} from "./index";
+import axios from "axios";
 
 
-export const getAllCategoriesAccreditationFb = async (): Promise<Category[]> => {
-  const response = await instance.get("accreditation/allCategories.json")
+export const getAllCategoriesAccreditation = async (): Promise<Category[]> => {
+  const response = await axios.get("http://localhost:5000/categories/getAllCategories")
   return response.data
 }
 
 export const getSelectedCategories = async (): Promise<Category[]> => {
-  const response = await instance.get("accreditation/selectedCategories.json")
+  const response = await axios.get('http://localhost:5000/categories/getSelectedCategories')
   return response.data
 }
 
-export const addSelectCategory = async (category: Category[]) => {
-  return await instance.put("accreditation/selectedCategories.json", category)
+export const selectCategories = async (ids: (number | null)[]) => {
+  return await axios.post('http://localhost:5000/categories/selectCategories', {ids})
 }

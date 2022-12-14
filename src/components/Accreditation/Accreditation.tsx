@@ -4,11 +4,12 @@ import CategoryComponent from "./CategoryComponent/CategoryComponent";
 import classNames from "classnames";
 import {useTypedSelector} from "../../hooks/useTypedSelector";
 import {useAccreditationRef} from "../../hooks/sectionsRefs/useAccreditationRef"
+import {Category} from "../../types/accreditation";
 
 
 const Accreditation = () => {
 
-  const {error, loading, selectedCategories} = useTypedSelector(state => state.accreditation)
+  const {categories, error, loading} = useTypedSelector(state => state.accreditation)
   const accreditation = useAccreditationRef()
 
   return (
@@ -20,7 +21,7 @@ const Accreditation = () => {
               <h3 className={style.subTitle}>Категории транспортных средств</h3>
             </div>
             <div className={style.categories}>
-              {selectedCategories.sort((a, b) => Number(a.id) - Number(b.id)).map((cat) => <CategoryComponent
+              {categories.filter((category: Category) => category.selected).map((cat) => <CategoryComponent
                   key={cat.id}
                   urlImage={cat.urlImage}
                   nameCategory={cat.categoryName}

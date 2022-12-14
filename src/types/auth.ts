@@ -4,7 +4,7 @@ export interface AuthState {
   email: string
   isAuth: boolean
   tokenId: string
-  expiresToken: string
+  expiresToken: number | null
   loading: boolean
   error: string | null
 }
@@ -52,7 +52,7 @@ type SetLoading = {
 
 type SetExpiresToken = {
   type: AuthActions.SET_EXPIRES_TOKEN
-  payload: string
+  payload: number
 }
 type SetEmail = {
   type: AuthActions.SET_EMAIL,

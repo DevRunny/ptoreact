@@ -4,11 +4,10 @@ import {environment} from "../environment";
 
 
 export const fbAuthUser = async (user: User): Promise<any> => {
-  return await axios.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`,
+  return await axios.post('http://localhost:5000/auth/login',
       {
         email: user.login,
         password: user.password,
-        returnSecureToken: true
       })
 }
 
