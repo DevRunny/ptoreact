@@ -18,10 +18,9 @@ function AccreditationList() {
         <div className={style.contentWrap}>
           <SectionTitle titleText={"Выберите категории транспортных средств, на которые вы аттестованы:"} />
           <div className={style.list}>
-            {accreditationList.allCategories.length && accreditationList.selectedCategories.length ?
-                accreditationList.allCategories.map(category => {
-                  const find = accreditationList.selectedCategories.find(selectedCategory => category.id === selectedCategory.id)
-                  if (find) {
+            {accreditationList.categories.length ?
+                accreditationList.categories.map(category => {
+                  if (category.selected) {
                     return <AccreditationListItem itemText={category.categoryName} selected={true} category={category} key={category.id} />
                   } else {
                     return <AccreditationListItem itemText={category.categoryName} selected={false} category={category} key={category.id} />

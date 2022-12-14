@@ -4,7 +4,7 @@ const initialState: AuthState = {
   email: "",
   isAuth: false,
   tokenId: "",
-  expiresToken: "",
+  expiresToken: null,
   loading: false,
   error: ""
 };

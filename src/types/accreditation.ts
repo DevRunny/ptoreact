@@ -1,8 +1,7 @@
 // State области аккредитации
 
 export interface AccreditationState {
-  allCategories: Category[]
-  selectedCategories: Category[]
+  categories: Category[]
   loading: boolean
   error: string | null
 }
@@ -10,10 +9,11 @@ export interface AccreditationState {
 // State и Response от API
 
 export type Category = {
-  urlImage: string
-  categoryName: string,
-  categoryDescription: string,
-  id: string
+  urlImage: string;
+  categoryName: string;
+  categoryDescription: string;
+  id: number | null;
+  selected: boolean;
 }
 
 // Экшены
@@ -54,12 +54,12 @@ interface FetchAccreditationError {
 
 interface SelectCategory {
   type: AccreditationActions.SELECT_CATEGORY,
-  payload: Category
+  payload: number
 }
 
 interface UnselectCategory {
   type: AccreditationActions.UNSELECT_CATEGORY,
-  payload: Category
+  payload: number
 }
 
 // Экспорт всех экшенов

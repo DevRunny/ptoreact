@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react"
-import {addSelectCategory} from "../API/acccreditation"
+import {selectCategories} from "../API/acccreditation"
 import {useActions} from "./useActions"
 import {useAuth} from "./useAuth"
 import {useTypedSelector} from "./useTypedSelector"
+import {Category} from "../types/accreditation";
 
 export const useAccreditationList = () => {
 
-  const {allCategories, selectedCategories} = useTypedSelector(state => state.accreditation)
+  const {categories} = useTypedSelector(state => state.accreditation)
   const {redirect} = useAuth()
   const {
     fetchAllCategoriesAC,
@@ -18,8 +19,9 @@ export const useAccreditationList = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const onClickSaveChanges = async () => {
-    const response = await addSelectCategory(selectedCategories)
-    if (response.status === 200) {
+    const selectedCategories: Category[] = categories.filter((category: Category) => category.selected)
+    const response = await selectCategories(selectedCategories.map((category: Category) => category.id))
+    if (response.status === 201) {
       openResponseModalSuccess("Изменения успешно сохранены")
     } else {
       openResponseModalFail("Произошла ошибка при изменении категорий")
@@ -41,8 +43,7 @@ export const useAccreditationList = () => {
 
   return {
     isLoading,
-    allCategories,
-    selectedCategories,
+    categories,
     onClickSaveChanges
   }
 }
