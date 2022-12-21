@@ -35,7 +35,6 @@ export const contactsReducer = (state = initialState, action: ContactsAction): C
         ...state,
         emails: action.payload.emails,
         phones: action.payload.phones,
-        mapState: action.payload.mapState,
         loading: false
       }
 
@@ -65,10 +64,10 @@ export const contactsReducer = (state = initialState, action: ContactsAction): C
       }
 
     case ContactsActions.ADD_PHONE:
-      return {...state, phones: [...state.phones, {id: (state.phones.length + 1).toString(), phoneNumber: ""}]}
+      return {...state, phones: [...state.phones, {id: action.payload.id, phoneNumber: ""}]}
 
     case ContactsActions.ADD_EMAIL:
-      return {...state, emails: [...state.emails, {id: (state.emails.length + 1).toString(), email: ""}]}
+      return {...state, emails: [...state.emails, {id: action.payload.id, email: ""}]}
 
     case ContactsActions.DELETE_PHONE:
       return {...state, phones: state.phones.filter(phone => phone.id !== action.payload)}

@@ -3,7 +3,7 @@ import style from "../About/About.module.css";
 
 type Props = {
   nameRequisite: string
-  requisite: number | null
+  requisite: string
   isBold: boolean
 }
 

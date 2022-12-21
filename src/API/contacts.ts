@@ -1,31 +1,41 @@
 import {ContactsResponse} from "../types/contacts";
 import {instance} from "./index";
+import axios from "axios";
 
-export const getContacts = async (): Promise<ContactsResponse> => {
-  const response = await instance.get("contacts.json")
+export const getAllEmails = async (): Promise<any> => {
+  const response = await axios.get("http://localhost:5000/contacts/getAllEmails")
   return response.data
 }
 
-export const updatePhones = async (value: string, id: string): Promise<any> => {
-  return await instance.patch(`contacts/phones/${Number(id) - 1}.json`, {phoneNumber: value})
+export const getAllPhones = async (): Promise<any> => {
+  const response = await axios.get("http://localhost:5000/contacts/getAllPhones")
+  return response.data
 }
 
-export const updateEmails = async (value: string, id: string): Promise<any> => {
-  return await instance.patch(`contacts/emails/${Number(id) - 1}.json`, {email: value})
+export const createPhone = async (): Promise<any> => {
+  return await axios.post(`http://localhost:5000/contacts/createPhone`, {phoneNumber: ""})
 }
 
-export const createPhone = async (id: string): Promise<any> => {
-  return await instance.patch(`contacts/phones.json`, {[Number(id) - 1]: {id, phoneNumber: ""}})
+export const editPhone = async (value: string, id: string): Promise<any> => {
+  return await axios.post(`http://localhost:5000/contacts/editPhone`, {value, id: Number(id)})
 }
 
-export const createEmail = async (id: string): Promise<any> => {
-  return await instance.patch(`contacts/emails.json`, {[Number(id) - 1]: {id, email: ""}})
+export const deletePhone = async (id: string): Promise<any> => {
+  return await axios.delete(`http://localhost:5000/contacts/deletePhone`, {
+    data: {id: Number(id)}
+  })
 }
 
-export const DBdeletePhone = async (id: string): Promise<any> => {
-  return await instance.delete(`contacts/phones/${Number(id) - 1}.json`)
+export const createEmail = async (): Promise<any> => {
+  return await axios.post(`http://localhost:5000/contacts/createEmail`, {email: ""})
 }
 
-export const DBdeleteEmail = async (id: string): Promise<any> => {
-  return await instance.delete(`contacts/emails/${Number(id) - 1}.json`)
+export const editEmail = async (value: string, id: string): Promise<any> => {
+  return await axios.post(`http://localhost:5000/contacts/editEmail`, {value, id: Number(id)})
+}
+
+export const deleteEmail = async (id: string): Promise<any> => {
+  return await axios.delete(`http://localhost:5000/contacts/deleteEmail`, {
+    data: {id: Number(id)}
+  })
 }

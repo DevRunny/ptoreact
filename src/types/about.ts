@@ -13,16 +13,16 @@ export type AboutDataAdmin = {
 }
 
 export type Requisites = {
-  numRegistry: number | null,
-  inn: number | null,
-  ogrn: number | null
+  numRegistry: string;
+  inn: string;
+  ogrn: string;
 }
 
 // Response от API
 
 export type PayloadFetchAboutSuccess = {
-  nameCompany: string,
-  requisites: Requisites
+  nameCompany: string;
+  requisites: Requisites;
 }
 
 
@@ -48,23 +48,23 @@ interface FetchAboutSuccess {
 }
 
 type SetNameCompany = {
-  type: AboutActions.SET_NAME_COMPANY,
-  payload: string
+  type: AboutActions.SET_NAME_COMPANY;
+  payload: string;
 }
 
 type SetNumRegistry = {
   type: AboutActions.SET_NUM_REGISTRY,
-  payload: number
+  payload: string;
 }
 
 type SetInn = {
   type: AboutActions.SET_INN,
-  payload: number
+  payload: string;
 }
 
 type SetOgrn = {
   type: AboutActions.SET_OGRN,
-  payload: number
+  payload: string;
 }
 
 interface FetchAboutError {

@@ -4,15 +4,15 @@ import {Email, Phone} from "../types/contacts"
 import {useActions} from "./useActions"
 
 export const useContactForm = (data: any, labelText: LabelTextContactForm) => {
-  const {setEmailContacts, setPhoneContacts, addEmail, addPhone, deleteEmail, deletePhone} = useActions()
+  const {setEmailContacts, setPhoneContacts, addEmail, addPhone, deleteEmailAC, deletePhoneAC} = useActions()
 
   const addField = () => {
     switch (labelText) {
       case "Телефон:":
-        addPhone((data.length + 1).toString())
+        addPhone()
         break
       case "Электронная почта:":
-        addEmail((data.length + 1).toString())
+        addEmail()
         break
       default:
         break
@@ -22,10 +22,10 @@ export const useContactForm = (data: any, labelText: LabelTextContactForm) => {
   const deleteField = (id: string) => {
     switch (labelText) {
       case "Телефон:":
-        deletePhone(id)
+        deletePhoneAC(id)
         break
       case "Электронная почта:":
-        deleteEmail(id)
+        deleteEmailAC(id)
         break
       default:
         break

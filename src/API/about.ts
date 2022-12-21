@@ -1,15 +1,24 @@
 import {instance} from "./index";
 import {PayloadFetchAboutSuccess} from "../types/about";
+import axios from "axios";
 
 export const getAbout = async (): Promise<PayloadFetchAboutSuccess> => {
-  const response = await instance.get("about.json")
+  const response = await axios.get("http://localhost:5000/aboutCompany/getAllInfoAboutCompany")
   return response.data
 }
 
-export const updateAbout = async (value: string | number, requisitesName?: string): Promise<any> => {
-  if (typeof value === "string") {
-    return await instance.patch("about.json", {nameCompany: value})
-  } else {
-    return await instance.patch("about/requisites.json", {[requisitesName || ""]: value})
-  }
+export const editNameCompany = async (nameCompany: string): Promise<any> => {
+  return await axios.post('http://localhost:5000/aboutCompany/editNameCompany', {nameCompany})
+}
+
+export const editInn = async (inn: string): Promise<any> => {
+  return await axios.post('http://localhost:5000/aboutCompany/editInn', {inn})
+}
+
+export const editOgrn = async (ogrn: string): Promise<any> => {
+  return await axios.post('http://localhost:5000/aboutCompany/editOgrn', {ogrn})
+}
+
+export const editNumRegistry = async (numRegistry: string): Promise<any> => {
+  return await axios.post('http://localhost:5000/aboutCompany/editNumRegistry', {numRegistry})
 }

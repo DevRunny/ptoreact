@@ -10,13 +10,13 @@ export const useInformationForm = () => {
         changeNameComany(inputValue)
         break
       case "numRegistry":
-        changeNumRegistry(id, inputValue)
+        changeNumRegistry(inputValue)
         break
       case "inn":
-        changeInn(id, inputValue)
+        changeInn(inputValue)
         break
       case "ogrn":
-        changeOgrn(id, inputValue)
+        changeOgrn(inputValue)
         break
       default:
         break

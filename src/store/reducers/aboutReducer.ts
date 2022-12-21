@@ -3,9 +3,9 @@ import {AboutAction, AboutActions, AboutState} from "../../types/about";
 const initialState: AboutState = {
   nameCompany: "",
   requisites: {
-    numRegistry: 0,
-    inn: 0,
-    ogrn: 0
+    numRegistry: "",
+    inn: "",
+    ogrn: ""
   },
   loading: false,
   error: null
@@ -21,7 +21,6 @@ export const aboutReducer = (state = initialState, action: AboutAction): AboutSt
         error: null,
         nameCompany: action.payload.nameCompany,
         requisites: {
-          ...state.requisites,
           inn: action.payload.requisites.inn,
           ogrn: action.payload.requisites.ogrn,
           numRegistry: action.payload.requisites.numRegistry

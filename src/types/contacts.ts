@@ -8,6 +8,11 @@ export type ContactsState = {
   error: null | string
 }
 
+export interface IEmailsAndPhonesResponse {
+  phones: Phone[];
+  emails: Email[];
+}
+
 export type ContactsResponse = {
   emails: Email[]
   phones: Phone[]
@@ -67,7 +72,7 @@ type FetchError = {
 
 type FetchContactsSuccess = {
   type: ContactsActions.FETCH_CONTACTS_SUCCESS,
-  payload: ContactsResponse
+  payload: IEmailsAndPhonesResponse
 }
 
 type FetchContactsError = {
@@ -87,10 +92,12 @@ type SetEmail = {
 
 type AddPhone = {
   type: ContactsActions.ADD_PHONE
+  payload: Phone
 }
 
 type AddEmail = {
-  type: ContactsActions.ADD_EMAIL
+  type: ContactsActions.ADD_EMAIL,
+  payload: Email
 }
 
 type DeletePhone = {
