@@ -55,7 +55,6 @@ function MessengersList() {
 
   if (loading) return <Preloader size={"big"} styleLoader={"adminLoader"} heightWrapLoader={"fullHeight"} />
 
-
   return (
       <div className={"adminContentBackground"}>
         <AdminMainTitle titleText={"Способы обратной связи"} />

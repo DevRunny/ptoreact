@@ -5,7 +5,8 @@ const initialState: AboutState = {
   requisites: {
     numRegistry: "",
     inn: "",
-    ogrn: ""
+    ogrn: "",
+    isOgrnip: false
   },
   loading: false,
   error: null
@@ -23,7 +24,8 @@ export const aboutReducer = (state = initialState, action: AboutAction): AboutSt
         requisites: {
           inn: action.payload.requisites.inn,
           ogrn: action.payload.requisites.ogrn,
-          numRegistry: action.payload.requisites.numRegistry
+          numRegistry: action.payload.requisites.numRegistry,
+          isOgrnip: action.payload.requisites.isOgrnip
         }
       }
     case AboutActions.FETCH_ABOUT_ERROR:
@@ -36,6 +38,8 @@ export const aboutReducer = (state = initialState, action: AboutAction): AboutSt
       return {...state, requisites: {...state.requisites, inn: action.payload}}
     case AboutActions.SET_OGRN:
       return {...state, requisites: {...state.requisites, ogrn: action.payload}}
+    case AboutActions.TOGGLE_OGRNIP: // TODO: Lebedev M. Написать экшен успешной и провальной отправки данных
+      return {...state, requisites: {...state.requisites, isOgrnip: action.payload}}
     default:
       return state
   }

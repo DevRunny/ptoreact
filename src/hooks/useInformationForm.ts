@@ -1,13 +1,15 @@
 import {useActions} from "./useActions"
+import {useTypedSelector} from "./useTypedSelector";
 
 export const useInformationForm = () => {
 
-  const {changeNameComany, changeNumRegistry, changeInn, changeOgrn} = useActions()
+  const {changeNameCompany, changeNumRegistry, changeInn, changeOgrn, changeOgrnip} = useActions()
+  const {isOgrnip} = useTypedSelector(state => state.about.requisites)
 
   const onClickSave = (id: string, inputValue: string) => {
     switch (id) {
       case "nameCompany":
-        changeNameComany(inputValue)
+        changeNameCompany(inputValue)
         break
       case "numRegistry":
         changeNumRegistry(inputValue)
@@ -23,7 +25,13 @@ export const useInformationForm = () => {
     }
   }
 
+  const toggleCheckbox = () => {
+    changeOgrnip(!isOgrnip)
+  }
+
   return {
-    onClickSave
+    onClickSave,
+    toggleCheckbox,
+    isActiveCheckbox: isOgrnip
   }
 }

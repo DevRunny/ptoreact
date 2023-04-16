@@ -16,6 +16,7 @@ export type Requisites = {
   numRegistry: string;
   inn: string;
   ogrn: string;
+  isOgrnip: boolean;
 }
 
 // Response от API
@@ -35,7 +36,8 @@ export enum AboutActions {
   SET_NAME_COMPANY = "SET_NAME_COMPANY",
   SET_NUM_REGISTRY = "SET_NUM_REGISTRY",
   SET_INN = "SET_INN",
-  SET_OGRN = "SET_OGRN"
+  SET_OGRN = "SET_OGRN",
+  TOGGLE_OGRNIP = "TOGGLE_OGRNIP"
 }
 
 interface FetchAbout {
@@ -67,6 +69,11 @@ type SetOgrn = {
   payload: string;
 }
 
+type ToggleOgrnip = {
+  type: AboutActions.TOGGLE_OGRNIP
+  payload: boolean;
+}
+
 interface FetchAboutError {
   type: AboutActions.FETCH_ABOUT_ERROR
   payload: string
@@ -82,3 +89,4 @@ export type AboutAction =
     | SetNumRegistry
     | SetInn
     | SetOgrn
+    | ToggleOgrnip

@@ -3,6 +3,7 @@ import style from "./InfromationForm.module.css"
 import AdminFormItem from "../../AdminFormItem/AdminFormItem";
 import {AboutDataAdmin} from "../../../../../types/about";
 import {useInformationForm} from '../../../../../hooks/useInformationForm';
+import {CheckboxToggle} from "react-rainbow-components";
 
 type Props = {
   data: AboutDataAdmin
@@ -54,6 +55,16 @@ const InformationForm: React.FC<Props> = ({data}) => {
             id={"ogrn"}
             onClickSaveFunc={informationForm.onClickSave}
         />
+        <div className={style.checkbox}>
+          <label htmlFor={"ogrnip-checkbox"}>
+            ОГРНИП
+          </label>
+          <CheckboxToggle // TODO: Lebedev M. Прикрутить спиннер на время отправления и получения запроса
+              id={"ogrnip-checkbox"}
+              onChange={informationForm.toggleCheckbox}
+              value={informationForm.isActiveCheckbox}
+          />
+        </div>
       </form>
   )
 }

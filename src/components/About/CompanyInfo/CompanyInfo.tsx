@@ -7,7 +7,20 @@ type Props = {
   requisites: Requisites
 };
 
+enum ENameIdTypeOrganization {
+  OGRNIP = "ОГРНИП",
+  OGRN = "ОГРН"
+}
+
 const CompanyInfo: React.FC<Props> = ({requisites}) => {
+
+  const getNameIdTypeOrganization = (): ENameIdTypeOrganization => {
+    if (requisites.isOgrnip) {
+      return ENameIdTypeOrganization.OGRNIP
+    }
+    return ENameIdTypeOrganization.OGRN
+  }
+
   return (
       <div className={style.companyInfo}>
         <CompanyInfoRequisite
@@ -22,7 +35,7 @@ const CompanyInfo: React.FC<Props> = ({requisites}) => {
         />
         <CompanyInfoRequisite
             isBold={true}
-            nameRequisite={"ОГРН"}
+            nameRequisite={getNameIdTypeOrganization()}
             requisite={requisites.ogrn}
         />
       </div>

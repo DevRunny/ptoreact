@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {AboutAction, AboutActions} from "../../types/about";
-import {editInn, editNameCompany, editNumRegistry, editOgrn, getAbout} from "../../API/about";
+import {editInn, editNameCompany, editNumRegistry, editOgrn, getAbout, toggleOgrnip} from "../../API/about";
 import {ModalsAction, ModalsActions} from "../../types/modals";
 
 export const fetchAboutAC = () => {
@@ -15,7 +15,7 @@ export const fetchAboutAC = () => {
   }
 }
 
-export const changeNameComany = (inputValue: string) => {
+export const changeNameCompany = (inputValue: string) => {
   return async (dispatch: Dispatch<AboutAction | ModalsAction>) => {
     try {
       const responseNameCompany = await editNameCompany(inputValue)
@@ -61,6 +61,17 @@ export const changeOgrn = (inputValue: string) => {
       dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "ОГРН успешно изменен"})
     } else {
       dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при изменении"})
+    }
+  }
+}
+
+export const changeOgrnip = (isOgrnip: boolean) => {
+  return async (dispatch: Dispatch<AboutAction | ModalsAction>) => {
+    const responseIsOgrnip = await toggleOgrnip(isOgrnip)
+    if (responseIsOgrnip.status === 201) {
+      dispatch({type: AboutActions.TOGGLE_OGRNIP, payload: isOgrnip})
+    } else {
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Ошибка при изменении"})
     }
   }
 }

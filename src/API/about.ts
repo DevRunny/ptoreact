@@ -1,4 +1,3 @@
-import {instance} from "./index";
 import {PayloadFetchAboutSuccess} from "../types/about";
 import axios from "axios";
 
@@ -17,6 +16,10 @@ export const editInn = async (inn: string): Promise<any> => {
 
 export const editOgrn = async (ogrn: string): Promise<any> => {
   return await axios.post('http://localhost:5000/aboutCompany/editOgrn', {ogrn})
+}
+
+export const toggleOgrnip = async (isOgrnip: boolean): Promise<any> => {
+  return await axios.post('http://localhost:5000/aboutCompany/toggleOgrnip', {isOgrnip})
 }
 
 export const editNumRegistry = async (numRegistry: string): Promise<any> => {
