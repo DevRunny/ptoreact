@@ -12,6 +12,7 @@ const Contacts = () => {
 
   const fetching = useFetchData()
   const contactsState = useTypedSelector(state => state.contacts)
+  const mapState = useTypedSelector(state => state.mapState)
   const {points} = useTypedSelector(state => state.points)
   const contacts = useContactsRef()
 
@@ -29,7 +30,7 @@ const Contacts = () => {
           </div>
         </div>
         {fetching.isFetch ?
-            <YandexMapComponent mapState={contactsState.mapState} points={points} />
+            <YandexMapComponent mapState={mapState} points={points} />
             :
             <Preloader size={"medium"} styleLoader={"clientLoader"} />
         }

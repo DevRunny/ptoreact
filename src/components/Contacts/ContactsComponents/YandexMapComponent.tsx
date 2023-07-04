@@ -2,7 +2,7 @@ import React from 'react';
 import {Map, Placemark, TrafficControl, TypeSelector, YMaps, ZoomControl} from "react-yandex-maps";
 import style from "../Contacts.module.css";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
-import {MapState} from "../../../types/contacts";
+import {MapState} from "../../../types/mapState";
 import {Point} from "../../../types/points";
 
 type Props = {

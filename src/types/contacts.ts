@@ -3,7 +3,7 @@
 export type ContactsState = {
   emails: Email[]
   phones: Phone[]
-  mapState: MapState
+  // mapState: MapState
   loading: boolean
   error: null | string
 }
@@ -16,7 +16,7 @@ export interface IEmailsAndPhonesResponse {
 export type ContactsResponse = {
   emails: Email[]
   phones: Phone[]
-  mapState: MapState
+  // mapState: MapState
 }
 
 export type Email = {
@@ -34,10 +34,10 @@ export type WorkingMode = {
   id: number
 }
 
-export type MapState = {
-  center: number[]
-  zoom: number
-}
+// export type MapState = {
+//   center: number[]
+//   zoom: number
+// }
 
 // Экшены
 
@@ -53,8 +53,8 @@ export enum ContactsActions {
   ADD_EMAIL = "ADD_EMAIL",
   DELETE_PHONE = "DELETE_PHONE",
   DELETE_EMAIL = "DELETE_EMAIL",
-  SET_MAP_STATE_CENTER = "SET_MAP_STATE_CENTER",
-  SET_MAP_ZOOM = "SET_MAP_ZOOM"
+  // SET_MAP_STATE_CENTER = "SET_MAP_STATE_CENTER",
+  // SET_MAP_ZOOM = "SET_MAP_ZOOM"
 }
 
 type Fetch = {
@@ -110,15 +110,15 @@ type DeleteEmail = {
   payload: string
 }
 
-type SetMapStateCenter = {
-  type: ContactsActions.SET_MAP_STATE_CENTER,
-  payload: number[]
-}
-
-type SetMapZoom = {
-  type: ContactsActions.SET_MAP_ZOOM,
-  payload: number
-}
+// type SetMapStateCenter = {
+//   type: ContactsActions.SET_MAP_STATE_CENTER,
+//   payload: number[]
+// }
+//
+// type SetMapZoom = {
+//   type: ContactsActions.SET_MAP_ZOOM,
+//   payload: number
+// }
 
 // Экспорт всех экшенов
 
@@ -132,7 +132,7 @@ export type ContactsAction =
     AddEmail |
     DeletePhone |
     DeleteEmail |
-    SetMapStateCenter |
-    SetMapZoom |
+    // SetMapStateCenter |
+    // SetMapZoom |
     FetchSuccess |
     FetchError

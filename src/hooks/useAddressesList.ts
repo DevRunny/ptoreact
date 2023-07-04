@@ -3,6 +3,8 @@ import {useActions} from "./useActions";
 import {useTypedSelector} from "./useTypedSelector";
 import {InputType} from "../components/AdminPanel/Pages/AdminFormItem/AdminFormItem";
 import {useAuth} from "./useAuth";
+import {fetchMapStateAC, setMapStateCenter} from "../store/actionCreators/MapState";
+import {MapStateCenter} from "../types/mapState";
 
 export const useAddressesList = () => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -10,14 +12,13 @@ export const useAddressesList = () => {
     fetchPointsAC,
     addPoint,
     deleteCheckedPoints,
-    fetchContactsAC,
     setMapStateCenter,
-    setMapZoom,
+    setMapStateZoom,
     openDialogModal
   } = useActions()
   const {redirect} = useAuth()
   const {points, checkedPoints} = useTypedSelector(state => state.points)
-  const {mapState} = useTypedSelector(state => state.contacts)
+  const mapState = useTypedSelector(state => state.mapState)
 
   const deletePoints = () => {
     if (checkedPoints.length > 0) {
@@ -40,11 +41,11 @@ export const useAddressesList = () => {
     switch (id) {
       case "1": {
         const newCenter = inputValue.split(", ").map(coordinate => Number(coordinate))
-        setMapStateCenter(newCenter)
+        setMapStateCenter({center: newCenter})
         break
       }
       case "2": {
-        setMapZoom(Number(inputValue))
+        setMapStateZoom({zoom: Number(inputValue)})
         break
       }
       default:
@@ -55,7 +56,7 @@ export const useAddressesList = () => {
   const fetch = async () => {
     setLoading(true)
     await fetchPointsAC()
-    await fetchContactsAC()
+    await fetchMapStateAC()
     setLoading(false)
   }
 
