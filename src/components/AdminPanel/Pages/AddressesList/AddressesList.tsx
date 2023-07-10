@@ -31,7 +31,7 @@ const AddressesList = () => {
                   labelText={"Координаты города:"}
                   mainStyle={style.formItem}
                   inputType={"text"}
-                  value={addressesList.mapState.center.join(", ")}
+                  value={addressesList.mapState.centerX + ", " + addressesList.mapState.centerY}
                   inputStyle={style.inputCoordinate}
                   id={"1"}
                   onClickSaveFunc={addressesList.onClickSave}

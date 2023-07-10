@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {MapStateAction, MapStateActions, MapStateCenter, MapStateZoom} from "../../types/mapState";
+import {MapStateAction, MapStateActions, MapStateZoom} from "../../types/mapState";
 import {editMapStateCenter, editMapStateZoom, getMapState} from "../../API/mapState";
 import {ModalsAction, ModalsActions} from "../../types/modals";
 
@@ -15,13 +15,13 @@ export const fetchMapStateAC = () => {
   }
 }
 
-export const setMapStateCenter = (center: MapStateCenter) => {
+export const setMapStateCenter = (centerX: number, centerY: number) => {
   return async (dispatch: Dispatch<MapStateAction | ModalsAction>) => {
     try {
       dispatch({type: MapStateActions.FETCH_MAPSTATE})
-      const response = await editMapStateCenter(center)
+      const response = await editMapStateCenter(centerX, centerY)
       if (response.status === 201){
-        dispatch({type: MapStateActions.SET_MAPSTATE_CENTER, payload: center.center})
+        dispatch({type: MapStateActions.SET_MAPSTATE_CENTER, payload: {centerX, centerY}})
         dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Кординаты города успешно изменены"})
       }
     } catch (error) {
@@ -37,12 +37,12 @@ export const setMapStateZoom = (zoom: MapStateZoom) => {
       dispatch({type: MapStateActions.FETCH_MAPSTATE})
       const response = await editMapStateZoom(zoom)
       if (response.status === 201){
-        dispatch({type: MapStateActions.SET_MAPSTATE_ZOOM, payload: zoom.zoom})
-        dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Зум карты успешно изменены"})
+        dispatch({type: MapStateActions.SET_MAPSTATE_ZOOM, payload: zoom})
+        dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Размер карты успешно изменен"})
       }
     } catch (error) {
       dispatch ({type: MapStateActions.FETCH_MAPSTATE_ERROR, payload: error.message})
-      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при изменении зума карты"})
+      dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_FAIL, payload: "Произошла ошибка при изменении размера карты"})
     }
   }
 }

@@ -2,7 +2,13 @@ import {Dispatch} from "redux";
 import {ContactsAction, ContactsActions, Email, IEmailsAndPhonesResponse, Phone} from "../../types/contacts";
 import {
   createEmail,
-  createPhone, deleteEmail, deletePhone, editEmail, editPhone, getAllEmails, getAllPhones,
+  createPhone,
+  deleteEmail,
+  deletePhone,
+  editEmail,
+  editPhone,
+  getAllEmails,
+  getAllPhones,
 } from "../../API/contacts";
 import {ModalsAction, ModalsActions} from "../../types/modals";
 

@@ -4,7 +4,6 @@ import {useTypedSelector} from "./useTypedSelector";
 import {InputType} from "../components/AdminPanel/Pages/AdminFormItem/AdminFormItem";
 import {useAuth} from "./useAuth";
 import {fetchMapStateAC, setMapStateCenter} from "../store/actionCreators/MapState";
-import {MapStateCenter} from "../types/mapState";
 
 export const useAddressesList = () => {
   const [loading, setLoading] = useState<boolean>(false)
@@ -41,10 +40,11 @@ export const useAddressesList = () => {
     switch (id) {
       case "1": {
         const newCenter = inputValue.split(", ").map(coordinate => Number(coordinate))
-        setMapStateCenter({center: newCenter})
+        setMapStateCenter(newCenter[0], newCenter[1])
         break
       }
       case "2": {
+        console.log(Number(inputValue))
         setMapStateZoom({zoom: Number(inputValue)})
         break
       }

@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
-import {AccreditationAction, AccreditationActions, Category} from "../../types/accreditation";
-import {getAllCategoriesAccreditation, getSelectedCategories} from "../../API/acccreditation";
+import {AccreditationAction, AccreditationActions} from "../../types/accreditation";
+import {getAllCategoriesAccreditation} from "../../API/acccreditation";
 
 export const fetchAllCategoriesAC = () => {
   return async (dispatch: Dispatch<AccreditationAction>) => {

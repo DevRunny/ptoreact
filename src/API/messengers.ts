@@ -1,6 +1,5 @@
 import {ResponseFetchMessengers} from "../types/messengers";
 import {instance} from "./index";
-import axios from "axios";
 
 export const getMessengers = async (): Promise<ResponseFetchMessengers> => {
   const response = await instance.get("messengers.json")

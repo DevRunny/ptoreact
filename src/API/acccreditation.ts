@@ -1,5 +1,4 @@
 import {Category} from "../types/accreditation";
-import {instance} from "./index";
 import axios from "axios";
 
 

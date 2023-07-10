@@ -1,5 +1,3 @@
-import {ContactsResponse} from "../types/contacts";
-import {instance} from "./index";
 import axios from "axios";
 
 export const getAllEmails = async (): Promise<any> => {

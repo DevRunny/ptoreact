@@ -1,17 +1,20 @@
 export type MapState = {
-  center: number[]
-  zoom: number
-  loading: boolean
+  centerX: number,
+  centerY: number,
+  zoom: number,
+  loading: boolean,
   error: null | string
 }
 
 export type MapStateResponse = {
-  center: number[],
+  centerX: number,
+  centerY: number
   zoom: number
 }
 
 export type MapStateCenter = {
-  center: number[]
+  centerX: number,
+  centerY: number
 }
 
 export type MapStateZoom = {
@@ -42,12 +45,12 @@ type FetchMapStateError = {
 
 type SetMapStateCenter = {
   type: MapStateActions.SET_MAPSTATE_CENTER,
-  payload: number[]
+  payload: MapStateCenter
 }
 
 type SetMapZoom = {
   type: MapStateActions.SET_MAPSTATE_ZOOM,
-  payload: number
+  payload: MapStateZoom
 }
 
 export type MapStateAction =
