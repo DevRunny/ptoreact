@@ -3,11 +3,11 @@ import {useActions} from "./useActions";
 import {useTypedSelector} from "./useTypedSelector";
 import {InputType} from "../components/AdminPanel/Pages/AdminFormItem/AdminFormItem";
 import {useAuth} from "./useAuth";
-import {fetchMapStateAC, setMapStateCenter} from "../store/actionCreators/MapState";
 
 export const useAddressesList = () => {
   const [loading, setLoading] = useState<boolean>(false)
   const {
+    fetchMapStateAC,
     fetchPointsAC,
     addPoint,
     deleteCheckedPoints,
