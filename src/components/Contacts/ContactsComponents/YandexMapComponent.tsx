@@ -15,16 +15,16 @@ const YandexMapComponent: React.FC<Props> = ({
                                                points,
                                              }) => {
   const stateInfo = useTypedSelector(state => state.about)
-  const mapStateYandex = {
-    center: [mapState.centerX, mapState.centerY],
-    zoom: mapState.zoom
-  }
+  const stateMapState = useTypedSelector(state => state.mapState)
 
   return (
       <YMaps>
         <Map
             className={style.yandexMap}
-            defaultState={mapStateYandex}
+            defaultState={{
+              center: [stateMapState.centerX, stateMapState.centerY],
+              zoom: stateMapState.zoom
+            }}
         >
           {points.map((placeMark) => (
               <Placemark

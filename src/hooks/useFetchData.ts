@@ -1,5 +1,6 @@
 import {useActions} from "./useActions";
 import {useEffect, useState} from "react";
+import {fetchMapStateAC} from "../store/actionCreators/MapState";
 
 export const useFetchData = () => {
 
@@ -10,7 +11,8 @@ export const useFetchData = () => {
     fetchContactsAC,
     fetchDocumentsAC,
     fetchMessengersAC,
-    fetchPointsAC
+    fetchPointsAC,
+    fetchMapStateAC
   } = useActions()
 
   const fetch = async () => {
@@ -20,6 +22,7 @@ export const useFetchData = () => {
     await fetchContactsAC()
     await fetchMessengersAC()
     await fetchPointsAC()
+    await fetchMapStateAC()
     setIsFetching(true)
   }
 

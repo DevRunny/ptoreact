@@ -2,8 +2,8 @@ import {MapState, MapStateAction, MapStateActions} from "../../types/mapState";
 
 
 const initialState: MapState = {
-  centerX: 55.755793,
-  centerY: 37.617134,
+  centerX: 56.326802,
+  centerY: 44.006506,
   zoom: 10,
   loading: false,
   error: null
@@ -15,6 +15,12 @@ export const mapStateReducer = (state = initialState, action: MapStateAction): M
       return {...state, loading: true}
 
     case MapStateActions.FETCH_MAPSTATE_SUCCESS:
+      console.log({...state,
+        centerX: action.payload.centerX,
+        centerY: action.payload.centerY,
+        zoom: action.payload.zoom,
+        loading: false
+      })
       return {...state,
         centerX: action.payload.centerX,
         centerY: action.payload.centerY,

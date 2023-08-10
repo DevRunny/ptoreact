@@ -1,7 +1,7 @@
 import axios from "axios";
-import {MapStateZoom} from "../types/mapState";
+import {MapStateResponse, MapStateZoom} from "../types/mapState";
 
-export const getMapState = async (): Promise<any> => {
+export const getMapState = async (): Promise<MapStateResponse> => {
   const response = await axios.get("http://localhost:5000/mapState/getMapState")
   return response.data
 };

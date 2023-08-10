@@ -8,9 +8,12 @@ export const fetchMapStateAC = () => {
     try {
       dispatch({type: MapStateActions.FETCH_MAPSTATE})
       const response = await getMapState()
+      console.log("process")
       dispatch({type: MapStateActions.FETCH_MAPSTATE_SUCCESS, payload: response})
+      console.log("success")
     } catch (error) {
       dispatch({type: MapStateActions.FETCH_MAPSTATE_ERROR, payload: error.message})
+      console.log("failed")
     }
   }
 }

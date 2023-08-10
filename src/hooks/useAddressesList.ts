@@ -44,11 +44,11 @@ export const useAddressesList = () => {
         break
       }
       case "2": {
-        console.log(Number(inputValue))
         setMapStateZoom({zoom: Number(inputValue)})
         break
       }
       default:
+        console.log('break')
         break
     }
   }
