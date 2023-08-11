@@ -16,6 +16,7 @@ import DialogModal from "./AdminPanel/Modals/Dialog/DialogModal";
 function App() {
 
   const {responseModal} = useTypedSelector(state => state.modals)
+  const {nameCompany} = useTypedSelector(state => state.about)
 
   return (
       <div className="App">
@@ -43,7 +44,7 @@ function App() {
               return <Route key={index} path={RoutesName.MAIN} element={
                 <>
                   <Helmet>
-                    <title>ООО «Делюкс-ПТО»</title>
+                    <title>{nameCompany ? nameCompany : "Главная"}</title>
                     <link rel="icon" href="/favicon.svg" />
                   </Helmet>
                   <Main />

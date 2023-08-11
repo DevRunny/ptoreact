@@ -39,7 +39,7 @@ export const setMapStateZoom = (zoom: MapStateZoom) => {
     try {
       dispatch({type: MapStateActions.FETCH_MAPSTATE})
       const response = await editMapStateZoom(zoom)
-      if (response.status === 201) {
+      if (response) {
         dispatch({type: MapStateActions.SET_MAPSTATE_ZOOM, payload: zoom})
         dispatch({type: ModalsActions.SET_RESPONSE_MODAL_OPEN_SUCCESS, payload: "Размер карты успешно изменен"})
       }

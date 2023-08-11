@@ -15,12 +15,6 @@ export const mapStateReducer = (state = initialState, action: MapStateAction): M
       return {...state, loading: true}
 
     case MapStateActions.FETCH_MAPSTATE_SUCCESS:
-      console.log({...state,
-        centerX: action.payload.centerX,
-        centerY: action.payload.centerY,
-        zoom: action.payload.zoom,
-        loading: false
-      })
       return {...state,
         centerX: action.payload.centerX,
         centerY: action.payload.centerY,

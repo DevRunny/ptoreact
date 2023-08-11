@@ -12,6 +12,16 @@ export type MapStateResponse = {
   zoom: number
 }
 
+export interface MapStateCenterPromise {
+  data: MapStateCenter,
+  status: number
+}
+
+export interface MapStateZoomPromise {
+  data: MapStateZoom,
+  status: number
+}
+
 export type MapStateCenter = {
   centerX: number,
   centerY: number

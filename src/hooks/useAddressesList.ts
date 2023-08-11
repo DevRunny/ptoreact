@@ -48,7 +48,6 @@ export const useAddressesList = () => {
         break
       }
       default:
-        console.log('break')
         break
     }
   }

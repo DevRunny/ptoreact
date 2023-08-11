@@ -1,17 +1,18 @@
 import axios from "axios";
-import {MapStateResponse, MapStateZoom} from "../types/mapState";
+import {MapStateCenterPromise, MapStateResponse, MapStateZoom, MapStateZoomPromise} from "../types/mapState";
 
 export const getMapState = async (): Promise<MapStateResponse> => {
   const response = await axios.get("http://localhost:5000/mapState/getMapState")
   return response.data
 };
 
-export const editMapStateCenter = async (centerX: number, centerY: number): Promise<any> => {
-  const response = await axios.post("http://localhost:5000/mapState/editMapStateCenter", {centerX: centerX, centerY: centerY})
-  return response.data
+export const editMapStateCenter = async (centerX: number, centerY: number): Promise<MapStateCenterPromise> => {
+  return await axios.post("http://localhost:5000/mapState/editMapStateCenter", {
+    centerX: centerX,
+    centerY: centerY
+  })
 };
 
-export const editMapStateZoom = async (zoom: MapStateZoom): Promise<any> => {
-  const response = await axios.post("http://localhost:5000/mapState/editMapStateZoom", zoom)
-  return response.data
+export const editMapStateZoom = async (zoom: MapStateZoom): Promise<MapStateZoomPromise> => {
+  return await axios.post("http://localhost:5000/mapState/editMapStateZoom", zoom)
 }
